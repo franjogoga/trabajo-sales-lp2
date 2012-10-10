@@ -177,6 +177,15 @@ namespace Libreria
         private int state;
 
 
+        public Product()
+        {
+            idProduct = 0;
+            name = "";
+            this.stockMin = 0;
+            this.stockMax = 0;
+            state = 0;
+        }
+
         public Product(int codigo, String nombre, int stockMin, int stockMax, int estado)
         {
             idProduct = codigo;
