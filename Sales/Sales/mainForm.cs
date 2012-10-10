@@ -23,5 +23,13 @@ namespace Sales
             pForm.SetrefmainForm(this);
             this.Hide();
         }
+
+        private void btnClient_Click(object sender, EventArgs e)
+        {
+            ClientForm pClient = new ClientForm();
+            pClient.Show();
+            pClient.SetrefmainForm(this);
+            this.Hide();
+        }
     }
 }

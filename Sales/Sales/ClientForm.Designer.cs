@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnModify = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.btnNewCliente = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -80,65 +80,66 @@
             this.panel1.Size = new System.Drawing.Size(499, 173);
             this.panel1.TabIndex = 0;
             // 
-            // button1
+            // btnSave
             // 
-            this.button1.Image = global::Sales.Properties.Resources.save;
-            this.button1.Location = new System.Drawing.Point(653, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 48);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "&Guardar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSave.Image = global::Sales.Properties.Resources.save;
+            this.btnSave.Location = new System.Drawing.Point(653, 12);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(106, 48);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "&Guardar";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnSearch
             // 
-            this.button2.Image = global::Sales.Properties.Resources.search;
-            this.button2.Location = new System.Drawing.Point(654, 66);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 39);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "&Buscar";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSearch.Image = global::Sales.Properties.Resources.search;
+            this.btnSearch.Location = new System.Drawing.Point(654, 66);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(105, 39);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "&Buscar";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnModify
             // 
-            this.button3.Image = global::Sales.Properties.Resources.modify;
-            this.button3.Location = new System.Drawing.Point(653, 111);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(106, 37);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "&Modificar";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnModify.Image = global::Sales.Properties.Resources.modify;
+            this.btnModify.Location = new System.Drawing.Point(653, 111);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(106, 37);
+            this.btnModify.TabIndex = 3;
+            this.btnModify.Text = "&Modificar";
+            this.btnModify.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModify.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnModify.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnDelete
             // 
-            this.button4.Image = global::Sales.Properties.Resources.delete;
-            this.button4.Location = new System.Drawing.Point(653, 154);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(106, 41);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "&Eliminar";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnDelete.Image = global::Sales.Properties.Resources.delete;
+            this.btnDelete.Location = new System.Drawing.Point(653, 154);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(106, 41);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "&Eliminar";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnExit
             // 
-            this.button5.Image = global::Sales.Properties.Resources.application_exit;
-            this.button5.Location = new System.Drawing.Point(652, 201);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(107, 59);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "&Salir";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnExit.Image = global::Sales.Properties.Resources.application_exit;
+            this.btnExit.Location = new System.Drawing.Point(652, 201);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(107, 59);
+            this.btnExit.TabIndex = 5;
+            this.btnExit.Text = "&Salir";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.button5_Click);
             // 
             // btnNewCliente
             // 
@@ -319,11 +320,11 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnNewCliente);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnModify);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.panel1);
             this.Name = "ClientForm";
             this.Text = "Mantenimiento Cliente";
@@ -338,11 +339,11 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnModify;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnNewCliente;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBox1;
