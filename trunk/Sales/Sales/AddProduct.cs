@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Libreria;
+
 namespace Sales
 {
     public partial class AddProduct : Form
@@ -21,15 +22,28 @@ namespace Sales
 
 
             Product p = new Product();
+      
 
-            p.setName(txtName.Text);
-            p.setCodigo(int  txt);
-            p.setPrice(float.Parse(txtPrice.Text));
-            p.setStock(Int32.Parse(txtStock.Text));
+            p.setCodigo(Int32.Parse(txtId.Text));
+            p.setName(txtName.Text);  
+            p.setStockMin(Int32.Parse(txtStMax.Text));
+            p.setStockMax(Int32.Parse(txtStMin.Text));
+            p.setPrecioCompra(float.Parse(txtPcompra.Text));
+            p.setPrecioVenta(float.Parse(txtPcompra.Text));
 
-            //MainClass.service.addProduct(p);
+            
+            
+                Program.service.addProduct(p);
+           
 
 
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+       
     }
 }
