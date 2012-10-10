@@ -44,54 +44,69 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(156, 12);
+            this.panel1.Location = new System.Drawing.Point(149, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(468, 156);
+            this.panel1.Size = new System.Drawing.Size(481, 156);
             this.panel1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(638, 26);
+            this.button1.Image = global::Sales.Properties.Resources.save;
+            this.button1.Location = new System.Drawing.Point(653, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 34);
+            this.button1.Size = new System.Drawing.Size(106, 48);
             this.button1.TabIndex = 1;
             this.button1.Text = "&Guardar";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(640, 66);
+            this.button2.Image = global::Sales.Properties.Resources.search;
+            this.button2.Location = new System.Drawing.Point(654, 66);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 35);
+            this.button2.Size = new System.Drawing.Size(105, 39);
             this.button2.TabIndex = 2;
             this.button2.Text = "&Buscar";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(639, 111);
+            this.button3.Image = global::Sales.Properties.Resources.modify;
+            this.button3.Location = new System.Drawing.Point(653, 111);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(95, 36);
+            this.button3.Size = new System.Drawing.Size(106, 37);
             this.button3.TabIndex = 3;
             this.button3.Text = "&Modificar";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(639, 154);
+            this.button4.Image = global::Sales.Properties.Resources.delete;
+            this.button4.Location = new System.Drawing.Point(653, 154);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(95, 34);
+            this.button4.Size = new System.Drawing.Size(106, 41);
             this.button4.TabIndex = 4;
             this.button4.Text = "&Eliminar";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(639, 194);
+            this.button5.Image = global::Sales.Properties.Resources.application_exit;
+            this.button5.Location = new System.Drawing.Point(652, 201);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(96, 38);
+            this.button5.Size = new System.Drawing.Size(107, 59);
             this.button5.TabIndex = 5;
             this.button5.Text = "&Salir";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button5.UseVisualStyleBackColor = true;
             // 
             // btnNewCliente
@@ -108,9 +123,9 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID});
-            this.dataGridView1.Location = new System.Drawing.Point(21, 251);
+            this.dataGridView1.Location = new System.Drawing.Point(22, 274);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(713, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(737, 150);
             this.dataGridView1.TabIndex = 7;
             // 
             // pictureBox1
