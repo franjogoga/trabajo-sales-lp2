@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
+
 namespace Libreria
 {
     public class Personal
@@ -174,7 +175,8 @@ namespace Libreria
         private String name;
         private int stockMin;   //la cantidad minimo que tiene que tener la empresa
         private int stockMax;   //la cantidad maxima que debe tener la empresa 
-        private int state;
+        float PrecioCompra;
+        float PrecioVenta;
 
 
         public Product()
@@ -183,16 +185,20 @@ namespace Libreria
             name = "";
             this.stockMin = 0;
             this.stockMax = 0;
-            state = 0;
+            PrecioCompra = 0f;
+            PrecioVenta = 0f;
+
         }
 
-        public Product(int codigo, String nombre, int stockMin, int stockMax, int estado)
+        public Product(int codigo, String nombre, int stockMin, int stockMax, float PrecioCompra, float PrecioVenta)
         {
             idProduct = codigo;
             name = nombre;
             this.stockMin = stockMin;
             this.stockMax = stockMax;
-            state = estado;
+            PrecioCompra = 0f;
+            PrecioVenta = 0f;
+
         }
         public int getCodigo()
         {
@@ -228,21 +234,27 @@ namespace Libreria
             this.stockMax = stockMax;
         }
 
-        /**
-         * @return the Estado
-         */
-        public int getState()
+
+        public float getPrecioCompra()
         {
-            return state;
+            return PrecioCompra;
+        }
+        public void setPrecioCompra(float pCompra)
+        {
+            this.PrecioCompra = pCompra;
         }
 
-        /**
-         * @param Estado the Estado to set
-         */
-        public void setState(int Estado)
+
+        public float getPrecioVenta()
         {
-            this.state = Estado;
+            return PrecioVenta;
         }
+        public void setPrecioVenta(float pVenta)
+        {
+            this.PrecioVenta = pVenta;
+        }
+
+
 
     }
     public class Client
