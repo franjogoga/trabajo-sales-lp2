@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
 
 namespace Libreria
 {
@@ -16,6 +17,9 @@ namespace Libreria
         private float salary;
         private String workArea; //area de trabajo
         private String workStation;//puesto de trabajo
+
+        //Data Source=KEVIN-VAIO\\SQLEXPRESS;Initial Catalog=EuroBD;Integrated Security=True
+
         public Personal(int iD, String nam, String last, String add, String ema, DateTime date, float sal)
         {
             iDPersonal = iD;
@@ -103,6 +107,11 @@ namespace Libreria
         public string GetPassword()
         {
             return password;
+        }
+        public int VerificaClave()
+        {
+            int flag = 0;
+            return flag;
         }
     }
     public class Product
