@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Libreria;
 
+
 namespace Sales
 {
     public partial class loginForm : Form
@@ -25,27 +26,24 @@ namespace Sales
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (txtUser.Text == "kevin" && txtPassword.Text == "desarrollo")
-            {
-                mainForm p = new mainForm();
-                p.Show();
-                this.Hide();
-            }
-            else //hola
-            {
-                txtPassword.Text = "";
-                lblError.Text = "Contraseña incorrecta";
-            }
+            usuario.SetUser(txtUser.Text);
+            usuario.SetPassword(txtPassword.Text);
+            if (usuario.hacerConexion() == 0)           
+                lblError.Text = "Error Base de Datos";      
+            else
+                if (usuario.VerificaClave() == 1)
+                {
+                    mainForm p = new mainForm();
+                    p.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    txtPassword.Text = "";
+                    lblError.Text = "Contraseña incorrecta";
+                }
+           
         }
 
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loginForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

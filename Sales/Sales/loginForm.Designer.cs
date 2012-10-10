@@ -71,7 +71,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 3;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
+            
             // 
             // btnAccept
             // 
@@ -126,7 +126,6 @@
             this.Controls.Add(this.lblUsuario);
             this.Name = "loginForm";
             this.Text = "Acceso al Programa";
-            this.Load += new System.EventHandler(this.loginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
