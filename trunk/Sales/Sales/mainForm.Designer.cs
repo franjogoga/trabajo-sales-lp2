@@ -28,24 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnProduct = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSales = new System.Windows.Forms.Button();
             this.btnPersonal = new System.Windows.Forms.Button();
+            this.btnProduct = new System.Windows.Forms.Button();
             this.btnClient = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnProduct
-            // 
-            this.btnProduct.Image = global::Sales.Properties.Resources.product_icon;
-            this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProduct.Location = new System.Drawing.Point(12, 240);
-            this.btnProduct.Name = "btnProduct";
-            this.btnProduct.Size = new System.Drawing.Size(136, 70);
-            this.btnProduct.TabIndex = 1;
-            this.btnProduct.Text = "                     &Productos";
-            this.btnProduct.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -80,6 +69,17 @@
             this.btnPersonal.UseVisualStyleBackColor = true;
             this.btnPersonal.Click += new System.EventHandler(this.btnPersonal_Click_1);
             // 
+            // btnProduct
+            // 
+            this.btnProduct.Image = global::Sales.Properties.Resources.product_icon;
+            this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProduct.Location = new System.Drawing.Point(12, 240);
+            this.btnProduct.Name = "btnProduct";
+            this.btnProduct.Size = new System.Drawing.Size(136, 70);
+            this.btnProduct.TabIndex = 1;
+            this.btnProduct.Text = "                     &Productos";
+            this.btnProduct.UseVisualStyleBackColor = true;
+            // 
             // btnClient
             // 
             this.btnClient.BackgroundImage = global::Sales.Properties.Resources.Client;
@@ -93,6 +93,7 @@
             this.btnClient.Text = "                 &Cliente";
             this.btnClient.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnClient.UseVisualStyleBackColor = true;
+            this.btnClient.Click += new System.EventHandler(this.btnClient_Click);
             // 
             // mainForm
             // 
