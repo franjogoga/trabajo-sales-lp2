@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
-
 namespace Libreria
 {
     public class Personal
@@ -82,6 +81,60 @@ namespace Libreria
         private string idUser;
         private string password;
         private int idPersonal;
+        private SqlConnection conn = new SqlConnection();
+
+        public int hacerConexion()
+        {
+            int flag=0;
+            try 
+            {
+                conn.ConnectionString = "user id=inf282;" +
+                                "password=inf282db;" +
+                                "server=inti.lab.inf.pucp.edu.pe;" +
+                                "database=inf282; " +
+                                "connection timeout=30";
+                flag =1;
+            }
+            catch (Exception ex)
+            {
+                flag = 0;
+                Console.WriteLine(ex.ToString());
+            }
+            return flag;
+        }
+        public int comprobarCS()
+        {
+            int flag;
+            String SqlString = "SELECT idUser, clave, idpersonal FROM G08_Usuario WHERE idUser = @param1 and clave = @param2";
+            conn.Open();
+            System.Data.SqlClient.SqlParameter myParam1 =
+                        new System.Data.SqlClient.SqlParameter(
+                            "@Param1", System.Data.SqlDbType.VarChar,20);
+            System.Data.SqlClient.SqlParameter myParam2 =
+                        new System.Data.SqlClient.SqlParameter(
+                            "@Param2", System.Data.SqlDbType.VarChar,20);
+            System.Data.SqlClient.SqlParameter myParam3 =
+                        new System.Data.SqlClient.SqlParameter(
+                            "@Param3", System.Data.SqlDbType.Int);
+            System.Data.SqlClient.SqlCommand myCommand =
+                    new System.Data.SqlClient.SqlCommand(SqlString, conn);
+            myParam1.Value = idUser;
+            myParam2.Value = password;
+            myParam3.Value = idPersonal;
+
+            myCommand.Parameters.Add(myParam1);
+            myCommand.Parameters.Add(myParam2);
+            myCommand.Parameters.Add(myParam3);
+
+            
+            int k = myCommand.ExecuteNonQuery();
+            if (k == 1)
+                flag = 1;
+            else
+                flag = 0;
+
+            return flag;
+        }
 
         public void SetID(int ID)
         {
