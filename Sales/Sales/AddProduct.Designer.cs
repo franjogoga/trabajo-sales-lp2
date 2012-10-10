@@ -30,12 +30,21 @@
         {
             this.btnExit = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.IdPersonal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.glastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gaddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gemail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button5 = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtPventa = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtPcompra = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtStMax = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtStMin = new System.Windows.Forms.TextBox();
@@ -44,14 +53,6 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.IdPersonal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.glastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gaddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gemail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -80,6 +81,32 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(483, 97);
             this.dataGridView1.TabIndex = 20;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // IdPersonal
+            // 
+            this.IdPersonal.HeaderText = "ID";
+            this.IdPersonal.Name = "IdPersonal";
+            // 
+            // gname
+            // 
+            this.gname.HeaderText = "Producto";
+            this.gname.Name = "gname";
+            // 
+            // glastname
+            // 
+            this.glastname.HeaderText = "Stock Min";
+            this.glastname.Name = "glastname";
+            // 
+            // gaddress
+            // 
+            this.gaddress.HeaderText = "Stock Max";
+            this.gaddress.Name = "gaddress";
+            // 
+            // gemail
+            // 
+            this.gemail.HeaderText = "Estado";
+            this.gemail.Name = "gemail";
             // 
             // button5
             // 
@@ -145,9 +172,10 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.radioButton2);
+            this.panel1.Controls.Add(this.txtPventa);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.radioButton1);
+            this.panel1.Controls.Add(this.txtPcompra);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtStMax);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.txtStMin);
@@ -160,6 +188,38 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(438, 214);
             this.panel1.TabIndex = 12;
+            // 
+            // txtPventa
+            // 
+            this.txtPventa.Location = new System.Drawing.Point(335, 50);
+            this.txtPventa.Name = "txtPventa";
+            this.txtPventa.Size = new System.Drawing.Size(67, 20);
+            this.txtPventa.TabIndex = 23;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(241, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Precio Venta";
+            // 
+            // txtPcompra
+            // 
+            this.txtPcompra.Location = new System.Drawing.Point(335, 11);
+            this.txtPcompra.Name = "txtPcompra";
+            this.txtPcompra.Size = new System.Drawing.Size(67, 20);
+            this.txtPcompra.TabIndex = 21;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(241, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Precio Compra";
             // 
             // txtStMax
             // 
@@ -225,62 +285,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(122, 168);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(74, 17);
-            this.radioButton1.TabIndex = 20;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Disponible";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 170);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Estado";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(220, 168);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(91, 17);
-            this.radioButton2.TabIndex = 22;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "No Disponible";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // IdPersonal
-            // 
-            this.IdPersonal.HeaderText = "ID";
-            this.IdPersonal.Name = "IdPersonal";
-            // 
-            // gname
-            // 
-            this.gname.HeaderText = "Producto";
-            this.gname.Name = "gname";
-            // 
-            // glastname
-            // 
-            this.glastname.HeaderText = "Stock Min";
-            this.glastname.Name = "glastname";
-            // 
-            // gaddress
-            // 
-            this.gaddress.HeaderText = "Stock Max";
-            this.gaddress.Name = "gaddress";
-            // 
-            // gemail
-            // 
-            this.gemail.HeaderText = "Estado";
-            this.gemail.Name = "gemail";
-            // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,13 +325,14 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdPersonal;
         private System.Windows.Forms.DataGridViewTextBoxColumn gname;
         private System.Windows.Forms.DataGridViewTextBoxColumn glastname;
         private System.Windows.Forms.DataGridViewTextBoxColumn gaddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn gemail;
+        private System.Windows.Forms.TextBox txtPventa;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtPcompra;
+        private System.Windows.Forms.Label label3;
     }
 }
