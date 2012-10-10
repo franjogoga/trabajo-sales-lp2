@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using SalesService;
 
 namespace Sales
 {
     static class Program
-    {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+    {       
+        // The main entry point for the application.
+
+        public static Service service = new Service();
+
+        static void Main(string[] args)
+       
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new loginForm());
+            Application.Run(new AddProduct());
         }
     }
 }
