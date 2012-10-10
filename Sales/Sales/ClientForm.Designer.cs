@@ -36,19 +36,22 @@
             this.button5 = new System.Windows.Forms.Button();
             this.btnNewCliente = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(138, 34);
+            this.panel1.Location = new System.Drawing.Point(156, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(468, 142);
+            this.panel1.Size = new System.Drawing.Size(468, 156);
             this.panel1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(639, 26);
+            this.button1.Location = new System.Drawing.Point(638, 26);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 34);
             this.button1.TabIndex = 1;
@@ -93,25 +96,42 @@
             // 
             // btnNewCliente
             // 
-            this.btnNewCliente.Location = new System.Drawing.Point(21, 123);
+            this.btnNewCliente.Image = global::Sales.Properties.Resources.add_user;
+            this.btnNewCliente.Location = new System.Drawing.Point(21, 117);
             this.btnNewCliente.Name = "btnNewCliente";
-            this.btnNewCliente.Size = new System.Drawing.Size(96, 71);
+            this.btnNewCliente.Size = new System.Drawing.Size(111, 108);
             this.btnNewCliente.TabIndex = 6;
             this.btnNewCliente.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 251);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID});
+            this.dataGridView1.Location = new System.Drawing.Point(21, 251);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(700, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(713, 150);
             this.dataGridView1.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(21, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(110, 88);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
             // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(786, 422);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnNewCliente);
             this.Controls.Add(this.button5);
@@ -123,6 +143,7 @@
             this.Name = "ClientForm";
             this.Text = "Mantenimiento Cliente";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -137,5 +158,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnNewCliente;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
     }
 }
