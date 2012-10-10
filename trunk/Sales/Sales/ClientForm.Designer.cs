@@ -55,10 +55,10 @@
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MontoDeuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Observacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -246,11 +246,12 @@
             // btnNewCliente
             // 
             this.btnNewCliente.Image = global::Sales.Properties.Resources.add_user;
-            this.btnNewCliente.Location = new System.Drawing.Point(21, 117);
+            this.btnNewCliente.Location = new System.Drawing.Point(12, 117);
             this.btnNewCliente.Name = "btnNewCliente";
-            this.btnNewCliente.Size = new System.Drawing.Size(111, 108);
+            this.btnNewCliente.Size = new System.Drawing.Size(104, 97);
             this.btnNewCliente.TabIndex = 6;
             this.btnNewCliente.UseVisualStyleBackColor = true;
+            this.btnNewCliente.Click += new System.EventHandler(this.btnNewCliente_Click);
             // 
             // dataGridView1
             // 
@@ -303,20 +304,22 @@
             this.Observacion.HeaderText = "Observacion";
             this.Observacion.Name = "Observacion";
             // 
-            // pictureBox1
+            // pictureBox2
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(21, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(110, 88);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.pictureBox2.Image = global::Sales.Properties.Resources.man_brown;
+            this.pictureBox2.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(104, 99);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 14;
+            this.pictureBox2.TabStop = false;
             // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(786, 422);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnNewCliente);
             this.Controls.Add(this.btnExit);
@@ -327,10 +330,11 @@
             this.Controls.Add(this.panel1);
             this.Name = "ClientForm";
             this.Text = "Mantenimiento Cliente";
+            this.Load += new System.EventHandler(this.ClientForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -345,7 +349,6 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnNewCliente;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -365,5 +368,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn MontoDeuda;
         private System.Windows.Forms.DataGridViewTextBoxColumn Observacion;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

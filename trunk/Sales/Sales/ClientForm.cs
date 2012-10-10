@@ -28,6 +28,16 @@ namespace Sales
         {
             refMainForm = mainp;
         }
+
+        private void ClientForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNewCliente_Click(object sender, EventArgs e)
+        {
+
+        }
       
     }
 }
