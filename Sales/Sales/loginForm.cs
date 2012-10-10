@@ -31,7 +31,7 @@ namespace Sales
                 p.Show();
                 this.Hide();
             }
-            else
+            else //hola
             {
                 txtPassword.Text = "";
                 lblError.Text = "Contraseña incorrecta";
