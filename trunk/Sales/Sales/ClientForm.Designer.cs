@@ -145,7 +145,6 @@
             this.label5.Size = new System.Drawing.Size(75, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "Monto Deuda:";
-         
             // 
             // label4
             // 
