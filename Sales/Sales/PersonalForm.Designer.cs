@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTelf = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtDNI = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -63,10 +67,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtDNI = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtTelf = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -99,6 +99,38 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(483, 214);
             this.panel1.TabIndex = 0;
+            // 
+            // txtTelf
+            // 
+            this.txtTelf.Location = new System.Drawing.Point(92, 105);
+            this.txtTelf.Name = "txtTelf";
+            this.txtTelf.Size = new System.Drawing.Size(100, 20);
+            this.txtTelf.TabIndex = 19;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(28, 108);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 13);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Teléfono";
+            // 
+            // txtDNI
+            // 
+            this.txtDNI.Location = new System.Drawing.Point(92, 79);
+            this.txtDNI.Name = "txtDNI";
+            this.txtDNI.Size = new System.Drawing.Size(100, 20);
+            this.txtDNI.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(28, 82);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(29, 13);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "DNI:";
             // 
             // textBox1
             // 
@@ -384,44 +416,12 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Sales.Properties.Resources.man_brown;
-            this.pictureBox1.Location = new System.Drawing.Point(22, 23);
+            this.pictureBox1.Location = new System.Drawing.Point(23, 23);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(113, 111);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(28, 82);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 13);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "DNI:";
-            // 
-            // txtDNI
-            // 
-            this.txtDNI.Location = new System.Drawing.Point(92, 79);
-            this.txtDNI.Name = "txtDNI";
-            this.txtDNI.Size = new System.Drawing.Size(100, 20);
-            this.txtDNI.TabIndex = 17;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(28, 108);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 13);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Teléfono";
-            // 
-            // txtTelf
-            // 
-            this.txtTelf.Location = new System.Drawing.Point(92, 105);
-            this.txtTelf.Name = "txtTelf";
-            this.txtTelf.Size = new System.Drawing.Size(100, 20);
-            this.txtTelf.TabIndex = 19;
             // 
             // label11
             // 
