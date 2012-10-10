@@ -50,12 +50,12 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Observacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MontoDeuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MontoDeuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -154,12 +154,12 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.Observacion,
-            this.MontoDeuda,
-            this.Telefono,
             this.RazonSocial,
+            this.Telefono,
             this.Direccion,
-            this.Email});
+            this.Email,
+            this.MontoDeuda,
+            this.Observacion});
             this.dataGridView1.Location = new System.Drawing.Point(22, 274);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(737, 150);
@@ -281,25 +281,15 @@
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             // 
-            // Observacion
+            // RazonSocial
             // 
-            this.Observacion.HeaderText = "Observacion";
-            this.Observacion.Name = "Observacion";
-            // 
-            // MontoDeuda
-            // 
-            this.MontoDeuda.HeaderText = "Monto Deuda";
-            this.MontoDeuda.Name = "MontoDeuda";
+            this.RazonSocial.HeaderText = "Razon Social";
+            this.RazonSocial.Name = "RazonSocial";
             // 
             // Telefono
             // 
             this.Telefono.HeaderText = "Telefono";
             this.Telefono.Name = "Telefono";
-            // 
-            // RazonSocial
-            // 
-            this.RazonSocial.HeaderText = "Razon Social";
-            this.RazonSocial.Name = "RazonSocial";
             // 
             // Direccion
             // 
@@ -310,6 +300,16 @@
             // 
             this.Email.HeaderText = "Email";
             this.Email.Name = "Email";
+            // 
+            // MontoDeuda
+            // 
+            this.MontoDeuda.HeaderText = "Monto Deuda";
+            this.MontoDeuda.Name = "MontoDeuda";
+            // 
+            // Observacion
+            // 
+            this.Observacion.HeaderText = "Observacion";
+            this.Observacion.Name = "Observacion";
             // 
             // ClientForm
             // 
@@ -359,11 +359,11 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Observacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MontoDeuda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MontoDeuda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Observacion;
     }
 }
