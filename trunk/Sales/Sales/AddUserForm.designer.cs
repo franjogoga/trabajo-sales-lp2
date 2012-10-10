@@ -58,7 +58,7 @@
             // 
             // addUserBtn
             // 
-            this.addUserBtn.Location = new System.Drawing.Point(187, 101);
+            this.addUserBtn.Location = new System.Drawing.Point(180, 101);
             this.addUserBtn.Name = "addUserBtn";
             this.addUserBtn.Size = new System.Drawing.Size(97, 23);
             this.addUserBtn.TabIndex = 5;
@@ -117,7 +117,7 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // Form1
             // 
