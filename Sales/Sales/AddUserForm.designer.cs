@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtUser = new System.Windows.Forms.TextBox();
-            this.txtPass = new System.Windows.Forms.TextBox();
+            this.addUserBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.addUserBtn = new System.Windows.Forms.Button();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.txtUser = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -56,37 +56,14 @@
             this.panel1.Size = new System.Drawing.Size(461, 420);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // addUserBtn
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nuevo Usuario";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Nueva Contraseña";
-            // 
-            // txtUser
-            // 
-            this.txtUser.Location = new System.Drawing.Point(142, 12);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(226, 20);
-            this.txtUser.TabIndex = 2;
-            // 
-            // txtPass
-            // 
-            this.txtPass.Location = new System.Drawing.Point(142, 59);
-            this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(226, 20);
-            this.txtPass.TabIndex = 3;
+            this.addUserBtn.Location = new System.Drawing.Point(187, 101);
+            this.addUserBtn.Name = "addUserBtn";
+            this.addUserBtn.Size = new System.Drawing.Size(97, 23);
+            this.addUserBtn.TabIndex = 5;
+            this.addUserBtn.Text = "Agregar";
+            this.addUserBtn.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -105,19 +82,42 @@
             this.dataGridView1.Size = new System.Drawing.Size(408, 216);
             this.dataGridView1.TabIndex = 0;
             // 
-            // addUserBtn
+            // txtPass
             // 
-            this.addUserBtn.Location = new System.Drawing.Point(187, 101);
-            this.addUserBtn.Name = "addUserBtn";
-            this.addUserBtn.Size = new System.Drawing.Size(97, 23);
-            this.addUserBtn.TabIndex = 5;
-            this.addUserBtn.Text = "Agregar";
-            this.addUserBtn.UseVisualStyleBackColor = true;
+            this.txtPass.Location = new System.Drawing.Point(142, 59);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.Size = new System.Drawing.Size(226, 20);
+            this.txtPass.TabIndex = 3;
+            // 
+            // txtUser
+            // 
+            this.txtUser.Location = new System.Drawing.Point(142, 12);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(226, 20);
+            this.txtUser.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(22, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Nueva Contraseña";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nuevo Usuario";
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 26);
             // 
             // Form1
             // 

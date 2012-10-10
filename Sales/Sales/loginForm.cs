@@ -6,11 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Libreria;
 
 namespace Sales
 {
     public partial class loginForm : Form
     {
+        private User usuario = new User();
         public loginForm()
         {
             InitializeComponent();
@@ -31,7 +33,7 @@ namespace Sales
             }
             else
             {
-                txtPassword.Text = ""
+                txtPassword.Text = "";
                 lblError.Text = "Contraseña incorrecta";
             }
         }

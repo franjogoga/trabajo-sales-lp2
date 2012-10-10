@@ -77,7 +77,16 @@ namespace Libreria
     {
         private string idUser;
         private string password;
+        private int idPersonal;
 
+        public void SetID(int ID)
+        {
+            idPersonal = ID;
+        }
+        public int GetID()
+        {
+            return idPersonal;
+        }
         public void SetUser(string user)
         {
             idUser = user;

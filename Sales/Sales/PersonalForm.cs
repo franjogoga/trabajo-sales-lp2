@@ -12,24 +12,24 @@ namespace Sales
     public partial class PersonalForm : Form
     {
         private mainForm refMainForm = null; 
-
         public PersonalForm()
         {
             InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Dispose();
             refMainForm.Show();
         }
-
         public void SetrefmainForm(mainForm mainp)
         {
             refMainForm = mainp;
         }
-
-     
     }
 }
