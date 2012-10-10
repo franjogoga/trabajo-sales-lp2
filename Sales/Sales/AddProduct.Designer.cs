@@ -30,17 +30,15 @@
         {
             this.btnExit = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnNewUser = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtTelf = new System.Windows.Forms.TextBox();
+            this.txtStMax = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtDNI = new System.Windows.Forms.TextBox();
+            this.txtStMin = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
@@ -55,7 +53,6 @@
             this.gaddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gemail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,15 +80,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(483, 97);
             this.dataGridView1.TabIndex = 20;
-            // 
-            // btnNewUser
-            // 
-            this.btnNewUser.Image = global::Sales.Properties.Resources.add_user;
-            this.btnNewUser.Location = new System.Drawing.Point(12, 143);
-            this.btnNewUser.Name = "btnNewUser";
-            this.btnNewUser.Size = new System.Drawing.Size(84, 94);
-            this.btnNewUser.TabIndex = 19;
-            this.btnNewUser.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -132,7 +120,7 @@
             // btnAdd
             // 
             this.btnAdd.Image = global::Sales.Properties.Resources.plus;
-            this.btnAdd.Location = new System.Drawing.Point(113, 244);
+            this.btnAdd.Location = new System.Drawing.Point(122, 244);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnAdd.Size = new System.Drawing.Size(483, 40);
@@ -141,6 +129,7 @@
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSave
             // 
@@ -154,24 +143,14 @@
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Sales.Properties.Resources.man_brown;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(84, 99);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.radioButton2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Controls.Add(this.txtTelf);
+            this.panel1.Controls.Add(this.txtStMax);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.txtDNI);
+            this.panel1.Controls.Add(this.txtStMin);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.txtName);
             this.panel1.Controls.Add(this.txtId);
@@ -182,12 +161,12 @@
             this.panel1.Size = new System.Drawing.Size(438, 214);
             this.panel1.TabIndex = 12;
             // 
-            // txtTelf
+            // txtStMax
             // 
-            this.txtTelf.Location = new System.Drawing.Point(122, 114);
-            this.txtTelf.Name = "txtTelf";
-            this.txtTelf.Size = new System.Drawing.Size(100, 20);
-            this.txtTelf.TabIndex = 19;
+            this.txtStMax.Location = new System.Drawing.Point(122, 114);
+            this.txtStMax.Name = "txtStMax";
+            this.txtStMax.Size = new System.Drawing.Size(100, 20);
+            this.txtStMax.TabIndex = 19;
             // 
             // label10
             // 
@@ -198,12 +177,12 @@
             this.label10.TabIndex = 18;
             this.label10.Text = "Stock Max";
             // 
-            // txtDNI
+            // txtStMin
             // 
-            this.txtDNI.Location = new System.Drawing.Point(122, 75);
-            this.txtDNI.Name = "txtDNI";
-            this.txtDNI.Size = new System.Drawing.Size(100, 20);
-            this.txtDNI.TabIndex = 17;
+            this.txtStMin.Location = new System.Drawing.Point(122, 75);
+            this.txtStMin.Name = "txtStMin";
+            this.txtStMin.Size = new System.Drawing.Size(100, 20);
+            this.txtStMin.TabIndex = 17;
             // 
             // label9
             // 
@@ -306,21 +285,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 490);
+            this.ClientSize = new System.Drawing.Size(807, 482);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnNewUser);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Name = "AddProduct";
             this.Text = "AddProduct";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -331,17 +307,15 @@
 
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnNewUser;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtTelf;
+        private System.Windows.Forms.TextBox txtStMax;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtDNI;
+        private System.Windows.Forms.TextBox txtStMin;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtId;
