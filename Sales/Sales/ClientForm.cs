@@ -11,19 +11,23 @@ namespace Sales
 {
     public partial class ClientForm : Form
     {
+        private mainForm refMainForm = null; 
+
         public ClientForm()
         {
             InitializeComponent();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
-
+            this.Dispose();
+            refMainForm.Show();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        public void SetrefmainForm(mainForm mainp)
         {
-
+            refMainForm = mainp;
         }
+      
     }
 }
