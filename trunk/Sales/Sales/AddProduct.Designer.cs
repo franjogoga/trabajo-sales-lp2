@@ -30,15 +30,6 @@
         {
             this.btnExit = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.IdPersonal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.glastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gaddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gemail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gsalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gworkArea = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gworkS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNewUser = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
@@ -58,6 +49,11 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.IdPersonal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.glastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gaddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gemail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -82,60 +78,11 @@
             this.gname,
             this.glastname,
             this.gaddress,
-            this.gemail,
-            this.gDate,
-            this.gsalary,
-            this.gworkArea,
-            this.gworkS});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 319);
+            this.gemail});
+            this.dataGridView1.Location = new System.Drawing.Point(113, 318);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(737, 136);
+            this.dataGridView1.Size = new System.Drawing.Size(483, 97);
             this.dataGridView1.TabIndex = 20;
-            // 
-            // IdPersonal
-            // 
-            this.IdPersonal.HeaderText = "ID";
-            this.IdPersonal.Name = "IdPersonal";
-            // 
-            // gname
-            // 
-            this.gname.HeaderText = "Nombres";
-            this.gname.Name = "gname";
-            // 
-            // glastname
-            // 
-            this.glastname.HeaderText = "Apellidos";
-            this.glastname.Name = "glastname";
-            // 
-            // gaddress
-            // 
-            this.gaddress.HeaderText = "Direccion";
-            this.gaddress.Name = "gaddress";
-            // 
-            // gemail
-            // 
-            this.gemail.HeaderText = "Email";
-            this.gemail.Name = "gemail";
-            // 
-            // gDate
-            // 
-            this.gDate.HeaderText = "F. Hired";
-            this.gDate.Name = "gDate";
-            // 
-            // gsalary
-            // 
-            this.gsalary.HeaderText = "Sueldo";
-            this.gsalary.Name = "gsalary";
-            // 
-            // gworkArea
-            // 
-            this.gworkArea.HeaderText = "Area";
-            this.gworkArea.Name = "gworkArea";
-            // 
-            // gworkS
-            // 
-            this.gworkS.HeaderText = "Puesto";
-            this.gworkS.Name = "gworkS";
             // 
             // btnNewUser
             // 
@@ -185,7 +132,7 @@
             // btnAdd
             // 
             this.btnAdd.Image = global::Sales.Properties.Resources.plus;
-            this.btnAdd.Location = new System.Drawing.Point(102, 244);
+            this.btnAdd.Location = new System.Drawing.Point(113, 244);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnAdd.Size = new System.Drawing.Size(483, 40);
@@ -330,6 +277,31 @@
             this.radioButton2.Text = "No Disponible";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
+            // IdPersonal
+            // 
+            this.IdPersonal.HeaderText = "ID";
+            this.IdPersonal.Name = "IdPersonal";
+            // 
+            // gname
+            // 
+            this.gname.HeaderText = "Producto";
+            this.gname.Name = "gname";
+            // 
+            // glastname
+            // 
+            this.glastname.HeaderText = "Stock Min";
+            this.glastname.Name = "glastname";
+            // 
+            // gaddress
+            // 
+            this.gaddress.HeaderText = "Stock Max";
+            this.gaddress.Name = "gaddress";
+            // 
+            // gemail
+            // 
+            this.gemail.HeaderText = "Estado";
+            this.gemail.Name = "gemail";
+            // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -359,15 +331,6 @@
 
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdPersonal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn glastname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gaddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gemail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gsalary;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gworkArea;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gworkS;
         private System.Windows.Forms.Button btnNewUser;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnModify;
@@ -387,5 +350,10 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdPersonal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn glastname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gaddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gemail;
     }
 }
