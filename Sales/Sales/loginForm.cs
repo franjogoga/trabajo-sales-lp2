@@ -30,10 +30,18 @@ namespace Sales
                 this.Hide();
             }
             else
+            {
+                txtPassword.Text = ""
                 lblError.Text = "Contraseña incorrecta";
+            }
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loginForm_Load(object sender, EventArgs e)
         {
 
         }
