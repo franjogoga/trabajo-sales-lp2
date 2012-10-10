@@ -371,7 +371,7 @@
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+      
             // 
             // pictureBox1
             // 
@@ -400,7 +400,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "PersonalForm";
             this.Text = "Mantenimiento de Personal";
-            this.Load += new System.EventHandler(this.Form1_Load);
+
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
