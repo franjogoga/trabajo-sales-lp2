@@ -29,13 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtTelf = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPuesto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtSalary = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -68,6 +65,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.txtIdArea = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,13 +74,12 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtTelf);
-            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtIdArea);
             this.panel1.Controls.Add(this.txtDNI);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtPuesto);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.txtSalary);
             this.panel1.Controls.Add(this.label6);
@@ -100,22 +98,6 @@
             this.panel1.Size = new System.Drawing.Size(483, 214);
             this.panel1.TabIndex = 0;
             // 
-            // txtTelf
-            // 
-            this.txtTelf.Location = new System.Drawing.Point(92, 105);
-            this.txtTelf.Name = "txtTelf";
-            this.txtTelf.Size = new System.Drawing.Size(100, 20);
-            this.txtTelf.TabIndex = 19;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(28, 108);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 13);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Teléfono";
-            // 
             // txtDNI
             // 
             this.txtDNI.Location = new System.Drawing.Point(92, 79);
@@ -132,12 +114,12 @@
             this.label9.TabIndex = 16;
             this.label9.Text = "DNI:";
             // 
-            // textBox1
+            // txtPuesto
             // 
-            this.textBox1.Location = new System.Drawing.Point(344, 129);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 15;
+            this.txtPuesto.Location = new System.Drawing.Point(344, 129);
+            this.txtPuesto.Name = "txtPuesto";
+            this.txtPuesto.Size = new System.Drawing.Size(100, 20);
+            this.txtPuesto.TabIndex = 15;
             // 
             // label8
             // 
@@ -147,21 +129,6 @@
             this.label8.Size = new System.Drawing.Size(43, 13);
             this.label8.TabIndex = 14;
             this.label8.Text = "Puesto:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Administración",
-            "Contabilidad",
-            "Ventas",
-            "Cobranza",
-            "Sistemas"});
-            this.comboBox1.Location = new System.Drawing.Point(344, 87);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 13;
             // 
             // label7
             // 
@@ -197,14 +164,14 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(92, 178);
+            this.txtEmail.Location = new System.Drawing.Point(92, 143);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(100, 20);
             this.txtEmail.TabIndex = 8;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(89, 142);
+            this.txtAddress.Location = new System.Drawing.Point(89, 107);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(144, 20);
             this.txtAddress.TabIndex = 7;
@@ -235,7 +202,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 178);
+            this.label4.Location = new System.Drawing.Point(28, 143);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 3;
@@ -244,7 +211,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 143);
+            this.label3.Location = new System.Drawing.Point(28, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 2;
@@ -351,6 +318,7 @@
             this.btnNewUser.Size = new System.Drawing.Size(112, 104);
             this.btnNewUser.TabIndex = 9;
             this.btnNewUser.UseVisualStyleBackColor = true;
+            this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
             // 
             // button5
             // 
@@ -400,6 +368,7 @@
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSave
             // 
@@ -431,6 +400,20 @@
             this.label11.Size = new System.Drawing.Size(81, 13);
             this.label11.TabIndex = 12;
             this.label11.Text = "Asignar Usuario";
+            // 
+            // txtIdArea
+            // 
+            this.txtIdArea.Location = new System.Drawing.Point(334, 87);
+            this.txtIdArea.Name = "txtIdArea";
+            this.txtIdArea.Size = new System.Drawing.Size(100, 20);
+            this.txtIdArea.TabIndex = 18;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(246, 187);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 19;
             // 
             // PersonalForm
             // 
@@ -477,9 +460,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPuesto;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSearch;
@@ -497,10 +479,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gworkArea;
         private System.Windows.Forms.DataGridViewTextBoxColumn gworkS;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.TextBox txtTelf;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtIdArea;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
