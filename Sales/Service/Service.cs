@@ -49,7 +49,7 @@ namespace SalesService
                         String nombProd = reader.GetString(1);
 
 
-                      //  if (clients[i]() == nombre) return clients[i];
+                        if (nombProd.CompareTo(nombre) == 0) return clients;
                       // return null;
 
 
