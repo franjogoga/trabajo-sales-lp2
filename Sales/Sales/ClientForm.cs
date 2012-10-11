@@ -19,6 +19,9 @@ namespace Sales
             InitializeComponent();
         }
 
+        System.Data.SqlClient.SqlConnection conn =
+               new System.Data.SqlClient.SqlConnection();
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -45,14 +48,47 @@ namespace Sales
            
             Program.service.addClient(c);
 
-        }
+        }     
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void ClientForm_Load(object sender, EventArgs e)
         {
-            this.dataGridView1.Rows.Add(txtID,txtRazonSocial,txtTelefono,txtDireccion,txtEmail,txtEstado);
-            
-        }
 
+            cargaClientes();
+            
+        }          
+            
+       void cargaClientes(){
+
+            conn.ConnectionString = "user id=inf282;" +
+                                       "password=inf282db;" +
+                                       "server=inti.lab.inf.pucp.edu.pe;" +
+                                       "database=inf282; " +
+                                       "connection timeout=30";
+   
+
+            System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Select * FROM G08_Cliente",conn);
+            
+            conn.Open();
+
+            System.Data.SqlClient.SqlDataReader leer = comando.ExecuteReader();
+
+            int reglon=0;
+
+            while(leer.Read()){
+
+                reglon = dataGridView1.Rows.Add();
+                dataGridView1.Rows[reglon].Cells["ID"].Value = leer.GetInt32(0);
+                dataGridView1.Rows[reglon].Cells["Direccion"].Value = leer.GetString(1);
+                dataGridView1.Rows[reglon].Cells["RazonSocial"].Value = leer.GetString(2);
+                dataGridView1.Rows[reglon].Cells["Email"].Value = leer.GetString(3);
+                dataGridView1.Rows[reglon].Cells["Telefono"].Value = leer.GetString(4);
+                dataGridView1.Rows[reglon].Cells["Estado"].Value = leer.GetString(5);
+            }
+
+            conn.Close();
+
+    
+        }
       
     }
 }
