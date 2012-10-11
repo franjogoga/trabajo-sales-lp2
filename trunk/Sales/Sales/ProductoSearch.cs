@@ -24,7 +24,13 @@ namespace Sales
 
 
 
-
+       private int Id;
+       private string Name;
+       private  Int32 StMax;
+       private  Int32 StMin;
+       private  float PCompra;
+       private  float Pventa;
+       
 
 
         public ProductoSearch()
@@ -63,7 +69,11 @@ namespace Sales
 
             dataGridView1.DataMember = "G08_Producto";
 
+            //MessageBox.Show("Busqueda Correcta");
+
             conn.Close();
+
+
 
         }
 
@@ -86,6 +96,27 @@ namespace Sales
             //String nombre = txtName.Text;
             //List<Product> products = new List<Product>();
             //products = Program.service.queryAll(nombre);
+
+        }
+
+       
+
+        private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+            int fil=0;
+            this.Hide();
+            Id = Int32.Parse(dataGridView1.Rows[fil].Cells[0].Value.ToString());
+            
+            Name = dataGridView1.Rows[fil].Cells[1].Value.ToString();
+            StMax = Int32.Parse(dataGridView1.Rows[fil].Cells[2].Value.ToString());
+            StMin = Int32.Parse(dataGridView1.Rows[fil].Cells[3].Value.ToString());
+            PCompra = float.Parse(dataGridView1.Rows[fil].Cells[4].Value.ToString());
+            Pventa = float.Parse(dataGridView1.Rows[fil].Cells[5].Value.ToString()); 
+            
+            
+            AddProduct addp = new AddProduct(Id, Name, StMin, StMax, PCompra, Pventa);
+            addp.Visible = true;
 
         }
 
