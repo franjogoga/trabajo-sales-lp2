@@ -13,6 +13,93 @@ namespace SalesService
         private List<Product> products = new List<Product>();
 
 
+        public void addClient(Client client)
+        {
+
+            System.Data.SqlClient.SqlConnection conn =
+                new System.Data.SqlClient.SqlConnection();
+
+            conn.ConnectionString = "user id=inf282;" +
+                                "password=inf282db;" +
+                                "server=inti.lab.inf.pucp.edu.pe;" +
+                                "database=inf282; " +
+                                "connection timeout=30";
+            try
+            {
+                conn.Open();
+
+                string sqlString = "INSERT INTO G08_Cliente(IDCliente," +
+                               "Direccion, RazonSocial, Email, Telefono, EstadoCliente) " +
+                               "VALUES (@Param1, @Param2, @Param3, @Param4, @Param5, @Param6)";
+
+                System.Data.SqlClient.SqlParameter myParam1 =
+                        new System.Data.SqlClient.SqlParameter(
+                            "@Param1", System.Data.SqlDbType.Int);
+
+                myParam1.Value = client.getIdCliente();
+
+
+                System.Data.SqlClient.SqlParameter myParam2 =
+                        new System.Data.SqlClient.SqlParameter(
+                            "@Param2", System.Data.SqlDbType.VarChar, 30);
+
+                myParam2.Value = client.getDireccion();
+
+                System.Data.SqlClient.SqlParameter myParam3 =
+                        new System.Data.SqlClient.SqlParameter(
+                            "@Param3", System.Data.SqlDbType.VarChar, 20);
+
+                myParam3.Value = client.getRazonSocial();
+
+                System.Data.SqlClient.SqlParameter myParam4 =
+                        new System.Data.SqlClient.SqlParameter(
+                            "@Param4", System.Data.SqlDbType.VarChar, 20);
+
+                myParam4.Value = client.getCorreo();
+
+                System.Data.SqlClient.SqlParameter myParam5 =
+                       new System.Data.SqlClient.SqlParameter(
+                           "@Param5", System.Data.SqlDbType.VarChar, 15);
+                myParam5.Value = client.getTelefono();
+
+                System.Data.SqlClient.SqlParameter myParam6 =
+                        new System.Data.SqlClient.SqlParameter(
+                            "@Param6", System.Data.SqlDbType.VarChar, 10);
+                myParam6.Value = client.getEstadoCliente();
+
+
+                System.Data.SqlClient.SqlCommand myCommand =
+                    new System.Data.SqlClient.SqlCommand(sqlString, conn);
+
+                myCommand.Parameters.Add(myParam1);
+                myCommand.Parameters.Add(myParam2);
+                myCommand.Parameters.Add(myParam3);
+                myCommand.Parameters.Add(myParam4);
+                myCommand.Parameters.Add(myParam5);
+                myCommand.Parameters.Add(myParam6);
+
+
+                //System.Data.SqlClient.SqlDataReader reader = myCommand.ExecuteReader();
+
+                myCommand.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+
+        }
+
+
+
+
+
+
+
+
         public List<Product> queryAll(String nombre)
         
         {
@@ -161,4 +248,5 @@ namespace SalesService
     }
 
 }
+
 
