@@ -47,7 +47,8 @@ namespace Sales
             p.SetEmail(txtEmail.Text);
             p.SetSalary(float.Parse(txtSalary.Text));
             p.setDateHired(txtDateH.Text);
-            p.SetID(Int32.Parse(txtDNI.Text));
+            p.SetID(Int32.Parse(lblIdPersonal.Text));
+            p.SetDNI(txtDNI.Text);
             p.setWorkStation(txtPuesto.Text);
             p.setAddress(txtAddress.Text);
 

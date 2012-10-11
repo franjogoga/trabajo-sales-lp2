@@ -14,6 +14,7 @@ namespace Libreria
         private String lastname;
         private String address;
         private String email;
+        private String dni;
         private String dateHired; //ojo falta corregir esto, deberia ser tipo datetime pero no se sabe como se castea
         private float salary;
         private int workArea; //area de trabajo
@@ -32,6 +33,14 @@ namespace Libreria
             address = add;
             dateHired = date;
             salary = sal;
+        }
+        public void SetDNI(string strdni)
+        {
+            dni = strdni;
+        }
+        public String GetDni()
+        {
+            return dni;
         }
         public String getWorkStation()
         {
