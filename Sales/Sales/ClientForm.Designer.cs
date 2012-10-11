@@ -334,7 +334,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ClientForm";
             this.Text = "Mantenimiento Cliente";
-            //this.Load += new System.EventHandler(this.ClientForm_Load);
+            this.Load += new System.EventHandler(this.ClientForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);

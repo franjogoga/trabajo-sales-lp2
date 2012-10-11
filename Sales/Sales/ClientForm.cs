@@ -33,44 +33,9 @@ namespace Sales
         }   
 
      
-
-        //private void ClientForm_Load(object sender, EventArgs e)
-        //{
-        //    cargaClientes();       
-        //}          
+         
             
-       //void cargaClientes( ){          
-        
-        //}
-
-       private void btnModify_Click(object sender, EventArgs e)
-       {
-           txtID.Focus();
-           ClientForm modi = new ClientForm();
-           String seleccionado =(dataGridView1.CurrentRow.Cells["ID"].Value).ToString();
-           //modi.nc_cliente_seleccionado = seleccionado;
-           modi.Show();
-       }
-
-       private void btnAdd_Click_1(object sender, EventArgs e)
-       {
-           Client c = new Client();
-
-           c.setIdCliente(Int32.Parse(txtID.Text));
-           c.setDireccion((txtDireccion.Text));
-           c.setRazonSocial(txtRazonSocial.Text);
-           c.setCorreo((txtEmail.Text));
-           c.setTelefono((txtTelefono.Text));
-           c.setEstadoCliente((txtEstado.Text));
-
-           Program.service.addClient(c);
-
-           txtID.Text = "";
-           txtDireccion.Text = "";
-           txtEstado.Text = "";
-           txtRazonSocial.Text = "";
-           txtTelefono.Text = "";
-           txtEmail.Text = "";
+       void cargaClientes( ){
 
            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
 
@@ -94,8 +59,49 @@ namespace Sales
                dataGridView1.Rows[reglon].Cells["Estado"].Value = leer.GetString(5);
            }
 
-           conn.Close();    
+           conn.Close(); 
+        }
+
+       private void btnModify_Click(object sender, EventArgs e)
+       {
+           txtID.Focus();
+           ClientForm modi = new ClientForm();
+           String seleccionado =(dataGridView1.CurrentRow.Cells["ID"].Value).ToString();
+           //modi.nc_cliente_seleccionado = seleccionado;
+           modi.Show();
        }
+
+       private void btnAdd_Click_1(object sender, EventArgs e)
+       {
+           Client c = new Client();
+
+           c.setIdCliente(Int32.Parse(txtID.Text));
+           c.setDireccion((txtDireccion.Text));
+           c.setRazonSocial(txtRazonSocial.Text);
+           c.setCorreo((txtEmail.Text));
+           c.setTelefono((txtTelefono.Text));
+           c.setEstadoCliente((txtEstado.Text));
+
+           Program.service.addClient(c);
+
+           cargaClientes();
+
+           txtID.Text = "";
+           txtDireccion.Text = "";
+           txtEstado.Text = "";
+           txtRazonSocial.Text = "";
+           txtTelefono.Text = "";
+           txtEmail.Text = "";
+
+          
+       }
+
+       private void ClientForm_Load_1(object sender, EventArgs e)
+       {
+           cargaClientes(); 
+
+       }
+
 
     
     }
