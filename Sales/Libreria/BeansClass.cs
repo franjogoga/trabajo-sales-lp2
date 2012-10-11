@@ -310,7 +310,6 @@ namespace Libreria
             businessName = razonSocial;
         }
 
-
         public String getRazonSocial()
         {
             return this.businessName;
@@ -366,5 +365,3 @@ namespace Libreria
         }
     }
 }
-
-   
