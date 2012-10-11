@@ -13,14 +13,25 @@ namespace Libreria
         private String lastname;
         private String address;
         private String email;
-        private DateTime dateHired;
+        private String dateHired; //ojo falta corregir esto, deberia ser tipo datetime pero no se sabe como se castea
         private float salary;
-        private String workArea; //area de trabajo
+        private int workArea; //area de trabajo
         private String workStation;//puesto de trabajo
 
         //Data Source=KEVIN-VAIO\\SQLEXPRESS;Initial Catalog=EuroBD;Integrated Security=True
 
-        public Personal(int iD, String nam, String last, String add, String ema, DateTime date, float sal)
+        public Personal() { 
+    
+        
+        
+        
+        }
+
+
+
+
+
+        public Personal(int iD, String nam, String last, String add, String ema, String date, float sal)
         {
             iDPersonal = iD;
             name = nam;
@@ -29,6 +40,26 @@ namespace Libreria
             dateHired = date;
             salary = sal;
         }
+
+        public String getWorkStation()
+        {
+            return workStation;
+        }
+
+        public void setWorkStation(String cad)
+        {
+            workStation = cad;
+        }
+
+        public void setWorkArea(int numero)
+        {
+            workArea = numero;
+        }
+        public int getWorkArea()
+        {
+            return workArea;
+        }
+
         public void SetSalary(float sal)
         {
             salary = sal;
@@ -37,7 +68,7 @@ namespace Libreria
         {
             return salary;
         }
-        public void SetiID(int iD)
+        public void SetID(int iD)
         {
             iDPersonal = iD;
         }
@@ -68,14 +99,23 @@ namespace Libreria
         {
             return email;
         }
-        public void GetDateHired(DateTime date)
+        public void setDateHired(String date)
         {
             dateHired = date;
         }
-        public DateTime SetHired()
+        public String getDateHired()
         {
             return dateHired;
         }
+        public String getAddress()
+        {
+            return address;
+        }
+        public void setAddress(String dir)
+        {
+            address = dir;
+        }
+
     }
     public class User
     {
