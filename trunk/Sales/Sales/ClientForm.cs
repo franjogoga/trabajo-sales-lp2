@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Libreria;
 
 namespace Sales
 {
@@ -29,15 +30,29 @@ namespace Sales
             refMainForm = mainp;
         }
 
-        private void ClientForm_Load(object sender, EventArgs e)
-        {
-
-        }
+   
 
         private void btnNewCliente_Click(object sender, EventArgs e)
         {
+            Client c = new Client();
+
+            c.setIdCliente(Int32.Parse(txtID.Text));
+            c.setDireccion((txtDireccion.Text));
+            c.setRazonSocial(txtRazonSocial.Text);
+            c.setCorreo((txtEmail.Text));
+            c.setTelefono((txtTelefono.Text));
+            c.setEstadoCliente((txtEstado.Text));
+           
+            Program.service.addClient(c);
 
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            this.dataGridView1.Rows.Add(txtID,txtRazonSocial,txtTelefono,txtDireccion,txtEmail,txtEstado);
+            
+        }
+
       
     }
 }
