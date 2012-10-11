@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtIdArea = new System.Windows.Forms.TextBox();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -74,7 +73,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.txtIdArea);
             this.panel1.Controls.Add(this.txtDNI);
             this.panel1.Controls.Add(this.label9);
@@ -95,16 +93,8 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(168, 23);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(483, 214);
+            this.panel1.Size = new System.Drawing.Size(483, 204);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(246, 187);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 19;
             // 
             // txtIdArea
             // 
@@ -434,7 +424,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "PersonalForm";
             this.Text = "Mantenimiento de Personal";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -484,6 +473,5 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtIdArea;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

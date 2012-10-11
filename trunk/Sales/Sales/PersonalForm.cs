@@ -31,6 +31,11 @@ namespace Sales
 
         private void btnNewUser_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
             Personal p = new Personal();
 
             p.SetName(txtName.Text);
@@ -44,10 +49,6 @@ namespace Sales
             p.setAddress(txtAddress.Text);
 
             Program.service.addPersonal(p);
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
 
         }        
     }
