@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtIdArea = new System.Windows.Forms.TextBox();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtPuesto = new System.Windows.Forms.TextBox();
@@ -58,15 +60,13 @@
             this.gworkS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnNewUser = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtIdArea = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -97,6 +97,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(483, 214);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(246, 187);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 19;
+            // 
+            // txtIdArea
+            // 
+            this.txtIdArea.Location = new System.Drawing.Point(334, 87);
+            this.txtIdArea.Name = "txtIdArea";
+            this.txtIdArea.Size = new System.Drawing.Size(100, 20);
+            this.txtIdArea.TabIndex = 18;
             // 
             // txtDNI
             // 
@@ -320,17 +335,17 @@
             this.btnNewUser.UseVisualStyleBackColor = true;
             this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
             // 
-            // button5
+            // btnDelete
             // 
-            this.button5.Image = global::Sales.Properties.Resources.delete;
-            this.button5.Location = new System.Drawing.Point(687, 165);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(129, 39);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "&Eliminar";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnDelete.Image = global::Sales.Properties.Resources.delete;
+            this.btnDelete.Location = new System.Drawing.Point(687, 165);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(129, 39);
+            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Text = "&Eliminar";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnModify
             // 
@@ -401,20 +416,6 @@
             this.label11.TabIndex = 12;
             this.label11.Text = "Asignar Usuario";
             // 
-            // txtIdArea
-            // 
-            this.txtIdArea.Location = new System.Drawing.Point(334, 87);
-            this.txtIdArea.Name = "txtIdArea";
-            this.txtIdArea.Size = new System.Drawing.Size(100, 20);
-            this.txtIdArea.TabIndex = 18;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(246, 187);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 19;
-            // 
             // PersonalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,7 +425,7 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnNewUser);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnAdd);
@@ -466,7 +467,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnModify;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnNewUser;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdPersonal;
