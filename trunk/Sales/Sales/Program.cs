@@ -7,13 +7,10 @@ using SalesService;
 namespace Sales
 {
     static class Program
-    {       
-        // The main entry point for the application.
-
+    {               
         public static Service service = new Service();
 
-        static void Main(string[] args)
-       
+        static void Main(string[] args)       
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
