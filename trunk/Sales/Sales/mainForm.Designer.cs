@@ -107,6 +107,7 @@
             this.Controls.Add(this.btnClient);
             this.Name = "mainForm";
             this.Text = "Menú Principal";
+            this.Load += new System.EventHandler(this.mainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

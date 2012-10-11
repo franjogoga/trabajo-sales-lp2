@@ -26,22 +26,22 @@ namespace Sales
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
+            usuario = new User();
             usuario.SetUser(txtUser.Text);
             usuario.SetPassword(txtPassword.Text);
-            if (usuario.hacerConexion() == 0)           
-                lblError.Text = "Error Base de Datos";      
+            usuario.HacerConexion();
+            if (usuario.ValidarPassword() == 1)
+            {
+                mainForm p = new mainForm();
+                p.Show();
+                p.Setrefmain(this);
+                this.Hide();
+            }
             else
-                if (usuario.VerificaClave() == 1)
-                {
-                    mainForm p = new mainForm();
-                    p.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    txtPassword.Text = "";
-                    lblError.Text = "Contraseña incorrecta";
-                }
+            {
+                lblError.Text = "Contraseña incorrecta";
+                txtPassword.Text = "";
+            }
            
         }
 

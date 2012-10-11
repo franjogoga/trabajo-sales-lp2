@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace Libreria
 {
@@ -20,11 +21,12 @@ namespace Libreria
 
         //Data Source=KEVIN-VAIO\\SQLEXPRESS;Initial Catalog=EuroBD;Integrated Security=True
 
-        public Personal() { 
-    
-        
-        
-        
+        public Personal()
+        {
+
+
+
+
         }
 
 
@@ -88,7 +90,8 @@ namespace Libreria
         {
             lastname = lastName;
         }
-        public String GetLastname(){
+        public String GetLastname()
+        {
             return lastname;
         }
         public void SetEmail(String eMail)
@@ -116,75 +119,62 @@ namespace Libreria
             address = dir;
         }
 
+
     }
+
     public class User
     {
-        private string idUser;
-        private string password;
+        private String idUser;
+        private String password;
         private int idPersonal;
-        private SqlConnection conn = new SqlConnection();
+        private SqlConnection con;
 
-        public int hacerConexion()
+        public void HacerConexion()
         {
-            int flag=0;
-            try 
-            {
-                conn.ConnectionString = "user id=inf282;" +
-                                "password=inf282db;" +
-                                "server=inti.lab.inf.pucp.edu.pe;" +
-                                "database=inf282; " +
-                                "connection timeout=30";
-                flag =1;
-            }
-            catch (Exception ex)
-            {
-                flag = 0;
-                Console.WriteLine(ex.ToString());
-            }
-            return flag;
+            con = new SqlConnection("user id=inf282;"+"password=inf282db;"+"server=inti.lab.inf.pucp.edu.pe;"+"database=inf282; "+"connection timeout=30");
         }
-        public int comprobarCS()
+        public int ValidarPassword()
         {
             int flag;
-            String SqlString = "SELECT idUser, clave, idpersonal FROM G08_Usuario WHERE idUser = @param1 and clave = @param2";
-            conn.Open();
-            System.Data.SqlClient.SqlParameter myParam1 =
-                        new System.Data.SqlClient.SqlParameter(
-                            "@Param1", System.Data.SqlDbType.VarChar,20);
-            System.Data.SqlClient.SqlParameter myParam2 =
-                        new System.Data.SqlClient.SqlParameter(
-                            "@Param2", System.Data.SqlDbType.VarChar,20);
-            System.Data.SqlClient.SqlParameter myParam3 =
-                        new System.Data.SqlClient.SqlParameter(
-                            "@Param3", System.Data.SqlDbType.Int);
-            System.Data.SqlClient.SqlCommand myCommand =
-                    new System.Data.SqlClient.SqlCommand(SqlString, conn);
-            myParam1.Value = idUser;
-            myParam2.Value = password;
-            myParam3.Value = idPersonal;
+            try
+            {
+                con.Open();
+                String sqlString = "SELECT * " +
+                                   "FROM G08_USUARIO " +
+                                   "WHERE IDUSER = @param1 and CLAVE = @param2";
+                SqlParameter myParam1 = new SqlParameter("@Param1", SqlDbType.VarChar, 20);
+                myParam1.Value = idUser;
+                SqlParameter myParam2 = new SqlParameter("@Param2", SqlDbType.VarChar, 20);
+                myParam2.Value = password;
+                SqlCommand myCommand = new SqlCommand(sqlString, con);
+                myCommand.Parameters.Add(myParam1);
+                myCommand.Parameters.Add(myParam2);
 
-            myCommand.Parameters.Add(myParam1);
-            myCommand.Parameters.Add(myParam2);
-            myCommand.Parameters.Add(myParam3);
+                SqlDataReader reader;
+                reader = myCommand.ExecuteReader();
+                reader.Read();
+                String userBD = reader.GetString(0);
+                String passBD = reader.GetString(1);
+                if (idUser.Equals(userBD) && password.Equals(passBD))
+                {
+                    flag = 1;
+                    idPersonal = reader.GetInt32(2);
+                }
+                else
+                {
+                    flag = 0;
+                }
 
-            
-            int k = myCommand.ExecuteNonQuery();
-            if (k == 1)
-                flag = 1;
-            else
+            }
+            catch (Exception)
+            {
                 flag = 0;
-
+                throw;
+            }
             return flag;
+
         }
 
-        public void SetID(int ID)
-        {
-            idPersonal = ID;
-        }
-        public int GetID()
-        {
-            return idPersonal;
-        }
         public void SetUser(string user)
         {
             idUser = user;
@@ -202,12 +192,8 @@ namespace Libreria
         {
             return password;
         }
-        public int VerificaClave()
-        {
-            int flag = 0;
-            return flag;
-        }
     }
+
     public class Product
     {
 
@@ -294,9 +280,8 @@ namespace Libreria
             this.PrecioVenta = pVenta;
         }
 
-
-
     }
+
     public class Client
     {
 
@@ -307,7 +292,8 @@ namespace Libreria
         private String Telephone;
         private String businessName; //Razon Social
 
-        public Client() {
+        public Client()
+        {
             IdClient = 0;
             Address = "";
             EstadoCliente = "";
@@ -343,7 +329,7 @@ namespace Libreria
         {
             IdClient = idCliente;
         }
-  
+
         public String getDireccion()
         {
             return Address;
@@ -384,6 +370,6 @@ namespace Libreria
             this.businessName = RazonSocial;
         }
     }
+}
 
    
-}
