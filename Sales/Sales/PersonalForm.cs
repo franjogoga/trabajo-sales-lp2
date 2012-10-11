@@ -36,7 +36,6 @@ namespace Sales
             user.SetRef(this);
             user.SetIDPers(idpersonal);
             user.Show();
-            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
