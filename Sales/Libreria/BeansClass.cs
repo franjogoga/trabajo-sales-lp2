@@ -261,21 +261,29 @@ namespace Libreria
     {
 
         private int IdClient;
-        private float MountDebts;  //es el monto que debe el cliente
         private String Address;
-        private String Observation;  //comentario respecto el cliente
+        private String EstadoCliente;  //estado del cliente
         private String Email;
         private String Telephone;
         private String businessName; //Razon Social
 
-        public Client(int idCliente, float montoDeudas, String direccion,
-                String observacion, String correo, String telefono, String razonSocial)
+        public Client() {
+            IdClient = 0;
+            Address = "";
+            EstadoCliente = "";
+            Email = "";
+            Telephone = "";
+            businessName = "";
+        }
+
+
+        public Client(int idCliente, String direccion,
+                String estadoCliente, String correo, String telefono, String razonSocial)
         {
 
             IdClient = idCliente;
-            MountDebts = montoDeudas;
             Address = direccion;
-            Observation = observacion;
+            EstadoCliente = estadoCliente;
             Email = correo;
             Telephone = telefono;
             businessName = razonSocial;
@@ -295,14 +303,7 @@ namespace Libreria
         {
             IdClient = idCliente;
         }
-        public float getMontoDeudas()
-        {
-            return MountDebts;
-        }
-        public void setMontoDeudas(float montoDeudas)
-        {
-            MountDebts = montoDeudas;
-        }
+  
         public String getDireccion()
         {
             return Address;
@@ -311,13 +312,15 @@ namespace Libreria
         {
             Address = direccion;
         }
-        public String getObservacion()
+        public String getEstadoCliente()
         {
-            return Observation;
+            return EstadoCliente;
         }
-        public void setObservacion(String observacion)
+
+
+        public void setEstadoCliente(String estadoCliente)
         {
-            Observation = observacion;
+            EstadoCliente = estadoCliente;
         }
         public String getCorreo()
         {
