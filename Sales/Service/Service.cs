@@ -157,7 +157,6 @@ namespace SalesService
         public void addPersonal(Personal personal)
         {
             System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
-
             conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
 
             try
@@ -214,6 +213,29 @@ namespace SalesService
             {
                 Console.WriteLine(ex.ToString());
             }
+        }
+        public DataSet GetCmbArea()
+        {
+            System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
+            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+            DataSet dsArea2 = new DataSet();
+            try
+            {
+                conn.Open();
+
+                string sqlString = "SELECT * FROM G08_Area";
+                SqlDataAdapter daArea = new SqlDataAdapter(sqlString, conn);
+                DataSet dsArea = new DataSet("Area");
+                daArea.Fill(dsArea,"Area");
+                conn.Close();
+                return dsArea;
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return dsArea2;
         }
     }
 }
