@@ -30,7 +30,7 @@ namespace Sales
             refMainForm = mainp;
         }
 
-        private void btnNewUser_Click(object sender, EventArgs e)
+        private void btnNuevoUsuario_Click(object sender, EventArgs e)
         {
             UserForm user = new UserForm();
             user.SetRef(this);
@@ -53,7 +53,6 @@ namespace Sales
             p.setAddress(txtDireccion.Text);
 
             Program.service.addPersonal(p);
-
         }
 
         private void PersonalForm_Load(object sender, EventArgs e)

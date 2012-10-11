@@ -61,7 +61,7 @@
             this.gworkS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label11 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnNewUser = new System.Windows.Forms.Button();
+            this.btnNuevoUsuario = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -346,17 +346,16 @@
             this.btnSalir.Text = "&Salir";
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnNewUser
+            // btnNuevoUsuario
             // 
-            this.btnNewUser.Image = global::Sales.Properties.Resources.add_user;
-            this.btnNewUser.Location = new System.Drawing.Point(23, 155);
-            this.btnNewUser.Name = "btnNewUser";
-            this.btnNewUser.Size = new System.Drawing.Size(112, 104);
-            this.btnNewUser.TabIndex = 9;
-            this.btnNewUser.UseVisualStyleBackColor = true;
-            this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
+            this.btnNuevoUsuario.Image = global::Sales.Properties.Resources.add_user;
+            this.btnNuevoUsuario.Location = new System.Drawing.Point(23, 155);
+            this.btnNuevoUsuario.Name = "btnNuevoUsuario";
+            this.btnNuevoUsuario.Size = new System.Drawing.Size(112, 104);
+            this.btnNuevoUsuario.TabIndex = 9;
+            this.btnNuevoUsuario.UseVisualStyleBackColor = true;
+            this.btnNuevoUsuario.Click += new System.EventHandler(this.btnNewUser_Click);
             // 
             // btnEliminar
             // 
@@ -406,7 +405,6 @@
             this.btnAgregarPersonal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarPersonal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgregarPersonal.UseVisualStyleBackColor = true;
-            this.btnAgregarPersonal.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnGuardar
             // 
@@ -438,7 +436,7 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnNewUser);
+            this.Controls.Add(this.btnNuevoUsuario);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnBuscar);
@@ -482,7 +480,7 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnNewUser;
+        private System.Windows.Forms.Button btnNuevoUsuario;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdPersonal;
         private System.Windows.Forms.DataGridViewTextBoxColumn gname;
