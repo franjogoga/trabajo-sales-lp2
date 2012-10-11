@@ -203,7 +203,6 @@ namespace Libreria
         float PrecioCompra;
         float PrecioVenta;
 
-
         public Product()
         {
             idProduct = 0;
@@ -301,9 +300,7 @@ namespace Libreria
             businessName = "";
         }
 
-
-        public Client(int idCliente, String direccion,
-                String estadoCliente, String correo, String telefono, String razonSocial)
+        public Client(int idCliente, String direccion, String estadoCliente, String correo, String telefono, String razonSocial)
         {
 
             IdClient = idCliente;
