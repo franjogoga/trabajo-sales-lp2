@@ -13,7 +13,8 @@ namespace Sales
 {
     public partial class PersonalForm : Form
     {
-        private mainForm refMainForm = null; 
+        private mainForm refMainForm = null;
+        private int idpersonal;
         public PersonalForm()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace Sales
         {
             UserForm user = new UserForm();
             user.SetRef(this);
-            //user.SetIDPers();
+            user.SetIDPers(idpersonal);
             user.Show();
             
         }
@@ -58,10 +59,15 @@ namespace Sales
         private void PersonalForm_Load(object sender, EventArgs e)
         {
             DataSet dsArea;
+            //Instrucciones para cargar el combo box
             dsArea = Program.service.GetCmbArea();
             cmbArea.DataSource = dsArea.Tables[0].DefaultView;
             cmbArea.DisplayMember = "NomArea";
             cmbArea.ValueMember = "IdArea";
+            //Instrucciones para cargar el Id de Personal
+            idpersonal = Program.service.obtenerNuevoID();
+            idpersonal = idpersonal + 1;
+            lblIdPersonal.Text = "" + idpersonal;
         }        
     }
 }
