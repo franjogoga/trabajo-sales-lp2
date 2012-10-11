@@ -217,5 +217,3 @@ namespace SalesService
         }
     }
 }
-
-
