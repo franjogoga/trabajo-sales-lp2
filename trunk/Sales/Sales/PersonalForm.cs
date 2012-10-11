@@ -19,11 +19,6 @@ namespace Sales
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -54,6 +49,6 @@ namespace Sales
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
-        }
+        }        
     }
 }
