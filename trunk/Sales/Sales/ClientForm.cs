@@ -20,7 +20,7 @@ namespace Sales
         }
 
         System.Data.SqlClient.SqlConnection conn =
-               new System.Data.SqlClient.SqlConnection();
+              new System.Data.SqlClient.SqlConnection();
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -47,24 +47,21 @@ namespace Sales
             c.setEstadoCliente((txtEstado.Text));
            
             Program.service.addClient(c);
-
         }     
 
         private void ClientForm_Load(object sender, EventArgs e)
         {
-
-            cargaClientes();
-            
+            cargaClientes();       
         }          
             
        void cargaClientes(){
+          
 
             conn.ConnectionString = "user id=inf282;" +
                                        "password=inf282db;" +
                                        "server=inti.lab.inf.pucp.edu.pe;" +
                                        "database=inf282; " +
-                                       "connection timeout=30";
-   
+                                       "connection timeout=30";   
 
             System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Select * FROM G08_Cliente",conn);
             
@@ -85,10 +82,16 @@ namespace Sales
                 dataGridView1.Rows[reglon].Cells["Estado"].Value = leer.GetString(5);
             }
 
-            conn.Close();
-
-    
+            conn.Close();    
         }
-      
+
+       private void btnModify_Click(object sender, EventArgs e)
+       {
+           txtID.Focus();
+           ModifyClientForm modi = new ModifyClientForm();
+           String seleccionado =(dataGridView1.CurrentRow.Cells["ID"].Value).ToString();
+           modi.nc_cliente_seleccionado = seleccionado;
+           modi.Show();
+       }      
     }
 }
