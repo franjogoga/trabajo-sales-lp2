@@ -21,6 +21,7 @@ namespace Sales
 
         System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
 
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -64,11 +65,32 @@ namespace Sales
 
        private void btnModify_Click(object sender, EventArgs e)
        {
-           txtID.Focus();
-           ClientForm modi = new ClientForm();
+       
+           //txtID.Focus();
+           //ClientForm modi = new ClientForm();
            String seleccionado =(dataGridView1.CurrentRow.Cells["ID"].Value).ToString();
            //modi.nc_cliente_seleccionado = seleccionado;
-           modi.Show();
+           //modi.Show();
+           conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+           
+           System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Select * FROM G08_Cliente where IDCliente=" + seleccionado ,conn);
+
+           conn.Open();
+
+           System.Data.SqlClient.SqlDataReader leer = comando.ExecuteReader();
+           
+
+           if(leer.Read()){
+
+               txtID.Text = (leer.GetInt32(0)).ToString();
+               txtDireccion.Text = leer.GetString(1);
+               txtRazonSocial.Text = leer.GetString(2);
+               txtEmail.Text = leer.GetString(3);
+               txtTelefono.Text = leer.GetString(4);
+               txtEstado.Text = leer.GetString(5);
+
+           }
+           conn.Close();
        }
 
        private void btnAdd_Click_1(object sender, EventArgs e)
@@ -98,11 +120,30 @@ namespace Sales
 
        private void ClientForm_Load_1(object sender, EventArgs e)
        {
+         
            cargaClientes(); 
 
        }
 
+       private void btnSave_Click(object sender, EventArgs e)
+       {
+           conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
 
-    
+           System.Data.SqlClient.SqlCommand nuevo = new System.Data.SqlClient.SqlCommand("update G08_Cliente set Direccion=@Direccion, RazonSocial=@RazonSocial, Email=@Email, Telefono=@Telefono, EstadoCliente=@Estado where IDCliente=@IDCliente ",conn);
+           
+           nuevo.Parameters.AddWithValue("IDCliente", txtID.Text);
+           nuevo.Parameters.AddWithValue("Direccion",txtDireccion.Text);   // ponemos lo que vamos a escribir en txtDireccion a la columna "Direccion" de la grilla
+           nuevo.Parameters.AddWithValue("RazonSocial", txtRazonSocial.Text);
+           nuevo.Parameters.AddWithValue("Email", txtEmail.Text);
+           nuevo.Parameters.AddWithValue("Telefono", txtTelefono.Text);
+           nuevo.Parameters.AddWithValue("Estado", txtEstado.Text);
+
+           conn.Open();
+
+           nuevo.ExecuteNonQuery();
+          
+           conn.Close(); 
+
+       }    
     }
 }
