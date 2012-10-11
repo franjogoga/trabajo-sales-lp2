@@ -19,8 +19,7 @@ namespace Sales
             InitializeComponent();
         }
 
-        System.Data.SqlClient.SqlConnection conn =
-              new System.Data.SqlClient.SqlConnection();
+        System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -31,9 +30,7 @@ namespace Sales
         public void SetrefmainForm(mainForm mainp)
         {
             refMainForm = mainp;
-        }
-
-   
+        }   
 
         private void btnNewCliente_Click(object sender, EventArgs e)
         {
@@ -54,14 +51,8 @@ namespace Sales
             cargaClientes();       
         }          
             
-       void cargaClientes(){
-          
-
-            conn.ConnectionString = "user id=inf282;" +
-                                       "password=inf282db;" +
-                                       "server=inti.lab.inf.pucp.edu.pe;" +
-                                       "database=inf282; " +
-                                       "connection timeout=30";   
+       void cargaClientes( ){          
+            conn.ConnectionString = "user id=inf282;"+"password=inf282db;"+"server=inti.lab.inf.pucp.edu.pe;"+"database=inf282; "+"connection timeout=30";   
 
             System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Select * FROM G08_Cliente",conn);
             
@@ -88,9 +79,9 @@ namespace Sales
        private void btnModify_Click(object sender, EventArgs e)
        {
            txtID.Focus();
-           ModifyClientForm modi = new ModifyClientForm();
+           ClientForm modi = new ClientForm();
            String seleccionado =(dataGridView1.CurrentRow.Cells["ID"].Value).ToString();
-           modi.nc_cliente_seleccionado = seleccionado;
+           //modi.nc_cliente_seleccionado = seleccionado;
            modi.Show();
        }      
     }
