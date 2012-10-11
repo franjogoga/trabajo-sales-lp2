@@ -23,16 +23,7 @@ namespace Libreria
 
         public Personal()
         {
-
-
-
-
         }
-
-
-
-
-
         public Personal(int iD, String nam, String last, String add, String ema, String date, float sal)
         {
             iDPersonal = iD;
@@ -42,17 +33,14 @@ namespace Libreria
             dateHired = date;
             salary = sal;
         }
-
         public String getWorkStation()
         {
             return workStation;
         }
-
         public void setWorkStation(String cad)
         {
             workStation = cad;
         }
-
         public void setWorkArea(int numero)
         {
             workArea = numero;
@@ -61,7 +49,6 @@ namespace Libreria
         {
             return workArea;
         }
-
         public void SetSalary(float sal)
         {
             salary = sal;

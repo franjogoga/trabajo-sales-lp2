@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Libreria;
-
+using System.Data.SqlClient;
+using System.Data;
 
 namespace SalesService
 {
@@ -15,9 +16,7 @@ namespace SalesService
 
         public void addClient(Client client)
         {
-
-            System.Data.SqlClient.SqlConnection conn =
-                new System.Data.SqlClient.SqlConnection();
+           SqlConnection conn = new SqlConnection();
 
             conn.ConnectionString = "user id=inf282;" +
                                 "password=inf282db;" +
@@ -32,39 +31,17 @@ namespace SalesService
                                "Direccion, RazonSocial, Email, Telefono, EstadoCliente) " +
                                "VALUES (@Param1, @Param2, @Param3, @Param4, @Param5, @Param6)";
 
-                System.Data.SqlClient.SqlParameter myParam1 =
-                        new System.Data.SqlClient.SqlParameter(
-                            "@Param1", System.Data.SqlDbType.Int);
-
+                SqlParameter myParam1 = new SqlParameter("@Param1", System.Data.SqlDbType.Int);
                 myParam1.Value = client.getIdCliente();
-
-
-                System.Data.SqlClient.SqlParameter myParam2 =
-                        new System.Data.SqlClient.SqlParameter(
-                            "@Param2", System.Data.SqlDbType.VarChar, 30);
-
+                SqlParameter myParam2 = new SqlParameter("@Param2", System.Data.SqlDbType.VarChar, 30);
                 myParam2.Value = client.getDireccion();
-
-                System.Data.SqlClient.SqlParameter myParam3 =
-                        new System.Data.SqlClient.SqlParameter(
-                            "@Param3", System.Data.SqlDbType.VarChar, 20);
-
+                SqlParameter myParam3 = new SqlParameter("@Param3", System.Data.SqlDbType.VarChar, 20);
                 myParam3.Value = client.getRazonSocial();
-
-                System.Data.SqlClient.SqlParameter myParam4 =
-                        new System.Data.SqlClient.SqlParameter(
-                            "@Param4", System.Data.SqlDbType.VarChar, 20);
-
+                SqlParameter myParam4 = new SqlParameter("@Param4", System.Data.SqlDbType.VarChar, 20);
                 myParam4.Value = client.getCorreo();
-
-                System.Data.SqlClient.SqlParameter myParam5 =
-                       new System.Data.SqlClient.SqlParameter(
-                           "@Param5", System.Data.SqlDbType.VarChar, 15);
+                SqlParameter myParam5 = new SqlParameter("@Param5", System.Data.SqlDbType.VarChar, 15);
                 myParam5.Value = client.getTelefono();
-
-                System.Data.SqlClient.SqlParameter myParam6 =
-                        new System.Data.SqlClient.SqlParameter(
-                            "@Param6", System.Data.SqlDbType.VarChar, 10);
+                SqlParameter myParam6 = new System.Data.SqlClient.SqlParameter("@Param6", System.Data.SqlDbType.VarChar, 10);
                 myParam6.Value = client.getEstadoCliente();
 
 
