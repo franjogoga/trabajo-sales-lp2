@@ -13,7 +13,7 @@ namespace Sales
 {
     public partial class AddProduct : Form
     {
-        public AddProduct( int Id, string Name,Int32 StMin, Int32 StMax, float PCompra,
+        public AddProduct(int Id, string Name, Int32 StMin, Int32 StMax, float PCompra,
          float PVenta)
         {
             InitializeComponent();
@@ -21,10 +21,12 @@ namespace Sales
 
         }
 
+        System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
+
         public AddProduct()
         {
             InitializeComponent();
-            
+
 
         }
 
@@ -105,13 +107,13 @@ namespace Sales
             this.dataGridView1.Rows.Add(id, name, StockMin, StockMax, PrecioCompra, PrecioVenta);
 
             int filas = this.dataGridView1.RowCount;
-                
-                if (filas != 0)
+
+            if (filas != 0)
                 MessageBox.Show("Producto añadido");
 
-                else
-                    MessageBox.Show("Error al añadir");
-        
+            else
+                MessageBox.Show("Error al añadir");
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -124,12 +126,54 @@ namespace Sales
 
         }
 
-         
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+
+
+            //txtID.Focus();
+            //ClientForm modi = new ClientForm();
+            String seleccionado = (dataGridView1.CurrentRow.Cells["ID"].Value).ToString();
+            //modi.nc_cliente_seleccionado = seleccionado;
+            //modi.Show();
+            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+
+            System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Select * FROM G08_Producto where IDProducto=" + seleccionado, conn);
+
+            conn.Open();
+
+            System.Data.SqlClient.SqlDataReader leer = comando.ExecuteReader();
+
+
+            if (leer.Read())
+            {
+
+                txtId.Text = (leer.GetInt32(0)).ToString();
+                txtName.Text = leer.GetString(1);
+                txtStMax.Text = leer.GetInt32(2).ToString();
+                txtPventa.Text = leer.GetDecimal(3).ToString();
+                txtPcompra.Text = leer.GetDecimal(4).ToString();
+                txtStMin.Text = leer.GetString(3);
+
+                string name = txtName.Text;
+                int StockMin = (Int32.Parse(txtStMin.Text));
+                int StockMax = (Int32.Parse(txtStMax.Text));
+                float PrecioCompra = (float.Parse(txtPcompra.Text));
+                float PrecioVenta = (float.Parse(txtPventa.Text));
+            }
+            conn.Close();
 
 
 
 
 
-    } 
+        }
+
+
+
+
+
+
+
+    }
 
 }
