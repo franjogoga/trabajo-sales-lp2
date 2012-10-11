@@ -149,6 +149,7 @@ namespace Sales
 
        private void btnDelete_Click(object sender, EventArgs e)
        {
+           DialogResult resultado = MessageBox.Show("¿Esta seguro que quiere eliminar el cliente seleccionado?","AVISO",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
        }    
     }
