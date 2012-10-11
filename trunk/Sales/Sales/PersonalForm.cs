@@ -31,13 +31,17 @@ namespace Sales
 
         private void btnNewUser_Click(object sender, EventArgs e)
         {
+            UserForm user = new UserForm();
+            user.SetRef(this);
+            //user.SetIDPers();
+            user.Show();
             
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Personal p = new Personal();
-
+            
             p.SetName(txtName.Text);
             p.SetLastName(txtLastName.Text);
             p.SetEmail(txtEmail.Text);
