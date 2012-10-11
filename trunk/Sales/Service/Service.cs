@@ -10,7 +10,66 @@ namespace SalesService
     public class Service
     {
 
-        //private List<Product> products = new List<Product>();
+        private List<Product> products = new List<Product>();
+
+
+        public List<Product> queryAll(String nombre)
+        
+        {
+
+            System.Data.SqlClient.SqlConnection conn =
+                    new System.Data.SqlClient.SqlConnection();
+
+
+            conn.ConnectionString = "user id=inf282;" +
+                                "password=inf282db;" +
+                                "server=inti.lab.inf.pucp.edu.pe;" +
+                                "database=inf282; " +
+                                "connection timeout=30";
+
+
+
+
+            try
+            {
+                conn.Open();
+
+                string sqlString = "SELECT * FROM G08_Producto";
+
+
+                System.Data.SqlClient.SqlCommand myCommand =
+                   new System.Data.SqlClient.SqlCommand(sqlString, conn);
+
+                    System.Data.SqlClient.SqlDataReader reader = myCommand.ExecuteReader();
+
+
+                    while (reader.Read())
+                    {
+
+                        String nombProd = reader.GetString(1);
+
+
+                      //  if (clients[i]() == nombre) return clients[i];
+                      // return null;
+
+
+                    }
+
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+
+            
+            
+            return products;
+        }
+
+
 
 
         public void addProduct(Product product)
@@ -85,8 +144,6 @@ namespace SalesService
                 myCommand.Parameters.Add(myParam5);
                 myCommand.Parameters.Add(myParam6);
 
-
-                //System.Data.SqlClient.SqlDataReader reader = myCommand.ExecuteReader();
 
                 myCommand.ExecuteNonQuery();
 
