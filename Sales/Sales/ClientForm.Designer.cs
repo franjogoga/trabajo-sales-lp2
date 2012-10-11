@@ -138,7 +138,7 @@
             this.Telefono,
             this.Estado});
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.dataGridView1.Location = new System.Drawing.Point(52, 278);
+            this.dataGridView1.Location = new System.Drawing.Point(60, 266);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.Size = new System.Drawing.Size(643, 150);
