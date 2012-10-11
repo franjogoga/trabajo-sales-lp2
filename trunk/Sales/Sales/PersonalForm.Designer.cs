@@ -29,18 +29,21 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbArea = new System.Windows.Forms.ComboBox();
+            this.lblIdPersonal = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtPuesto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtSalary = new System.Windows.Forms.TextBox();
+            this.txtSalario = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtDateH = new System.Windows.Forms.TextBox();
+            this.txtFContrato = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,17 +60,14 @@
             this.gworkArea = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gworkS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnExit = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.btnNewUser = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnModify = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnAgregarPersonal = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblIdPersonal = new System.Windows.Forms.Label();
-            this.cmbArea = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -83,13 +83,13 @@
             this.panel1.Controls.Add(this.txtPuesto);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.txtSalary);
+            this.panel1.Controls.Add(this.txtSalario);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.txtDateH);
+            this.panel1.Controls.Add(this.txtFContrato);
             this.panel1.Controls.Add(this.txtEmail);
-            this.panel1.Controls.Add(this.txtAddress);
-            this.panel1.Controls.Add(this.txtLastName);
-            this.panel1.Controls.Add(this.txtName);
+            this.panel1.Controls.Add(this.txtDireccion);
+            this.panel1.Controls.Add(this.txtApellido);
+            this.panel1.Controls.Add(this.txtNombre);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
@@ -99,6 +99,33 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(483, 204);
             this.panel1.TabIndex = 0;
+            // 
+            // cmbArea
+            // 
+            this.cmbArea.FormattingEnabled = true;
+            this.cmbArea.Location = new System.Drawing.Point(344, 87);
+            this.cmbArea.Name = "cmbArea";
+            this.cmbArea.Size = new System.Drawing.Size(121, 21);
+            this.cmbArea.TabIndex = 21;
+            // 
+            // lblIdPersonal
+            // 
+            this.lblIdPersonal.AutoSize = true;
+            this.lblIdPersonal.ForeColor = System.Drawing.Color.Red;
+            this.lblIdPersonal.Location = new System.Drawing.Point(89, 15);
+            this.lblIdPersonal.Name = "lblIdPersonal";
+            this.lblIdPersonal.Size = new System.Drawing.Size(65, 13);
+            this.lblIdPersonal.TabIndex = 20;
+            this.lblIdPersonal.Text = "[IDPersonal]";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(28, 15);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(62, 13);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "IDPersonal:";
             // 
             // txtDNI
             // 
@@ -141,12 +168,12 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Area:";
             // 
-            // txtSalary
+            // txtSalario
             // 
-            this.txtSalary.Location = new System.Drawing.Point(344, 49);
-            this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(100, 20);
-            this.txtSalary.TabIndex = 11;
+            this.txtSalario.Location = new System.Drawing.Point(344, 49);
+            this.txtSalario.Name = "txtSalario";
+            this.txtSalario.Size = new System.Drawing.Size(100, 20);
+            this.txtSalario.TabIndex = 11;
             // 
             // label6
             // 
@@ -157,12 +184,12 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Salario:";
             // 
-            // txtDateH
+            // txtFContrato
             // 
-            this.txtDateH.Location = new System.Drawing.Point(344, 15);
-            this.txtDateH.Name = "txtDateH";
-            this.txtDateH.Size = new System.Drawing.Size(100, 20);
-            this.txtDateH.TabIndex = 9;
+            this.txtFContrato.Location = new System.Drawing.Point(344, 15);
+            this.txtFContrato.Name = "txtFContrato";
+            this.txtFContrato.Size = new System.Drawing.Size(100, 20);
+            this.txtFContrato.TabIndex = 9;
             // 
             // txtEmail
             // 
@@ -171,26 +198,26 @@
             this.txtEmail.Size = new System.Drawing.Size(100, 20);
             this.txtEmail.TabIndex = 8;
             // 
-            // txtAddress
+            // txtDireccion
             // 
-            this.txtAddress.Location = new System.Drawing.Point(89, 132);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(144, 20);
-            this.txtAddress.TabIndex = 7;
+            this.txtDireccion.Location = new System.Drawing.Point(89, 132);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(144, 20);
+            this.txtDireccion.TabIndex = 7;
             // 
-            // txtLastName
+            // txtApellido
             // 
-            this.txtLastName.Location = new System.Drawing.Point(92, 74);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(100, 20);
-            this.txtLastName.TabIndex = 6;
+            this.txtApellido.Location = new System.Drawing.Point(92, 74);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(100, 20);
+            this.txtApellido.TabIndex = 6;
             // 
-            // txtName
+            // txtNombre
             // 
-            this.txtName.Location = new System.Drawing.Point(92, 42);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 20);
-            this.txtName.TabIndex = 5;
+            this.txtNombre.Location = new System.Drawing.Point(92, 42);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtNombre.TabIndex = 5;
             // 
             // label5
             // 
@@ -309,17 +336,17 @@
             this.label11.TabIndex = 12;
             this.label11.Text = "Crear Usuario";
             // 
-            // btnExit
+            // btnSalir
             // 
-            this.btnExit.Image = global::Sales.Properties.Resources.application_exit;
-            this.btnExit.Location = new System.Drawing.Point(687, 224);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(129, 69);
-            this.btnExit.TabIndex = 11;
-            this.btnExit.Text = "&Salir";
-            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnSalir.Image = global::Sales.Properties.Resources.application_exit;
+            this.btnSalir.Location = new System.Drawing.Point(687, 224);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(129, 69);
+            this.btnSalir.TabIndex = 11;
+            this.btnSalir.Text = "&Salir";
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnNewUser
             // 
@@ -331,67 +358,67 @@
             this.btnNewUser.UseVisualStyleBackColor = true;
             this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
             // 
-            // btnDelete
+            // btnEliminar
             // 
-            this.btnDelete.Image = global::Sales.Properties.Resources.delete;
-            this.btnDelete.Location = new System.Drawing.Point(687, 165);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(129, 39);
-            this.btnDelete.TabIndex = 8;
-            this.btnDelete.Text = "&Eliminar";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnEliminar.Image = global::Sales.Properties.Resources.delete;
+            this.btnEliminar.Location = new System.Drawing.Point(687, 165);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(129, 39);
+            this.btnEliminar.TabIndex = 8;
+            this.btnEliminar.Text = "&Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // btnModify
+            // btnModificar
             // 
-            this.btnModify.Image = global::Sales.Properties.Resources.modify;
-            this.btnModify.Location = new System.Drawing.Point(687, 118);
-            this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(129, 39);
-            this.btnModify.TabIndex = 7;
-            this.btnModify.Text = "&Modificar";
-            this.btnModify.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModify.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModificar.Image = global::Sales.Properties.Resources.modify;
+            this.btnModificar.Location = new System.Drawing.Point(687, 118);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(129, 39);
+            this.btnModificar.TabIndex = 7;
+            this.btnModificar.Text = "&Modificar";
+            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnModificar.UseVisualStyleBackColor = true;
             // 
-            // btnSearch
+            // btnBuscar
             // 
-            this.btnSearch.Image = global::Sales.Properties.Resources.search;
-            this.btnSearch.Location = new System.Drawing.Point(687, 72);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(129, 39);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.Text = "&Buscar";
-            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnBuscar.Image = global::Sales.Properties.Resources.search;
+            this.btnBuscar.Location = new System.Drawing.Point(687, 72);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(129, 39);
+            this.btnBuscar.TabIndex = 6;
+            this.btnBuscar.Text = "&Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscar.UseVisualStyleBackColor = true;
             // 
-            // btnAdd
+            // btnAgregarPersonal
             // 
-            this.btnAdd.Image = global::Sales.Properties.Resources.plus;
-            this.btnAdd.Location = new System.Drawing.Point(168, 253);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnAdd.Size = new System.Drawing.Size(483, 40);
-            this.btnAdd.TabIndex = 5;
-            this.btnAdd.Text = "Agregar Nuevo Personal";
-            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAgregarPersonal.Image = global::Sales.Properties.Resources.plus;
+            this.btnAgregarPersonal.Location = new System.Drawing.Point(168, 253);
+            this.btnAgregarPersonal.Name = "btnAgregarPersonal";
+            this.btnAgregarPersonal.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnAgregarPersonal.Size = new System.Drawing.Size(483, 40);
+            this.btnAgregarPersonal.TabIndex = 5;
+            this.btnAgregarPersonal.Text = "Agregar Nuevo Personal";
+            this.btnAgregarPersonal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarPersonal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAgregarPersonal.UseVisualStyleBackColor = true;
+            this.btnAgregarPersonal.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnSave
+            // btnGuardar
             // 
-            this.btnSave.Image = global::Sales.Properties.Resources.save;
-            this.btnSave.Location = new System.Drawing.Point(687, 21);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(129, 45);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "&Guardar";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnGuardar.Image = global::Sales.Properties.Resources.save;
+            this.btnGuardar.Location = new System.Drawing.Point(687, 21);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(129, 45);
+            this.btnGuardar.TabIndex = 3;
+            this.btnGuardar.Text = "&Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGuardar.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -403,47 +430,20 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(28, 15);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 13);
-            this.label10.TabIndex = 19;
-            this.label10.Text = "IDPersonal:";
-            // 
-            // lblIdPersonal
-            // 
-            this.lblIdPersonal.AutoSize = true;
-            this.lblIdPersonal.ForeColor = System.Drawing.Color.Red;
-            this.lblIdPersonal.Location = new System.Drawing.Point(89, 15);
-            this.lblIdPersonal.Name = "lblIdPersonal";
-            this.lblIdPersonal.Size = new System.Drawing.Size(65, 13);
-            this.lblIdPersonal.TabIndex = 20;
-            this.lblIdPersonal.Text = "[IDPersonal]";
-            // 
-            // cmbArea
-            // 
-            this.cmbArea.FormattingEnabled = true;
-            this.cmbArea.Location = new System.Drawing.Point(344, 87);
-            this.cmbArea.Name = "cmbArea";
-            this.cmbArea.Size = new System.Drawing.Size(121, 21);
-            this.cmbArea.TabIndex = 21;
-            // 
             // PersonalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 476);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnNewUser);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnModify);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.btnAgregarPersonal);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Name = "PersonalForm";
@@ -464,24 +464,24 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtDateH;
+        private System.Windows.Forms.TextBox txtFContrato;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtSalary;
+        private System.Windows.Forms.TextBox txtSalario;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtPuesto;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Button btnModify;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnAgregarPersonal;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnNewUser;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdPersonal;
@@ -493,7 +493,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gsalary;
         private System.Windows.Forms.DataGridViewTextBoxColumn gworkArea;
         private System.Windows.Forms.DataGridViewTextBoxColumn gworkS;
-        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
