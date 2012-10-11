@@ -20,7 +20,7 @@ namespace Sales
             InitializeComponent();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Dispose();
             refMainForm.Show();
@@ -38,19 +38,19 @@ namespace Sales
             user.Show();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAgregarPersonal_Click(object sender, EventArgs e)
         {
             Personal p = new Personal();
             
-            p.SetName(txtName.Text);
-            p.SetLastName(txtLastName.Text);
+            p.SetName(txtNombre.Text);
+            p.SetLastName(txtApellido.Text);
             p.SetEmail(txtEmail.Text);
-            p.SetSalary(float.Parse(txtSalary.Text));
-            p.setDateHired(txtDateH.Text);
+            p.SetSalary(float.Parse(txtSalario.Text));
+            p.setDateHired(txtFContrato.Text);
             p.SetID(Int32.Parse(lblIdPersonal.Text));
             p.SetDNI(txtDNI.Text);
             p.setWorkStation(txtPuesto.Text);
-            p.setAddress(txtAddress.Text);
+            p.setAddress(txtDireccion.Text);
 
             Program.service.addPersonal(p);
 
