@@ -41,5 +41,19 @@ namespace Sales
         {
 
         }
+
+        private void btnProduct_Click(object sender, EventArgs e)
+        {
+
+
+                  
+                    this.Visible = false;
+                    AddProduct p = new AddProduct();
+                    p.Visible = true;
+       
+
+
+
+        }
     }
 }
