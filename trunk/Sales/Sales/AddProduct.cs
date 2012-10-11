@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using Libreria;
 
 namespace Sales
@@ -22,19 +23,18 @@ namespace Sales
 
 
             Product p = new Product();
-      
+
 
             p.setCodigo(Int32.Parse(txtId.Text));
-            p.setName(txtName.Text);  
+            p.setName(txtName.Text);
             p.setStockMin(Int32.Parse(txtStMax.Text));
             p.setStockMax(Int32.Parse(txtStMin.Text));
             p.setPrecioCompra(float.Parse(txtPcompra.Text));
             p.setPrecioVenta(float.Parse(txtPcompra.Text));
 
-            
-            
-                Program.service.addProduct(p);
-           
+
+            Program.service.addProduct(p);
+
 
 
         }
@@ -42,7 +42,17 @@ namespace Sales
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
 
-      
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+
+            this.Visible = false;
+            ProductoSearch testDialog = new ProductoSearch();
+            testDialog.Visible = true;
+            
+           
+        }
     }
 }
