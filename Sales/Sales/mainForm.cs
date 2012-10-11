@@ -11,11 +11,16 @@ namespace Sales
 {
     public partial class mainForm : Form
     {
+        private loginForm refLoginForm = null;
         public mainForm()
         {
             InitializeComponent();
         }
 
+        public void Setrefmain(loginForm reflog)
+        {
+            refLoginForm = reflog;
+        }
         private void btnPersonal_Click_1(object sender, EventArgs e)
         {
             PersonalForm pForm = new PersonalForm();
@@ -30,6 +35,11 @@ namespace Sales
             pClient.Show();
             pClient.SetrefmainForm(this);
             this.Hide();
+        }
+
+        private void mainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
