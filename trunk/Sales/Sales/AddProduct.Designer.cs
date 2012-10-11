@@ -174,8 +174,7 @@
             this.txtPventa.Location = new System.Drawing.Point(335, 50);
             this.txtPventa.Name = "txtPventa";
             this.txtPventa.Size = new System.Drawing.Size(67, 20);
-            this.txtPventa.TabIndex = 23;
-            this.txtPventa.TextChanged += new System.EventHandler(this.txtPventa_TextChanged);
+            this.txtPventa.TabIndex = 23;            
             // 
             // label2
             // 
