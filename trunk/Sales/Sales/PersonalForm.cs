@@ -48,12 +48,20 @@ namespace Sales
             p.SetSalary(float.Parse(txtSalary.Text));
             p.setDateHired(txtDateH.Text);
             p.SetID(Int32.Parse(txtDNI.Text));
-            p.setWorkArea(Int32.Parse(txtIdArea.Text));
             p.setWorkStation(txtPuesto.Text);
             p.setAddress(txtAddress.Text);
 
             Program.service.addPersonal(p);
 
+        }
+
+        private void PersonalForm_Load(object sender, EventArgs e)
+        {
+            DataSet dsArea;
+            dsArea = Program.service.GetCmbArea();
+            cmbArea.DataSource = dsArea.Tables[0].DefaultView;
+            cmbArea.DisplayMember = "NomArea";
+            cmbArea.ValueMember = "IdArea";
         }        
     }
 }
