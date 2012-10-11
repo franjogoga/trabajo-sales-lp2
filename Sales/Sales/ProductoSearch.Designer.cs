@@ -30,8 +30,8 @@
         {
             this.txtBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.listbox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // txtBuscar
@@ -42,7 +42,7 @@
             this.txtBuscar.TabIndex = 0;
             this.txtBuscar.Text = "BUSCAR";
             this.txtBuscar.UseVisualStyleBackColor = true;
-            this.txtBuscar.Click += new System.EventHandler(this.button1_Click);
+            this.txtBuscar.Click += new System.EventHandler(this.txtBuscar_Click);
             // 
             // label1
             // 
@@ -53,32 +53,32 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Nombre";
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Location = new System.Drawing.Point(161, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(191, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtName.Location = new System.Drawing.Point(161, 19);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(191, 20);
+            this.txtName.TabIndex = 3;
             // 
-            // listBox1
+            // listbox1
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(118, 149);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(234, 134);
-            this.listBox1.TabIndex = 4;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listbox1.FormattingEnabled = true;
+            this.listbox1.Location = new System.Drawing.Point(118, 149);
+            this.listbox1.Name = "listbox1";
+            this.listbox1.Size = new System.Drawing.Size(234, 134);
+            this.listbox1.TabIndex = 4;
+            this.listbox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // Producto
+            // ProductoSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 334);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.listbox1);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBuscar);
-            this.Name = "Producto";
+            this.Name = "ProductoSearch";
             this.Text = "Producto";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -89,7 +89,7 @@
 
         private System.Windows.Forms.Button txtBuscar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.ListBox listbox1;
     }
 }
