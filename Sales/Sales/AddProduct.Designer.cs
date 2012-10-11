@@ -30,11 +30,6 @@
         {
             this.btnExit = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.IdPersonal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.glastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gaddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gemail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button5 = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -53,6 +48,12 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.gId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gstockMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gStockMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gPriceC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gpriceV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -72,41 +73,17 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdPersonal,
-            this.gname,
-            this.glastname,
-            this.gaddress,
-            this.gemail});
-            this.dataGridView1.Location = new System.Drawing.Point(113, 318);
+            this.gId,
+            this.gProduct,
+            this.gstockMin,
+            this.gStockMax,
+            this.gPriceC,
+            this.gpriceV});
+            this.dataGridView1.Location = new System.Drawing.Point(56, 313);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(483, 97);
+            this.dataGridView1.Size = new System.Drawing.Size(642, 97);
             this.dataGridView1.TabIndex = 20;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // IdPersonal
-            // 
-            this.IdPersonal.HeaderText = "ID";
-            this.IdPersonal.Name = "IdPersonal";
-            // 
-            // gname
-            // 
-            this.gname.HeaderText = "Producto";
-            this.gname.Name = "gname";
-            // 
-            // glastname
-            // 
-            this.glastname.HeaderText = "Stock Min";
-            this.glastname.Name = "glastname";
-            // 
-            // gaddress
-            // 
-            this.gaddress.HeaderText = "Stock Max";
-            this.gaddress.Name = "gaddress";
-            // 
-            // gemail
-            // 
-            this.gemail.HeaderText = "Estado";
-            this.gemail.Name = "gemail";
             // 
             // button5
             // 
@@ -170,6 +147,7 @@
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
             // panel1
             // 
@@ -286,6 +264,36 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
             // 
+            // gId
+            // 
+            this.gId.HeaderText = "ID";
+            this.gId.Name = "gId";
+            // 
+            // gProduct
+            // 
+            this.gProduct.HeaderText = "Producto";
+            this.gProduct.Name = "gProduct";
+            // 
+            // gstockMin
+            // 
+            this.gstockMin.HeaderText = "Stock Min";
+            this.gstockMin.Name = "gstockMin";
+            // 
+            // gStockMax
+            // 
+            this.gStockMax.HeaderText = "Stock Max";
+            this.gStockMax.Name = "gStockMax";
+            // 
+            // gPriceC
+            // 
+            this.gPriceC.HeaderText = "PrecioCompra";
+            this.gPriceC.Name = "gPriceC";
+            // 
+            // gpriceV
+            // 
+            this.gpriceV.HeaderText = "PrecioVenta";
+            this.gpriceV.Name = "gpriceV";
+            // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,14 +334,15 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdPersonal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn glastname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gaddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gemail;
         private System.Windows.Forms.TextBox txtPventa;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPcompra;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gProduct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gstockMin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gStockMax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gPriceC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gpriceV;
     }
 }
