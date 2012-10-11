@@ -32,7 +32,7 @@ namespace Sales
 
             String nombre = txtName.Text;
             List<Product> products = new List<Product>();
-            products = Program.service.queryAll(nombre);
+            //products = Program.service.queryAll(nombre);
 
         }
     }
