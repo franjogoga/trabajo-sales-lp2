@@ -136,19 +136,29 @@ namespace SalesService
                         String nombProd = reader.GetString(1);
 
 
-                        //if (nombProd.CompareTo(nombre) == 0) return clients;
-                      // return null;
-
-
+                        if (nombProd.CompareTo(nombre) == 0)
+                        {
+                            Product pr = new Product();
+                            pr.setCodigo(reader.GetInt32(0));
+                            pr.setName(nombProd);
+                            pr.setStockMax(reader.GetInt32(0));
+                            pr.setPrecioVenta(reader.GetInt32(0));
+                            pr.setPrecioCompra(reader.GetInt32(0));
+                            pr.setStockMin(reader.GetInt32(0));
+                            products.Add(pr);
+                            
+                        }
+                      
+                      
                     }
 
 
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
+                        conn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
 
 
             
