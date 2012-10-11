@@ -31,7 +31,8 @@
             this.txtBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.listbox1 = new System.Windows.Forms.ListBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBuscar
@@ -60,26 +61,27 @@
             this.txtName.Size = new System.Drawing.Size(191, 20);
             this.txtName.TabIndex = 3;
             // 
-            // listbox1
+            // dataGridView1
             // 
-            this.listbox1.FormattingEnabled = true;
-            this.listbox1.Location = new System.Drawing.Point(118, 149);
-            this.listbox1.Name = "listbox1";
-            this.listbox1.Size = new System.Drawing.Size(234, 134);
-            this.listbox1.TabIndex = 4;
-            this.listbox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 157);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(448, 150);
+            this.dataGridView1.TabIndex = 4;
             // 
             // ProductoSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 334);
-            this.Controls.Add(this.listbox1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBuscar);
             this.Name = "ProductoSearch";
             this.Text = "Producto";
+            
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,6 +92,6 @@
         private System.Windows.Forms.Button txtBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.ListBox listbox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
