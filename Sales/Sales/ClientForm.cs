@@ -41,7 +41,6 @@ namespace Sales
            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
 
            System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Select * FROM G08_Cliente", conn);
-
            conn.Open();
 
            System.Data.SqlClient.SqlDataReader leer = comando.ExecuteReader();
@@ -50,7 +49,6 @@ namespace Sales
 
            while (leer.Read())
            {
-
                reglon = dataGridView1.Rows.Add();
                dataGridView1.Rows[reglon].Cells["ID"].Value = leer.GetInt32(0);
                dataGridView1.Rows[reglon].Cells["Direccion"].Value = leer.GetString(1);
@@ -65,12 +63,8 @@ namespace Sales
 
        private void btnModify_Click(object sender, EventArgs e)
        {
-       
-           //txtID.Focus();
-           //ClientForm modi = new ClientForm();
            String seleccionado =(dataGridView1.CurrentRow.Cells["ID"].Value).ToString();
-           //modi.nc_cliente_seleccionado = seleccionado;
-           //modi.Show();
+       
            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
            
            System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Select * FROM G08_Cliente where IDCliente=" + seleccionado ,conn);
@@ -79,16 +73,13 @@ namespace Sales
 
            System.Data.SqlClient.SqlDataReader leer = comando.ExecuteReader();
            
-
            if(leer.Read()){
-
                txtID.Text = (leer.GetInt32(0)).ToString();
                txtDireccion.Text = leer.GetString(1);
                txtRazonSocial.Text = leer.GetString(2);
                txtEmail.Text = leer.GetString(3);
                txtTelefono.Text = leer.GetString(4);
                txtEstado.Text = leer.GetString(5);
-
            }
            conn.Close();
        }
@@ -106,6 +97,7 @@ namespace Sales
 
            Program.service.addClient(c);
 
+           MessageBox.Show("Cliente agregado correctactamente");
            cargaClientes();
 
            txtID.Text = "";
@@ -119,10 +111,8 @@ namespace Sales
        }
 
        private void ClientForm_Load_1(object sender, EventArgs e)
-       {
-         
+       {        
            cargaClientes(); 
-
        }
 
        private void btnSave_Click(object sender, EventArgs e)
@@ -132,25 +122,40 @@ namespace Sales
            System.Data.SqlClient.SqlCommand nuevo = new System.Data.SqlClient.SqlCommand("update G08_Cliente set Direccion=@Direccion, RazonSocial=@RazonSocial, Email=@Email, Telefono=@Telefono, EstadoCliente=@Estado where IDCliente=@IDCliente ",conn);
            
            nuevo.Parameters.AddWithValue("IDCliente", txtID.Text);
-           nuevo.Parameters.AddWithValue("Direccion",txtDireccion.Text);   // ponemos lo que vamos a escribir en txtDireccion a la columna "Direccion" de la grilla
+           nuevo.Parameters.AddWithValue("Direccion",txtDireccion.Text);   // ponemos lo que vamos a escribir en txtDireccion a la variable que he creado.
            nuevo.Parameters.AddWithValue("RazonSocial", txtRazonSocial.Text);
            nuevo.Parameters.AddWithValue("Email", txtEmail.Text);
            nuevo.Parameters.AddWithValue("Telefono", txtTelefono.Text);
            nuevo.Parameters.AddWithValue("Estado", txtEstado.Text);
 
            conn.Open();
-
-           nuevo.ExecuteNonQuery();
-          
+           nuevo.ExecuteNonQuery();          
            conn.Close();
+
            cargaClientes();
 
        }
 
        private void btnDelete_Click(object sender, EventArgs e)
        {
-           DialogResult resultado = MessageBox.Show("¿Esta seguro que quiere eliminar el cliente seleccionado?","AVISO",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
-       }    
+           DialogResult resultado = MessageBox.Show("¿Esta seguro que quiere eliminar el cliente seleccionado?","AVISO",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+           if (resultado==DialogResult.No){
+            return;
+           }
+
+           conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+
+           System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Delete from G08_Cliente where IDCliente=@IDCliente",conn);
+           
+           comando.Parameters.AddWithValue("IDCliente", dataGridView1.CurrentRow.Cells["ID"].Value);  //EL IDcliente es el parametro de arriba
+
+           conn.Open();
+           comando.ExecuteNonQuery();
+           conn.Close();
+
+           MessageBox.Show("Cliente borrado correctactamente");
+           cargaClientes();
+           }    
     }
 }
