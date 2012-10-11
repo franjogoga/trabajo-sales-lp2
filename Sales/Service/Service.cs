@@ -70,13 +70,6 @@ namespace SalesService
 
         }
 
-
-
-
-
-
-
-
         public List<Product> queryAll(String nombre)
         
         {
@@ -142,9 +135,6 @@ namespace SalesService
             
             return products;
         }
-
-
-
 
         public void addProduct(Product product)
         {
@@ -236,8 +226,7 @@ namespace SalesService
         {
 
             //registramos el driver
-            System.Data.SqlClient.SqlConnection conn =
-                       new System.Data.SqlClient.SqlConnection();
+            SqlConnection conn = new SqlConnection();
 
             //abrimos la conexion
             conn.ConnectionString = "user id=inf282;" +
@@ -249,79 +238,39 @@ namespace SalesService
             try
             {
                 conn.Open();
-
-
                 string sqlString = "INSERT INTO G08_Personal(IDPersonal," +
                                "Nombres, Apellidos, Email, FechaContrato, Direccion, Sueldo, Puesto, IdArea) " +
                                "VALUES (@Param1, @Param2, @Param3, @Param4, @Param5, @Param6, @Param7, @Param8, @Param9)";
 
                 //param1 = idPersonal
-                System.Data.SqlClient.SqlParameter myParam1 =
-                        new System.Data.SqlClient.SqlParameter(
-                            "@Param1", System.Data.SqlDbType.Int);
-
+                SqlParameter myParam1 =new SqlParameter("@Param1", SqlDbType.Int);
                 myParam1.Value = personal.GetID();
-
                 //param2 = nombres
-                System.Data.SqlClient.SqlParameter myParam2 =
-                        new System.Data.SqlClient.SqlParameter(
-                            "@Param2", System.Data.SqlDbType.VarChar, 20);
-
+                SqlParameter myParam2 = new SqlParameter("@Param2", SqlDbType.VarChar, 20);
                 myParam2.Value = personal.GetName();
-
                 //param3 = apellidos
-                System.Data.SqlClient.SqlParameter myParam3 =
-                        new System.Data.SqlClient.SqlParameter(
-                            "@Param3", System.Data.SqlDbType.VarChar, 20);
-
+                SqlParameter myParam3 = new SqlParameter("@Param3", SqlDbType.VarChar, 20);
                 myParam3.Value = personal.GetLastname();
-
                 //param4 = Email
-                System.Data.SqlClient.SqlParameter myParam4 =
-                        new System.Data.SqlClient.SqlParameter(
-                            "@Param4", System.Data.SqlDbType.VarChar, 20);
-
+                SqlParameter myParam4 = new SqlParameter("@Param4", SqlDbType.VarChar, 20);
                 myParam4.Value = personal.GetEmail();
-
                 //param5 = fecha contrato
-                System.Data.SqlClient.SqlParameter myParam5 =
-                        new System.Data.SqlClient.SqlParameter(
-                            "@Param5", System.Data.SqlDbType.VarChar, 10);
-
+                SqlParameter myParam5 = new SqlParameter("@Param5",SqlDbType.VarChar, 10);
                 myParam5.Value = personal.getDateHired();
-
                 //param6 = Direccion
-                System.Data.SqlClient.SqlParameter myParam6 =
-                        new System.Data.SqlClient.SqlParameter(
-                            "@Param6", System.Data.SqlDbType.VarChar, 30);
-
+                SqlParameter myParam6 = new SqlParameter("@Param6", SqlDbType.VarChar, 30);
                 myParam6.Value = personal.getAddress();
                 //param7 = sueldo
-                
-                System.Data.SqlClient.SqlParameter myParam7 =
-                       new System.Data.SqlClient.SqlParameter(
-                           "@Param7", System.Data.SqlDbType.Float);
-
+                SqlParameter myParam7 = new SqlParameter("@Param7", SqlDbType.Float);
                 myParam7.Value = personal.GetSalary();
-
                 //Param8 = puesto
-                System.Data.SqlClient.SqlParameter myParam8 =
-                        new System.Data.SqlClient.SqlParameter(
-                            "@Param8", System.Data.SqlDbType.VarChar,20);
-
+                SqlParameter myParam8 = new SqlParameter("@Param8", SqlDbType.VarChar,20);
                 myParam8.Value = personal.getWorkStation();
-
                 //Param9 = IdArea
-                System.Data.SqlClient.SqlParameter myParam9 =
-                        new System.Data.SqlClient.SqlParameter(
-                            "@Param9", System.Data.SqlDbType.Int);
-
+                SqlParameter myParam9 = new SqlParameter("@Param9", SqlDbType.Int);
                 myParam9.Value = personal.getWorkArea();
 
-
-
-                System.Data.SqlClient.SqlCommand myCommand =
-                    new System.Data.SqlClient.SqlCommand(sqlString, conn);
+                SqlCommand myCommand = new SqlCommand(sqlString, conn);
 
                 myCommand.Parameters.Add(myParam1);
                 myCommand.Parameters.Add(myParam2);
