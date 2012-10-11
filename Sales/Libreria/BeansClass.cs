@@ -302,7 +302,6 @@ namespace Libreria
 
         public Client(int idCliente, String direccion, String estadoCliente, String correo, String telefono, String razonSocial)
         {
-
             IdClient = idCliente;
             Address = direccion;
             EstadoCliente = estadoCliente;
