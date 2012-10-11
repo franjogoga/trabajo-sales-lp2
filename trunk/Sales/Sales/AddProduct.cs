@@ -18,6 +18,7 @@ namespace Sales
             InitializeComponent();
         }
 
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
@@ -39,6 +40,16 @@ namespace Sales
 
         }
 
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            this.dataGridView1.Rows.Add();
+
+        }
+
+
+
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -51,8 +62,23 @@ namespace Sales
             this.Visible = false;
             ProductoSearch testDialog = new ProductoSearch();
             testDialog.Visible = true;
-            
-           
+
+
         }
-    }
+
+        private void btnSave_Click_1(object sender, EventArgs e)
+        {
+
+
+            this.dataGridView1.Rows.Add(txtId, txtName, txtStMin, txtStMax, txtPcompra, txtPventa);
+        }
+
+
+
+
+
+
+
+    } 
+
 }
