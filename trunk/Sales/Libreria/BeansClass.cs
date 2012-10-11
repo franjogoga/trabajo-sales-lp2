@@ -135,22 +135,26 @@ namespace Libreria
             try
             {
                 con.Open();
-                String sqlString = "SELECT * " +
-                                   "FROM G08_USUARIO " +
-                                   "WHERE IDUSER = @param1 and CLAVE = @param2";
+                String sqlString = "SELECT * " +"FROM G08_USUARIO " +"WHERE IDUSER = @param1 and CLAVE = @param2";
+                
                 SqlParameter myParam1 = new SqlParameter("@Param1", SqlDbType.VarChar, 20);
                 myParam1.Value = idUser;
+                
                 SqlParameter myParam2 = new SqlParameter("@Param2", SqlDbType.VarChar, 20);
                 myParam2.Value = password;
+                
                 SqlCommand myCommand = new SqlCommand(sqlString, con);
+                
                 myCommand.Parameters.Add(myParam1);
                 myCommand.Parameters.Add(myParam2);
 
                 SqlDataReader reader;
                 reader = myCommand.ExecuteReader();
+                
                 reader.Read();
                 String userBD = reader.GetString(0);
                 String passBD = reader.GetString(1);
+                
                 if (idUser.Equals(userBD) && password.Equals(passBD))
                 {
                     flag = 1;
@@ -168,7 +172,6 @@ namespace Libreria
                 //throw; esto no funca, no se debe hacer
             }
             return flag;
-
         }
 
         public void SetUser(string user)
