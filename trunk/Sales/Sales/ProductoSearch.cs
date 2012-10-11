@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Libreria;
+using SalesService;
 
 namespace Sales
 {
@@ -16,14 +18,21 @@ namespace Sales
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+       
+  
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+
+        }
+
+        private void txtBuscar_Click(object sender, EventArgs e)
+        {
+
+            String nombre = txtName.Text;
+            List<Product> products = new List<Product>();
+            products = Program.service.queryAll(nombre);
 
         }
     }
