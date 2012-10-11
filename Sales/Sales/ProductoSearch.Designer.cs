@@ -60,6 +60,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(191, 20);
             this.txtName.TabIndex = 3;
+            
             // 
             // dataGridView1
             // 
@@ -68,6 +69,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(448, 150);
             this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
             // 
             // ProductoSearch
             // 
@@ -80,7 +82,6 @@
             this.Controls.Add(this.txtBuscar);
             this.Name = "ProductoSearch";
             this.Text = "Producto";
-            
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -124,16 +124,16 @@ namespace SalesService
                 myParam2.Value = product.getName();
 
                 System.Data.SqlClient.SqlParameter myParam3 = new System.Data.SqlClient.SqlParameter("@Param3", System.Data.SqlDbType.Int);
-                myParam3.Value = product.getStockMin();
+                myParam3.Value = product.getStockMax();
 
                 System.Data.SqlClient.SqlParameter myParam4 = new System.Data.SqlClient.SqlParameter("@Param4", System.Data.SqlDbType.Float);
-                myParam4.Value = product.getStockMax();
+                myParam4.Value = product.getPrecioVenta();
 
                 System.Data.SqlClient.SqlParameter myParam5 = new System.Data.SqlClient.SqlParameter("@Param5", System.Data.SqlDbType.Float);
-                myParam5.Value = product.getPrecioVenta();
+                myParam5.Value = product.getPrecioCompra();
 
                 System.Data.SqlClient.SqlParameter myParam6 = new System.Data.SqlClient.SqlParameter("@Param6", System.Data.SqlDbType.Int);
-                myParam6.Value = product.getPrecioCompra();
+                myParam6.Value = product.getStockMin();
 
                 System.Data.SqlClient.SqlCommand myCommand = new System.Data.SqlClient.SqlCommand(sqlString, conn);
 

@@ -68,6 +68,7 @@
             this.btnExit.Text = "&Salir";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // dataGridView1
             // 
@@ -174,6 +175,7 @@
             this.txtPventa.Name = "txtPventa";
             this.txtPventa.Size = new System.Drawing.Size(67, 20);
             this.txtPventa.TabIndex = 23;
+            this.txtPventa.TextChanged += new System.EventHandler(this.txtPventa_TextChanged);
             // 
             // label2
             // 
