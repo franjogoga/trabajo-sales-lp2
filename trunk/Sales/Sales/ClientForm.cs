@@ -45,7 +45,7 @@ namespace Sales
            conn.Open();
 
            System.Data.SqlClient.SqlDataReader leer = comando.ExecuteReader();
-
+           dataGridView1.Rows.Clear();  //limpiar la grilla si es voy a llamar este metodo desde otro lugar
            int reglon = 0;
 
            while (leer.Read())
@@ -142,7 +142,13 @@ namespace Sales
 
            nuevo.ExecuteNonQuery();
           
-           conn.Close(); 
+           conn.Close();
+           cargaClientes();
+
+       }
+
+       private void btnDelete_Click(object sender, EventArgs e)
+       {
 
        }    
     }
