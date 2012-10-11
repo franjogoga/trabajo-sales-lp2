@@ -168,8 +168,7 @@ namespace Libreria
             }
             catch (Exception)
             {
-                flag = 0;
-                //throw; esto no funca, no se debe hacer
+                flag = 0;                
             }
             return flag;
         }
