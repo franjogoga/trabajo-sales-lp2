@@ -22,9 +22,7 @@ namespace Libreria
 
         //Data Source=KEVIN-VAIO\\SQLEXPRESS;Initial Catalog=EuroBD;Integrated Security=True
 
-        public Personal()
-        {
-        }
+        public Personal()  {   }
         public Personal(int iD, String nam, String last, String add, String ema, String date, float sal)
         {
             iDPersonal = iD;
@@ -114,8 +112,6 @@ namespace Libreria
         {
             address = dir;
         }
-
-
     }
 
     public class User
