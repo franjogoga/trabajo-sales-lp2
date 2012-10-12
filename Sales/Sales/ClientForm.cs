@@ -152,8 +152,9 @@ namespace Sales
 
        private void btnSearch_Click(object sender, EventArgs e)
        {
-           //ClientSearch cliS = new ClientSearch();
-           //cliS.Show();
+           this.Visible = false;
+           ClienteSearch testDialog = new ClienteSearch();
+           testDialog.Visible = true;
        }    
     }
 }
