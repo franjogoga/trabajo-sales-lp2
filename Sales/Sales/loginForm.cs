@@ -27,8 +27,8 @@ namespace Sales
         private void btnAccept_Click(object sender, EventArgs e)
         {
             usuario = new User();
-            usuario.SetUser(txtUser.Text);
-            usuario.SetPassword(txtPassword.Text);
+            usuario.SetUser(txtUser.Text.ToUpper());
+            usuario.SetPassword(txtPassword.Text.ToUpper());
             usuario.HacerConexion();
             if (usuario.ValidarPassword() == 1)
             {
