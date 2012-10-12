@@ -119,7 +119,7 @@ namespace Sales
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
             refMainForm.Show();
-            this.Hide();
+            this.Dispose();
         }
      
     }
