@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Libreria;
 using Sales;
+using System.Data.SqlClient;
 
 namespace Sales
 {
@@ -51,8 +52,33 @@ namespace Sales
             p.SetDNI(txtDNI.Text);
             p.setWorkStation(txtPuesto.Text);
             p.setAddress(txtDireccion.Text);
-
+            p.setWorkArea(Int32.Parse(cmbArea.SelectedValue.ToString()));
+            lblError.Text = "Registrado";
             Program.service.addPersonal(p);
+        }
+
+        void cargaClientes()
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+
+            string stringSQL = "SELECT * FROM G08_Personal";
+
+            SqlDataAdapter daProductos = new SqlDataAdapter();
+
+            SqlCommand command = new SqlCommand(stringSQL, conn);
+
+            daProductos.SelectCommand = command;
+
+            DataSet dset = new DataSet();
+
+            daProductos.Fill(dset, "G08_Producto");
+
+            gridPersonal.DataSource = dset;
+
+            gridPersonal.DataMember = "G08_Producto";
+
+            conn.Close();
         }
 
         private void PersonalForm_Load(object sender, EventArgs e)
@@ -68,6 +94,10 @@ namespace Sales
             idpersonal = Program.service.obtenerNuevoID();
             idpersonal = idpersonal + 1;
             lblIdPersonal.Text = "" + idpersonal;
-        }        
+            cargaClientes();
+        }
+
+
+     
     }
 }

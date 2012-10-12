@@ -49,16 +49,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.IdPersonal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.glastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gaddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gemail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gsalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gworkArea = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gworkS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridPersonal = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnNuevoUsuario = new System.Windows.Forms.Button();
@@ -68,8 +59,9 @@
             this.btnAgregarPersonal = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblError = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPersonal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -264,68 +256,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
             // 
-            // dataGridView1
+            // gridPersonal
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdPersonal,
-            this.gname,
-            this.glastname,
-            this.gaddress,
-            this.gemail,
-            this.gDate,
-            this.gsalary,
-            this.gworkArea,
-            this.gworkS});
-            this.dataGridView1.Location = new System.Drawing.Point(22, 314);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(793, 150);
-            this.dataGridView1.TabIndex = 10;
-            // 
-            // IdPersonal
-            // 
-            this.IdPersonal.HeaderText = "ID";
-            this.IdPersonal.Name = "IdPersonal";
-            // 
-            // gname
-            // 
-            this.gname.HeaderText = "Nombres";
-            this.gname.Name = "gname";
-            // 
-            // glastname
-            // 
-            this.glastname.HeaderText = "Apellidos";
-            this.glastname.Name = "glastname";
-            // 
-            // gaddress
-            // 
-            this.gaddress.HeaderText = "Direccion";
-            this.gaddress.Name = "gaddress";
-            // 
-            // gemail
-            // 
-            this.gemail.HeaderText = "Email";
-            this.gemail.Name = "gemail";
-            // 
-            // gDate
-            // 
-            this.gDate.HeaderText = "F. Hired";
-            this.gDate.Name = "gDate";
-            // 
-            // gsalary
-            // 
-            this.gsalary.HeaderText = "Sueldo";
-            this.gsalary.Name = "gsalary";
-            // 
-            // gworkArea
-            // 
-            this.gworkArea.HeaderText = "Area";
-            this.gworkArea.Name = "gworkArea";
-            // 
-            // gworkS
-            // 
-            this.gworkS.HeaderText = "Puesto";
-            this.gworkS.Name = "gworkS";
+            this.gridPersonal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridPersonal.Location = new System.Drawing.Point(22, 314);
+            this.gridPersonal.Name = "gridPersonal";
+            this.gridPersonal.Size = new System.Drawing.Size(793, 150);
+            this.gridPersonal.TabIndex = 10;
             // 
             // label11
             // 
@@ -405,6 +342,7 @@
             this.btnAgregarPersonal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarPersonal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgregarPersonal.UseVisualStyleBackColor = true;
+            this.btnAgregarPersonal.Click += new System.EventHandler(this.btnAgregarPersonal_Click);
             // 
             // btnGuardar
             // 
@@ -428,14 +366,24 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.ForeColor = System.Drawing.Color.Blue;
+            this.lblError.Location = new System.Drawing.Point(369, 224);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 13);
+            this.lblError.TabIndex = 13;
+            // 
             // PersonalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 476);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.gridPersonal);
             this.Controls.Add(this.btnNuevoUsuario);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
@@ -449,7 +397,7 @@
             this.Load += new System.EventHandler(this.PersonalForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPersonal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -481,16 +429,7 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnNuevoUsuario;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdPersonal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn glastname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gaddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gemail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gsalary;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gworkArea;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gworkS;
+        private System.Windows.Forms.DataGridView gridPersonal;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.Label label9;
@@ -498,5 +437,6 @@
         private System.Windows.Forms.Label lblIdPersonal;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbArea;
+        private System.Windows.Forms.Label lblError;
     }
 }

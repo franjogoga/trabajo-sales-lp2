@@ -164,9 +164,8 @@ namespace SalesService
             {
                 conn.Open();
 
-                string sqlString = "INSERT INTO G08_Personal(IDPersonal,"
-                                   + "Nombres, Apellidos, Email, FechaContrato, Direccion, Sueldo, Puesto, IdArea,DNI) "
-                                   + "VALUES (@Param1, @Param2, @Param3, @Param4, @Param5, @Param6, @Param7, @Param8, @Param9,@Param10)";
+                string sqlString = "INSERT INTO G08_Personal(IDPersonal,Nombres, Apellidos, Email, FechaContrato, Direccion, Sueldo, Puesto, IdArea,DNI) "
+                                   + "VALUES (@Param1, @Param2, @Param3,  @Param4, @Param5, @Param6, @Param7, @Param8, @Param9,@Param10)";
 
                 SqlParameter myParam1 = new SqlParameter("@Param1", SqlDbType.Int);
                 myParam1.Value = personal.GetID();
