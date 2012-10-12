@@ -294,6 +294,7 @@
             this.btnNuevoUsuario.TabIndex = 9;
             this.btnNuevoUsuario.UseVisualStyleBackColor = true;
             this.btnNuevoUsuario.Click += new System.EventHandler(this.btnNuevoUsuario_Click);
+            this.btnNuevoUsuario.Enabled = false; //desactiva la vista
             // 
             // btnEliminar
             // 
@@ -306,6 +307,7 @@
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Enabled = false; //desactiva la vista
             // 
             // btnModificar
             // 
@@ -318,6 +320,7 @@
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Enabled = false; //desactiva la vista
             // 
             // btnBuscar
             // 
@@ -331,6 +334,7 @@
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.Enabled = false; //desactiva la vista
             // 
             // btnAgregarPersonal
             // 
@@ -357,6 +361,7 @@
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Enabled = false; //desactiva la vista
             // 
             // pictureBox1
             // 
