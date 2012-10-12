@@ -82,6 +82,10 @@
     <Compile Include="loginForm.Designer.cs">
       <DependentUpon>loginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PersonalSearch.cs" />
+    <Compile Include="PersonalSearch.designer.cs">
+      <DependentUpon>PersonalSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductoSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +142,7 @@
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PersonalSearch.resx" />
     <EmbeddedResource Include="ProductoSearch.resx">
       <DependentUpon>ProductoSearch.cs</DependentUpon>
     </EmbeddedResource>
