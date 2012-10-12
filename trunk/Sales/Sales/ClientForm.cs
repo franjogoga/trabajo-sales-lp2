@@ -31,11 +31,8 @@ namespace Sales
         public void SetrefmainForm(mainForm mainp)
         {
             refMainForm = mainp;
-        }   
-
-     
-         
-            
+        }  
+                    
        void cargaClientes( ){
 
            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
@@ -84,20 +81,21 @@ namespace Sales
            conn.Close();
        }
 
+       int i = 1; 
        private void btnAdd_Click_1(object sender, EventArgs e)
        {
            Client c = new Client();
 
-           c.setIdCliente(Int32.Parse(txtID.Text));
+           c.setIdCliente(i);
            c.setDireccion((txtDireccion.Text));
            c.setRazonSocial(txtRazonSocial.Text);
            c.setCorreo((txtEmail.Text));
            c.setTelefono((txtTelefono.Text));
            c.setEstadoCliente((txtEstado.Text));
-
+           i++;
            Program.service.addClient(c);
 
-           MessageBox.Show("Cliente agregado correctactamente");
+           MessageBox.Show("Cliente Agregado Correctactamente","AVISO",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
            cargaClientes();
 
            txtID.Text = "";
@@ -105,9 +103,7 @@ namespace Sales
            txtEstado.Text = "";
            txtRazonSocial.Text = "";
            txtTelefono.Text = "";
-           txtEmail.Text = "";
-
-          
+           txtEmail.Text = "";          
        }
 
        private void ClientForm_Load_1(object sender, EventArgs e)
@@ -121,7 +117,7 @@ namespace Sales
 
            System.Data.SqlClient.SqlCommand nuevo = new System.Data.SqlClient.SqlCommand("update G08_Cliente set Direccion=@Direccion, RazonSocial=@RazonSocial, Email=@Email, Telefono=@Telefono, EstadoCliente=@Estado where IDCliente=@IDCliente ",conn);
            
-           nuevo.Parameters.AddWithValue("IDCliente", txtID.Text);
+           nuevo.Parameters.AddWithValue("IDCliente", i);
            nuevo.Parameters.AddWithValue("Direccion",txtDireccion.Text);   // ponemos lo que vamos a escribir en txtDireccion a la variable que he creado.
            nuevo.Parameters.AddWithValue("RazonSocial", txtRazonSocial.Text);
            nuevo.Parameters.AddWithValue("Email", txtEmail.Text);
@@ -154,7 +150,7 @@ namespace Sales
            comando.ExecuteNonQuery();
            conn.Close();
 
-           MessageBox.Show("Cliente borrado correctactamente");
+           MessageBox.Show("Cliente Borrado Correctactamente","AVISO",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
            cargaClientes();
            }    
     }
