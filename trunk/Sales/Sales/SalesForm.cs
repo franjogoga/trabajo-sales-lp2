@@ -57,15 +57,24 @@ namespace Sales
         private void SalesForm_Load(object sender, EventArgs e)
         {
             DataSet dsTipoDoc;
+            DataSet dsEstado;
             //Instrucciones para cargar el combo TipoDoc
             dsTipoDoc = Program.service.GetCmbTipoDoc();
             cmbTipoDoc.DataSource = dsTipoDoc.Tables[0].DefaultView;
             cmbTipoDoc.DisplayMember = "NomDoc";
-            cmbTipoDoc.ValueMember = "IdTipo";
+            cmbTipoDoc.ValueMember = "IdTipoDoc";
             cmbTipoDoc.SelectedIndex = -1;
+            //Instrucciones para cargar el combo Estado de Ventas
+            dsEstado = Program.service.GetCmbEstado();
+            cmbEstado.DataSource = dsEstado.Tables[0].DefaultView;
+            cmbEstado.DisplayMember = "Descripcion";
+            cmbEstado.ValueMember = "IDEstado";
+            cmbEstado.SelectedIndex = -1;
             //Instrucciones para cargar el Id de Ventas
             idVentas = Program.service.obtenerNuevoID();
             idVentas++;
+         
+            
             lblIdVenta.Text = "" + lblIdVenta;
         }
     }
