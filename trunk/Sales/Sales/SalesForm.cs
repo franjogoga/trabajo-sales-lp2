@@ -39,8 +39,9 @@ namespace Sales
         private void button1_Click(object sender, EventArgs e)
         {
             ProductSearch2 pSearch = new ProductSearch2();
-            pSearch.ShowDialog(this);
             pSearch.SetRefSales(this);//le envio la direccion de la ventana padre al hijo
+            pSearch.ShowDialog(this);
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -53,6 +54,7 @@ namespace Sales
             int cantidad = Int32.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
             float Pventa = float.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
             dataGridView1.CurrentRow.Cells["SubTotal"].Value = pVenta * cantidad;
+
         }
 
         private void SalesForm_Load(object sender, EventArgs e)
