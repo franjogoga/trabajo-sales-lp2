@@ -121,6 +121,7 @@
             this.btnAceptar.TabIndex = 8;
             this.btnAceptar.Text = "Registrar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
