@@ -15,7 +15,9 @@ namespace Sales
     public partial class PersonalForm : Form
     {
         private mainForm refMainForm = null;
-        private int idpersonal;
+        private int idpersonal=0;
+        private SqlConnection conn = new SqlConnection("user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30");
+
         public PersonalForm()
         {
             InitializeComponent();
@@ -60,19 +62,19 @@ namespace Sales
 
             string stringSQL = "SELECT * FROM G08_Personal";
 
-            SqlDataAdapter daProductos = new SqlDataAdapter();
+            SqlDataAdapter daPersonal = new SqlDataAdapter();
 
             SqlCommand command = new SqlCommand(stringSQL, conn);
 
-            daProductos.SelectCommand = command;
+            daPersonal.SelectCommand = command;
 
             DataSet dset = new DataSet();
 
-            daProductos.Fill(dset, "G08_Producto");
+            daPersonal.Fill(dset, "G08_Personal");
 
             gridPersonal.DataSource = dset;
 
-            gridPersonal.DataMember = "G08_Producto";
+            gridPersonal.DataMember = "G08_Personal";
 
             conn.Close();
         }
@@ -115,6 +117,9 @@ namespace Sales
             Program.service.addPersonal(p);
 
             lblError.Text = "Registrado";
+           
+            cargaPersonal();
+
         }
 
         private void btnSalir_Click_1(object sender, EventArgs e)
