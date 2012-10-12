@@ -17,6 +17,7 @@ namespace Sales
         private float pVenta;
         private int idVentas;
         private int fil=0;
+        private int var = 0;
 
         public SalesForm()
         {
@@ -51,9 +52,12 @@ namespace Sales
         }
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
+
             int cantidad = Int32.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
             float Pventa = float.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
             dataGridView1.CurrentRow.Cells["SubTotal"].Value = pVenta * cantidad;
+            var = (Int32)(var + pVenta * cantidad);
+            txtTotal.Text = var.ToString();
 
         }
 
