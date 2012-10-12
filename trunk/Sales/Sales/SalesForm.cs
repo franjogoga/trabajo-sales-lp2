@@ -17,6 +17,7 @@ namespace Sales
         private float pVenta;
         private int idVentas;
         private int fil=0;
+
         public SalesForm()
         {
             InitializeComponent();
@@ -73,7 +74,7 @@ namespace Sales
             //Instrucciones para cargar el Id de Ventas
             idVentas = Program.service.obtenerNuevoIDVenta();
             idVentas++; 
-            lblIdVenta.Text = "" + lblIdVenta;
+            lblIdVenta.Text = "" + idVentas;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
