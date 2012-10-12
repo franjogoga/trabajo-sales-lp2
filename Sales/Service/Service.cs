@@ -115,7 +115,7 @@ namespace SalesService
             {
                 conn.Open();
 
-                string sqlString = "INSERT INTO G08_Producto(IDProducto," + "NomProd, stockMax, PrecioVenta,  PrecioCompra, stockMin) " + "VALUES (@Param1, @Param2, @Param3, @Param4, @Param5, @Param6)";
+                string sqlString = "INSERT INTO G08_Producto(IDProducto," + "NomProd, StocK, PrecioVenta,  PrecioCompra, stockMin) " + "VALUES (@Param1, @Param2, @Param3, @Param4, @Param5, @Param6)";
 
                 System.Data.SqlClient.SqlParameter myParam1 = new System.Data.SqlClient.SqlParameter("@Param1", System.Data.SqlDbType.Int);
                 myParam1.Value = product.getCodigo();
@@ -126,10 +126,10 @@ namespace SalesService
                 System.Data.SqlClient.SqlParameter myParam3 = new System.Data.SqlClient.SqlParameter("@Param3", System.Data.SqlDbType.Int);
                 myParam3.Value = product.getStockMax();
 
-                System.Data.SqlClient.SqlParameter myParam4 = new System.Data.SqlClient.SqlParameter("@Param4", System.Data.SqlDbType.Float);
+                System.Data.SqlClient.SqlParameter myParam4 = new System.Data.SqlClient.SqlParameter("@Param4", System.Data.SqlDbType.Decimal);
                 myParam4.Value = product.getPrecioVenta();
 
-                System.Data.SqlClient.SqlParameter myParam5 = new System.Data.SqlClient.SqlParameter("@Param5", System.Data.SqlDbType.Float);
+                System.Data.SqlClient.SqlParameter myParam5 = new System.Data.SqlClient.SqlParameter("@Param5", System.Data.SqlDbType.Decimal);
                 myParam5.Value = product.getPrecioCompra();
 
                 System.Data.SqlClient.SqlParameter myParam6 = new System.Data.SqlClient.SqlParameter("@Param6", System.Data.SqlDbType.Int);
