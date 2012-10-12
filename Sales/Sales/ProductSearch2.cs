@@ -62,8 +62,9 @@ namespace Sales
             int Id = Int32.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
             String Name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             float Pventa = float.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
-            refSales.SetDatos(Id,Name,Pventa);
             refSales.Show();
+            refSales.SetDatos(Id,Name,Pventa);
+            
             this.Dispose();
         }
 
