@@ -14,9 +14,13 @@ namespace Sales
 {
     public partial class PersonalForm : Form
     {
+        
+       
         private mainForm refMainForm = null;
         private int idpersonal=0;
         private SqlConnection conn = new SqlConnection("user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30");
+
+       
 
         public PersonalForm()
         {
@@ -97,7 +101,12 @@ namespace Sales
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
+            PersonalSearch testDialog = new PersonalSearch();
+            testDialog.Visible = true;
+
         }
+
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -126,6 +135,30 @@ namespace Sales
         {
             refMainForm.Show();
             this.Dispose();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Seguro que desea eliminar el personal seleccionado?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resultado == DialogResult.No)
+            {
+                return;
+            }
+            System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Delete from G08_Personal where IDPersonal = @IDPersonal", conn);
+
+            comando.Parameters.AddWithValue("IDPersonal", gridPersonal.CurrentRow.Cells["IDPersonal"].Value);  
+
+            conn.Open();
+            comando.ExecuteNonQuery();
+            conn.Close();
+
+            MessageBox.Show("Cliente Borrado Correctactamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            cargaPersonal();
         }
      
     }
