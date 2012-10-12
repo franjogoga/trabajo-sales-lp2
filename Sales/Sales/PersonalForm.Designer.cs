@@ -87,11 +87,11 @@
             this.panelPersonal.Controls.Add(this.label3);
             this.panelPersonal.Controls.Add(this.label2);
             this.panelPersonal.Controls.Add(this.label1);
+            this.panelPersonal.Enabled = false;
             this.panelPersonal.Location = new System.Drawing.Point(168, 23);
             this.panelPersonal.Name = "panelPersonal";
             this.panelPersonal.Size = new System.Drawing.Size(483, 204);
             this.panelPersonal.TabIndex = 0;
-            this.panelPersonal.Enabled = false; //esta linea se modifico para bloquear el panel
             // 
             // cmbArea
             // 
@@ -287,6 +287,7 @@
             // 
             // btnNuevoUsuario
             // 
+            this.btnNuevoUsuario.Enabled = false;
             this.btnNuevoUsuario.Image = global::Sales.Properties.Resources.add_user;
             this.btnNuevoUsuario.Location = new System.Drawing.Point(23, 155);
             this.btnNuevoUsuario.Name = "btnNuevoUsuario";
@@ -294,10 +295,10 @@
             this.btnNuevoUsuario.TabIndex = 9;
             this.btnNuevoUsuario.UseVisualStyleBackColor = true;
             this.btnNuevoUsuario.Click += new System.EventHandler(this.btnNuevoUsuario_Click);
-            this.btnNuevoUsuario.Enabled = false; //desactiva la vista
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Enabled = false;
             this.btnEliminar.Image = global::Sales.Properties.Resources.delete;
             this.btnEliminar.Location = new System.Drawing.Point(687, 165);
             this.btnEliminar.Name = "btnEliminar";
@@ -307,10 +308,10 @@
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Enabled = false; //desactiva la vista
             // 
             // btnModificar
             // 
+            this.btnModificar.Enabled = false;
             this.btnModificar.Image = global::Sales.Properties.Resources.modify;
             this.btnModificar.Location = new System.Drawing.Point(687, 118);
             this.btnModificar.Name = "btnModificar";
@@ -320,10 +321,10 @@
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Enabled = false; //desactiva la vista
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Enabled = false;
             this.btnBuscar.Image = global::Sales.Properties.Resources.search;
             this.btnBuscar.Location = new System.Drawing.Point(687, 72);
             this.btnBuscar.Name = "btnBuscar";
@@ -334,7 +335,6 @@
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            this.btnBuscar.Enabled = false; //desactiva la vista
             // 
             // btnAgregarPersonal
             // 
@@ -352,6 +352,7 @@
             // 
             // btnGuardar
             // 
+            this.btnGuardar.Enabled = false;
             this.btnGuardar.Image = global::Sales.Properties.Resources.save;
             this.btnGuardar.Location = new System.Drawing.Point(687, 21);
             this.btnGuardar.Name = "btnGuardar";
@@ -361,7 +362,7 @@
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Enabled = false; //desactiva la vista
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // pictureBox1
             // 

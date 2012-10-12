@@ -41,20 +41,7 @@ namespace Sales
 
         private void btnAgregarPersonal_Click(object sender, EventArgs e)
         {
-            Personal p = new Personal();
             
-            p.SetName(txtNombre.Text);
-            p.SetLastName(txtApellido.Text);
-            p.SetEmail(txtEmail.Text);
-            p.SetSalary(float.Parse(txtSalario.Text));
-            p.setDateHired(txtFContrato.Text);
-            p.SetID(Int32.Parse(lblIdPersonal.Text));
-            p.SetDNI(txtDNI.Text);
-            p.setWorkStation(txtPuesto.Text);
-            p.setAddress(txtDireccion.Text);
-            p.setWorkArea(Int32.Parse(cmbArea.SelectedValue.ToString()));
-            lblError.Text = "Registrado";
-            Program.service.addPersonal(p);
         }
 
         void cargaClientes()
@@ -100,6 +87,24 @@ namespace Sales
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Personal p = new Personal();
+
+            p.SetName(txtNombre.Text);
+            p.SetLastName(txtApellido.Text);
+            p.SetEmail(txtEmail.Text);
+            p.SetSalary(float.Parse(txtSalario.Text));
+            p.setDateHired(txtFContrato.Text);
+            p.SetID(Int32.Parse(lblIdPersonal.Text));
+            p.SetDNI(txtDNI.Text);
+            p.setWorkStation(txtPuesto.Text);
+            p.setAddress(txtDireccion.Text);
+            p.setWorkArea(Int32.Parse(cmbArea.SelectedValue.ToString()));
+            lblError.Text = "Registrado";
+            Program.service.addPersonal(p);
         }
      
     }
