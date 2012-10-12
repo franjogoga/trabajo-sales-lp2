@@ -7,19 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Libreria;
+using System.Data.SqlClient;
 
 namespace Sales
 {
     public partial class ClientForm : Form
     {
-        private mainForm refMainForm = null; 
+        private mainForm refMainForm = null;
+        private int idCliente=0;
+
+        private SqlConnection conn = new SqlConnection("user id=inf282;" +
+                               "password=inf282db;" +
+                               "server=inti.lab.inf.pucp.edu.pe;" +
+                               "database=inf282; " +
+                               "connection timeout=30");
+
 
         public ClientForm()
         {
             InitializeComponent();
         }
 
-        System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
+        //System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
 
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -33,9 +42,7 @@ namespace Sales
             refMainForm = mainp;
         }  
                     
-       void cargaClientes( ){
-
-           conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+       void cargaClientes( ){          
 
            System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Select * FROM G08_Cliente", conn);
            conn.Open();
@@ -62,7 +69,7 @@ namespace Sales
        {
            String seleccionado =(dataGridView1.CurrentRow.Cells["ID"].Value).ToString();
        
-           conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+           //conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
            
            System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Select * FROM G08_Cliente where IDCliente=" + seleccionado ,conn);
 
@@ -81,43 +88,47 @@ namespace Sales
            conn.Close();
        }
 
-       int i = 1; 
        private void btnAdd_Click_1(object sender, EventArgs e)
        {
+
+           idCliente = Program.service.obtenerNuevoClientID();
+           idCliente = idCliente + 1;
+
            Client c = new Client();
 
-           c.setIdCliente(i);
+           c.setIdCliente(idCliente);
            c.setDireccion((txtDireccion.Text));
            c.setRazonSocial(txtRazonSocial.Text);
            c.setCorreo((txtEmail.Text));
            c.setTelefono((txtTelefono.Text));
            c.setEstadoCliente((txtEstado.Text));
-           i++;
+           
            Program.service.addClient(c);
 
            MessageBox.Show("Cliente Agregado Correctactamente","AVISO",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
-           cargaClientes();
 
            txtID.Text = "";
            txtDireccion.Text = "";
            txtEstado.Text = "";
            txtRazonSocial.Text = "";
            txtTelefono.Text = "";
-           txtEmail.Text = "";          
+           txtEmail.Text = "";
+
+           cargaClientes();
        }
 
        private void ClientForm_Load_1(object sender, EventArgs e)
-       {        
-           cargaClientes(); 
+       {
+          cargaClientes(); 
        }
 
        private void btnSave_Click(object sender, EventArgs e)
        {
-           conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+          // conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
 
            System.Data.SqlClient.SqlCommand nuevo = new System.Data.SqlClient.SqlCommand("update G08_Cliente set Direccion=@Direccion, RazonSocial=@RazonSocial, Email=@Email, Telefono=@Telefono, EstadoCliente=@Estado where IDCliente=@IDCliente ",conn);
-           
-           nuevo.Parameters.AddWithValue("IDCliente", i);
+
+           nuevo.Parameters.AddWithValue("IDCliente", dataGridView1.CurrentRow.Cells["ID"].Value);
            nuevo.Parameters.AddWithValue("Direccion",txtDireccion.Text);   // ponemos lo que vamos a escribir en txtDireccion a la variable que he creado.
            nuevo.Parameters.AddWithValue("RazonSocial", txtRazonSocial.Text);
            nuevo.Parameters.AddWithValue("Email", txtEmail.Text);
@@ -140,7 +151,7 @@ namespace Sales
             return;
            }
 
-           conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+           //conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
 
            System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Delete from G08_Cliente where IDCliente=@IDCliente",conn);
            
