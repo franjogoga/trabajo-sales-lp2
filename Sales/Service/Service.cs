@@ -231,7 +231,7 @@ namespace SalesService
 
                 string sqlString = "SELECT * FROM G08_Cliente ORDER by IDCliente DESC";
 
-                SqlCommand myCommand = new System.Data.SqlClient.SqlCommand(sqlString, conn);
+                SqlCommand myCommand = new SqlCommand(sqlString, conn);
                 SqlDataReader reader;
 
                 reader = myCommand.ExecuteReader();
@@ -257,7 +257,7 @@ namespace SalesService
             {
                 conn.Open();
 
-                string sqlString = "SELECT * FROM G08_VENTAS ORDER by IDVENTAS DES";
+                string sqlString = "SELECT * FROM G08_VENTAS ORDER by IDVENTAS DESC";
                 SqlCommand myCommand = new System.Data.SqlClient.SqlCommand(sqlString, conn);
                 SqlDataReader reader;
                 reader = myCommand.ExecuteReader();

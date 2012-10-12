@@ -60,12 +60,6 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblError = new System.Windows.Forms.Label();
-            this.rowIdPersonal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rowNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rowApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rowDNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rowFechaContrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rowPuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPersonal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -266,13 +260,6 @@
             // gridPersonal
             // 
             this.gridPersonal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridPersonal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.rowIdPersonal,
-            this.rowNombre,
-            this.rowApellido,
-            this.rowDNI,
-            this.rowFechaContrato,
-            this.rowPuesto});
             this.gridPersonal.Location = new System.Drawing.Point(22, 314);
             this.gridPersonal.Name = "gridPersonal";
             this.gridPersonal.Size = new System.Drawing.Size(793, 150);
@@ -397,44 +384,6 @@
             this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 13;
             // 
-            // rowIdPersonal
-            // 
-            this.rowIdPersonal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.rowIdPersonal.HeaderText = "IDPersonal";
-            this.rowIdPersonal.Name = "rowIdPersonal";
-            this.rowIdPersonal.Width = 84;
-            // 
-            // rowNombre
-            // 
-            this.rowNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.rowNombre.HeaderText = "Nombre";
-            this.rowNombre.Name = "rowNombre";
-            // 
-            // rowApellido
-            // 
-            this.rowApellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.rowApellido.HeaderText = "Apellido";
-            this.rowApellido.Name = "rowApellido";
-            // 
-            // rowDNI
-            // 
-            this.rowDNI.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.rowDNI.HeaderText = "DNI";
-            this.rowDNI.Name = "rowDNI";
-            // 
-            // rowFechaContrato
-            // 
-            this.rowFechaContrato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.rowFechaContrato.HeaderText = "FechaContrato";
-            this.rowFechaContrato.Name = "rowFechaContrato";
-            this.rowFechaContrato.Width = 102;
-            // 
-            // rowPuesto
-            // 
-            this.rowPuesto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.rowPuesto.HeaderText = "Puesto";
-            this.rowPuesto.Name = "rowPuesto";
-            // 
             // PersonalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -498,11 +447,5 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbArea;
         private System.Windows.Forms.Label lblError;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rowIdPersonal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rowNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rowApellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rowDNI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rowFechaContrato;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rowPuesto;
     }
 }
