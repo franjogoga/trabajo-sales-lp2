@@ -129,6 +129,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(keypressed);
 
         }
 

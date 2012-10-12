@@ -42,7 +42,16 @@ namespace Sales
                 lblError.Text = "Contraseña incorrecta";
                 txtPassword.Text = "";
             }
-           
+            
+        }
+
+        private void keypressed(Object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                btnAccept.Click += new EventHandler(btnAccept_Click);
+                this.btnAccept_Click(sender, e);
+            }
         }
 
     }
