@@ -58,6 +58,12 @@
     <Compile Include="ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClientSearch2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientSearch2.Designer.cs">
+      <DependentUpon>ClientSearch2.cs</DependentUpon>
+    </Compile>
     <Compile Include="PersonalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientSearch2.resx">
+      <DependentUpon>ClientSearch2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PersonalForm.resx">
       <DependentUpon>PersonalForm.cs</DependentUpon>

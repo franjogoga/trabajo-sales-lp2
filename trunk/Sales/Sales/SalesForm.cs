@@ -71,11 +71,16 @@ namespace Sales
             cmbEstado.ValueMember = "IDEstado";
             cmbEstado.SelectedIndex = -1;
             //Instrucciones para cargar el Id de Ventas
-            idVentas = Program.service.obtenerNuevoID();
-            idVentas++;
-         
-            
+            idVentas = Program.service.obtenerNuevoIDVenta();
+            idVentas++; 
             lblIdVenta.Text = "" + lblIdVenta;
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ClientSearch2 clieForm = new ClientSearch2();
+            clieForm.SetRefSales(this);
+            clieForm.ShowDialog(this);
         }
     }
 }

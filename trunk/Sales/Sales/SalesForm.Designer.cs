@@ -160,7 +160,6 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Enabled = false;
             this.btnEliminar.Image = global::Sales.Properties.Resources.delete;
             this.btnEliminar.Location = new System.Drawing.Point(662, 156);
             this.btnEliminar.Name = "btnEliminar";
@@ -173,7 +172,6 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Enabled = false;
             this.btnModificar.Image = global::Sales.Properties.Resources.modify;
             this.btnModificar.Location = new System.Drawing.Point(662, 109);
             this.btnModificar.Name = "btnModificar";
@@ -186,7 +184,6 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Enabled = false;
             this.btnBuscar.Image = global::Sales.Properties.Resources.search;
             this.btnBuscar.Location = new System.Drawing.Point(662, 63);
             this.btnBuscar.Name = "btnBuscar";
@@ -196,10 +193,10 @@
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Enabled = false;
             this.btnGuardar.Image = global::Sales.Properties.Resources.save;
             this.btnGuardar.Location = new System.Drawing.Point(662, 12);
             this.btnGuardar.Name = "btnGuardar";
