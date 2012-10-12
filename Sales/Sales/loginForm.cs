@@ -53,6 +53,5 @@ namespace Sales
                 this.btnAccept_Click(sender, e);
             }
         }
-
     }
 }
