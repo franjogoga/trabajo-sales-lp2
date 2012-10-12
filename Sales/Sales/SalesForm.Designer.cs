@@ -30,8 +30,9 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Cant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PreUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSelPro = new System.Windows.Forms.Button();
@@ -44,28 +45,35 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cant,
+            this.ID,
             this.Producto,
-            this.PreUnit,
+            this.PrecUnit,
             this.Subtotal});
-            this.dataGridView1.Location = new System.Drawing.Point(120, 188);
+            this.dataGridView1.Location = new System.Drawing.Point(50, 186);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(444, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(544, 150);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // Cant
             // 
             this.Cant.HeaderText = "Cant";
             this.Cant.Name = "Cant";
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            // 
             // Producto
             // 
             this.Producto.HeaderText = "Producto";
             this.Producto.Name = "Producto";
             // 
-            // PreUnit
+            // PrecUnit
             // 
-            this.PreUnit.HeaderText = "P.Unitario";
-            this.PreUnit.Name = "PreUnit";
+            this.PrecUnit.HeaderText = "PrecUnit";
+            this.PrecUnit.Name = "PrecUnit";
             // 
             // Subtotal
             // 
@@ -75,7 +83,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 46);
+            this.label1.Location = new System.Drawing.Point(72, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 1;
@@ -124,12 +132,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PreUnit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSelPro;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cant;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
     }
 }

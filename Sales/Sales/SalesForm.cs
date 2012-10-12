@@ -15,6 +15,7 @@ namespace Sales
         private String prodname;
         private int idProd;
         private float pVenta;
+        private int fil=0;
         public SalesForm()
         {
             InitializeComponent();
@@ -28,8 +29,10 @@ namespace Sales
             prodname = nam;
             pVenta = pv;
 
-           
-
+            dataGridView1.Rows[fil].Cells["ID"].Value = id;
+            dataGridView1.Rows[fil].Cells["Producto"].Value = nam;
+            dataGridView1.Rows[fil].Cells["PrecUnit"].Value = pVenta;
+            fil++;
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -42,6 +45,12 @@ namespace Sales
         {
             refMain.Show();
             this.Dispose();
+        }
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            int cantidad = Int32.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            float Pventa = float.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+            dataGridView1.CurrentRow.Cells["SubTotal"].Value = pVenta * cantidad;
         }
     }
 }
