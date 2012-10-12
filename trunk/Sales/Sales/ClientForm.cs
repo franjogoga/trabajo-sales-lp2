@@ -16,12 +16,7 @@ namespace Sales
         private mainForm refMainForm = null;
         private int idCliente=0;
 
-        private SqlConnection conn = new SqlConnection("user id=inf282;" +
-                               "password=inf282db;" +
-                               "server=inti.lab.inf.pucp.edu.pe;" +
-                               "database=inf282; " +
-                               "connection timeout=30");
-
+        private SqlConnection conn = new SqlConnection("user id=inf282;"+"password=inf282db;"+"server=inti.lab.inf.pucp.edu.pe;"+"database=inf282; "+"connection timeout=30");
 
         public ClientForm()
         {
@@ -58,7 +53,6 @@ namespace Sales
                dataGridView1.Rows[reglon].Cells["Telefono"].Value = leer.GetString(4);
                dataGridView1.Rows[reglon].Cells["Estado"].Value = leer.GetString(5);
            }
-
            conn.Close(); 
         }
 
@@ -154,7 +148,7 @@ namespace Sales
 
            MessageBox.Show("Cliente Borrado Correctactamente","AVISO",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
            cargaClientes();
-           }
+       }
 
        private void btnSearch_Click(object sender, EventArgs e)
        {
