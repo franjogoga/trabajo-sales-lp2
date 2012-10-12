@@ -250,6 +250,31 @@ namespace SalesService
             }
             return idLast;
         }
+        public int obtenerNuevoIDVenta()
+        {
+            int idLast = 0;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+            try
+            {
+                conn.Open();
+
+                string sqlString = "SELECT * FROM G08_VENTAS ORDER by IDVENTAS DES";
+                SqlCommand myCommand = new System.Data.SqlClient.SqlCommand(sqlString, conn);
+                SqlDataReader reader;
+                reader = myCommand.ExecuteReader();
+                reader.Read();
+                idLast = reader.GetInt32(0);
+                conn.Close();
+                return idLast;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return idLast;
+        }
+
         public int obtenerNuevoID()
         {
             int idLast=0;
