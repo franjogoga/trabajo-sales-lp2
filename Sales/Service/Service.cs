@@ -237,7 +237,6 @@ namespace SalesService
                 idLast = reader.GetInt32(0);
                 conn.Close();
                 return idLast;
-
             }
             catch (Exception ex)
             {
