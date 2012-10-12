@@ -43,10 +43,12 @@ namespace Sales
 
             conn.Close();
         }
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btnSearch_Click(object sender, EventArgs e)
         {
             String name = txtNombre.Text;
             cargarProductos(name);
+
         }
     }
 }

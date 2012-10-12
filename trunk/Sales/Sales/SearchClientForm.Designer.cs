@@ -67,9 +67,9 @@
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Buscar";
             this.btnSearch.UseVisualStyleBackColor = true;
-            
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // SearchClientForm
+            // ClienteSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -78,8 +78,8 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "SearchClientForm";
-            this.Text = "SearchClientForm";
+            this.Name = "ClienteSearch";
+            this.Text = "Buscar Cliente";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
