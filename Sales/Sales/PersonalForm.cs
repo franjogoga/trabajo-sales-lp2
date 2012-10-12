@@ -95,7 +95,6 @@ namespace Sales
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -112,8 +111,10 @@ namespace Sales
             p.setWorkStation(txtPuesto.Text);
             p.setAddress(txtDireccion.Text);
             p.setWorkArea(Int32.Parse(cmbArea.SelectedValue.ToString()));
-            lblError.Text = "Registrado";
+            
             Program.service.addPersonal(p);
+
+            lblError.Text = "Registrado";
         }
 
         private void btnSalir_Click_1(object sender, EventArgs e)
