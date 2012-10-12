@@ -22,16 +22,13 @@ namespace Sales
                                 "database=inf282; " +
                                 "connection timeout=30");
 
-
-
        private int Id;
        private string Name;
        private  Int32 StMax;
        private  Int32 StMin;
        private  float PCompra;
        private  float Pventa;
-       
-
+   
 
         public ProductoSearch()
         {
@@ -48,16 +45,16 @@ namespace Sales
             
             SqlDataAdapter daProductos = new SqlDataAdapter();
 
-           SqlCommand command = new SqlCommand(stringSQL,conn);
+            SqlCommand command = new SqlCommand(stringSQL,conn);
 
-           daProductos.SelectCommand = command;
+            daProductos.SelectCommand = command;
 
 
-           System.Data.SqlClient.SqlParameter param1 =
+            System.Data.SqlClient.SqlParameter param1 =
                        new System.Data.SqlClient.SqlParameter(
                            "@Param1", System.Data.SqlDbType.VarChar, 20);
 
-           param1.Value = name;
+            param1.Value = name;
 
            command.Parameters.Add(param1);
 
