@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelPersonal = new System.Windows.Forms.Panel();
             this.cmbArea = new System.Windows.Forms.ComboBox();
             this.lblIdPersonal = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -60,37 +60,38 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblError = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.panelPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPersonal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelPersonal
             // 
-            this.panel1.Controls.Add(this.cmbArea);
-            this.panel1.Controls.Add(this.lblIdPersonal);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.txtDNI);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.txtPuesto);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.txtSalario);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.txtFContrato);
-            this.panel1.Controls.Add(this.txtEmail);
-            this.panel1.Controls.Add(this.txtDireccion);
-            this.panel1.Controls.Add(this.txtApellido);
-            this.panel1.Controls.Add(this.txtNombre);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(168, 23);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(483, 204);
-            this.panel1.TabIndex = 0;
+            this.panelPersonal.Controls.Add(this.cmbArea);
+            this.panelPersonal.Controls.Add(this.lblIdPersonal);
+            this.panelPersonal.Controls.Add(this.label10);
+            this.panelPersonal.Controls.Add(this.txtDNI);
+            this.panelPersonal.Controls.Add(this.label9);
+            this.panelPersonal.Controls.Add(this.txtPuesto);
+            this.panelPersonal.Controls.Add(this.label8);
+            this.panelPersonal.Controls.Add(this.label7);
+            this.panelPersonal.Controls.Add(this.txtSalario);
+            this.panelPersonal.Controls.Add(this.label6);
+            this.panelPersonal.Controls.Add(this.txtFContrato);
+            this.panelPersonal.Controls.Add(this.txtEmail);
+            this.panelPersonal.Controls.Add(this.txtDireccion);
+            this.panelPersonal.Controls.Add(this.txtApellido);
+            this.panelPersonal.Controls.Add(this.txtNombre);
+            this.panelPersonal.Controls.Add(this.label5);
+            this.panelPersonal.Controls.Add(this.label4);
+            this.panelPersonal.Controls.Add(this.label3);
+            this.panelPersonal.Controls.Add(this.label2);
+            this.panelPersonal.Controls.Add(this.label1);
+            this.panelPersonal.Location = new System.Drawing.Point(168, 23);
+            this.panelPersonal.Name = "panelPersonal";
+            this.panelPersonal.Size = new System.Drawing.Size(483, 204);
+            this.panelPersonal.TabIndex = 0;
+            this.panelPersonal.Enabled = false; //esta linea se modifico para bloquear el panel
             // 
             // cmbArea
             // 
@@ -392,12 +393,12 @@
             this.Controls.Add(this.btnAgregarPersonal);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelPersonal);
             this.Name = "PersonalForm";
             this.Text = "Mantenimiento de Personal";
             this.Load += new System.EventHandler(this.PersonalForm_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelPersonal.ResumeLayout(false);
+            this.panelPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPersonal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -407,7 +408,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelPersonal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
