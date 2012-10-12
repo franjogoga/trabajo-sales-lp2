@@ -15,6 +15,7 @@ namespace Sales
         private String prodname;
         private int idProd;
         private float pVenta;
+        private int idVentas;
         private int fil=0;
         public SalesForm()
         {
@@ -37,7 +38,7 @@ namespace Sales
         private void button1_Click(object sender, EventArgs e)
         {
             ProductSearch2 pSearch = new ProductSearch2();
-            pSearch.Visible = true;
+            pSearch.ShowDialog(this);
             pSearch.SetRefSales(this);//le envio la direccion de la ventana padre al hijo
         }
 
@@ -62,6 +63,10 @@ namespace Sales
             cmbTipoDoc.DisplayMember = "NomDoc";
             cmbTipoDoc.ValueMember = "IdTipo";
             cmbTipoDoc.SelectedIndex = -1;
+            //Instrucciones para cargar el Id de Ventas
+            idVentas = Program.service.obtenerNuevoID();
+            idVentas++;
+            lblIdVenta.Text = "" + lblIdVenta;
         }
     }
 }
