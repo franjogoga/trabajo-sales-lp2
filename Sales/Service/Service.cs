@@ -298,6 +298,31 @@ namespace SalesService
             return idLast;
         }
 
+        public DataSet GetCmbEstado()
+        {
+            DataSet dsEstado = new DataSet();
+            System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
+            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+            try
+            {
+                conn.Open();
+
+                string sqlString = "SELECT * FROM G08_EstadoVenta";
+                SqlDataAdapter daEstado = new SqlDataAdapter(sqlString, conn);
+                dsEstado = new DataSet("EstadoVenta");
+                daEstado.Fill(dsEstado, "EstadoVenta");
+                conn.Close();
+                return dsEstado;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+
+            return dsEstado;
+        }
         public DataSet GetCmbTipoDoc()
         {
             DataSet dsTipoDoc = new DataSet();
