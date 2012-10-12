@@ -41,7 +41,16 @@ namespace Sales
 
         private void btnAgregarPersonal_Click(object sender, EventArgs e)
         {
-            
+            panelPersonal.Enabled = true;
+            btnGuardar.Enabled = true;           
+            txtApellido.Text = "";
+            txtDireccion.Text = "";
+            txtDNI.Text = "";
+            txtEmail.Text = "";
+            txtFContrato.Text = "";
+            txtNombre.Text = "";
+            txtPuesto.Text = "";
+            txtSalario.Text = "";            
         }
 
         void cargaClientes()
