@@ -63,6 +63,7 @@ namespace Sales
             cmbArea.DataSource = dsArea.Tables[0].DefaultView;
             cmbArea.DisplayMember = "NomArea";
             cmbArea.ValueMember = "IdArea";
+            cmbArea.SelectedIndex = -1;
             //Instrucciones para cargar el Id de Personal
             idpersonal = Program.service.obtenerNuevoID();
             idpersonal = idpersonal + 1;

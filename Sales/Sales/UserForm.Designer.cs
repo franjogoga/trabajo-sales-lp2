@@ -39,11 +39,7 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.rowIdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rowIdPersonal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -143,34 +139,11 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.rowIdUsuario,
-            this.rowIdPersonal});
-            this.dataGridView1.Location = new System.Drawing.Point(22, 218);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(444, 116);
-            this.dataGridView1.TabIndex = 11;
-            // 
-            // rowIdUsuario
-            // 
-            this.rowIdUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.rowIdUsuario.HeaderText = "IdUsuario";
-            this.rowIdUsuario.Name = "rowIdUsuario";
-            // 
-            // rowIdPersonal
-            // 
-            this.rowIdPersonal.HeaderText = "IdPersonal";
-            this.rowIdPersonal.Name = "rowIdPersonal";
-            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(510, 355);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(510, 221);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -185,7 +158,6 @@
             this.Name = "UserForm";
             this.Text = "Crea Nuevo Usuario";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,8 +176,5 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rowIdUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rowIdPersonal;
     }
 }
