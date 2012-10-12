@@ -53,7 +53,7 @@ namespace Sales
             txtSalario.Text = "";            
         }
 
-        void cargaClientes()
+        void cargaPersonal()
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
@@ -90,7 +90,7 @@ namespace Sales
             idpersonal = Program.service.obtenerNuevoID();
             idpersonal = idpersonal + 1;
             lblIdPersonal.Text = "" + idpersonal;
-            cargaClientes();
+            cargaPersonal();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

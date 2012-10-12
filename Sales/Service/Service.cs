@@ -250,10 +250,6 @@ namespace SalesService
             }
             return idLast;
         }
-
-
-
-
         public int obtenerNuevoID()
         {
             int idLast=0;
@@ -279,7 +275,31 @@ namespace SalesService
             return idLast;
         }
 
+        public DataSet GetCmbTipoDoc()
+        {
+            DataSet dsTipoDoc = new DataSet();
+            System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
+            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+            try
+            {
+                conn.Open();
 
+                string sqlString = "SELECT * FROM G08_TIPODOC";
+                SqlDataAdapter daTipoDoc = new SqlDataAdapter(sqlString, conn);
+                DataSet dsTipoDOc = new DataSet("TIPODOC");
+                daTipoDoc.Fill(dsTipoDoc, "TIPODOC");
+                conn.Close();
+                return dsTipoDoc;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+
+            return dsTipoDoc;
+        }
 
         public DataSet GetCmbArea()
         {

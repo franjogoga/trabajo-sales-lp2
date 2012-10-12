@@ -52,5 +52,16 @@ namespace Sales
             float Pventa = float.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
             dataGridView1.CurrentRow.Cells["SubTotal"].Value = pVenta * cantidad;
         }
+
+        private void SalesForm_Load(object sender, EventArgs e)
+        {
+            DataSet dsTipoDoc;
+            //Instrucciones para cargar el combo TipoDoc
+            dsTipoDoc = Program.service.GetCmbTipoDoc();
+            cmbTipoDoc.DataSource = dsTipoDoc.Tables[0].DefaultView;
+            cmbTipoDoc.DisplayMember = "NomDoc";
+            cmbTipoDoc.ValueMember = "IdTipo";
+            cmbTipoDoc.SelectedIndex = -1;
+        }
     }
 }
