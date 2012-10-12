@@ -355,7 +355,7 @@
             this.btnNuevoUsuario.Size = new System.Drawing.Size(112, 104);
             this.btnNuevoUsuario.TabIndex = 9;
             this.btnNuevoUsuario.UseVisualStyleBackColor = true;
-            this.btnNuevoUsuario.Click += new System.EventHandler(this.btnNewUser_Click);
+            this.btnNuevoUsuario.Click += new System.EventHandler(this.btnNuevoUsuario_Click);
             // 
             // btnEliminar
             // 
