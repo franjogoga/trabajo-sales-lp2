@@ -158,8 +158,8 @@ namespace Sales
 
        private void btnSearch_Click(object sender, EventArgs e)
        {
-           ClientSearch cliS = new ClientSearch();
-           cliS.Show();
+           //ClientSearch cliS = new ClientSearch();
+           //cliS.Show();
        }    
     }
 }
