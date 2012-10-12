@@ -50,8 +50,7 @@ namespace SalesService
                 myCommand.Parameters.Add(myParam3);
                 myCommand.Parameters.Add(myParam4);
                 myCommand.Parameters.Add(myParam5);
-                myCommand.Parameters.Add(myParam6);
-                //System.Data.SqlClient.SqlDataReader reader = myCommand.ExecuteReader();
+                myCommand.Parameters.Add(myParam6);                
 
                 myCommand.ExecuteNonQuery();
 
