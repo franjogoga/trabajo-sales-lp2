@@ -194,7 +194,7 @@ namespace SalesService
                 myParam9.Value = personal.getWorkArea();
 
                 System.Data.SqlClient.SqlParameter myParam10 = new System.Data.SqlClient.SqlParameter("@Param10", System.Data.SqlDbType.VarChar, 10);
-                myParam9.Value = personal.GetDni();
+                myParam10.Value = personal.GetDni();
 
                 System.Data.SqlClient.SqlCommand myCommand = new System.Data.SqlClient.SqlCommand(sqlString, conn);
 
