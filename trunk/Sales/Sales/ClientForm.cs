@@ -152,6 +152,12 @@ namespace Sales
 
            MessageBox.Show("Cliente Borrado Correctactamente","AVISO",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
            cargaClientes();
-           }    
+           }
+
+       private void btnSearch_Click(object sender, EventArgs e)
+       {
+           ClientSearch cliS = new ClientSearch();
+           cliS.Show();
+       }    
     }
 }
