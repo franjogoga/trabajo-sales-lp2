@@ -126,15 +126,21 @@ namespace Sales
 
         }
 
-        private void btnModify_Click(object sender, EventArgs e)
+        private void btnModify_Click_1(object sender, EventArgs e)
         {
 
 
-            //txtID.Focus();
-            //ClientForm modi = new ClientForm();
+            
+           
+
+        }
+
+        private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+
             String seleccionado = (dataGridView1.CurrentRow.Cells["ID"].Value).ToString();
-            //modi.nc_cliente_seleccionado = seleccionado;
-            //modi.Show();
+
             conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
 
             System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Select * FROM G08_Producto where IDProducto=" + seleccionado, conn);
@@ -152,13 +158,9 @@ namespace Sales
                 txtStMax.Text = leer.GetInt32(2).ToString();
                 txtPventa.Text = leer.GetDecimal(3).ToString();
                 txtPcompra.Text = leer.GetDecimal(4).ToString();
-                txtStMin.Text = leer.GetString(3);
+                txtStMin.Text = leer.GetInt32(5).ToString();
 
-                string name = txtName.Text;
-                int StockMin = (Int32.Parse(txtStMin.Text));
-                int StockMax = (Int32.Parse(txtStMax.Text));
-                float PrecioCompra = (float.Parse(txtPcompra.Text));
-                float PrecioVenta = (float.Parse(txtPventa.Text));
+
             }
             conn.Close();
 
@@ -168,12 +170,8 @@ namespace Sales
 
         }
 
-
-
-
-
-
-
+        
+    
     }
 
 }

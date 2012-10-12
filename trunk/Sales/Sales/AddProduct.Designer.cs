@@ -48,7 +48,7 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.gId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gstockMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gStockMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,7 +74,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.gId,
+            this.ID,
             this.gProduct,
             this.gstockMin,
             this.gStockMax,
@@ -85,6 +85,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(642, 97);
             this.dataGridView1.TabIndex = 20;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
             // 
             // button5
             // 
@@ -109,6 +110,7 @@
             this.btnModify.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModify.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click_1);
             // 
             // btnSearch
             // 
@@ -174,7 +176,7 @@
             this.txtPventa.Location = new System.Drawing.Point(335, 50);
             this.txtPventa.Name = "txtPventa";
             this.txtPventa.Size = new System.Drawing.Size(67, 20);
-            this.txtPventa.TabIndex = 23;            
+            this.txtPventa.TabIndex = 23;
             // 
             // label2
             // 
@@ -265,10 +267,10 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
             // 
-            // gId
+            // ID
             // 
-            this.gId.HeaderText = "ID";
-            this.gId.Name = "gId";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
             // 
             // gProduct
             // 
@@ -339,7 +341,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPcompra;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn gProduct;
         private System.Windows.Forms.DataGridViewTextBoxColumn gstockMin;
         private System.Windows.Forms.DataGridViewTextBoxColumn gStockMax;
