@@ -48,5 +48,13 @@ namespace Sales
                     AddProduct p = new AddProduct();
                     p.Visible = true;       
         }
+
+        private void btnSales_Click(object sender, EventArgs e)
+        {
+            SalesForm salesF = new SalesForm();
+            salesF.Show();
+            salesF.SetRefMain(this);
+            this.Hide();
+        }
     }
 }
