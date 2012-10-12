@@ -28,9 +28,6 @@ namespace Sales
             InitializeComponent();
         }
 
-        //System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
-
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -68,8 +65,6 @@ namespace Sales
        private void btnModify_Click(object sender, EventArgs e)
        {
            String seleccionado =(dataGridView1.CurrentRow.Cells["ID"].Value).ToString();
-       
-           //conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
            
            System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Select * FROM G08_Cliente where IDCliente=" + seleccionado ,conn);
 
@@ -93,6 +88,7 @@ namespace Sales
 
            idCliente = Program.service.obtenerNuevoClientID();
            idCliente = idCliente + 1;
+           txtID.Text = "" + idCliente;
 
            Client c = new Client();
 
@@ -124,8 +120,6 @@ namespace Sales
 
        private void btnSave_Click(object sender, EventArgs e)
        {
-          // conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
-
            System.Data.SqlClient.SqlCommand nuevo = new System.Data.SqlClient.SqlCommand("update G08_Cliente set Direccion=@Direccion, RazonSocial=@RazonSocial, Email=@Email, Telefono=@Telefono, EstadoCliente=@Estado where IDCliente=@IDCliente ",conn);
 
            nuevo.Parameters.AddWithValue("IDCliente", dataGridView1.CurrentRow.Cells["ID"].Value);
@@ -150,9 +144,6 @@ namespace Sales
            if (resultado==DialogResult.No){
             return;
            }
-
-           //conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
-
            System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Delete from G08_Cliente where IDCliente=@IDCliente",conn);
            
            comando.Parameters.AddWithValue("IDCliente", dataGridView1.CurrentRow.Cells["ID"].Value);  //EL IDcliente es el parametro de arriba
