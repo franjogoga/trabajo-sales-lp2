@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,7 @@ namespace Sales
             SqlCommand command = new SqlCommand(stringSQL, conn);
             daPersonal.SelectCommand = command;
 
-            SqlParameter param1 = new SqlParameter("@Param1", System.Data.SqlDbType.VarChar, 20);
+            SqlParameter param1 = new SqlParameter("@Param1", SqlDbType.VarChar, 20);
             param1.Value = name;
 
             command.Parameters.Add(param1);
