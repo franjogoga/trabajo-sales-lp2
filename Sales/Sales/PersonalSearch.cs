@@ -20,6 +20,12 @@ namespace Sales
             InitializeComponent();
         }
 
+        private void btnBusqueda_Click(object sender, EventArgs e)
+        {
+            String name = txtNombre.Text;
+            cargarPersonal(name);
+        }   
+
         private void cargarPersonal(String name)
         {
             conn.Open();
@@ -44,12 +50,6 @@ namespace Sales
             dataGridView1.DataMember = "G08_Personal";            
 
             conn.Close();
-        }
-
-        private void btnBusqueda_Click(object sender, EventArgs e)
-        {
-            String name = txtNombre.Text;
-            cargarPersonal(name);
-        }   
+        }        
     }   
 }
