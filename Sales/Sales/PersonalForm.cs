@@ -54,8 +54,7 @@ namespace Sales
 
         void cargaPersonal()
         {
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+            conn.Open();
 
             string stringSQL = "SELECT * FROM G08_Personal";
 
