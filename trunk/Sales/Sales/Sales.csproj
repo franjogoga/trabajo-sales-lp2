@@ -82,7 +82,9 @@
     <Compile Include="loginForm.Designer.cs">
       <DependentUpon>loginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PersonalSearch.cs" />
+    <Compile Include="PersonalSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PersonalSearch.designer.cs">
       <DependentUpon>PersonalSearch.cs</DependentUpon>
     </Compile>
