@@ -13,20 +13,15 @@ using System.Data.SqlClient;
 namespace Sales
 {
     public partial class PersonalForm : Form
-    {
-        
-       
+    {         
         private mainForm refMainForm = null;
         private int idpersonal=0;
         private SqlConnection conn = new SqlConnection("user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30");
-
        
-
         public PersonalForm()
         {
             InitializeComponent();
         }
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -36,7 +31,6 @@ namespace Sales
         {
             refMainForm = mainp;
         }
-
         private void btnNuevoUsuario_Click(object sender, EventArgs e)
         {
             UserForm user = new UserForm();
@@ -44,7 +38,6 @@ namespace Sales
             user.SetIDPers(idpersonal);
             user.Show();
         }
-
         private void btnAgregarPersonal_Click(object sender, EventArgs e)
         {
             panelPersonal.Enabled = true;
@@ -69,15 +62,12 @@ namespace Sales
             SqlDataAdapter daPersonal = new SqlDataAdapter();
 
             SqlCommand command = new SqlCommand(stringSQL, conn);
-
             daPersonal.SelectCommand = command;
 
             DataSet dset = new DataSet();
-
             daPersonal.Fill(dset, "G08_Personal");
 
             gridPersonal.DataSource = dset;
-
             gridPersonal.DataMember = "G08_Personal";
 
             conn.Close();
@@ -106,8 +96,6 @@ namespace Sales
             testDialog.Visible = true;
 
         }
-
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             Personal p = new Personal();
@@ -128,7 +116,6 @@ namespace Sales
             lblError.Text = "Registrado";
            
             cargaPersonal();
-
         }
 
         private void btnSalir_Click_1(object sender, EventArgs e)
@@ -136,12 +123,10 @@ namespace Sales
             refMainForm.Show();
             this.Dispose();
         }
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
 
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show("¿Seguro que desea eliminar el personal seleccionado?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -159,7 +144,6 @@ namespace Sales
 
             MessageBox.Show("Cliente Borrado Correctactamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             cargaPersonal();
-        }
-     
+        }     
     }
 }
