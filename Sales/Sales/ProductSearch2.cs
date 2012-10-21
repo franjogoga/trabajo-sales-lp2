@@ -58,14 +58,20 @@ namespace Sales
 
         private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
-            int Id = Int32.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-            String Name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            float Pventa = float.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
-            refSales.Show();
-            refSales.SetDatos(Id,Name,Pventa);
+            try
+            {
+                int Id = Int32.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                String Name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                float Pventa = float.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+                refSales.Show();
+                refSales.SetDatos(Id,Name,Pventa);
             
-            this.Dispose();
+                this.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
 
 

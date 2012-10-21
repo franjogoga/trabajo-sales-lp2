@@ -67,7 +67,7 @@ namespace Sales
 
 
             this.Visible = false;
-            ProductoSearch testDialog = new ProductoSearch();
+            ProductSearch testDialog = new ProductSearch();
             testDialog.Visible = true;
 
 
