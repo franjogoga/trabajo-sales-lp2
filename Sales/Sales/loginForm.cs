@@ -33,8 +33,8 @@ namespace Sales
             if (usuario.ValidarPassword() == 1)
             {
                 mainForm p = new mainForm();
-                p.Show();
-                p.SetUSer(txtUser.Text.ToUpper());
+                p.SetUSer(usuario.GetUser());
+                p.Show();       
                 p.Setrefmain(this);
                 this.Hide();
             }

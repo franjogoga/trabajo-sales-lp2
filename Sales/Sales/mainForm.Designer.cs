@@ -38,7 +38,6 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblPuesto = new System.Windows.Forms.Label();
             this.lblArea = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -156,15 +155,6 @@
             this.lblArea.Text = "[area]";
             this.lblArea.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "label2";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -191,7 +181,6 @@
             this.ClientSize = new System.Drawing.Size(752, 327);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblArea);
             this.Controls.Add(this.lblPuesto);
             this.Controls.Add(this.lblName);
@@ -224,7 +213,6 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblPuesto;
         private System.Windows.Forms.Label lblArea;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
     }
