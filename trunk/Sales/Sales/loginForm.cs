@@ -35,7 +35,7 @@ namespace Sales
                 mainForm p = new mainForm();
                 p.Show();
                 p.Setrefmain(this);
-               
+                this.Hide();
             }
             else
             {
@@ -52,6 +52,10 @@ namespace Sales
                 btnAccept.Click += new EventHandler(btnAccept_Click);
                 this.btnAccept_Click(sender, e);
             }
+        }
+        public void limpiar()
+        {
+            txtPassword.Text = "";
         }
     }
 }
