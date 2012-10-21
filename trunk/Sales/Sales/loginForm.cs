@@ -33,9 +33,10 @@ namespace Sales
             if (usuario.ValidarPassword() == 1)
             {
                 mainForm p = new mainForm();
-                p.Show();
-                p.Setrefmain(this);
-                this.Hide();
+                this.ActivateMdiChild(p);
+                //p.Show();
+                //p.Setrefmain(this);
+               
             }
             else
             {
