@@ -70,11 +70,22 @@ namespace Sales
             }
             else
             {
-                mainForm p = new mainForm();      
-                p.Setrefmain(refLoginForm);
-                p.Show();
+                e.Cancel = true;
             }
             
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult result;
+            result = MessageBox.Show("Está seguro que desea cerrar sesión?", "Cerrar Sesión",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                refLoginForm.limpiar();
+                refLoginForm.Show();
+                this.Dispose();
+            }
         }
     }
 }

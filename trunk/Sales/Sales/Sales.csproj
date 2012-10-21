@@ -85,14 +85,14 @@
     <Compile Include="PersonalSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PersonalSearch.designer.cs">
+    <Compile Include="PersonalSearch.Designer.cs">
       <DependentUpon>PersonalSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductoSearch.cs">
+    <Compile Include="ProductSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductoSearch.Designer.cs">
-      <DependentUpon>ProductoSearch.cs</DependentUpon>
+    <Compile Include="ProductSearch.Designer.cs">
+      <DependentUpon>ProductSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductSearch2.cs">
       <SubType>Form</SubType>
@@ -144,9 +144,11 @@
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PersonalSearch.resx" />
-    <EmbeddedResource Include="ProductoSearch.resx">
-      <DependentUpon>ProductoSearch.cs</DependentUpon>
+    <EmbeddedResource Include="PersonalSearch.resx">
+      <DependentUpon>PersonalSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductSearch.resx">
+      <DependentUpon>ProductSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductSearch2.resx">
       <DependentUpon>ProductSearch2.cs</DependentUpon>
@@ -274,6 +276,12 @@
       <Project>{A0DFF22A-6E31-44BA-AA7D-714BF5D1C81E}</Project>
       <Name>SalesService</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

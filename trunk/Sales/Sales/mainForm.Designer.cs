@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnExit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSales = new System.Windows.Forms.Button();
             this.btnPersonal = new System.Windows.Forms.Button();
@@ -36,10 +37,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
+            // btnExit
+            // 
+            this.btnExit.Image = global::Sales.Properties.Resources.application_exit;
+            this.btnExit.Location = new System.Drawing.Point(613, 253);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(128, 62);
+            this.btnExit.TabIndex = 5;
+            this.btnExit.Text = "C&errar Sesión";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Sales.Properties.Resources.using_computer;
-            this.pictureBox1.Location = new System.Drawing.Point(189, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(182, 13);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(418, 298);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -101,7 +115,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 329);
+            this.ClientSize = new System.Drawing.Size(752, 327);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSales);
             this.Controls.Add(this.btnPersonal);
@@ -123,5 +138,6 @@
         private System.Windows.Forms.Button btnPersonal;
         private System.Windows.Forms.Button btnSales;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnExit;
     }
 }
