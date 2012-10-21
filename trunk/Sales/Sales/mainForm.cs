@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Sales
 {
@@ -44,7 +45,19 @@ namespace Sales
 
         private void mainForm_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                SqlDataReader reader = Program.service.searchPersonalByUser(nomUser);
+                reader.Read();
+                lblName.Text = reader.GetString(1);
+                lblArea.Text = reader.GetString(3);
+                lblPuesto.Text = reader.GetString(4);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
         private void btnProduct_Click(object sender, EventArgs e)

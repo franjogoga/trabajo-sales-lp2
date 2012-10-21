@@ -11,7 +11,31 @@ namespace SalesService
     public class Service
     {
         private List<Product> products = new List<Product>();
-
+        public SqlDataReader searchPersonalByUser(String User)
+        {
+            SqlDataReader reader;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+            try
+            {
+                conn.Open();
+                String sqlString = "select a.idpersonal, a.nombres, a.apellidos, b.nomarea, a.puesto "
+                    + "from g08_personal as a, g08_area as b,g08_usuario as c "
+                    + "where c.IdUser = @param1 and a.Idpersonal = c.idPersonal and b.idarea = a.idarea";
+                SqlParameter myparam1 = new SqlParameter("@param1", SqlDbType.VarChar, 100);
+                myparam1.Value = User;
+                SqlCommand mycommand = new SqlCommand(sqlString,conn);
+                reader = mycommand.ExecuteReader();
+                conn.Close();
+                return reader;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            return reader;
+        }
         public void addClient(Client client)
         {
             System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
@@ -65,24 +89,17 @@ namespace SalesService
 
         public List<Product> queryAll(String nombre)
         {
-            System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
-
+            SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
-
             try
             {
                 conn.Open();
-
                 string sqlString = "SELECT * FROM G08_Producto";
-
-                System.Data.SqlClient.SqlCommand myCommand = new System.Data.SqlClient.SqlCommand(sqlString, conn);
-
-                System.Data.SqlClient.SqlDataReader reader = myCommand.ExecuteReader();
-
+                SqlCommand myCommand = new SqlCommand(sqlString, conn);
+                SqlDataReader reader = myCommand.ExecuteReader();
                 while (reader.Read())
                 {
                     String nombProd = reader.GetString(1);
-
                     if (nombProd.CompareTo(nombre) == 0)
                     {
                         Product pr = new Product();
@@ -94,7 +111,6 @@ namespace SalesService
                         pr.setStockMin(reader.GetInt32(0));
                         products.Add(pr);
                     }
-
                 }
                 conn.Close();
             }
@@ -153,7 +169,6 @@ namespace SalesService
                 Console.WriteLine(ex.ToString());
             }
         }
-
         public void addPersonal(Personal personal)
         {
             System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
@@ -218,7 +233,6 @@ namespace SalesService
                 Console.WriteLine(ex.ToString());
             }
         }
-
         public int obtenerNuevoClientID()
         {
             int idLast = 0;
@@ -272,7 +286,6 @@ namespace SalesService
             }
             return idLast;
         }
-
         public int obtenerNuevoID()
         {
             int idLast=0;
@@ -348,7 +361,6 @@ namespace SalesService
 
             return dsTipoDoc;
         }
-
         public DataSet GetCmbArea()
         {
             System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
