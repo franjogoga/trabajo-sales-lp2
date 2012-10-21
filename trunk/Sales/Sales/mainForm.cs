@@ -12,6 +12,7 @@ namespace Sales
     public partial class mainForm : Form
     {
         private loginForm refLoginForm = null;
+        private String nomUser; 
         public mainForm()
         {
             InitializeComponent();
@@ -20,6 +21,10 @@ namespace Sales
         public void Setrefmain(loginForm reflog)
         {
             refLoginForm = reflog;
+        }
+        public void SetUSer(String user)
+        {
+            nomUser = user;
         }
         private void btnPersonal_Click_1(object sender, EventArgs e)
         {
@@ -87,5 +92,6 @@ namespace Sales
                 this.Dispose();
             }
         }
+
     }
 }

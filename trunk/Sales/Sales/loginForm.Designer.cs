@@ -71,7 +71,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 3;
-            
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keypressed);
             // 
             // btnAccept
             // 
@@ -129,7 +129,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(keypressed);
 
         }
 

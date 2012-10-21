@@ -34,6 +34,7 @@ namespace Sales
             {
                 mainForm p = new mainForm();
                 p.Show();
+                p.SetUSer(txtUser.Text.ToUpper());
                 p.Setrefmain(this);
                 this.Hide();
             }
@@ -57,5 +58,6 @@ namespace Sales
         {
             txtPassword.Text = "";
         }
+
     }
 }
