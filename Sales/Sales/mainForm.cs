@@ -56,5 +56,25 @@ namespace Sales
             salesF.SetRefMain(this);
             this.Hide();
         }
+
+        private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result;
+            result = MessageBox.Show("Está seguro que desea cerrar sesión?","Cerrar Sesión",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                refLoginForm.limpiar();
+                refLoginForm.Show();
+                this.Dispose();
+            }
+            else
+            {
+                mainForm p = new mainForm();      
+                p.Setrefmain(refLoginForm);
+                p.Show();
+            }
+            
+        }
     }
 }

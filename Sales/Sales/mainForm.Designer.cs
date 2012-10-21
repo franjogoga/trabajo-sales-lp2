@@ -109,6 +109,7 @@
             this.Controls.Add(this.btnClient);
             this.Name = "mainForm";
             this.Text = "Menú Principal";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainForm_FormClosing);
             this.Load += new System.EventHandler(this.mainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
