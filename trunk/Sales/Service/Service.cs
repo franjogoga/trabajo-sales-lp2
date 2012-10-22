@@ -11,7 +11,8 @@ namespace SalesService
     public class Service
     {
         private List<Product> products = new List<Product>();
-        public SqlDataReader searchPersonalByUser(String User)
+        private List<String> userList = new List<string>();
+        public List<String> searchPersonalByUser(String User)
         {
             SqlDataReader reader;
             SqlConnection conn = new SqlConnection();
@@ -25,16 +26,24 @@ namespace SalesService
                 SqlParameter myparam1 = new SqlParameter("@param1", SqlDbType.VarChar, 100);
                 myparam1.Value = User;
                 SqlCommand mycommand = new SqlCommand(sqlString,conn);
+                mycommand.Parameters.Add(myparam1);
                 reader = mycommand.ExecuteReader();
+                reader.Read();
+                String name = reader.GetString(1);
+                userList.Add(name);
+                String area = reader.GetString(3);
+                userList.Add(area);
+                String puesto = reader.GetString(4);
+                userList.Add(puesto);
                 conn.Close();
-                return reader;
+                return userList;
             }
             catch (Exception)
             {
                 
                 throw;
             }
-            return reader;
+            return userList;
         }
         public void addClient(Client client)
         {

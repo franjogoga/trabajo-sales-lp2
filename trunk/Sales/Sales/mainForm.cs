@@ -47,15 +47,13 @@ namespace Sales
         {
             try
             {
-                SqlDataReader reader = Program.service.searchPersonalByUser(nomUser);
-                reader.Read();
-                lblName.Text = reader.GetString(1);
-                lblArea.Text = reader.GetString(3);
-                lblPuesto.Text = reader.GetString(4);
+                List<String> userList = Program.service.searchPersonalByUser(nomUser);          
+                lblName.Text = userList[0];
+                lblArea.Text = userList[1];
+                lblPuesto.Text = userList[2];
             }
             catch (Exception)
-            {
-                
+            {        
                 throw;
             }
         }
