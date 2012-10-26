@@ -20,8 +20,6 @@ namespace Libreria
         private int workArea; //area de trabajo
         private String workStation;//puesto de trabajo
 
-        //Data Source=KEVIN-VAIO\\SQLEXPRESS;Initial Catalog=EuroBD;Integrated Security=True
-
         public Personal()  {   }
         public Personal(int iD, String nam, String last, String add, String ema, String date, float sal)
         {
@@ -272,12 +270,10 @@ namespace Libreria
         {
             this.PrecioVenta = pVenta;
         }
-
     }
 
     public class Client
     {
-
         private int IdClient;
         private String Address;
         private String EstadoCliente;  //estado del cliente
