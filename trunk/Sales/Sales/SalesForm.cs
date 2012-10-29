@@ -23,6 +23,11 @@ namespace Sales
         {
             InitializeComponent();
         }
+        public void SetClient(int idcliente, String nameCliente)
+        {
+            txtIdClient.Text = ""+idcliente;
+            txtNomClient.Text = nameCliente;
+        }
         public void SetRefMain(mainForm refM)
         {
             refMain = refM;
@@ -52,19 +57,21 @@ namespace Sales
         }
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-
             int cantidad = Int32.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
             float Pventa = float.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
             dataGridView1.CurrentRow.Cells["SubTotal"].Value = pVenta * cantidad;
             var = (Int32)(var + pVenta * cantidad);
             txtTotal.Text = var.ToString();
-
+        
         }
 
         private void SalesForm_Load(object sender, EventArgs e)
         {
             DataSet dsTipoDoc;
             DataSet dsEstado;
+            //Texboxes de Cliente no editable
+            txtIdClient.ReadOnly = true;
+            txtNomClient.ReadOnly = true;
             //Instrucciones para cargar el combo TipoDoc
             dsTipoDoc = Program.service.GetCmbTipoDoc();
             cmbTipoDoc.DataSource = dsTipoDoc.Tables[0].DefaultView;

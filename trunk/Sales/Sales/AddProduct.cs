@@ -13,6 +13,11 @@ namespace Sales
 {
     public partial class AddProduct : Form
     {
+        private mainForm Refmain = null;
+        public void SetRefMain(mainForm mainf)
+        {
+            Refmain = mainf;
+        }
         public AddProduct(int Id, string Name, Int32 StMin, Int32 StMax, float PCompra,
          float PVenta)
         {
@@ -20,21 +25,14 @@ namespace Sales
             this.dataGridView1.Rows.Add(Id, Name, StMin, StMax, PCompra, PVenta);
 
         }
-
         System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
-
         public AddProduct()
         {
             InitializeComponent();
-
-
         }
-
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-
             txtId.Text = "";
             txtName.Text = "";
             txtStMax.Text = "";
@@ -42,20 +40,13 @@ namespace Sales
             txtId.Text = "";
             txtPcompra.Text = "";
             txtPventa.Text = "";
-
-
-
         }
-
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             this.dataGridView1.Rows.Add();
 
         }
-
-
-
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -64,26 +55,17 @@ namespace Sales
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
-
             this.Visible = false;
             ProductSearch testDialog = new ProductSearch();
             testDialog.Visible = true;
-
-
         }
 
         private void btnSave_Click_1(object sender, EventArgs e)
         {
-
-
             //this.dataGridView1.Rows.Add(txtId, txtName, txtStMin, txtStMax, txtPcompra, txtPventa);
             //this.dataGridView1.Rows[0](
 
-
-
             Product p = new Product();
-
 
             p.setCodigo(Int32.Parse(txtId.Text));
             p.setName(txtName.Text);
@@ -92,9 +74,7 @@ namespace Sales
             p.setPrecioCompra(float.Parse(txtPcompra.Text));
             p.setPrecioVenta(float.Parse(txtPventa.Text));
 
-
             Program.service.addProduct(p);
-
 
             int id = Int32.Parse(txtId.Text);
             string name = txtName.Text;
@@ -118,21 +98,15 @@ namespace Sales
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-
-            this.Visible = false;
-            mainForm mform = new mainForm();
-            mform.Visible = true;
-
-
+            Refmain.Visible = true;
+            this.Dispose();
         }
 
         private void btnModify_Click_1(object sender, EventArgs e)
         {
 
 
-            
-           
-
+        
         }
 
         private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)

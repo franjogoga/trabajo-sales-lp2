@@ -41,9 +41,9 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtIdClient = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNomClient = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lblIdVenta = new System.Windows.Forms.Label();
@@ -163,12 +163,12 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "IDCliente:";
             // 
-            // textBox1
+            // txtIdClient
             // 
-            this.textBox1.Location = new System.Drawing.Point(236, 56);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 18;
+            this.txtIdClient.Location = new System.Drawing.Point(236, 56);
+            this.txtIdClient.Name = "txtIdClient";
+            this.txtIdClient.Size = new System.Drawing.Size(100, 20);
+            this.txtIdClient.TabIndex = 18;
             // 
             // label5
             // 
@@ -179,12 +179,12 @@
             this.label5.TabIndex = 19;
             this.label5.Text = "NomCliente:";
             // 
-            // textBox2
+            // txtNomClient
             // 
-            this.textBox2.Location = new System.Drawing.Point(515, 56);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 20;
+            this.txtNomClient.Location = new System.Drawing.Point(515, 56);
+            this.txtNomClient.Name = "txtNomClient";
+            this.txtNomClient.Size = new System.Drawing.Size(100, 20);
+            this.txtNomClient.TabIndex = 20;
             // 
             // textBox3
             // 
@@ -330,9 +330,9 @@
             this.Controls.Add(this.lblIdVenta);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtNomClient);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtIdClient);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnEliminar);
@@ -376,9 +376,9 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtIdClient;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNomClient;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblIdVenta;
