@@ -62,6 +62,7 @@ namespace Sales
         {                  
                     this.Visible = false;
                     AddProduct p = new AddProduct();
+                    p.SetRefMain(this);
                     p.Visible = true;       
         }
 

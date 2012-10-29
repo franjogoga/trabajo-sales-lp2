@@ -52,5 +52,16 @@ namespace Sales
             String name = txtNombre.Text;
             cargarProductos(name);
         }
+
+        private void ClientSearch2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            refSalesform.Visible = true;
+            this.Dispose();
+        }
+
+        private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }
