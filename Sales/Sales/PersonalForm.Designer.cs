@@ -39,7 +39,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtSalario = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtFContrato = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -53,13 +52,14 @@
             this.label11 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnNuevoUsuario = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnAgregarPersonal = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblError = new System.Windows.Forms.Label();
+            this.lblEstado = new System.Windows.Forms.Label();
+            this.txtFContrato = new System.Windows.Forms.DateTimePicker();
             this.panelPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPersonal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -67,6 +67,7 @@
             // 
             // panelPersonal
             // 
+            this.panelPersonal.Controls.Add(this.txtFContrato);
             this.panelPersonal.Controls.Add(this.cmbArea);
             this.panelPersonal.Controls.Add(this.lblIdPersonal);
             this.panelPersonal.Controls.Add(this.label10);
@@ -77,7 +78,6 @@
             this.panelPersonal.Controls.Add(this.label7);
             this.panelPersonal.Controls.Add(this.txtSalario);
             this.panelPersonal.Controls.Add(this.label6);
-            this.panelPersonal.Controls.Add(this.txtFContrato);
             this.panelPersonal.Controls.Add(this.txtEmail);
             this.panelPersonal.Controls.Add(this.txtDireccion);
             this.panelPersonal.Controls.Add(this.txtApellido);
@@ -88,7 +88,7 @@
             this.panelPersonal.Controls.Add(this.label2);
             this.panelPersonal.Controls.Add(this.label1);
             this.panelPersonal.Enabled = false;
-            this.panelPersonal.Location = new System.Drawing.Point(168, 23);
+            this.panelPersonal.Location = new System.Drawing.Point(168, 41);
             this.panelPersonal.Name = "panelPersonal";
             this.panelPersonal.Size = new System.Drawing.Size(483, 204);
             this.panelPersonal.TabIndex = 0;
@@ -176,13 +176,6 @@
             this.label6.Size = new System.Drawing.Size(42, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "Salario:";
-            // 
-            // txtFContrato
-            // 
-            this.txtFContrato.Location = new System.Drawing.Point(344, 15);
-            this.txtFContrato.Name = "txtFContrato";
-            this.txtFContrato.Size = new System.Drawing.Size(100, 20);
-            this.txtFContrato.TabIndex = 9;
             // 
             // txtEmail
             // 
@@ -297,25 +290,11 @@
             this.btnNuevoUsuario.UseVisualStyleBackColor = true;
             this.btnNuevoUsuario.Click += new System.EventHandler(this.btnNuevoUsuario_Click);
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Enabled = false;
-            this.btnEliminar.Image = global::Sales.Properties.Resources.delete;
-            this.btnEliminar.Location = new System.Drawing.Point(687, 165);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(129, 39);
-            this.btnEliminar.TabIndex = 8;
-            this.btnEliminar.Text = "&Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
             // btnModificar
             // 
             this.btnModificar.Enabled = false;
             this.btnModificar.Image = global::Sales.Properties.Resources.modify;
-            this.btnModificar.Location = new System.Drawing.Point(687, 118);
+            this.btnModificar.Location = new System.Drawing.Point(687, 148);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(129, 39);
             this.btnModificar.TabIndex = 7;
@@ -328,7 +307,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::Sales.Properties.Resources.search;
-            this.btnBuscar.Location = new System.Drawing.Point(687, 72);
+            this.btnBuscar.Location = new System.Drawing.Point(687, 102);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(129, 39);
             this.btnBuscar.TabIndex = 6;
@@ -356,7 +335,7 @@
             // 
             this.btnGuardar.Enabled = false;
             this.btnGuardar.Image = global::Sales.Properties.Resources.save;
-            this.btnGuardar.Location = new System.Drawing.Point(687, 21);
+            this.btnGuardar.Location = new System.Drawing.Point(687, 51);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(129, 45);
             this.btnGuardar.TabIndex = 3;
@@ -385,17 +364,36 @@
             this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 13;
             // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.ForeColor = System.Drawing.Color.Teal;
+            this.lblEstado.Location = new System.Drawing.Point(374, 12);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(46, 13);
+            this.lblEstado.TabIndex = 14;
+            this.lblEstado.Text = "[Estado]";
+            // 
+            // txtFContrato
+            // 
+            this.txtFContrato.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFContrato.Location = new System.Drawing.Point(344, 15);
+            this.txtFContrato.Name = "txtFContrato";
+            this.txtFContrato.Size = new System.Drawing.Size(127, 20);
+            this.txtFContrato.TabIndex = 15;
+            this.txtFContrato.Value = new System.DateTime(2012, 10, 25, 0, 0, 0, 0);
+            // 
             // PersonalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 476);
+            this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.gridPersonal);
             this.Controls.Add(this.btnNuevoUsuario);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnAgregarPersonal);
@@ -421,7 +419,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtFContrato;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.TextBox txtApellido;
@@ -438,7 +435,6 @@
         private System.Windows.Forms.Button btnAgregarPersonal;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnNuevoUsuario;
         private System.Windows.Forms.DataGridView gridPersonal;
         private System.Windows.Forms.Button btnSalir;
@@ -449,5 +445,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbArea;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.DateTimePicker txtFContrato;
     }
 }
