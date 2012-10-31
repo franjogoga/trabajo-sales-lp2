@@ -96,5 +96,11 @@ namespace Sales
             clieForm.SetRefSales(this);
             clieForm.ShowDialog(this);
         }
+
+        private void SalesForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            refMain.Show();
+            this.Dispose();
+        }
     }
 }

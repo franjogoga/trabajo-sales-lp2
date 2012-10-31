@@ -404,6 +404,7 @@
             this.Controls.Add(this.panelPersonal);
             this.Name = "PersonalForm";
             this.Text = "Mantenimiento de Personal";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PersonalForm_FormClosing);
             this.Load += new System.EventHandler(this.PersonalForm_Load);
             this.panelPersonal.ResumeLayout(false);
             this.panelPersonal.PerformLayout();

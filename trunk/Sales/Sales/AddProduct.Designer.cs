@@ -30,6 +30,12 @@
         {
             this.btnExit = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gstockMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gStockMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gPriceC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gpriceV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button5 = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -48,12 +54,6 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gstockMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gStockMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gPriceC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gpriceV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -86,6 +86,36 @@
             this.dataGridView1.TabIndex = 20;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            // 
+            // gProduct
+            // 
+            this.gProduct.HeaderText = "Producto";
+            this.gProduct.Name = "gProduct";
+            // 
+            // gstockMin
+            // 
+            this.gstockMin.HeaderText = "Stock Min";
+            this.gstockMin.Name = "gstockMin";
+            // 
+            // gStockMax
+            // 
+            this.gStockMax.HeaderText = "Stock Max";
+            this.gStockMax.Name = "gStockMax";
+            // 
+            // gPriceC
+            // 
+            this.gPriceC.HeaderText = "PrecioCompra";
+            this.gPriceC.Name = "gPriceC";
+            // 
+            // gpriceV
+            // 
+            this.gpriceV.HeaderText = "PrecioVenta";
+            this.gpriceV.Name = "gpriceV";
             // 
             // button5
             // 
@@ -267,36 +297,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
             // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            // 
-            // gProduct
-            // 
-            this.gProduct.HeaderText = "Producto";
-            this.gProduct.Name = "gProduct";
-            // 
-            // gstockMin
-            // 
-            this.gstockMin.HeaderText = "Stock Min";
-            this.gstockMin.Name = "gstockMin";
-            // 
-            // gStockMax
-            // 
-            this.gStockMax.HeaderText = "Stock Max";
-            this.gStockMax.Name = "gStockMax";
-            // 
-            // gPriceC
-            // 
-            this.gPriceC.HeaderText = "PrecioCompra";
-            this.gPriceC.Name = "gPriceC";
-            // 
-            // gpriceV
-            // 
-            this.gpriceV.HeaderText = "PrecioVenta";
-            this.gpriceV.Name = "gpriceV";
-            // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,6 +312,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "AddProduct";
             this.Text = "AddProduct";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddProduct_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
