@@ -75,6 +75,8 @@ namespace Sales
         private void PersonalForm_Load(object sender, EventArgs e)
         {
             DataSet dsArea;
+            //Inicializamos Estado
+            lblEstado.Text = "Datos de Personal";
             //Instrucciones para cargar el combo box
             dsArea = Program.service.GetCmbArea();
             cmbArea.DataSource = dsArea.Tables[0].DefaultView;
@@ -90,9 +92,9 @@ namespace Sales
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
             PersonalSearch testDialog = new PersonalSearch();
-            testDialog.Visible = true;
+            testDialog.SetRefPersonal(this);
+            testDialog.ShowDialog(this);
 
         }
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -124,7 +126,15 @@ namespace Sales
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            lblEstado.Text = "Modificando";
+            txtNombre.Enabled = true;
+            txtApellido.Enabled = true;
+            txtDireccion.Enabled = true;
+            txtDNI.Enabled = true;
+            txtEmail.Enabled = true;
+            txtFContrato.Enabled = true;
+            txtSalario.Enabled = true;
+            cmbArea.Enabled = true;
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -149,6 +159,22 @@ namespace Sales
         {
             refMainForm.Show();
             this.Dispose();
-        }     
+        }
+        public void SetPersonalSearch(int id, String name, String lastname,String email,String fecha,
+                String direccion, float sueldo,String puesto,int idarea, String dni)
+        {
+            lblEstado.Text = "Datos de Personal";
+            lblIdPersonal.Text = ""+id;
+            txtNombre.Text = name;
+            txtApellido.Text = lastname;
+            txtEmail.Text = email;
+            txtFContrato.Text = fecha;
+            txtDireccion.Text = direccion;
+            txtSalario.Text = ""+sueldo;
+            txtPuesto.Text = puesto;
+            cmbArea.SelectedIndex = idarea;
+            txtDNI.Text = dni;
+            btnModificar.Enabled = true;
+        }
     }
 }
