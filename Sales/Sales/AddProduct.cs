@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Data;
 using Libreria;
 
 namespace Sales
@@ -14,6 +15,7 @@ namespace Sales
     public partial class AddProduct : Form
     {
         private mainForm Refmain = null;
+        private SqlConnection conn = new System.Data.SqlClient.SqlConnection();
         public void SetRefMain(mainForm mainf)
         {
             Refmain = mainf;
@@ -24,13 +26,11 @@ namespace Sales
             InitializeComponent();
             this.dataGridView1.Rows.Add(Id, Name, StMin, StMax, PCompra, PVenta);
 
-        }
-        System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
+        }   
         public AddProduct()
         {
             InitializeComponent();
         }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             txtId.Text = "";
@@ -123,7 +123,6 @@ namespace Sales
 
             System.Data.SqlClient.SqlDataReader leer = comando.ExecuteReader();
 
-
             if (leer.Read())
             {
 
@@ -133,19 +132,15 @@ namespace Sales
                 txtPventa.Text = leer.GetDecimal(3).ToString();
                 txtPcompra.Text = leer.GetDecimal(4).ToString();
                 txtStMin.Text = leer.GetInt32(5).ToString();
-
-
             }
             conn.Close();
-
-
-
-
-
         }
 
-        
-    
+        private void AddProduct_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Refmain.Visible = true;
+            this.Dispose();
+        }
     }
 
 }

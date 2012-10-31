@@ -154,6 +154,12 @@ namespace Sales
        {
            ClienteSearch testDialog = new ClienteSearch();
            testDialog.ShowDialog(this);
+       }
+
+       private void ClientForm_FormClosing(object sender, FormClosingEventArgs e)
+       {
+           this.Dispose();
+           refMainForm.Show();
        }    
     }
 }

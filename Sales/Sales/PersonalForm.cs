@@ -143,6 +143,12 @@ namespace Sales
 
             MessageBox.Show("Cliente Borrado Correctactamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             cargaPersonal();
+        }
+
+        private void PersonalForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            refMainForm.Show();
+            this.Dispose();
         }     
     }
 }
