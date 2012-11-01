@@ -79,8 +79,17 @@ namespace Sales
 
        private void btnAdd_Click_1(object sender, EventArgs e)
        {
-
+           panelClient.Enabled = true;
+ 
            idCliente = Program.service.obtenerNuevoClientID();
+
+           if (txtRazonSocial.Text == "") {
+               txtID.Text = "" + idCliente;
+           }
+
+
+           if (txtRazonSocial.Text != "")
+           {
            idCliente = idCliente + 1;
            txtID.Text = "" + idCliente;
 
@@ -95,20 +104,24 @@ namespace Sales
            
            Program.service.addClient(c);
 
-           MessageBox.Show("Cliente Agregado Correctactamente","AVISO",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+           
+               MessageBox.Show("Cliente Agregado Correctactamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
-           txtID.Text = "";
-           txtDireccion.Text = "";
-           txtEstado.Text = "";
-           txtRazonSocial.Text = "";
-           txtTelefono.Text = "";
-           txtEmail.Text = "";
+               txtID.Text = "";
+               txtDireccion.Text = "";
+               txtEstado.Text = "";
+               txtRazonSocial.Text = "";
+               txtTelefono.Text = "";
+               txtEmail.Text = "";
+               cargaClientes();
+           }
 
-           cargaClientes();
+        
        }
 
        private void ClientForm_Load_1(object sender, EventArgs e)
        {
+           panelClient.Enabled = false;
           cargaClientes(); 
        }
 
