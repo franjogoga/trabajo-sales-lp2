@@ -207,6 +207,13 @@ namespace Sales.Properties {
             }
         }
         
+        internal static System.Drawing.Icon ps_apple_logo {
+            get {
+                object obj = ResourceManager.GetObject("ps_apple_logo", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap report_check {
             get {
                 object obj = ResourceManager.GetObject("report_check", resourceCulture);
