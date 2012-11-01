@@ -9,28 +9,143 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data;
 using Libreria;
+using System.Threading;
+
 
 namespace Sales
 {
+
+    public class ClaseProductora
+    
+    {
+        Thread hilo;
+        
+        public ClaseProductora(ClaseCompartida objCompartido)
+        {
+            LaOtra laOtra = new LaOtra(objCompartido);
+            hilo = new Thread(new ThreadStart(laOtra.corre));
+            hilo.Start();
+        }
+
+    }
+
+
+    public class LaOtra
+    {
+        private static int i;
+        private bool finalizar = false;
+        private ClaseCompartida objCompartido;
+
+        public LaOtra(ClaseCompartida obj)
+        {
+            this.objCompartido = obj;
+        }
+        public static string getValor()
+        {
+
+            DateTime MyDate = DateTime.Now;
+            return MyDate.ToString();
+        }
+
+        public void corre()
+        {
+            i = 0;
+            while (!finalizar)
+            {
+                i++;
+                try { Thread.Sleep(1000); }
+                catch (Exception e) { };
+                objCompartido.notifica();
+            }
+        }
+    }
+
+
+    public class ClaseCompartida
+    {
+        ClaseProductora objProductor;
+
+        public ClaseCompartida()
+        {
+            objProductor = new ClaseProductora(this);
+        }
+
+        public void espera()
+        {
+            Monitor.Enter(this);
+            try { Monitor.Wait(this); }
+            catch (Exception) { }
+            Monitor.Exit(this);
+        }
+        public void notifica()
+        {
+            Monitor.Enter(this);
+            Monitor.Pulse(this);
+            Monitor.Exit(this);
+        }
+    }	
+
+
+  
     public partial class AddProduct : Form
     {
+       
+
         private mainForm Refmain = null;
         private SqlConnection conn = new System.Data.SqlClient.SqlConnection();
+        
+        Thread hiloConsumidor;
+        ClaseCompartida objCompartido = new ClaseCompartida();
+             
         public void SetRefMain(mainForm mainf)
         {
+        
+       
             Refmain = mainf;
         }
+
+        
         public AddProduct(int Id, string Name, Int32 StMin, Int32 StMax, float PCompra,
-         float PVenta)
+        float PVenta)
         {
+
             InitializeComponent();
             this.dataGridView1.Rows.Add(Id, Name, StMin, StMax, PCompra, PVenta);
 
-        }   
+
+        }
+
         public AddProduct()
         {
             InitializeComponent();
+            hiloConsumidor = new Thread(new ThreadStart(correConsumidor));
+            hiloConsumidor.Start();
         }
+
+
+        bool finalizar = false;
+
+        public void correConsumidor()
+        {
+            while (!finalizar)
+            {
+                try
+                {
+                    objCompartido.espera();
+                    Invoke(new miDelegado(actualizarTitulo));
+                }
+                catch (Exception e) { }
+            }
+        }
+       
+        public delegate void miDelegado();
+
+        public void actualizarTitulo()
+        {
+            this.Text = "" + LaOtra.getValor();
+        }
+
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             txtId.Text = "";
@@ -141,6 +256,43 @@ namespace Sales
             Refmain.Visible = true;
             this.Dispose();
         }
+
+
+
+
+        //private void AddProduct_Load(object sender, EventArgs e)
+        //{
+
+        //    //lblhora.Text = MyDate.ToString();
+
+
+        //    while (true)
+        //    {
+
+        //        //DateTime MyDate = DateTime.Now;
+        //        //lblhora.Text = MyDate.ToString();
+        //        //Thread.Sleep(1000);
+
+          
+
+
+        //    }
+
+       
+
+        //}
+           
+ 
+
+      
+		
+
+
+
+
+        }
+
+       
     }
 
-}
+
