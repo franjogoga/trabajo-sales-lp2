@@ -71,19 +71,26 @@ namespace Sales
         }
         private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int Id = Int32.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-            String Name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            String lastname = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            String email = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            String fecha = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            String direccion = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            float sueldo = float.Parse(dataGridView1.CurrentRow.Cells[6].Value.ToString());
-            String puesto = dataGridView1.CurrentRow.Cells[7].Value.ToString();
-            int idarea = int.Parse(dataGridView1.CurrentRow.Cells[8].Value.ToString());
-            String dni = dataGridView1.CurrentRow.Cells[9].Value.ToString();
+            try
+            {
+                int Id = Int32.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                String Name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                String lastname = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                String email = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                String fecha = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                String direccion = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                float sueldo = float.Parse(dataGridView1.CurrentRow.Cells[6].Value.ToString());
+                String puesto = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+                int idarea = int.Parse(dataGridView1.CurrentRow.Cells[8].Value.ToString()) - 1;
+                String dni = dataGridView1.CurrentRow.Cells[9].Value.ToString();
 
-            RefpForm.SetPersonalSearch(Id,Name,lastname,email,fecha,direccion,sueldo,puesto,idarea,dni);
-            this.Dispose();
+                RefpForm.SetPersonalSearch(Id, Name, lastname, email, fecha, direccion, sueldo, puesto, idarea, dni);
+                this.Dispose();
+            }
+            catch (Exception)
+            {
+                throw;
+            }   
         }
     }
 }

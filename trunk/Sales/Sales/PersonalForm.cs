@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Libreria;
 using Sales;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace Sales
 {
@@ -77,12 +78,41 @@ namespace Sales
             {
                 conn.Open();
                 String stringSQL = "Update G08_Personal " +
-                                  "Set nombres = " + txtNombre.Text + ", apellidos = " + txtApellido.Text +
-                                  " , email =" + txtEmail.Text + " fechaContrato = " + txtFContrato.Text +
-                                  "Direccion = " + txtDireccion.Text + " , Sueldo = " + sueldo +
-                                  " ,Puesto = " + txtPuesto.Text + " ,idarea= " + idarea + " ,DNI = " + txtDNI.Text +
-                                  " Where idPersonal = " + idper;
+                                  "Set nombres = @param1 ,apellidos = @param2 , email = @param3"+
+                                  " ,fechaContrato = @param4 ,Direccion = @param5 , Sueldo = @param6" + 
+                                  " ,Puesto = @param7 ,idarea= @param8 ,DNI = @param9" + 
+                                  " Where idPersonal = @param10";
+                SqlParameter myparam1 = new SqlParameter("@param1",SqlDbType.VarChar,20);
+                SqlParameter myparam2 = new SqlParameter("@param2",SqlDbType.VarChar,20);
+                SqlParameter myparam3 = new SqlParameter("@param3",SqlDbType.VarChar,20);
+                SqlParameter myparam4 = new SqlParameter("@param4",SqlDbType.VarChar,10);
+                SqlParameter myparam5 = new SqlParameter("@param5",SqlDbType.VarChar,30);
+                SqlParameter myparam6 = new SqlParameter("@param6",SqlDbType.Float);
+                SqlParameter myparam7 = new SqlParameter("@param7",SqlDbType.VarChar,20);
+                SqlParameter myparam8 = new SqlParameter("@param8",SqlDbType.Int);
+                SqlParameter myparam9 = new SqlParameter("@param9",SqlDbType.VarChar,10);
+                SqlParameter myparam10 = new SqlParameter("@param10",SqlDbType.Int);
+                myparam1.Value = txtNombre.Text;
+                myparam2.Value = txtApellido.Text;
+                myparam3.Value = txtEmail.Text;
+                myparam4.Value = txtFContrato.Text;
+                myparam5.Value = txtDireccion.Text;
+                myparam6.Value = sueldo;
+                myparam7.Value = txtPuesto.Text;
+                myparam8.Value = idarea;
+                myparam9.Value = txtDNI.Text;
+                myparam10.Value = idper;
                 SqlCommand comando = new SqlCommand(stringSQL, conn);
+                comando.Parameters.Add(myparam1);
+                comando.Parameters.Add(myparam2);
+                comando.Parameters.Add(myparam3);
+                comando.Parameters.Add(myparam4);
+                comando.Parameters.Add(myparam5);
+                comando.Parameters.Add(myparam6);
+                comando.Parameters.Add(myparam7);
+                comando.Parameters.Add(myparam8);
+                comando.Parameters.Add(myparam9);
+                comando.Parameters.Add(myparam10);
                 comando.ExecuteNonQuery();
                 conn.Close();
 
@@ -124,22 +154,29 @@ namespace Sales
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             Personal p = new Personal();
+            if (lblEstado.Text == "Modificando")
+            {
+                ActualizaPersonal();
+                lblError.Text = "Actualizado";
+                lblEstado.Text = "Datos de Personal";
+            }
+            else
+            {
+                p.SetName(txtNombre.Text);
+                p.SetLastName(txtApellido.Text);
+                p.SetEmail(txtEmail.Text);
+                p.SetSalary(float.Parse(txtSalario.Text));
+                p.setDateHired(txtFContrato.Text);
+                p.SetID(Int32.Parse(lblIdPersonal.Text));
+                p.SetDNI(txtDNI.Text);
+                p.setWorkStation(txtPuesto.Text);
+                p.setAddress(txtDireccion.Text);
+                p.setWorkArea(Int32.Parse(cmbArea.SelectedValue.ToString()));
 
-            p.SetName(txtNombre.Text);
-            p.SetLastName(txtApellido.Text);
-            p.SetEmail(txtEmail.Text);
-            p.SetSalary(float.Parse(txtSalario.Text));
-            p.setDateHired(txtFContrato.Text);
-            p.SetID(Int32.Parse(lblIdPersonal.Text));
-            p.SetDNI(txtDNI.Text);
-            p.setWorkStation(txtPuesto.Text);
-            p.setAddress(txtDireccion.Text);
-            p.setWorkArea(Int32.Parse(cmbArea.SelectedValue.ToString()));
-            
-            Program.service.addPersonal(p);
+                Program.service.addPersonal(p);
 
-            lblError.Text = "Registrado";
-           
+                lblError.Text = "Registrado";
+            }
             cargaPersonal();
         }
 
@@ -193,6 +230,32 @@ namespace Sales
             cmbArea.SelectedIndex = idarea;
             txtDNI.Text = dni;
             btnModificar.Enabled = true;
+        }
+
+        private void gridPersonal_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                lblIdPersonal.Text = gridPersonal.CurrentRow.Cells[0].Value.ToString();
+                txtNombre.Text = gridPersonal.CurrentRow.Cells[1].Value.ToString();
+                txtApellido.Text = gridPersonal.CurrentRow.Cells[2].Value.ToString();
+                txtEmail.Text = gridPersonal.CurrentRow.Cells[3].Value.ToString();
+                txtFContrato.Text = gridPersonal.CurrentRow.Cells[4].Value.ToString();
+                txtDireccion.Text = gridPersonal.CurrentRow.Cells[5].Value.ToString();
+                txtSalario.Text = gridPersonal.CurrentRow.Cells[6].Value.ToString();
+                txtPuesto.Text = gridPersonal.CurrentRow.Cells[7].Value.ToString();
+                cmbArea.SelectedIndex = int.Parse(gridPersonal.CurrentRow.Cells[8].Value.ToString()) -1;
+                txtDNI.Text = gridPersonal.CurrentRow.Cells[9].Value.ToString();
+                panelPersonal.Enabled = false;
+                btnGuardar.Enabled = false;
+                btnModificar.Enabled = true;
+                lblError.Text = "";
+                lblEstado.Text = "Datos de Personal";
+            }
+            catch (Exception)
+            {
+                throw;
+            }   
         }
     }
 }
