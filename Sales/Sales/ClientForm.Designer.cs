@@ -75,10 +75,10 @@
             this.Telefono,
             this.Estado});
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.dataGridView1.Location = new System.Drawing.Point(60, 266);
+            this.dataGridView1.Location = new System.Drawing.Point(49, 271);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.Size = new System.Drawing.Size(699, 299);
+            this.dataGridView1.Size = new System.Drawing.Size(710, 166);
             this.dataGridView1.StandardTab = true;
             this.dataGridView1.TabIndex = 7;
             // 
@@ -336,7 +336,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 590);
+            this.ClientSize = new System.Drawing.Size(786, 453);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.dataGridView1);
