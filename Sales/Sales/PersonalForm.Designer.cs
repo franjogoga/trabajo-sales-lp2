@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelPersonal = new System.Windows.Forms.Panel();
+            this.txtFContrato = new System.Windows.Forms.DateTimePicker();
             this.cmbArea = new System.Windows.Forms.ComboBox();
             this.lblIdPersonal = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblError = new System.Windows.Forms.Label();
             this.lblEstado = new System.Windows.Forms.Label();
-            this.txtFContrato = new System.Windows.Forms.DateTimePicker();
             this.panelPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPersonal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -92,6 +92,15 @@
             this.panelPersonal.Name = "panelPersonal";
             this.panelPersonal.Size = new System.Drawing.Size(483, 204);
             this.panelPersonal.TabIndex = 0;
+            // 
+            // txtFContrato
+            // 
+            this.txtFContrato.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFContrato.Location = new System.Drawing.Point(344, 15);
+            this.txtFContrato.Name = "txtFContrato";
+            this.txtFContrato.Size = new System.Drawing.Size(127, 20);
+            this.txtFContrato.TabIndex = 15;
+            this.txtFContrato.Value = new System.DateTime(2012, 10, 25, 0, 0, 0, 0);
             // 
             // cmbArea
             // 
@@ -257,6 +266,7 @@
             this.gridPersonal.Name = "gridPersonal";
             this.gridPersonal.Size = new System.Drawing.Size(793, 150);
             this.gridPersonal.TabIndex = 10;
+            this.gridPersonal.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gridPersonal_MouseDoubleClick);
             // 
             // label11
             // 
@@ -373,15 +383,6 @@
             this.lblEstado.Size = new System.Drawing.Size(46, 13);
             this.lblEstado.TabIndex = 14;
             this.lblEstado.Text = "[Estado]";
-            // 
-            // txtFContrato
-            // 
-            this.txtFContrato.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFContrato.Location = new System.Drawing.Point(344, 15);
-            this.txtFContrato.Name = "txtFContrato";
-            this.txtFContrato.Size = new System.Drawing.Size(127, 20);
-            this.txtFContrato.TabIndex = 15;
-            this.txtFContrato.Value = new System.DateTime(2012, 10, 25, 0, 0, 0, 0);
             // 
             // PersonalForm
             // 
