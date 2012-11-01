@@ -67,7 +67,7 @@
             // btnSearch
             // 
             this.btnSearch.Image = global::Sales.Properties.Resources.search;
-            this.btnSearch.Location = new System.Drawing.Point(255, 77);
+            this.btnSearch.Location = new System.Drawing.Point(233, 77);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(118, 43);
             this.btnSearch.TabIndex = 8;
@@ -75,6 +75,7 @@
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // dataGridView1
             // 

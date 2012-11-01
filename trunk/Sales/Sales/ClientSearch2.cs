@@ -61,7 +61,10 @@ namespace Sales
 
         private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
+            int idclient = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            String name = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            refSalesform.SetClient(idclient,name);
+            this.Dispose();
         }
     }
 }
