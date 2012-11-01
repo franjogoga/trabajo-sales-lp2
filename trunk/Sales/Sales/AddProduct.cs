@@ -15,78 +15,6 @@ using System.Threading;
 namespace Sales
 {
 
-    public class ClaseProductora
-    
-    {
-        Thread hilo;
-        
-        public ClaseProductora(ClaseCompartida objCompartido)
-        {
-            LaOtra laOtra = new LaOtra(objCompartido);
-            hilo = new Thread(new ThreadStart(laOtra.corre));
-            hilo.Start();
-        }
-
-    }
-
-
-    public class LaOtra
-    {
-        private static int i;
-        private bool finalizar = false;
-        private ClaseCompartida objCompartido;
-
-        public LaOtra(ClaseCompartida obj)
-        {
-            this.objCompartido = obj;
-        }
-        public static string getValor()
-        {
-
-            DateTime MyDate = DateTime.Now;
-            return MyDate.ToString();
-        }
-
-        public void corre()
-        {
-            i = 0;
-            while (!finalizar)
-            {
-                i++;
-                try { Thread.Sleep(1000); }
-                catch (Exception e) { };
-                objCompartido.notifica();
-            }
-        }
-    }
-
-
-    public class ClaseCompartida
-    {
-        ClaseProductora objProductor;
-
-        public ClaseCompartida()
-        {
-            objProductor = new ClaseProductora(this);
-        }
-
-        public void espera()
-        {
-            Monitor.Enter(this);
-            try { Monitor.Wait(this); }
-            catch (Exception) { }
-            Monitor.Exit(this);
-        }
-        public void notifica()
-        {
-            Monitor.Enter(this);
-            Monitor.Pulse(this);
-            Monitor.Exit(this);
-        }
-    }	
-
-
-  
     public partial class AddProduct : Form
     {
        
@@ -292,7 +220,77 @@ namespace Sales
 
         }
 
-       
+
+    public class ClaseProductora
+    {
+        Thread hilo;
+
+        public ClaseProductora(ClaseCompartida objCompartido)
+        {
+            LaOtra laOtra = new LaOtra(objCompartido);
+            hilo = new Thread(new ThreadStart(laOtra.corre));
+            hilo.Start();
+        }
+
+    }
+
+
+    public class LaOtra
+    {
+        private static int i;
+        private bool finalizar = false;
+        private ClaseCompartida objCompartido;
+
+        public LaOtra(ClaseCompartida obj)
+        {
+            this.objCompartido = obj;
+        }
+        public static string getValor()
+        {
+
+            DateTime MyDate = DateTime.Now;
+            return MyDate.ToString();
+        }
+
+        public void corre()
+        {
+            i = 0;
+            while (!finalizar)
+            {
+                i++;
+                try { Thread.Sleep(1000); }
+                catch (Exception e) { };
+                objCompartido.notifica();
+            }
+        }
+    }
+
+
+    public class ClaseCompartida
+    {
+        ClaseProductora objProductor;
+
+        public ClaseCompartida()
+        {
+            objProductor = new ClaseProductora(this);
+        }
+
+        public void espera()
+        {
+            Monitor.Enter(this);
+            try { Monitor.Wait(this); }
+            catch (Exception) { }
+            Monitor.Exit(this);
+        }
+        public void notifica()
+        {
+            Monitor.Enter(this);
+            Monitor.Pulse(this);
+            Monitor.Exit(this);
+        }
+    }	
+
+   
     }
 
 
