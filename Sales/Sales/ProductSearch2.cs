@@ -74,6 +74,12 @@ namespace Sales
             }
         }
 
+        private void ProductSearch2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
 
     }
 }

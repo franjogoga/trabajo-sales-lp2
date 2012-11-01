@@ -61,6 +61,7 @@ namespace Sales
             float Pventa = float.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
             dataGridView1.CurrentRow.Cells["SubTotal"].Value = pVenta * cantidad;
             var = (Int32)(var + pVenta * cantidad);
+         
             txtTotal.Text = var.ToString();
         
         }
