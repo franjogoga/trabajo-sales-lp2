@@ -40,7 +40,7 @@
             // btnBusqueda
             // 
             this.btnBusqueda.Image = global::Sales.Properties.Resources.search;
-            this.btnBusqueda.Location = new System.Drawing.Point(268, 79);
+            this.btnBusqueda.Location = new System.Drawing.Point(254, 79);
             this.btnBusqueda.Name = "btnBusqueda";
             this.btnBusqueda.Size = new System.Drawing.Size(141, 49);
             this.btnBusqueda.TabIndex = 0;
