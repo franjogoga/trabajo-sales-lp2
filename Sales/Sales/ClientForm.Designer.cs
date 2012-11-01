@@ -47,7 +47,7 @@
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelClient = new System.Windows.Forms.Panel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
@@ -56,7 +56,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panelClient.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -224,24 +224,24 @@
             this.txtID.Size = new System.Drawing.Size(50, 20);
             this.txtID.TabIndex = 13;
             // 
-            // panel1
+            // panelClient
             // 
-            this.panel1.Controls.Add(this.txtID);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.txtEstado);
-            this.panel1.Controls.Add(this.txtTelefono);
-            this.panel1.Controls.Add(this.txtEmail);
-            this.panel1.Controls.Add(this.txtDireccion);
-            this.panel1.Controls.Add(this.txtRazonSocial);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(137, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(499, 198);
-            this.panel1.TabIndex = 0;
+            this.panelClient.Controls.Add(this.txtID);
+            this.panelClient.Controls.Add(this.label7);
+            this.panelClient.Controls.Add(this.txtEstado);
+            this.panelClient.Controls.Add(this.txtTelefono);
+            this.panelClient.Controls.Add(this.txtEmail);
+            this.panelClient.Controls.Add(this.txtDireccion);
+            this.panelClient.Controls.Add(this.txtRazonSocial);
+            this.panelClient.Controls.Add(this.label6);
+            this.panelClient.Controls.Add(this.label4);
+            this.panelClient.Controls.Add(this.label3);
+            this.panelClient.Controls.Add(this.label2);
+            this.panelClient.Controls.Add(this.label1);
+            this.panelClient.Location = new System.Drawing.Point(137, 12);
+            this.panelClient.Name = "panelClient";
+            this.panelClient.Size = new System.Drawing.Size(499, 198);
+            this.panelClient.TabIndex = 0;
             // 
             // btnAdd
             // 
@@ -259,7 +259,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Sales.Properties.Resources.man_brown;
+            this.pictureBox2.Image = global::Sales.Properties.Resources.Client;
             this.pictureBox2.Location = new System.Drawing.Point(12, 12);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(104, 99);
@@ -345,14 +345,14 @@
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelClient);
             this.Name = "ClientForm";
             this.Text = "Mantenimiento Cliente";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientForm_FormClosing);
             this.Load += new System.EventHandler(this.ClientForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelClient.ResumeLayout(false);
+            this.panelClient.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
@@ -380,7 +380,7 @@
         private System.Windows.Forms.TextBox txtEstado;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelClient;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocial;
         private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
