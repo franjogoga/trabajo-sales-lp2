@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductSearch2));
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -55,11 +56,14 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(264, 78);
+            this.btnSearch.Image = global::Sales.Properties.Resources.search;
+            this.btnSearch.Location = new System.Drawing.Point(251, 69);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(118, 43);
             this.btnSearch.TabIndex = 2;
-            this.btnSearch.Text = "Buscar";
+            this.btnSearch.Text = "&Buscar";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -92,6 +96,7 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProductSearch2";
             this.Text = "Buscar Producto";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
