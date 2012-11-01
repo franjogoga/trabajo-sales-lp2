@@ -85,7 +85,7 @@ namespace Sales
         private void btnSearch_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            ProductSearch testDialog = new ProductSearch();
+            ProductSearch2 testDialog = new ProductSearch2();
             testDialog.Visible = true;
         }
 
