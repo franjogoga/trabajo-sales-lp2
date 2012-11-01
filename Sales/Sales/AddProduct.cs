@@ -11,14 +11,10 @@ using System.Data;
 using Libreria;
 using System.Threading;
 
-
 namespace Sales
 {
-
     public partial class AddProduct : Form
-    {
-       
-
+    {       
         private mainForm Refmain = null;
         private SqlConnection conn = new System.Data.SqlClient.SqlConnection();
         
@@ -26,21 +22,14 @@ namespace Sales
         ClaseCompartida objCompartido = new ClaseCompartida();
              
         public void SetRefMain(mainForm mainf)
-        {
-        
-       
+        {               
             Refmain = mainf;
         }
-
         
-        public AddProduct(int Id, string Name, Int32 StMin, Int32 StMax, float PCompra,
-        float PVenta)
+        public AddProduct(int Id, string Name, Int32 StMin, Int32 StMax, float PCompra, float PVenta)
         {
-
             InitializeComponent();
             this.dataGridView1.Rows.Add(Id, Name, StMin, StMax, PCompra, PVenta);
-
-
         }
 
         public AddProduct()
@@ -49,7 +38,6 @@ namespace Sales
             hiloConsumidor = new Thread(new ThreadStart(correConsumidor));
             hiloConsumidor.Start();
         }
-
 
         bool finalizar = false;
 
@@ -73,7 +61,6 @@ namespace Sales
             this.Text = "" + LaOtra.getValor();
         }
 
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             txtId.Text = "";
@@ -88,7 +75,6 @@ namespace Sales
         private void btnSave_Click(object sender, EventArgs e)
         {
             this.dataGridView1.Rows.Add();
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -126,17 +112,14 @@ namespace Sales
             float PrecioCompra = (float.Parse(txtPcompra.Text));
             float PrecioVenta = (float.Parse(txtPventa.Text));
 
-
             this.dataGridView1.Rows.Add(id, name, StockMin, StockMax, PrecioCompra, PrecioVenta);
 
             int filas = this.dataGridView1.RowCount;
 
             if (filas != 0)
                 MessageBox.Show("Producto añadido");
-
             else
                 MessageBox.Show("Error al añadir");
-
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -147,15 +130,11 @@ namespace Sales
 
         private void btnModify_Click_1(object sender, EventArgs e)
         {
-
-
         
         }
 
         private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
-
             String seleccionado = (dataGridView1.CurrentRow.Cells["ID"].Value).ToString();
 
             conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
@@ -168,7 +147,6 @@ namespace Sales
 
             if (leer.Read())
             {
-
                 txtId.Text = (leer.GetInt32(0)).ToString();
                 txtName.Text = leer.GetString(1);
                 txtStMax.Text = leer.GetInt32(2).ToString();
@@ -185,41 +163,19 @@ namespace Sales
             this.Dispose();
         }
 
-
-
-
         //private void AddProduct_Load(object sender, EventArgs e)
         //{
 
         //    //lblhora.Text = MyDate.ToString();
 
-
         //    while (true)
         //    {
-
         //        //DateTime MyDate = DateTime.Now;
         //        //lblhora.Text = MyDate.ToString();
-        //        //Thread.Sleep(1000);
-
-          
-
-
-        //    }
-
-       
-
-        //}
-           
- 
-
-      
-		
-
-
-
-
-        }
-
+        //        //Thread.Sleep(1000);          
+        //    }       
+        //}           
+    }
 
     public class ClaseProductora
     {
@@ -231,9 +187,7 @@ namespace Sales
             hilo = new Thread(new ThreadStart(laOtra.corre));
             hilo.Start();
         }
-
     }
-
 
     public class LaOtra
     {
@@ -247,7 +201,6 @@ namespace Sales
         }
         public static string getValor()
         {
-
             DateTime MyDate = DateTime.Now;
             return MyDate.ToString();
         }
@@ -264,7 +217,6 @@ namespace Sales
             }
         }
     }
-
 
     public class ClaseCompartida
     {
@@ -288,9 +240,5 @@ namespace Sales
             Monitor.Pulse(this);
             Monitor.Exit(this);
         }
-    }	
-
-   
-    }
-
-
+    }	       
+}
