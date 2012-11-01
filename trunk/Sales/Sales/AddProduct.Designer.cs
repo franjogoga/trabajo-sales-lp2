@@ -54,6 +54,7 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblhora = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -297,11 +298,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
             // 
+            // lblhora
+            // 
+            this.lblhora.AutoSize = true;
+            this.lblhora.Location = new System.Drawing.Point(22, 18);
+            this.lblhora.Name = "lblhora";
+            this.lblhora.Size = new System.Drawing.Size(28, 13);
+            this.lblhora.TabIndex = 22;
+            this.lblhora.Text = "hora";
+            // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(807, 482);
+            this.Controls.Add(this.lblhora);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button5);
@@ -313,10 +324,12 @@
             this.Name = "AddProduct";
             this.Text = "AddProduct";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddProduct_FormClosing);
+            //this.Load += new System.EventHandler(this.AddProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -348,5 +361,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gStockMax;
         private System.Windows.Forms.DataGridViewTextBoxColumn gPriceC;
         private System.Windows.Forms.DataGridViewTextBoxColumn gpriceV;
+        private System.Windows.Forms.Label lblhora;
     }
 }
