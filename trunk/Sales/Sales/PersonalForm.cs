@@ -229,6 +229,8 @@ namespace Sales
             txtPuesto.Text = puesto;
             cmbArea.SelectedIndex = idarea;
             txtDNI.Text = dni;
+            panelPersonal.Enabled = false;
+            btnGuardar.Enabled = false;
             btnModificar.Enabled = true;
         }
 
