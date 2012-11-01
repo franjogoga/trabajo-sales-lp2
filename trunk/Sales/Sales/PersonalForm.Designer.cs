@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonalForm));
             this.panelPersonal = new System.Windows.Forms.Panel();
             this.txtFContrato = new System.Windows.Forms.DateTimePicker();
             this.cmbArea = new System.Windows.Forms.ComboBox();
@@ -401,6 +402,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panelPersonal);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PersonalForm";
             this.Text = "Mantenimiento de Personal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PersonalForm_FormClosing);
