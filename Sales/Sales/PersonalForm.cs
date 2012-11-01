@@ -57,21 +57,45 @@ namespace Sales
             conn.Open();
 
             string stringSQL = "SELECT * FROM G08_Personal";
-
             SqlDataAdapter daPersonal = new SqlDataAdapter();
-
             SqlCommand command = new SqlCommand(stringSQL, conn);
             daPersonal.SelectCommand = command;
-
             DataSet dset = new DataSet();
             daPersonal.Fill(dset, "G08_Personal");
-
             gridPersonal.DataSource = dset;
             gridPersonal.DataMember = "G08_Personal";
-
+            
             conn.Close();
         }
 
+        void ActualizaPersonal()
+        {
+            float sueldo = float.Parse(txtSalario.Text);
+            int idarea = int.Parse(cmbArea.SelectedValue.ToString());
+            int idper = int.Parse(lblIdPersonal.Text);
+            try
+            {
+                conn.Open();
+                String stringSQL = "Update G08_Personal " +
+                                  "Set nombres = " + txtNombre.Text + ", apellidos = " + txtApellido.Text +
+                                  " , email =" + txtEmail.Text + " fechaContrato = " + txtFContrato.Text +
+                                  "Direccion = " + txtDireccion.Text + " , Sueldo = " + sueldo +
+                                  " ,Puesto = " + txtPuesto.Text + " ,idarea= " + idarea + " ,DNI = " + txtDNI.Text +
+                                  " Where idPersonal = " + idper;
+                SqlCommand comando = new SqlCommand(stringSQL, conn);
+                comando.ExecuteNonQuery();
+                conn.Close();
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
+            panelPersonal.Enabled = false;
+            btnGuardar.Enabled = false;
+        }
         private void PersonalForm_Load(object sender, EventArgs e)
         {
             DataSet dsArea;
@@ -127,14 +151,8 @@ namespace Sales
         private void btnModificar_Click(object sender, EventArgs e)
         {
             lblEstado.Text = "Modificando";
-            txtNombre.Enabled = true;
-            txtApellido.Enabled = true;
-            txtDireccion.Enabled = true;
-            txtDNI.Enabled = true;
-            txtEmail.Enabled = true;
-            txtFContrato.Enabled = true;
-            txtSalario.Enabled = true;
-            cmbArea.Enabled = true;
+            panelPersonal.Enabled = true;
+            btnGuardar.Enabled = true;         
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
