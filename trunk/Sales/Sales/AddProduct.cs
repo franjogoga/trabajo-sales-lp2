@@ -225,6 +225,11 @@ namespace Sales
             this.Dispose();
         }
 
+        private void btnExit_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         //private void AddProduct_Load(object sender, EventArgs e)
           //  {
    
