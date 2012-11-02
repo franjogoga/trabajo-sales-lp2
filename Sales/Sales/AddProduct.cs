@@ -222,10 +222,8 @@ namespace Sales
 
         private void btnExit_Click_1(object sender, EventArgs e)
         {
-
-            Refmain.Visible = true;
-            this.Dispose();
-           
+            this.Close();
+            Refmain.Visible = true;                       
         }
 
         //private void AddProduct_Load(object sender, EventArgs e)
@@ -234,10 +232,6 @@ namespace Sales
          // Si queremos cargar la página con los productos completamos este procedimientos. 
           // cargarGrilla(); 
         //}
-
-        
-
-              
     }
 
     public class ClaseProductora
