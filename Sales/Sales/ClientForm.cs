@@ -58,6 +58,9 @@ namespace Sales
 
        private void btnModify_Click(object sender, EventArgs e)
        {
+
+           panelClient.Enabled = true;
+           btnSave.Enabled = true;
            String seleccionado =(dataGridView1.CurrentRow.Cells["ID"].Value).ToString();
            
            System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Select * FROM G08_Cliente where IDCliente=" + seleccionado ,conn);
@@ -80,7 +83,9 @@ namespace Sales
        private void btnAdd_Click_1(object sender, EventArgs e)
        {
            panelClient.Enabled = true;
- 
+           btnSave.Enabled = false;
+           btnModify.Enabled = false;
+
            idCliente = Program.service.obtenerNuevoClientID();
 
            if (txtRazonSocial.Text == "") {
@@ -144,24 +149,7 @@ namespace Sales
 
        }
 
-       private void btnDelete_Click(object sender, EventArgs e)
-       {
-
-           DialogResult resultado = MessageBox.Show("¿Esta seguro que quiere eliminar el cliente seleccionado?","AVISO",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-           if (resultado==DialogResult.No){
-            return;
-           }
-           System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Delete from G08_Cliente where IDCliente=@IDCliente",conn);
-           
-           comando.Parameters.AddWithValue("IDCliente", dataGridView1.CurrentRow.Cells["ID"].Value);  //EL IDcliente es el parametro de arriba
-
-           conn.Open();
-           comando.ExecuteNonQuery();
-           conn.Close();
-
-           MessageBox.Show("Cliente Borrado Correctactamente","AVISO",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
-           cargaClientes();
-       }
+    
 
        private void btnSearch_Click(object sender, EventArgs e)
        {
@@ -173,6 +161,16 @@ namespace Sales
        {
            this.Dispose();
            refMainForm.Show();
+       }
+
+       private void btnNuevo_Click_1(object sender, EventArgs e)
+       {
+           txtRazonSocial.Text = "";
+           txtDireccion.Text = "";
+           txtEstado.Text = "";
+           txtTelefono.Text = "";
+           txtEmail.Text = "";
+           btnModify.Enabled = true;
        }    
     }
 }
