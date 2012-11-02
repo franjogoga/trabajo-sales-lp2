@@ -111,17 +111,12 @@ namespace Sales
 
         }
 
-
-
-
         public delegate void miDelegado();
 
         public void actualizarTitulo()
         {
             this.Text = "" + LaOtra.getValor();
         }
-
-
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
