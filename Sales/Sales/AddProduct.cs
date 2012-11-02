@@ -114,7 +114,7 @@ namespace Sales
         public void actualizarGrilla()
         {
 
-            cargarGrilla();
+           // cargarGrilla();
 
         }
 
