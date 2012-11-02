@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddProduct));
             this.btnExit = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvProduct = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gstockMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +57,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,10 +73,10 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click_1);
             // 
-            // dataGridView1
+            // dgvProduct
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.gProduct,
             this.gstockMin,
@@ -84,10 +84,10 @@
             this.gPriceC,
             this.gpriceV,
             this.gImg});
-            this.dataGridView1.Location = new System.Drawing.Point(86, 313);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(642, 97);
-            this.dataGridView1.TabIndex = 20;
+            this.dgvProduct.Location = new System.Drawing.Point(86, 313);
+            this.dgvProduct.Name = "dgvProduct";
+            this.dgvProduct.Size = new System.Drawing.Size(642, 97);
+            this.dgvProduct.TabIndex = 20;
             // 
             // ID
             // 
@@ -308,7 +308,7 @@
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(68, 13);
             this.lblDate.TabIndex = 22;
-            this.lblDate.Text = "lblhoraaaaaa";            
+            this.lblDate.Text = "lblhoraaaaaa";
             // 
             // AddProduct
             // 
@@ -317,7 +317,7 @@
             this.ClientSize = new System.Drawing.Size(807, 482);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvProduct);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnSearch);
@@ -327,7 +327,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddProduct";
             this.Text = "AddProduct";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -338,7 +338,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvProduct;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnSearch;
