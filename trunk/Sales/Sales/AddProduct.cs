@@ -84,7 +84,7 @@ namespace Sales
                     objCompartido.espera();
                     Invoke(new miDelegado(actualizarTitulo));
                 }
-                catch (Exception e) { }
+                catch (Exception ) {  }
             }
         }
 
@@ -98,7 +98,7 @@ namespace Sales
                     objCompartido.espera();
                     Invoke(new miDelegado2(actualizarGrilla));
                 }
-                catch (Exception e) { }
+                catch (Exception ) { }
             }
         }
 
@@ -272,7 +272,7 @@ namespace Sales
             {
                 i++;
                 try { Thread.Sleep(1000); }
-                catch (Exception e) { };
+                catch (Exception ) { };
                 objCompartido.notifica();
             }
         }

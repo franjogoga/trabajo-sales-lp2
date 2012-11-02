@@ -54,7 +54,7 @@ namespace Sales
             }
             catch (Exception)
             {        
-                throw;
+               
             }
         }
 
