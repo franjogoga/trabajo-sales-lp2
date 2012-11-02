@@ -308,8 +308,7 @@
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(68, 13);
             this.lblDate.TabIndex = 22;
-            this.lblDate.Text = "lblhoraaaaaa";
-            this.lblDate.Click += new System.EventHandler(this.lblDate_Click);
+            this.lblDate.Text = "lblhoraaaaaa";            
             // 
             // AddProduct
             // 

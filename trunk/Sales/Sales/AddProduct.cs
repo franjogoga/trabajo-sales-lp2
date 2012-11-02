@@ -232,11 +232,6 @@ namespace Sales
             Refmain.Visible = true;                       
         }
 
-        private void lblDate_Click(object sender, EventArgs e)
-        {
-
-        }
-
         //private void AddProduct_Load(object sender, EventArgs e)
           //  {
    
