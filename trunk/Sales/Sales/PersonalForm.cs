@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using Libreria;
 using Sales;
 using System.Data.SqlClient;
-using System.Data;
 
 namespace Sales
 {
