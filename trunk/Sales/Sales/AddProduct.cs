@@ -14,12 +14,12 @@ namespace Sales
 {
     public partial class AddProduct : Form
     {
-        private mainForm Refmain = null;
-        private SqlConnection conn = new SqlConnection();
+        private mainForm refMain = null;
+        private SqlConnection conn = new SqlConnection("user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30");
 
         public void SetRefMain(mainForm mainf)
         {
-            Refmain = mainf;
+            refMain = mainf;
         }
         
         public AddProduct(int Id, string Name, Int32 StMin, Int32 StMax, float PCompra, float PVenta)
@@ -56,26 +56,24 @@ namespace Sales
                 this.Invoke(d, new object [] { } );
             }
             else
-            {
-                conn.ConnectionString = "user id=inf282;"+"password=inf282db;"+"server=inti.lab.inf.pucp.edu.pe;"+"database=inf282; "+"connection timeout=30";
-
+            {                
                 SqlCommand command = new SqlCommand("Select * FROM G08_Producto", conn);
                 conn.Open();
 
-                SqlDataReader reading = command.ExecuteReader();
+                SqlDataReader productReader = command.ExecuteReader();
                 dgvProduct.Rows.Clear();
+                
                 int reglon = 0;
-
-                while (reading.Read())
+                while (productReader.Read())
                 {
                     reglon = dgvProduct.Rows.Add();
-                    dgvProduct.Rows[reglon].Cells["ID"].Value = reading.GetInt32(0);
-                    dgvProduct.Rows[reglon].Cells["gProduct"].Value = reading.GetString(1);
-                    dgvProduct.Rows[reglon].Cells["gStockMin"].Value = reading.GetInt32(5);
-                    dgvProduct.Rows[reglon].Cells["gStockMax"].Value = reading.GetInt32(2);
-                    dgvProduct.Rows[reglon].Cells["gpriceV"].Value = reading.GetDecimal(3);
-                    dgvProduct.Rows[reglon].Cells["gPriceC"].Value = reading.GetDecimal(4);
-                    dgvProduct.Rows[reglon].Cells["gImg"].Value = reading.GetString(6);
+                    dgvProduct.Rows[reglon].Cells["ID"].Value = productReader.GetInt32(0);
+                    dgvProduct.Rows[reglon].Cells["gProduct"].Value = productReader.GetString(1);
+                    dgvProduct.Rows[reglon].Cells["gStockMin"].Value = productReader.GetInt32(5);
+                    dgvProduct.Rows[reglon].Cells["gStockMax"].Value = productReader.GetInt32(2);
+                    dgvProduct.Rows[reglon].Cells["gpriceV"].Value = productReader.GetDecimal(3);
+                    dgvProduct.Rows[reglon].Cells["gPriceC"].Value = productReader.GetDecimal(4);
+                    dgvProduct.Rows[reglon].Cells["gImg"].Value = productReader.GetString(6);
                 }
                 conn.Close();
             }
@@ -114,12 +112,7 @@ namespace Sales
             txtPcompra.Text = "";
             txtPventa.Text = "";
         }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            this.dgvProduct.Rows.Add();
-        }
-
+       
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -132,11 +125,8 @@ namespace Sales
             testDialog.Visible = true;
         }
 
-        private void btnSave_Click_1(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            //this.dataGridView1.Rows.Add(txtId, txtName, txtStMin, txtStMax, txtPcompra, txtPventa);
-            //this.dataGridView1.Rows[0](
-
             Product p = new Product();
 
             p.setCodigo(Int32.Parse(txtId.Text));
@@ -159,34 +149,27 @@ namespace Sales
 
             int filas = this.dgvProduct.RowCount;
 
-            if (filas != 0)
-                MessageBox.Show("Producto añadido");
-            else
-                MessageBox.Show("Error al añadir");
+            if (filas != 0) MessageBox.Show("Producto añadido");
+            else            MessageBox.Show("Error al añadir");
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Refmain.Visible = true;
-            this.Dispose();
-        }
-
-        private void btnModify_Click_1(object sender, EventArgs e)
-        {
-
-        }
+            this.Close();
+            refMain.Visible = true;            
+        }        
 
         private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             String seleccionado = (dgvProduct.CurrentRow.Cells["ID"].Value).ToString();
 
-            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+            conn.ConnectionString = "user id=inf282;"+"password=inf282db;"+"server=inti.lab.inf.pucp.edu.pe;"+"database=inf282; "+"connection timeout=30";
 
-            System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Select * FROM G08_Producto where IDProducto=" + seleccionado, conn);
+            SqlCommand command = new SqlCommand("Select * FROM G08_Producto where IDProducto=" + seleccionado, conn);
 
             conn.Open();
 
-            System.Data.SqlClient.SqlDataReader leer = comando.ExecuteReader();
+            SqlDataReader leer = command.ExecuteReader();
 
             if (leer.Read())
             {
@@ -202,15 +185,8 @@ namespace Sales
 
         private void AddProduct_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Refmain.Visible = true;
+            refMain.Visible = true;
             this.Dispose();
         }
-
-        private void btnExit_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-            Refmain.Visible = true;
-        }
-
     }
 }

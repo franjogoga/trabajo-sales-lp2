@@ -38,7 +38,7 @@
             this.gPriceC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpriceV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gImg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -71,7 +71,7 @@
             this.btnExit.Text = "&Salir";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click_1);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // dgvProduct
             // 
@@ -124,17 +124,17 @@
             this.gImg.HeaderText = "Img";
             this.gImg.Name = "gImg";
             // 
-            // button5
+            // btnDelete
             // 
-            this.button5.Image = global::Sales.Properties.Resources.delete;
-            this.button5.Location = new System.Drawing.Point(621, 156);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(129, 39);
-            this.button5.TabIndex = 18;
-            this.button5.Text = "&Eliminar";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnDelete.Image = global::Sales.Properties.Resources.delete;
+            this.btnDelete.Location = new System.Drawing.Point(621, 156);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(129, 39);
+            this.btnDelete.TabIndex = 18;
+            this.btnDelete.Text = "&Eliminar";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnModify
             // 
@@ -172,6 +172,7 @@
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSave
             // 
@@ -318,7 +319,7 @@
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.dgvProduct);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnAdd);
@@ -339,7 +340,7 @@
 
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridView dgvProduct;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnAdd;
