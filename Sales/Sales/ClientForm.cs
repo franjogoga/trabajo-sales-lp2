@@ -106,7 +106,6 @@ namespace Sales
                c.setEstadoCliente((txtEstado.Text));
            
                Program.service.addClient(c);
-
            
                 MessageBox.Show("Cliente Agregado Correctactamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
