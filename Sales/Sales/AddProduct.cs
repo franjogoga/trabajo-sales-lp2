@@ -13,59 +13,72 @@ using System.Threading;
 namespace Sales
 {
     public partial class AddProduct : Form
-    {       
+    {
         private mainForm Refmain = null;
         private SqlConnection conn = new SqlConnection();
-                
-        Thread hiloConsumidor2;
-        ClaseCompartida objCompartido = new ClaseCompartida();
-             
+
         public void SetRefMain(mainForm mainf)
-        {               
+        {
             Refmain = mainf;
         }
-
-        public void cargarGrilla()
-        {            
-            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
-
-            SqlCommand comando = new SqlCommand("Select * FROM G08_Producto", conn);
-            conn.Open();
-
-            SqlDataReader leer = comando.ExecuteReader();
-            dataGridView1.Rows.Clear();  //limpiar la grilla
-            int reglon = 0;
-
-            while (leer.Read())
-            {
-                reglon = dataGridView1.Rows.Add();
-                dataGridView1.Rows[reglon].Cells["ID"].Value = leer.GetInt32(0);
-                dataGridView1.Rows[reglon].Cells["gProduct"].Value = leer.GetString(1);
-                dataGridView1.Rows[reglon].Cells["gStockMin"].Value = leer.GetInt32(5);
-                dataGridView1.Rows[reglon].Cells["gStockMax"].Value = leer.GetInt32(2);
-                dataGridView1.Rows[reglon].Cells["gpriceV"].Value = leer.GetDecimal(3);
-                dataGridView1.Rows[reglon].Cells["gPriceC"].Value = leer.GetDecimal(4);
-
-                dataGridView1.Rows[reglon].Cells["gImg"].Value = leer.GetString(6);
-            }
-            conn.Close();
-        }
-      
+        
         public AddProduct(int Id, string Name, Int32 StMin, Int32 StMax, float PCompra, float PVenta)
         {
             InitializeComponent();
-            this.dataGridView1.Rows.Add(Id, Name, StMin, StMax, PCompra, PVenta);
+            this.dgvProduct.Rows.Add(Id, Name, StMin, StMax, PCompra, PVenta);
         }
 
         public AddProduct()
         {
-            InitializeComponent();            
+            InitializeComponent();
 
-            hiloConsumidor2 = new Thread(new ThreadStart(correConsumidor2));
-            hiloConsumidor2.Start();
-            
             Thread dateThread = new Thread(updateDate);
             dateThread.Start();
+
+            Thread dgvProductThread = new Thread(updateDgvProduct);
+            dgvProductThread.Start();
+        }
+
+        public void updateDgvProduct()
+        {
+            while (true)
+            {
+                this.loadDgvProduct();
+                Thread.Sleep(TimeSpan.FromSeconds(30));
+            }
+        }
+        public delegate void loadDgvProductCallback();
+        public void loadDgvProduct()
+        {
+            if (this.dgvProduct.InvokeRequired)
+            {
+                loadDgvProductCallback d = new loadDgvProductCallback(loadDgvProduct);
+                this.Invoke(d, new object [] { } );
+            }
+            else
+            {
+                conn.ConnectionString = "user id=inf282;"+"password=inf282db;"+"server=inti.lab.inf.pucp.edu.pe;"+"database=inf282; "+"connection timeout=30";
+
+                SqlCommand command = new SqlCommand("Select * FROM G08_Producto", conn);
+                conn.Open();
+
+                SqlDataReader reading = command.ExecuteReader();
+                dgvProduct.Rows.Clear();
+                int reglon = 0;
+
+                while (reading.Read())
+                {
+                    reglon = dgvProduct.Rows.Add();
+                    dgvProduct.Rows[reglon].Cells["ID"].Value = reading.GetInt32(0);
+                    dgvProduct.Rows[reglon].Cells["gProduct"].Value = reading.GetString(1);
+                    dgvProduct.Rows[reglon].Cells["gStockMin"].Value = reading.GetInt32(5);
+                    dgvProduct.Rows[reglon].Cells["gStockMax"].Value = reading.GetInt32(2);
+                    dgvProduct.Rows[reglon].Cells["gpriceV"].Value = reading.GetDecimal(3);
+                    dgvProduct.Rows[reglon].Cells["gPriceC"].Value = reading.GetDecimal(4);
+                    dgvProduct.Rows[reglon].Cells["gImg"].Value = reading.GetString(6);
+                }
+                conn.Close();
+            }
         }
 
         public void updateDate()
@@ -73,56 +86,23 @@ namespace Sales
             while (true)
             {
                 DateTime date = DateTime.Now;
-                this.setDate( date.ToString() );
+                this.setDate(date.ToString());
                 Thread.Sleep(500);
             }
         }
-
         delegate void setDateCallback(string date);
         public void setDate(string date)
         {
             if (this.lblDate.InvokeRequired)
             {
                 setDateCallback d = new setDateCallback(setDate);
-                this.Invoke(d, new object [] { date } );
+                this.Invoke(d, new object[] { date });
             }
             else
             {
                 this.lblDate.Text = date;
             }
-        }
-
-        
-        bool finalizar = false;    
-
-        public void correConsumidor2()
-        {
-            while (!finalizar)
-            {
-                try
-                {
-                    objCompartido.espera();
-                    Invoke(new miDelegado2(actualizarGrilla));
-                }
-                catch (Exception ) { }
-            }
-        }
-
-        public delegate void miDelegado2();
-
-        public void actualizarGrilla()
-        {
-
-           // cargarGrilla();
-
-        }
-
-        public delegate void miDelegado();
-
-        public void actualizarTitulo()
-        {
-            this.Text = "" + LaOtra.getValor();
-        }
+        }        
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -137,7 +117,7 @@ namespace Sales
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            this.dataGridView1.Rows.Add();
+            this.dgvProduct.Rows.Add();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -175,9 +155,9 @@ namespace Sales
             float PrecioCompra = (float.Parse(txtPcompra.Text));
             float PrecioVenta = (float.Parse(txtPventa.Text));
 
-            this.dataGridView1.Rows.Add(id, name, StockMin, StockMax, PrecioCompra, PrecioVenta);
+            this.dgvProduct.Rows.Add(id, name, StockMin, StockMax, PrecioCompra, PrecioVenta);
 
-            int filas = this.dataGridView1.RowCount;
+            int filas = this.dgvProduct.RowCount;
 
             if (filas != 0)
                 MessageBox.Show("Producto añadido");
@@ -193,12 +173,12 @@ namespace Sales
 
         private void btnModify_Click_1(object sender, EventArgs e)
         {
-        
+
         }
 
         private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            String seleccionado = (dataGridView1.CurrentRow.Cells["ID"].Value).ToString();
+            String seleccionado = (dgvProduct.CurrentRow.Cells["ID"].Value).ToString();
 
             conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
 
@@ -229,79 +209,8 @@ namespace Sales
         private void btnExit_Click_1(object sender, EventArgs e)
         {
             this.Close();
-            Refmain.Visible = true;                       
+            Refmain.Visible = true;
         }
 
-        //private void AddProduct_Load(object sender, EventArgs e)
-          //  {
-   
-         // Si queremos cargar la página con los productos completamos este procedimientos. 
-          // cargarGrilla(); 
-        //}
     }
-
-    public class ClaseProductora
-    {
-        Thread hilo;
-
-        public ClaseProductora(ClaseCompartida objCompartido)
-        {
-            LaOtra laOtra = new LaOtra(objCompartido);
-            hilo = new Thread(new ThreadStart(laOtra.corre));
-            hilo.Start();
-        }
-    }
-
-    public class LaOtra
-    {
-        private static int i;
-        private bool finalizar = false;
-        private ClaseCompartida objCompartido;
-
-        public LaOtra(ClaseCompartida obj)
-        {
-            this.objCompartido = obj;
-        }
-        public static string getValor()
-        {
-            DateTime MyDate = DateTime.Now;
-            return MyDate.ToString();
-        }
-
-        public void corre()
-        {
-            i = 0;
-            while (!finalizar)
-            {
-                i++;
-                try { Thread.Sleep(500); }
-                catch (Exception ) { };
-                objCompartido.notifica();
-            }
-        }
-    }
-
-    public class ClaseCompartida
-    {
-        ClaseProductora objProductor;
-
-        public ClaseCompartida()
-        {
-            objProductor = new ClaseProductora(this);
-        }
-
-        public void espera()
-        {
-            Monitor.Enter(this);
-            try { Monitor.Wait(this); }
-            catch (Exception) { }
-            Monitor.Exit(this);
-        }
-        public void notifica()
-        {
-            Monitor.Enter(this);
-            Monitor.Pulse(this);
-            Monitor.Exit(this);
-        }
-    }	       
 }
