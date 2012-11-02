@@ -69,7 +69,6 @@ namespace Sales
 
             hiloConsumidor2 = new Thread(new ThreadStart(correConsumidor2));
             hiloConsumidor2.Start();
-
         }
 
         bool finalizar = false;
