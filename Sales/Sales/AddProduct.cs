@@ -222,8 +222,10 @@ namespace Sales
 
         private void btnExit_Click_1(object sender, EventArgs e)
         {
-            this.Close();
-            Refmain.Show();
+
+            Refmain.Visible = true;
+            this.Dispose();
+           
         }
 
         //private void AddProduct_Load(object sender, EventArgs e)
