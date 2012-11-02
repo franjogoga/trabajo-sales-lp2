@@ -15,13 +15,10 @@ namespace Sales
     public partial class AddProduct : Form
     {       
         private mainForm Refmain = null;
-        private SqlConnection conn = new System.Data.SqlClient.SqlConnection();
-        
-        Thread hiloConsumidor;
-        ClaseCompartida objCompartido = new ClaseCompartida();
-        
+        private SqlConnection conn = new SqlConnection();
+                
         Thread hiloConsumidor2;
-        ClaseCompartida objCompartido2 = new ClaseCompartida();
+        ClaseCompartida objCompartido = new ClaseCompartida();
              
         public void SetRefMain(mainForm mainf)
         {               
@@ -29,12 +26,11 @@ namespace Sales
         }
 
         public void cargarGrilla()
-        {
-            SqlConnection conn1 = new SqlConnection();
-            conn1.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+        {            
+            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
 
-            SqlCommand comando = new SqlCommand("Select * FROM G08_Producto", conn1);
-            conn1.Open();
+            SqlCommand comando = new SqlCommand("Select * FROM G08_Producto", conn);
+            conn.Open();
 
             SqlDataReader leer = comando.ExecuteReader();
             dataGridView1.Rows.Clear();  //limpiar la grilla
@@ -52,7 +48,7 @@ namespace Sales
 
                 dataGridView1.Rows[reglon].Cells["gImg"].Value = leer.GetString(6);
             }
-            conn1.Close();
+            conn.Close();
         }
       
         public AddProduct(int Id, string Name, Int32 StMin, Int32 StMax, float PCompra, float PVenta)
@@ -63,29 +59,41 @@ namespace Sales
 
         public AddProduct()
         {
-            InitializeComponent();
-            hiloConsumidor = new Thread(new ThreadStart(correConsumidor));
-            hiloConsumidor.Start();
+            InitializeComponent();            
 
             hiloConsumidor2 = new Thread(new ThreadStart(correConsumidor2));
             hiloConsumidor2.Start();
+            
+            Thread dateThread = new Thread(updateDate);
+            dateThread.Start();
         }
 
-        bool finalizar = false;
-
-        public void correConsumidor()
+        public void updateDate()
         {
-            while (!finalizar)
+            while (true)
             {
-                try
-                {
-                    objCompartido.espera();
-                    Invoke(new miDelegado(actualizarTitulo));
-                }
-                catch (Exception ) {  }
+                DateTime date = DateTime.Now;
+                this.setDate( date.ToString() );
+                Thread.Sleep(500);
             }
         }
 
+        delegate void setDateCallback(string date);
+        public void setDate(string date)
+        {
+            if (this.lblDate.InvokeRequired)
+            {
+                setDateCallback d = new setDateCallback(setDate);
+                this.Invoke(d, new object [] { date } );
+            }
+            else
+            {
+                this.lblDate.Text = date;
+            }
+        }
+
+        
+        bool finalizar = false;    
 
         public void correConsumidor2()
         {
@@ -222,6 +230,11 @@ namespace Sales
         {
             this.Close();
             Refmain.Visible = true;                       
+        }
+
+        private void lblDate_Click(object sender, EventArgs e)
+        {
+
         }
 
         //private void AddProduct_Load(object sender, EventArgs e)

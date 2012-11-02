@@ -56,6 +56,7 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -300,11 +301,22 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
             // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(12, 9);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(68, 13);
+            this.lblDate.TabIndex = 22;
+            this.lblDate.Text = "lblhoraaaaaa";
+            this.lblDate.Click += new System.EventHandler(this.lblDate_Click);
+            // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(807, 482);
+            this.Controls.Add(this.lblDate);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button5);
@@ -320,6 +332,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -352,5 +365,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gPriceC;
         private System.Windows.Forms.DataGridViewTextBoxColumn gpriceV;
         private System.Windows.Forms.DataGridViewTextBoxColumn gImg;
+        private System.Windows.Forms.Label lblDate;
     }
 }
