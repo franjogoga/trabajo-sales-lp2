@@ -40,8 +40,7 @@ namespace SalesService
             }
             catch (Exception)
             {
-                
-                throw;
+      
             }
             return userList;
         }

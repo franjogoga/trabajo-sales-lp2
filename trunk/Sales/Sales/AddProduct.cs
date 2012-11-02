@@ -23,8 +23,6 @@ namespace Sales
         
         Thread hiloConsumidor2;
         ClaseCompartida objCompartido2 = new ClaseCompartida();
-
-      
              
         public void SetRefMain(mainForm mainf)
         {               
@@ -33,15 +31,13 @@ namespace Sales
 
         public void cargarGrilla()
         {
-
-
-            SqlConnection conn1 = new System.Data.SqlClient.SqlConnection();
+            SqlConnection conn1 = new SqlConnection();
             conn1.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
 
-            System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Select * FROM G08_Producto", conn1);
+            SqlCommand comando = new SqlCommand("Select * FROM G08_Producto", conn1);
             conn1.Open();
 
-            System.Data.SqlClient.SqlDataReader leer = comando.ExecuteReader();
+            SqlDataReader leer = comando.ExecuteReader();
             dataGridView1.Rows.Clear();  //limpiar la grilla
             int reglon = 0;
 
@@ -59,10 +55,7 @@ namespace Sales
             }
             conn1.Close();
         }
-
-
       
-
         public AddProduct(int Id, string Name, Int32 StMin, Int32 StMax, float PCompra, float PVenta)
         {
             InitializeComponent();

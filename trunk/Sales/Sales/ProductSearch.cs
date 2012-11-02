@@ -7,18 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Data;
 
 namespace Sales
 {
     public partial class ProductSearch : Form
     {
         private SalesForm refSales = null;
-        private SqlConnection conn = new SqlConnection("user id=inf282;" +
-                                "password=inf282db;" +
-                                "server=inti.lab.inf.pucp.edu.pe;" +
-                                "database=inf282; " +
-                                "connection timeout=30");
+        private SqlConnection conn = new SqlConnection("user id=inf282;"+"password=inf282db;"+"server=inti.lab.inf.pucp.edu.pe;"+"database=inf282; "+"connection timeout=30");
         public ProductSearch()
         {
             InitializeComponent();
