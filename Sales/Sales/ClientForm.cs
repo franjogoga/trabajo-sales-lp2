@@ -58,7 +58,6 @@ namespace Sales
 
        private void btnModify_Click(object sender, EventArgs e)
        {
-
            panelClient.Enabled = true;
            btnSave.Enabled = true;
            String seleccionado =(dataGridView1.CurrentRow.Cells["ID"].Value).ToString();
@@ -92,47 +91,44 @@ namespace Sales
                txtID.Text = "" + idCliente;
            }
 
-
            if (txtRazonSocial.Text != "")
            {
-           idCliente = idCliente + 1;
-           txtID.Text = "" + idCliente;
+               idCliente = idCliente + 1;
+               txtID.Text = "" + idCliente;
 
-           Client c = new Client();
+               Client c = new Client();
 
-           c.setIdCliente(idCliente);
-           c.setDireccion((txtDireccion.Text));
-           c.setRazonSocial(txtRazonSocial.Text);
-           c.setCorreo((txtEmail.Text));
-           c.setTelefono((txtTelefono.Text));
-           c.setEstadoCliente((txtEstado.Text));
+               c.setIdCliente(idCliente);
+               c.setDireccion((txtDireccion.Text));
+               c.setRazonSocial(txtRazonSocial.Text);
+               c.setCorreo((txtEmail.Text));
+               c.setTelefono((txtTelefono.Text));
+               c.setEstadoCliente((txtEstado.Text));
            
-           Program.service.addClient(c);
+               Program.service.addClient(c);
 
            
-               MessageBox.Show("Cliente Agregado Correctactamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Cliente Agregado Correctactamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
-               txtID.Text = "";
-               txtDireccion.Text = "";
-               txtEstado.Text = "";
-               txtRazonSocial.Text = "";
-               txtTelefono.Text = "";
-               txtEmail.Text = "";
-               cargaClientes();
-           }
-
-        
+                txtID.Text = "";
+                txtDireccion.Text = "";
+                txtEstado.Text = "";
+                txtRazonSocial.Text = "";
+                txtTelefono.Text = "";
+                txtEmail.Text = "";
+                cargaClientes();        
+           }               
        }
 
        private void ClientForm_Load_1(object sender, EventArgs e)
        {
-           panelClient.Enabled = false;
-          cargaClientes(); 
+            panelClient.Enabled = false;
+            cargaClientes(); 
        }
 
        private void btnSave_Click(object sender, EventArgs e)
        {
-           System.Data.SqlClient.SqlCommand nuevo = new System.Data.SqlClient.SqlCommand("update G08_Cliente set Direccion=@Direccion, RazonSocial=@RazonSocial, Email=@Email, Telefono=@Telefono, EstadoCliente=@Estado where IDCliente=@IDCliente ",conn);
+           SqlCommand nuevo = new SqlCommand("update G08_Cliente set Direccion=@Direccion, RazonSocial=@RazonSocial, Email=@Email, Telefono=@Telefono, EstadoCliente=@Estado where IDCliente=@IDCliente ",conn);
 
            nuevo.Parameters.AddWithValue("IDCliente", dataGridView1.CurrentRow.Cells["ID"].Value);
            nuevo.Parameters.AddWithValue("Direccion",txtDireccion.Text);   // ponemos lo que vamos a escribir en txtDireccion a la variable que he creado.
@@ -146,10 +142,7 @@ namespace Sales
            conn.Close();
 
            cargaClientes();
-
-       }
-
-    
+       }    
 
        private void btnSearch_Click(object sender, EventArgs e)
        {
