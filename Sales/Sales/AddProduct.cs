@@ -20,12 +20,49 @@ namespace Sales
         
         Thread hiloConsumidor;
         ClaseCompartida objCompartido = new ClaseCompartida();
+        
+        Thread hiloConsumidor2;
+        ClaseCompartida objCompartido2 = new ClaseCompartida();
+
+      
              
         public void SetRefMain(mainForm mainf)
         {               
             Refmain = mainf;
         }
-        
+
+        public void cargarGrilla()
+        {
+
+
+            SqlConnection conn1 = new System.Data.SqlClient.SqlConnection();
+            conn1.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+
+            System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Select * FROM G08_Producto", conn1);
+            conn1.Open();
+
+            System.Data.SqlClient.SqlDataReader leer = comando.ExecuteReader();
+            dataGridView1.Rows.Clear();  //limpiar la grilla
+            int reglon = 0;
+
+            while (leer.Read())
+            {
+                reglon = dataGridView1.Rows.Add();
+                dataGridView1.Rows[reglon].Cells["ID"].Value = leer.GetInt32(0);
+                dataGridView1.Rows[reglon].Cells["gProduct"].Value = leer.GetString(1);
+                dataGridView1.Rows[reglon].Cells["gStockMin"].Value = leer.GetInt32(5);
+                dataGridView1.Rows[reglon].Cells["gStockMax"].Value = leer.GetInt32(2);
+                dataGridView1.Rows[reglon].Cells["gpriceV"].Value = leer.GetDecimal(3);
+                dataGridView1.Rows[reglon].Cells["gPriceC"].Value = leer.GetDecimal(4);
+
+                dataGridView1.Rows[reglon].Cells["gImg"].Value = leer.GetString(6);
+            }
+            conn1.Close();
+        }
+
+
+      
+
         public AddProduct(int Id, string Name, Int32 StMin, Int32 StMax, float PCompra, float PVenta)
         {
             InitializeComponent();
@@ -37,6 +74,10 @@ namespace Sales
             InitializeComponent();
             hiloConsumidor = new Thread(new ThreadStart(correConsumidor));
             hiloConsumidor.Start();
+
+            hiloConsumidor2 = new Thread(new ThreadStart(correConsumidor2));
+            hiloConsumidor2.Start();
+
         }
 
         bool finalizar = false;
@@ -53,13 +94,41 @@ namespace Sales
                 catch (Exception e) { }
             }
         }
-       
+
+
+        public void correConsumidor2()
+        {
+            while (!finalizar)
+            {
+                try
+                {
+                    objCompartido.espera();
+                    Invoke(new miDelegado2(actualizarGrilla));
+                }
+                catch (Exception e) { }
+            }
+        }
+
+        public delegate void miDelegado2();
+
+        public void actualizarGrilla()
+        {
+
+            cargarGrilla();
+
+        }
+
+
+
+
         public delegate void miDelegado();
 
         public void actualizarTitulo()
         {
             this.Text = "" + LaOtra.getValor();
         }
+
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -164,17 +233,15 @@ namespace Sales
         }
 
         //private void AddProduct_Load(object sender, EventArgs e)
-        //{
+          //  {
+   
+         // Si queremos cargar la página con los productos completamos este procedimientos. 
+          // cargarGrilla(); 
+        //}
 
-        //    //lblhora.Text = MyDate.ToString();
+        
 
-        //    while (true)
-        //    {
-        //        //DateTime MyDate = DateTime.Now;
-        //        //lblhora.Text = MyDate.ToString();
-        //        //Thread.Sleep(1000);          
-        //    }       
-        //}           
+              
     }
 
     public class ClaseProductora

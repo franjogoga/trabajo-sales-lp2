@@ -37,6 +37,7 @@
             this.gStockMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gPriceC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpriceV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gImg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button5 = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -55,7 +56,6 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblhora = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +70,6 @@
             this.btnExit.Text = "&Salir";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // dataGridView1
             // 
@@ -81,13 +80,12 @@
             this.gstockMin,
             this.gStockMax,
             this.gPriceC,
-            this.gpriceV});
-            this.dataGridView1.Location = new System.Drawing.Point(56, 313);
+            this.gpriceV,
+            this.gImg});
+            this.dataGridView1.Location = new System.Drawing.Point(86, 313);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(642, 97);
             this.dataGridView1.TabIndex = 20;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
             // 
             // ID
             // 
@@ -119,6 +117,11 @@
             this.gpriceV.HeaderText = "PrecioVenta";
             this.gpriceV.Name = "gpriceV";
             // 
+            // gImg
+            // 
+            this.gImg.HeaderText = "Img";
+            this.gImg.Name = "gImg";
+            // 
             // button5
             // 
             this.button5.Image = global::Sales.Properties.Resources.delete;
@@ -142,7 +145,6 @@
             this.btnModify.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModify.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnModify.UseVisualStyleBackColor = true;
-            this.btnModify.Click += new System.EventHandler(this.btnModify_Click_1);
             // 
             // btnSearch
             // 
@@ -155,7 +157,6 @@
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnAdd
             // 
@@ -169,7 +170,6 @@
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSave
             // 
@@ -182,7 +182,7 @@
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // panel1
             // 
@@ -299,21 +299,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
             // 
-            // lblhora
-            // 
-            this.lblhora.AutoSize = true;
-            this.lblhora.Location = new System.Drawing.Point(22, 18);
-            this.lblhora.Name = "lblhora";
-            this.lblhora.Size = new System.Drawing.Size(28, 13);
-            this.lblhora.TabIndex = 22;
-            this.lblhora.Text = "hora";
-            // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(807, 482);
-            this.Controls.Add(this.lblhora);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button5);
@@ -325,12 +315,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddProduct";
             this.Text = "AddProduct";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddProduct_FormClosing);
+            //this.Load += new System.EventHandler(this.AddProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -362,6 +351,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gStockMax;
         private System.Windows.Forms.DataGridViewTextBoxColumn gPriceC;
         private System.Windows.Forms.DataGridViewTextBoxColumn gpriceV;
-        private System.Windows.Forms.Label lblhora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gImg;
     }
 }
