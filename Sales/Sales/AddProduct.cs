@@ -267,7 +267,7 @@ namespace Sales
             while (!finalizar)
             {
                 i++;
-                try { Thread.Sleep(1000); }
+                try { Thread.Sleep(500); }
                 catch (Exception ) { };
                 objCompartido.notifica();
             }
