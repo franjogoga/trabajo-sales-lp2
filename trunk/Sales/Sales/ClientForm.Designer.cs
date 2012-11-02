@@ -52,7 +52,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -271,7 +271,7 @@
             // btnExit
             // 
             this.btnExit.Image = global::Sales.Properties.Resources.application_exit;
-            this.btnExit.Location = new System.Drawing.Point(652, 201);
+            this.btnExit.Location = new System.Drawing.Point(652, 190);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(107, 59);
             this.btnExit.TabIndex = 5;
@@ -281,23 +281,24 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnDelete
+            // btnNuevo
             // 
-            this.btnDelete.Image = global::Sales.Properties.Resources.delete;
-            this.btnDelete.Location = new System.Drawing.Point(653, 154);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(106, 41);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "&Eliminar";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnNuevo.AutoSize = true;
+            this.btnNuevo.Image = global::Sales.Properties.Resources._0020_magic_wand2;
+            this.btnNuevo.Location = new System.Drawing.Point(12, 195);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(105, 54);
+            this.btnNuevo.TabIndex = 4;
+            this.btnNuevo.Text = "&Limpiar";
+            this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click_1);
             // 
             // btnModify
             // 
             this.btnModify.Image = global::Sales.Properties.Resources.modify;
-            this.btnModify.Location = new System.Drawing.Point(653, 111);
+            this.btnModify.Location = new System.Drawing.Point(654, 127);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(106, 37);
             this.btnModify.TabIndex = 3;
@@ -310,7 +311,7 @@
             // btnSearch
             // 
             this.btnSearch.Image = global::Sales.Properties.Resources.search;
-            this.btnSearch.Location = new System.Drawing.Point(654, 66);
+            this.btnSearch.Location = new System.Drawing.Point(655, 82);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(105, 39);
             this.btnSearch.TabIndex = 2;
@@ -323,7 +324,7 @@
             // btnSave
             // 
             this.btnSave.Image = global::Sales.Properties.Resources.save;
-            this.btnSave.Location = new System.Drawing.Point(652, 12);
+            this.btnSave.Location = new System.Drawing.Point(653, 28);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(106, 48);
             this.btnSave.TabIndex = 1;
@@ -342,7 +343,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnSave);
@@ -357,6 +358,7 @@
             this.panelClient.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -365,7 +367,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnModify;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.PictureBox pictureBox2;
         public System.Windows.Forms.DataGridView dataGridView1;
