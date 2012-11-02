@@ -25,7 +25,6 @@ namespace Sales
         }
         private void cargarProductos(String name)
         {
-
             conn.Open();
 
             string stringSQL = "SELECT * FROM G08_Producto WHERE NomProd like " + "'%" + txtName.Text + "%'";
