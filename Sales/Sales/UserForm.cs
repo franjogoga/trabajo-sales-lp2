@@ -17,10 +17,10 @@ namespace Sales
         {
             InitializeComponent();
         }
-        public void SetRef(PersonalForm refp){
+        public void setRef(PersonalForm refp){
             refPerForm = refp;
         }
-        public void SetIDPers(int idp)
+        public void setIDPers(int idp)
         {
             IdPersonal = idp;
             lblIdPersonal.Text = "" + IdPersonal;
@@ -29,12 +29,6 @@ namespace Sales
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
-        }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        }        
     }
 }

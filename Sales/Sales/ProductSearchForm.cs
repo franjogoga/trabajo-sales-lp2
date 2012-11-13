@@ -11,7 +11,7 @@ using Sales;
 
 namespace Sales
 {
-    public partial class ProductSearch2 : Form
+    public partial class ProductSearchForm : Form
     {
         private SalesForm refSales = null;
         private SqlConnection conn = new SqlConnection("user id=inf282;" +
@@ -19,7 +19,7 @@ namespace Sales
                                 "server=inti.lab.inf.pucp.edu.pe;" +
                                 "database=inf282; " +
                                 "connection timeout=30");
-        public ProductSearch2()
+        public ProductSearchForm()
         {
             InitializeComponent();
         }

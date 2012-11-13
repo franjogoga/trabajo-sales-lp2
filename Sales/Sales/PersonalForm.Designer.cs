@@ -29,79 +29,79 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonalForm));
-            this.panelPersonal = new System.Windows.Forms.Panel();
-            this.txtFContrato = new System.Windows.Forms.DateTimePicker();
+            this.paneEmployee = new System.Windows.Forms.Panel();
+            this.txtDateHired = new System.Windows.Forms.DateTimePicker();
             this.cmbArea = new System.Windows.Forms.ComboBox();
-            this.lblIdPersonal = new System.Windows.Forms.Label();
+            this.lblIdEmployee = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtPuesto = new System.Windows.Forms.TextBox();
+            this.txtWorkStation = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtSalario = new System.Windows.Forms.TextBox();
+            this.txtSalary = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.gridPersonal = new System.Windows.Forms.DataGridView();
+            this.dgvEmployee = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnNuevoUsuario = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnAgregarPersonal = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnNewUser = new System.Windows.Forms.Button();
+            this.btnModify = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnAddEmployee = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.picUser1 = new System.Windows.Forms.PictureBox();
             this.lblError = new System.Windows.Forms.Label();
-            this.lblEstado = new System.Windows.Forms.Label();
-            this.panelPersonal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPersonal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.lblState = new System.Windows.Forms.Label();
+            this.paneEmployee.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUser1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelPersonal
+            // paneEmployee
             // 
-            this.panelPersonal.Controls.Add(this.txtFContrato);
-            this.panelPersonal.Controls.Add(this.cmbArea);
-            this.panelPersonal.Controls.Add(this.lblIdPersonal);
-            this.panelPersonal.Controls.Add(this.label10);
-            this.panelPersonal.Controls.Add(this.txtDNI);
-            this.panelPersonal.Controls.Add(this.label9);
-            this.panelPersonal.Controls.Add(this.txtPuesto);
-            this.panelPersonal.Controls.Add(this.label8);
-            this.panelPersonal.Controls.Add(this.label7);
-            this.panelPersonal.Controls.Add(this.txtSalario);
-            this.panelPersonal.Controls.Add(this.label6);
-            this.panelPersonal.Controls.Add(this.txtEmail);
-            this.panelPersonal.Controls.Add(this.txtDireccion);
-            this.panelPersonal.Controls.Add(this.txtApellido);
-            this.panelPersonal.Controls.Add(this.txtNombre);
-            this.panelPersonal.Controls.Add(this.label5);
-            this.panelPersonal.Controls.Add(this.label4);
-            this.panelPersonal.Controls.Add(this.label3);
-            this.panelPersonal.Controls.Add(this.label2);
-            this.panelPersonal.Controls.Add(this.label1);
-            this.panelPersonal.Enabled = false;
-            this.panelPersonal.Location = new System.Drawing.Point(168, 41);
-            this.panelPersonal.Name = "panelPersonal";
-            this.panelPersonal.Size = new System.Drawing.Size(483, 204);
-            this.panelPersonal.TabIndex = 0;
+            this.paneEmployee.Controls.Add(this.txtDateHired);
+            this.paneEmployee.Controls.Add(this.cmbArea);
+            this.paneEmployee.Controls.Add(this.lblIdEmployee);
+            this.paneEmployee.Controls.Add(this.label10);
+            this.paneEmployee.Controls.Add(this.txtDNI);
+            this.paneEmployee.Controls.Add(this.label9);
+            this.paneEmployee.Controls.Add(this.txtWorkStation);
+            this.paneEmployee.Controls.Add(this.label8);
+            this.paneEmployee.Controls.Add(this.label7);
+            this.paneEmployee.Controls.Add(this.txtSalary);
+            this.paneEmployee.Controls.Add(this.label6);
+            this.paneEmployee.Controls.Add(this.txtEmail);
+            this.paneEmployee.Controls.Add(this.txtAddress);
+            this.paneEmployee.Controls.Add(this.txtLastName);
+            this.paneEmployee.Controls.Add(this.txtName);
+            this.paneEmployee.Controls.Add(this.label5);
+            this.paneEmployee.Controls.Add(this.label4);
+            this.paneEmployee.Controls.Add(this.label3);
+            this.paneEmployee.Controls.Add(this.label2);
+            this.paneEmployee.Controls.Add(this.label1);
+            this.paneEmployee.Enabled = false;
+            this.paneEmployee.Location = new System.Drawing.Point(168, 41);
+            this.paneEmployee.Name = "paneEmployee";
+            this.paneEmployee.Size = new System.Drawing.Size(483, 204);
+            this.paneEmployee.TabIndex = 0;
             // 
-            // txtFContrato
+            // txtDateHired
             // 
-            this.txtFContrato.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFContrato.Location = new System.Drawing.Point(344, 15);
-            this.txtFContrato.Name = "txtFContrato";
-            this.txtFContrato.Size = new System.Drawing.Size(127, 20);
-            this.txtFContrato.TabIndex = 15;
-            this.txtFContrato.Value = new System.DateTime(2012, 10, 25, 0, 0, 0, 0);
+            this.txtDateHired.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtDateHired.Location = new System.Drawing.Point(344, 15);
+            this.txtDateHired.Name = "txtDateHired";
+            this.txtDateHired.Size = new System.Drawing.Size(127, 20);
+            this.txtDateHired.TabIndex = 15;
+            this.txtDateHired.Value = new System.DateTime(2012, 10, 25, 0, 0, 0, 0);
             // 
             // cmbArea
             // 
@@ -111,15 +111,15 @@
             this.cmbArea.Size = new System.Drawing.Size(121, 21);
             this.cmbArea.TabIndex = 21;
             // 
-            // lblIdPersonal
+            // lblIdEmployee
             // 
-            this.lblIdPersonal.AutoSize = true;
-            this.lblIdPersonal.ForeColor = System.Drawing.Color.Red;
-            this.lblIdPersonal.Location = new System.Drawing.Point(89, 15);
-            this.lblIdPersonal.Name = "lblIdPersonal";
-            this.lblIdPersonal.Size = new System.Drawing.Size(65, 13);
-            this.lblIdPersonal.TabIndex = 20;
-            this.lblIdPersonal.Text = "[IDPersonal]";
+            this.lblIdEmployee.AutoSize = true;
+            this.lblIdEmployee.ForeColor = System.Drawing.Color.Red;
+            this.lblIdEmployee.Location = new System.Drawing.Point(89, 15);
+            this.lblIdEmployee.Name = "lblIdEmployee";
+            this.lblIdEmployee.Size = new System.Drawing.Size(65, 13);
+            this.lblIdEmployee.TabIndex = 20;
+            this.lblIdEmployee.Text = "[IDPersonal]";
             // 
             // label10
             // 
@@ -146,12 +146,12 @@
             this.label9.TabIndex = 16;
             this.label9.Text = "DNI:";
             // 
-            // txtPuesto
+            // txtWorkStation
             // 
-            this.txtPuesto.Location = new System.Drawing.Point(344, 129);
-            this.txtPuesto.Name = "txtPuesto";
-            this.txtPuesto.Size = new System.Drawing.Size(100, 20);
-            this.txtPuesto.TabIndex = 15;
+            this.txtWorkStation.Location = new System.Drawing.Point(344, 129);
+            this.txtWorkStation.Name = "txtWorkStation";
+            this.txtWorkStation.Size = new System.Drawing.Size(100, 20);
+            this.txtWorkStation.TabIndex = 15;
             // 
             // label8
             // 
@@ -171,12 +171,12 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Area:";
             // 
-            // txtSalario
+            // txtSalary
             // 
-            this.txtSalario.Location = new System.Drawing.Point(344, 49);
-            this.txtSalario.Name = "txtSalario";
-            this.txtSalario.Size = new System.Drawing.Size(100, 20);
-            this.txtSalario.TabIndex = 11;
+            this.txtSalary.Location = new System.Drawing.Point(344, 49);
+            this.txtSalary.Name = "txtSalary";
+            this.txtSalary.Size = new System.Drawing.Size(100, 20);
+            this.txtSalary.TabIndex = 11;
             // 
             // label6
             // 
@@ -194,26 +194,26 @@
             this.txtEmail.Size = new System.Drawing.Size(100, 20);
             this.txtEmail.TabIndex = 8;
             // 
-            // txtDireccion
+            // txtAddress
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(89, 132);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(144, 20);
-            this.txtDireccion.TabIndex = 7;
+            this.txtAddress.Location = new System.Drawing.Point(89, 132);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(144, 20);
+            this.txtAddress.TabIndex = 7;
             // 
-            // txtApellido
+            // txtLastName
             // 
-            this.txtApellido.Location = new System.Drawing.Point(92, 74);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(100, 20);
-            this.txtApellido.TabIndex = 6;
+            this.txtLastName.Location = new System.Drawing.Point(92, 74);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(100, 20);
+            this.txtLastName.TabIndex = 6;
             // 
-            // txtNombre
+            // txtName
             // 
-            this.txtNombre.Location = new System.Drawing.Point(92, 42);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 5;
+            this.txtName.Location = new System.Drawing.Point(92, 42);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.TabIndex = 5;
             // 
             // label5
             // 
@@ -260,14 +260,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
             // 
-            // gridPersonal
+            // dgvEmployee
             // 
-            this.gridPersonal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridPersonal.Location = new System.Drawing.Point(22, 314);
-            this.gridPersonal.Name = "gridPersonal";
-            this.gridPersonal.Size = new System.Drawing.Size(793, 150);
-            this.gridPersonal.TabIndex = 10;
-            this.gridPersonal.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gridPersonal_MouseDoubleClick);
+            this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployee.Location = new System.Drawing.Point(22, 314);
+            this.dgvEmployee.Name = "dgvEmployee";
+            this.dgvEmployee.Size = new System.Drawing.Size(793, 150);
+            this.dgvEmployee.TabIndex = 10;
+            this.dgvEmployee.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gridPersonal_MouseDoubleClick);
             // 
             // label11
             // 
@@ -278,93 +278,90 @@
             this.label11.TabIndex = 12;
             this.label11.Text = "Crear Usuario";
             // 
-            // btnSalir
+            // btnExit
             // 
-            this.btnSalir.Image = global::Sales.Properties.Resources.application_exit;
-            this.btnSalir.Location = new System.Drawing.Point(687, 224);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(129, 69);
-            this.btnSalir.TabIndex = 11;
-            this.btnSalir.Text = "&Salir";
-            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
+            this.btnExit.Image = global::Sales.Properties.Resources.application_exit;
+            this.btnExit.Location = new System.Drawing.Point(687, 224);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(129, 69);
+            this.btnExit.TabIndex = 11;
+            this.btnExit.Text = "&Salir";
+            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnSalir_Click_1);
             // 
-            // btnNuevoUsuario
+            // btnNewUser
             // 
-            this.btnNuevoUsuario.Enabled = false;
-            this.btnNuevoUsuario.Image = global::Sales.Properties.Resources.add_user;
-            this.btnNuevoUsuario.Location = new System.Drawing.Point(23, 155);
-            this.btnNuevoUsuario.Name = "btnNuevoUsuario";
-            this.btnNuevoUsuario.Size = new System.Drawing.Size(112, 104);
-            this.btnNuevoUsuario.TabIndex = 9;
-            this.btnNuevoUsuario.UseVisualStyleBackColor = true;
-            this.btnNuevoUsuario.Click += new System.EventHandler(this.btnNuevoUsuario_Click);
+            this.btnNewUser.Enabled = false;
+            this.btnNewUser.Image = global::Sales.Properties.Resources.add_user;
+            this.btnNewUser.Location = new System.Drawing.Point(23, 155);
+            this.btnNewUser.Name = "btnNewUser";
+            this.btnNewUser.Size = new System.Drawing.Size(112, 104);
+            this.btnNewUser.TabIndex = 9;
+            this.btnNewUser.UseVisualStyleBackColor = true;
             // 
-            // btnModificar
+            // btnModify
             // 
-            this.btnModificar.Enabled = false;
-            this.btnModificar.Image = global::Sales.Properties.Resources.modify;
-            this.btnModificar.Location = new System.Drawing.Point(687, 148);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(129, 39);
-            this.btnModificar.TabIndex = 7;
-            this.btnModificar.Text = "&Modificar";
-            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnModify.Enabled = false;
+            this.btnModify.Image = global::Sales.Properties.Resources.modify;
+            this.btnModify.Location = new System.Drawing.Point(687, 148);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(129, 39);
+            this.btnModify.TabIndex = 7;
+            this.btnModify.Text = "&Modificar";
+            this.btnModify.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModify.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // btnBuscar
+            // btnSearch
             // 
-            this.btnBuscar.Image = global::Sales.Properties.Resources.search;
-            this.btnBuscar.Location = new System.Drawing.Point(687, 102);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(129, 39);
-            this.btnBuscar.TabIndex = 6;
-            this.btnBuscar.Text = "&Buscar";
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnSearch.Image = global::Sales.Properties.Resources.search;
+            this.btnSearch.Location = new System.Drawing.Point(687, 102);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(129, 39);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.Text = "&Buscar";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // btnAgregarPersonal
+            // btnAddEmployee
             // 
-            this.btnAgregarPersonal.Image = global::Sales.Properties.Resources.plus;
-            this.btnAgregarPersonal.Location = new System.Drawing.Point(168, 253);
-            this.btnAgregarPersonal.Name = "btnAgregarPersonal";
-            this.btnAgregarPersonal.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnAgregarPersonal.Size = new System.Drawing.Size(483, 40);
-            this.btnAgregarPersonal.TabIndex = 5;
-            this.btnAgregarPersonal.Text = "Agregar Nuevo Personal";
-            this.btnAgregarPersonal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregarPersonal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAgregarPersonal.UseVisualStyleBackColor = true;
-            this.btnAgregarPersonal.Click += new System.EventHandler(this.btnAgregarPersonal_Click);
+            this.btnAddEmployee.Image = global::Sales.Properties.Resources.plus;
+            this.btnAddEmployee.Location = new System.Drawing.Point(168, 253);
+            this.btnAddEmployee.Name = "btnAddEmployee";
+            this.btnAddEmployee.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnAddEmployee.Size = new System.Drawing.Size(483, 40);
+            this.btnAddEmployee.TabIndex = 5;
+            this.btnAddEmployee.Text = "Agregar Nuevo Personal";
+            this.btnAddEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddEmployee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddEmployee.UseVisualStyleBackColor = true;
             // 
-            // btnGuardar
+            // btnSave
             // 
-            this.btnGuardar.Enabled = false;
-            this.btnGuardar.Image = global::Sales.Properties.Resources.save;
-            this.btnGuardar.Location = new System.Drawing.Point(687, 51);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(129, 45);
-            this.btnGuardar.TabIndex = 3;
-            this.btnGuardar.Text = "&Guardar";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnSave.Enabled = false;
+            this.btnSave.Image = global::Sales.Properties.Resources.save;
+            this.btnSave.Location = new System.Drawing.Point(687, 51);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(129, 45);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "&Guardar";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // picUser1
             // 
-            this.pictureBox1.Image = global::Sales.Properties.Resources.man_brown;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(113, 111);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.picUser1.Image = global::Sales.Properties.Resources.man_brown;
+            this.picUser1.Location = new System.Drawing.Point(23, 23);
+            this.picUser1.Name = "picUser1";
+            this.picUser1.Size = new System.Drawing.Size(113, 111);
+            this.picUser1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUser1.TabIndex = 2;
+            this.picUser1.TabStop = false;
             // 
             // lblError
             // 
@@ -375,42 +372,42 @@
             this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 13;
             // 
-            // lblEstado
+            // lblState
             // 
-            this.lblEstado.AutoSize = true;
-            this.lblEstado.ForeColor = System.Drawing.Color.Teal;
-            this.lblEstado.Location = new System.Drawing.Point(374, 12);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(46, 13);
-            this.lblEstado.TabIndex = 14;
-            this.lblEstado.Text = "[Estado]";
+            this.lblState.AutoSize = true;
+            this.lblState.ForeColor = System.Drawing.Color.Teal;
+            this.lblState.Location = new System.Drawing.Point(374, 12);
+            this.lblState.Name = "lblState";
+            this.lblState.Size = new System.Drawing.Size(46, 13);
+            this.lblState.TabIndex = 14;
+            this.lblState.Text = "[Estado]";
             // 
             // PersonalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 476);
-            this.Controls.Add(this.lblEstado);
+            this.Controls.Add(this.lblState);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.gridPersonal);
-            this.Controls.Add(this.btnNuevoUsuario);
-            this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.btnAgregarPersonal);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.panelPersonal);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.dgvEmployee);
+            this.Controls.Add(this.btnNewUser);
+            this.Controls.Add(this.btnModify);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.btnAddEmployee);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.picUser1);
+            this.Controls.Add(this.paneEmployee);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PersonalForm";
             this.Text = "Mantenimiento de Personal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PersonalForm_FormClosing);
             this.Load += new System.EventHandler(this.PersonalForm_Load);
-            this.panelPersonal.ResumeLayout(false);
-            this.panelPersonal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPersonal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.paneEmployee.ResumeLayout(false);
+            this.paneEmployee.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUser1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,37 +415,37 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panelPersonal;
+        private System.Windows.Forms.Panel paneEmployee;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.TextBox txtLastName;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtSalario;
+        private System.Windows.Forms.TextBox txtSalary;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox txtPuesto;
+        private System.Windows.Forms.PictureBox picUser1;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.TextBox txtWorkStation;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnAgregarPersonal;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnNuevoUsuario;
-        private System.Windows.Forms.DataGridView gridPersonal;
-        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnAddEmployee;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnModify;
+        private System.Windows.Forms.Button btnNewUser;
+        private System.Windows.Forms.DataGridView dgvEmployee;
+        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label lblIdPersonal;
+        private System.Windows.Forms.Label lblIdEmployee;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbArea;
         private System.Windows.Forms.Label lblError;
-        private System.Windows.Forms.Label lblEstado;
-        private System.Windows.Forms.DateTimePicker txtFContrato;
+        private System.Windows.Forms.Label lblState;
+        private System.Windows.Forms.DateTimePicker txtDateHired;
     }
 }

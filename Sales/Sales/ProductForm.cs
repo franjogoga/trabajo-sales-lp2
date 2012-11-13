@@ -7,28 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using Libreria;
+using Library;
 using System.Threading;
 
 namespace Sales
 {
-    public partial class AddProduct : Form
+    public partial class ProductForm : Form
     {
-        private mainForm refMain = null;
+        private MainForm refMain = null;
         private SqlConnection conn = new SqlConnection("user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30");
 
-        public void SetRefMain(mainForm mainf)
+        public void SetRefMain(MainForm mainf)
         {
             refMain = mainf;
         }
         
-        public AddProduct(int Id, string Name, Int32 StMin, Int32 StMax, float PCompra, float PVenta)
+        public ProductForm(int id, string name, Int32 stMin, Int32 stMax, float purchasePrice, float salePrice)
         {
             InitializeComponent();
-            this.dgvProduct.Rows.Add(Id, Name, StMin, StMax, PCompra, PVenta);
+            this.dgvProduct.Rows.Add(id, name, stMin, stMax, purchasePrice, salePrice);
         }
 
-        public AddProduct()
+        public ProductForm()
         {
             InitializeComponent();
 
@@ -109,19 +109,14 @@ namespace Sales
             txtStMax.Text = "";
             txtStMin.Text = "";
             txtId.Text = "";
-            txtPcompra.Text = "";
-            txtPventa.Text = "";
+            txtPurchasePrice.Text = "";
+            txtSalePrice.Text = "";
         }
        
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            ProductSearch2 testDialog = new ProductSearch2();
+            ProductSearchForm testDialog = new ProductSearchForm();
             testDialog.Visible = true;
         }
 
@@ -129,27 +124,27 @@ namespace Sales
         {
             Product p = new Product();
 
-            p.setCodigo(Int32.Parse(txtId.Text));
+            p.setId(Int32.Parse(txtId.Text));
             p.setName(txtName.Text);
             p.setStockMin(Int32.Parse(txtStMin.Text));
             p.setStockMax(Int32.Parse(txtStMax.Text));
-            p.setPrecioCompra(float.Parse(txtPcompra.Text));
-            p.setPrecioVenta(float.Parse(txtPventa.Text));
+            p.setPurchasePrice(float.Parse(txtPurchasePrice.Text));
+            p.setSalePrice(float.Parse(txtSalePrice.Text));
 
             Program.service.addProduct(p);
 
             int id = Int32.Parse(txtId.Text);
             string name = txtName.Text;
-            int StockMin = (Int32.Parse(txtStMin.Text));
-            int StockMax = (Int32.Parse(txtStMax.Text));
-            float PrecioCompra = (float.Parse(txtPcompra.Text));
-            float PrecioVenta = (float.Parse(txtPventa.Text));
+            int stockMin = (Int32.Parse(txtStMin.Text));
+            int stockMax = (Int32.Parse(txtStMax.Text));
+            float purchasePrice = (float.Parse(txtPurchasePrice.Text));
+            float salePrice = (float.Parse(txtSalePrice.Text));
 
-            this.dgvProduct.Rows.Add(id, name, StockMin, StockMax, PrecioCompra, PrecioVenta);
+            this.dgvProduct.Rows.Add(id, name, stockMin, stockMax, purchasePrice, salePrice);
 
-            int filas = this.dgvProduct.RowCount;
+            int rows = this.dgvProduct.RowCount;
 
-            if (filas != 0) MessageBox.Show("Producto añadido");
+            if (rows != 0) MessageBox.Show("Producto añadido");
             else            MessageBox.Show("Error al añadir");
         }
 
@@ -159,31 +154,31 @@ namespace Sales
             refMain.Visible = true;            
         }        
 
-        private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void dgvProduct_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            String seleccionado = (dgvProduct.CurrentRow.Cells["ID"].Value).ToString();
+            String selected = (dgvProduct.CurrentRow.Cells["ID"].Value).ToString();
 
             conn.ConnectionString = "user id=inf282;"+"password=inf282db;"+"server=inti.lab.inf.pucp.edu.pe;"+"database=inf282; "+"connection timeout=30";
 
-            SqlCommand command = new SqlCommand("Select * FROM G08_Producto where IDProducto=" + seleccionado, conn);
+            SqlCommand command = new SqlCommand("Select * FROM G08_Producto where IDProducto=" + selected, conn);
 
             conn.Open();
 
-            SqlDataReader leer = command.ExecuteReader();
+            SqlDataReader reading = command.ExecuteReader();
 
-            if (leer.Read())
+            if (reading.Read())
             {
-                txtId.Text = (leer.GetInt32(0)).ToString();
-                txtName.Text = leer.GetString(1);
-                txtStMax.Text = leer.GetInt32(2).ToString();
-                txtPventa.Text = leer.GetDecimal(3).ToString();
-                txtPcompra.Text = leer.GetDecimal(4).ToString();
-                txtStMin.Text = leer.GetInt32(5).ToString();
+                txtId.Text = (reading.GetInt32(0)).ToString();
+                txtName.Text = reading.GetString(1);
+                txtStMax.Text = reading.GetInt32(2).ToString();
+                txtSalePrice.Text = reading.GetDecimal(3).ToString();
+                txtPurchasePrice.Text = reading.GetDecimal(4).ToString();
+                txtStMin.Text = reading.GetInt32(5).ToString();
             }
             conn.Close();
         }
 
-        private void AddProduct_FormClosing(object sender, FormClosingEventArgs e)
+        private void ProductForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             refMain.Visible = true;
             this.Dispose();
