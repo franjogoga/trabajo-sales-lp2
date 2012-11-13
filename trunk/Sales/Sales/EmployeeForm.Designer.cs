@@ -267,7 +267,7 @@
             this.dgvEmployee.Name = "dgvEmployee";
             this.dgvEmployee.Size = new System.Drawing.Size(793, 150);
             this.dgvEmployee.TabIndex = 10;
-            this.dgvEmployee.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gridPersonal_MouseDoubleClick);
+            this.dgvEmployee.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvEmployee_MouseDoubleClick);
             // 
             // label11
             // 
@@ -288,7 +288,7 @@
             this.btnExit.Text = "&Salir";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnSalir_Click_1);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click_1);
             // 
             // btnNewUser
             // 
@@ -312,7 +312,7 @@
             this.btnModify.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModify.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnModify.UseVisualStyleBackColor = true;
-            this.btnModify.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnSearch
             // 
@@ -325,7 +325,7 @@
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnAddEmployee
             // 

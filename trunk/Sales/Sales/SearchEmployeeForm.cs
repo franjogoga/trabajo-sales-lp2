@@ -14,6 +14,6 @@ namespace Sales
         public SearchEmployeeForm()
         {
             InitializeComponent();
-        }
+        }        
     }
 }

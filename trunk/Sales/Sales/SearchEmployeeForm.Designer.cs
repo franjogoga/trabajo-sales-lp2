@@ -72,8 +72,7 @@
             this.btnSearch.Text = "Buscar";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnSearch.UseVisualStyleBackColor = true;            
             // 
             // pictureBox1
             // 
@@ -85,7 +84,7 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // SearchPersonForm
+            // SearchEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -96,7 +95,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvEmployee);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "SearchPersonForm";
+            this.Name = "SearchEmployeeForm";
             this.Text = "Buscar Personal";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
