@@ -6,15 +6,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Libreria;
+using Library;
 using System.Data.SqlClient;
 
 namespace Sales
 {
     public partial class ClientForm : Form
     {
-        private mainForm refMainForm = null;
-        private int idCliente=0;
+        private MainForm refMainForm = null;
+        private int idClient=0;
 
         private SqlConnection conn = new SqlConnection("user id=inf282;"+"password=inf282db;"+"server=inti.lab.inf.pucp.edu.pe;"+"database=inf282; "+"connection timeout=30");
 
@@ -29,29 +29,29 @@ namespace Sales
             refMainForm.Show();
         }
 
-        public void SetrefmainForm(mainForm mainp)
+        public void SetrefmainForm(MainForm mainp)
         {
             refMainForm = mainp;
         }  
                     
-       void cargaClientes( ){          
+       void loadClients( ){          
 
-           System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Select * FROM G08_Cliente", conn);
+           SqlCommand command = new SqlCommand("Select * FROM G08_Cliente", conn);
            conn.Open();
 
-           System.Data.SqlClient.SqlDataReader leer = comando.ExecuteReader();
-           dataGridView1.Rows.Clear();  //limpiar la grilla si es voy a llamar este metodo desde otro lugar
-           int reglon = 0;
+           SqlDataReader reading = command.ExecuteReader();
+           dgvClient.Rows.Clear();  //limpiar la grilla si es voy a llamar este metodo desde otro lugar
+           int reg = 0;
 
-           while (leer.Read())
+           while (reading.Read())
            {
-               reglon = dataGridView1.Rows.Add();
-               dataGridView1.Rows[reglon].Cells["ID"].Value = leer.GetInt32(0);
-               dataGridView1.Rows[reglon].Cells["Direccion"].Value = leer.GetString(1);
-               dataGridView1.Rows[reglon].Cells["RazonSocial"].Value = leer.GetString(2);
-               dataGridView1.Rows[reglon].Cells["Email"].Value = leer.GetString(3);
-               dataGridView1.Rows[reglon].Cells["Telefono"].Value = leer.GetString(4);
-               dataGridView1.Rows[reglon].Cells["Estado"].Value = leer.GetString(5);
+               reg= dgvClient.Rows.Add();
+               dgvClient.Rows[reg].Cells["ID"].Value = reading.GetInt32(0);
+               dgvClient.Rows[reg].Cells["Direccion"].Value = reading.GetString(1);
+               dgvClient.Rows[reg].Cells["RazonSocial"].Value = reading.GetString(2);
+               dgvClient.Rows[reg].Cells["Email"].Value = reading.GetString(3);
+               dgvClient.Rows[reg].Cells["Telefono"].Value = reading.GetString(4);
+               dgvClient.Rows[reg].Cells["Estado"].Value = reading.GetString(5);
            }
            conn.Close(); 
         }
@@ -60,21 +60,21 @@ namespace Sales
        {
            panelClient.Enabled = true;
            btnSave.Enabled = true;
-           String seleccionado =(dataGridView1.CurrentRow.Cells["ID"].Value).ToString();
+           String selected =(dgvClient.CurrentRow.Cells["ID"].Value).ToString();
            
-           System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Select * FROM G08_Cliente where IDCliente=" + seleccionado ,conn);
+           SqlCommand command = new SqlCommand("Select * FROM G08_Cliente where IDCliente=" + selected ,conn);
 
            conn.Open();
 
-           System.Data.SqlClient.SqlDataReader leer = comando.ExecuteReader();
+           SqlDataReader reading = command.ExecuteReader();
            
-           if(leer.Read()){
-               txtID.Text = (leer.GetInt32(0)).ToString();
-               txtDireccion.Text = leer.GetString(1);
-               txtRazonSocial.Text = leer.GetString(2);
-               txtEmail.Text = leer.GetString(3);
-               txtTelefono.Text = leer.GetString(4);
-               txtEstado.Text = leer.GetString(5);
+           if(reading.Read()){
+               txtID.Text = (reading.GetInt32(0)).ToString();
+               txtAddress.Text = reading.GetString(1);
+               txtBusinessName.Text = reading.GetString(2);
+               txtEmail.Text = reading.GetString(3);
+               txtTelephone.Text = reading.GetString(4);
+               txtState.Text = reading.GetString(5);
            }
            conn.Close();
        }
@@ -85,62 +85,62 @@ namespace Sales
            btnSave.Enabled = false;
            btnModify.Enabled = false;
 
-           idCliente = Program.service.obtenerNuevoClientID();
+           idClient = Program.service.getNewIdClient();
 
-           if (txtRazonSocial.Text == "") {
-               txtID.Text = "" + idCliente;
+           if (txtBusinessName.Text == "") {
+               txtID.Text = "" + idClient;
            }
 
-           if (txtRazonSocial.Text != "")
+           if (txtBusinessName.Text != "")
            {
-               idCliente = idCliente + 1;
-               txtID.Text = "" + idCliente;
+               idClient = idClient + 1;
+               txtID.Text = "" + idClient;
 
                Client c = new Client();
 
-               c.setIdCliente(idCliente);
-               c.setDireccion((txtDireccion.Text));
-               c.setRazonSocial(txtRazonSocial.Text);
-               c.setCorreo((txtEmail.Text));
-               c.setTelefono((txtTelefono.Text));
-               c.setEstadoCliente((txtEstado.Text));
+               c.setIdClient(idClient);
+               c.setAddress((txtAddress.Text));
+               c.setBusinessName(txtBusinessName.Text);
+               c.setEmail((txtEmail.Text));
+               c.setTelephone((txtTelephone.Text));
+               c.setState((txtState.Text));
            
                Program.service.addClient(c);
            
                 MessageBox.Show("Cliente Agregado Correctactamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 txtID.Text = "";
-                txtDireccion.Text = "";
-                txtEstado.Text = "";
-                txtRazonSocial.Text = "";
-                txtTelefono.Text = "";
+                txtAddress.Text = "";
+                txtState.Text = "";
+                txtBusinessName.Text = "";
+                txtTelephone.Text = "";
                 txtEmail.Text = "";
-                cargaClientes();        
+                loadClients();        
            }               
        }
 
        private void ClientForm_Load_1(object sender, EventArgs e)
        {
             panelClient.Enabled = false;
-            cargaClientes(); 
+            loadClients(); 
        }
 
        private void btnSave_Click(object sender, EventArgs e)
        {
-           SqlCommand nuevo = new SqlCommand("update G08_Cliente set Direccion=@Direccion, RazonSocial=@RazonSocial, Email=@Email, Telefono=@Telefono, EstadoCliente=@Estado where IDCliente=@IDCliente ",conn);
+           SqlCommand newp = new SqlCommand("update G08_Cliente set Direccion=@Direccion, RazonSocial=@RazonSocial, Email=@Email, Telefono=@Telefono, EstadoCliente=@Estado where IDCliente=@IDCliente ",conn);
 
-           nuevo.Parameters.AddWithValue("IDCliente", dataGridView1.CurrentRow.Cells["ID"].Value);
-           nuevo.Parameters.AddWithValue("Direccion",txtDireccion.Text);   // ponemos lo que vamos a escribir en txtDireccion a la variable que he creado.
-           nuevo.Parameters.AddWithValue("RazonSocial", txtRazonSocial.Text);
-           nuevo.Parameters.AddWithValue("Email", txtEmail.Text);
-           nuevo.Parameters.AddWithValue("Telefono", txtTelefono.Text);
-           nuevo.Parameters.AddWithValue("Estado", txtEstado.Text);
+           newp.Parameters.AddWithValue("IDCliente", dgvClient.CurrentRow.Cells["ID"].Value);
+           newp.Parameters.AddWithValue("Direccion",txtAddress.Text);   // ponemos lo que vamos a escribir en txtDireccion a la variable que he creado.
+           newp.Parameters.AddWithValue("RazonSocial", txtBusinessName.Text);
+           newp.Parameters.AddWithValue("Email", txtEmail.Text);
+           newp.Parameters.AddWithValue("Telefono", txtTelephone.Text);
+           newp.Parameters.AddWithValue("Estado", txtState.Text);
 
            conn.Open();
-           nuevo.ExecuteNonQuery();          
+           newp.ExecuteNonQuery();          
            conn.Close();
 
-           cargaClientes();
+           loadClients();
        }    
 
        private void btnSearch_Click(object sender, EventArgs e)
@@ -157,10 +157,10 @@ namespace Sales
 
        private void btnNuevo_Click_1(object sender, EventArgs e)
        {
-           txtRazonSocial.Text = "";
-           txtDireccion.Text = "";
-           txtEstado.Text = "";
-           txtTelefono.Text = "";
+           txtBusinessName.Text = "";
+           txtAddress.Text = "";
+           txtState.Text = "";
+           txtTelephone.Text = "";
            txtEmail.Text = "";
            btnModify.Enabled = true;
        }    
