@@ -145,7 +145,7 @@ namespace Sales
 
        private void btnSearch_Click(object sender, EventArgs e)
        {
-           ClienteSearch testDialog = new ClienteSearch();
+           ClientSearchForm testDialog = new ClientSearchForm();
            testDialog.ShowDialog(this);
        }
 
