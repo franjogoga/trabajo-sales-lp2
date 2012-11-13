@@ -27,7 +27,7 @@ namespace Sales
         {
             nomUser = user;
         }
-        private void btnEmployee_Click_1(object sender, EventArgs e)
+        private void btnEmployee_Click(object sender, EventArgs e)
         {
             EmployeeForm pForm = new EmployeeForm();
             pForm.Show();
@@ -103,6 +103,6 @@ namespace Sales
                 refLoginForm.Show();
                 this.Dispose();
             }
-        }
+        }        
     }
 }
