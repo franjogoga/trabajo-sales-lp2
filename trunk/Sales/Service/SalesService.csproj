@@ -47,9 +47,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Libreria\Libreria.csproj">
+    <ProjectReference Include="..\Libreria\Library.csproj">
       <Project>{149971B0-27E0-46C1-8D1F-9EB954EE7B6A}</Project>
-      <Name>Libreria</Name>
+      <Name>Library</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

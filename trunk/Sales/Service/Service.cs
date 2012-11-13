@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Libreria;
+using Library;
 using System.Data.SqlClient;
 using System.Data;
 
@@ -11,8 +11,9 @@ namespace SalesService
     public class Service
     {
         private List<Product> products = new List<Product>();
-        private List<String> userList = new List<string>();
-        public List<String> searchPersonalByUser(String User)
+        private List<string> userList = new List<string>();
+
+        public List<string> searchEmployeeByUser(string user)
         {
             SqlDataReader reader;
             SqlConnection conn = new SqlConnection();
@@ -20,34 +21,33 @@ namespace SalesService
             try
             {
                 conn.Open();
-                String sqlString = "select a.idpersonal, a.nombres, a.apellidos, b.nomarea, a.puesto "
-                    + "from g08_personal as a, g08_area as b,g08_usuario as c "
-                    + "where c.IdUser = @param1 and a.Idpersonal = c.idPersonal and b.idarea = a.idarea";
+                string sqlString = "select a.idpersonal, a.nombres, a.apellidos, b.nomarea, a.puesto "+ "from g08_personal as a, g08_area as b,g08_usuario as c " + "where c.IdUser = @param1 and a.Idpersonal = c.idPersonal and b.idarea = a.idarea";
                 SqlParameter myparam1 = new SqlParameter("@param1", SqlDbType.VarChar, 100);
-                myparam1.Value = User;
-                SqlCommand mycommand = new SqlCommand(sqlString,conn);
+                myparam1.Value = user;
+                
+                SqlCommand mycommand = new SqlCommand(sqlString, conn);
                 mycommand.Parameters.Add(myparam1);
+                
                 reader = mycommand.ExecuteReader();
                 reader.Read();
-                String name = reader.GetString(1);
+                string name = reader.GetString(1);
                 userList.Add(name);
-                String area = reader.GetString(3);
+                string area = reader.GetString(3);
                 userList.Add(area);
-                String puesto = reader.GetString(4);
-                userList.Add(puesto);
+                string workStation = reader.GetString(4);
+                userList.Add(workStation);
                 conn.Close();
                 return userList;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-      
+                Console.WriteLine(e.ToString());
             }
             return userList;
         }
         public void addClient(Client client)
         {
-            System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
-
+            SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
 
             try
@@ -56,26 +56,25 @@ namespace SalesService
 
                 string sqlString = "INSERT INTO G08_Cliente(IDCliente," + "Direccion, RazonSocial, Email, Telefono, EstadoCliente) " + "VALUES (@Param1, @Param2, @Param3, @Param4, @Param5, @Param6)";
 
-                System.Data.SqlClient.SqlParameter myParam1 = new System.Data.SqlClient.SqlParameter("@Param1", System.Data.SqlDbType.Int);
-                myParam1.Value = client.getIdCliente();
+                SqlParameter myParam1 = new SqlParameter("@Param1", System.Data.SqlDbType.Int);
+                myParam1.Value = client.getIdClient();
 
+                SqlParameter myParam2 = new SqlParameter("@Param2", System.Data.SqlDbType.VarChar, 30);
+                myParam2.Value = client.getAddress();
 
-                System.Data.SqlClient.SqlParameter myParam2 = new System.Data.SqlClient.SqlParameter("@Param2", System.Data.SqlDbType.VarChar, 30);
-                myParam2.Value = client.getDireccion();
+                SqlParameter myParam3 = new SqlParameter("@Param3", System.Data.SqlDbType.VarChar, 20);
+                myParam3.Value = client.getBusinessName();
 
-                System.Data.SqlClient.SqlParameter myParam3 = new System.Data.SqlClient.SqlParameter("@Param3", System.Data.SqlDbType.VarChar, 20);
-                myParam3.Value = client.getRazonSocial();
+                SqlParameter myParam4 = new SqlParameter("@Param4", System.Data.SqlDbType.VarChar, 20);
+                myParam4.Value = client.getEmail();
 
-                System.Data.SqlClient.SqlParameter myParam4 = new System.Data.SqlClient.SqlParameter("@Param4", System.Data.SqlDbType.VarChar, 20);
-                myParam4.Value = client.getCorreo();
+                SqlParameter myParam5 = new SqlParameter("@Param5", System.Data.SqlDbType.VarChar, 15);
+                myParam5.Value = client.getTelephone();
 
-                System.Data.SqlClient.SqlParameter myParam5 = new System.Data.SqlClient.SqlParameter("@Param5", System.Data.SqlDbType.VarChar, 15);
-                myParam5.Value = client.getTelefono();
+                SqlParameter myParam6 = new SqlParameter("@Param6", System.Data.SqlDbType.VarChar, 10);
+                myParam6.Value = client.getState();
 
-                System.Data.SqlClient.SqlParameter myParam6 = new System.Data.SqlClient.SqlParameter("@Param6", System.Data.SqlDbType.VarChar, 10);
-                myParam6.Value = client.getEstadoCliente();
-
-                System.Data.SqlClient.SqlCommand myCommand = new System.Data.SqlClient.SqlCommand(sqlString, conn);
+                SqlCommand myCommand = new SqlCommand(sqlString, conn);
 
                 myCommand.Parameters.Add(myParam1);
                 myCommand.Parameters.Add(myParam2);
@@ -85,7 +84,6 @@ namespace SalesService
                 myCommand.Parameters.Add(myParam6);                
 
                 myCommand.ExecuteNonQuery();
-
                 conn.Close();
             }
 
@@ -95,7 +93,7 @@ namespace SalesService
             }
         }
 
-        public List<Product> queryAll(String nombre)
+        public List<Product> queryAll(string name)
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
@@ -105,19 +103,20 @@ namespace SalesService
                 string sqlString = "SELECT * FROM G08_Producto";
                 SqlCommand myCommand = new SqlCommand(sqlString, conn);
                 SqlDataReader reader = myCommand.ExecuteReader();
+                
                 while (reader.Read())
                 {
-                    String nombProd = reader.GetString(1);
-                    if (nombProd.CompareTo(nombre) == 0)
+                    string nombProd = reader.GetString(1);
+                    if (nombProd.CompareTo(name) == 0)
                     {
-                        Product pr = new Product();
-                        pr.setCodigo(reader.GetInt32(0));
-                        pr.setName(nombProd);
-                        pr.setStockMax(reader.GetInt32(0));
-                        pr.setPrecioVenta(reader.GetInt32(0));
-                        pr.setPrecioCompra(reader.GetInt32(0));
-                        pr.setStockMin(reader.GetInt32(0));
-                        products.Add(pr);
+                        Product prod = new Product();
+                        prod.setId(reader.GetInt32(0));
+                        prod.setName(nombProd);
+                        prod.setStockMax(reader.GetInt32(0));
+                        prod.setSalePrice(reader.GetInt32(0));
+                        prod.setPurchasePrice(reader.GetInt32(0));
+                        prod.setStockMin(reader.GetInt32(0));
+                        products.Add(prod);
                     }
                 }
                 conn.Close();
@@ -131,35 +130,33 @@ namespace SalesService
 
         public void addProduct(Product product)
         {
-            System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
-
+            SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
 
             try
             {
                 conn.Open();
-
                 string sqlString = "INSERT INTO G08_Producto(IDProducto," + "NomProd, StocK, PrecioVenta,  PrecioCompra, stockMin) " + "VALUES (@Param1, @Param2, @Param3, @Param4, @Param5, @Param6)";
 
-                System.Data.SqlClient.SqlParameter myParam1 = new System.Data.SqlClient.SqlParameter("@Param1", System.Data.SqlDbType.Int);
-                myParam1.Value = product.getCodigo();
+                SqlParameter myParam1 = new SqlParameter("@Param1", System.Data.SqlDbType.Int);
+                myParam1.Value = product.getId();
 
-                System.Data.SqlClient.SqlParameter myParam2 = new System.Data.SqlClient.SqlParameter("@Param2", System.Data.SqlDbType.VarChar, 20);
+                SqlParameter myParam2 = new SqlParameter("@Param2", System.Data.SqlDbType.VarChar, 20);
                 myParam2.Value = product.getName();
 
-                System.Data.SqlClient.SqlParameter myParam3 = new System.Data.SqlClient.SqlParameter("@Param3", System.Data.SqlDbType.Int);
+                SqlParameter myParam3 = new SqlParameter("@Param3", System.Data.SqlDbType.Int);
                 myParam3.Value = product.getStockMax();
 
-                System.Data.SqlClient.SqlParameter myParam4 = new System.Data.SqlClient.SqlParameter("@Param4", System.Data.SqlDbType.Decimal);
-                myParam4.Value = product.getPrecioVenta();
+                SqlParameter myParam4 = new SqlParameter("@Param4", System.Data.SqlDbType.Decimal);
+                myParam4.Value = product.getSalePrice();
 
-                System.Data.SqlClient.SqlParameter myParam5 = new System.Data.SqlClient.SqlParameter("@Param5", System.Data.SqlDbType.Decimal);
-                myParam5.Value = product.getPrecioCompra();
+                SqlParameter myParam5 = new SqlParameter("@Param5", System.Data.SqlDbType.Decimal);
+                myParam5.Value = product.getPurchasePrice();
 
-                System.Data.SqlClient.SqlParameter myParam6 = new System.Data.SqlClient.SqlParameter("@Param6", System.Data.SqlDbType.Int);
+                SqlParameter myParam6 = new SqlParameter("@Param6", System.Data.SqlDbType.Int);
                 myParam6.Value = product.getStockMin();
 
-                System.Data.SqlClient.SqlCommand myCommand = new System.Data.SqlClient.SqlCommand(sqlString, conn);
+                SqlCommand myCommand = new SqlCommand(sqlString, conn);
 
                 myCommand.Parameters.Add(myParam1);
                 myCommand.Parameters.Add(myParam2);
@@ -169,7 +166,6 @@ namespace SalesService
                 myCommand.Parameters.Add(myParam6);
 
                 myCommand.ExecuteNonQuery();
-
                 conn.Close();
             }
             catch (Exception ex)
@@ -177,49 +173,48 @@ namespace SalesService
                 Console.WriteLine(ex.ToString());
             }
         }
-        public void addPersonal(Personal personal)
+        public void addEmployee(Employee employee)
         {
-            System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
+            SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
 
             try
             {
                 conn.Open();
-
                 string sqlString = "INSERT INTO G08_Personal(IDPersonal,Nombres, Apellidos, Email, FechaContrato, Direccion, Sueldo, Puesto, IdArea,DNI) "
                                    + "VALUES (@Param1, @Param2, @Param3,  @Param4, @Param5, @Param6, @Param7, @Param8, @Param9,@Param10)";
 
-                System.Data.SqlClient.SqlParameter myParam1 = new System.Data.SqlClient.SqlParameter("@Param1", System.Data.SqlDbType.Int);
-                myParam1.Value = personal.GetID();
+                SqlParameter myParam1 = new SqlParameter("@Param1", System.Data.SqlDbType.Int);
+                myParam1.Value = employee.getID();
 
-                System.Data.SqlClient.SqlParameter myParam2 = new System.Data.SqlClient.SqlParameter("@Param2", System.Data.SqlDbType.VarChar, 20);
-                myParam2.Value = personal.GetName();
+                SqlParameter myParam2 = new SqlParameter("@Param2", System.Data.SqlDbType.VarChar, 20);
+                myParam2.Value = employee.getName();
 
-                System.Data.SqlClient.SqlParameter myParam3 = new System.Data.SqlClient.SqlParameter("@Param3", System.Data.SqlDbType.VarChar, 20);
-                myParam3.Value = personal.GetLastname();
+                SqlParameter myParam3 = new SqlParameter("@Param3", System.Data.SqlDbType.VarChar, 20);
+                myParam3.Value = employee.getLastname();
 
-                System.Data.SqlClient.SqlParameter myParam4 = new System.Data.SqlClient.SqlParameter("@Param4", System.Data.SqlDbType.VarChar, 20);
-                myParam4.Value = personal.GetEmail();
+                SqlParameter myParam4 = new SqlParameter("@Param4", System.Data.SqlDbType.VarChar, 20);
+                myParam4.Value = employee.getEmail();
 
-                System.Data.SqlClient.SqlParameter myParam5 = new System.Data.SqlClient.SqlParameter("@Param5", System.Data.SqlDbType.VarChar, 10);
-                myParam5.Value = personal.getDateHired();
+                SqlParameter myParam5 = new SqlParameter("@Param5", System.Data.SqlDbType.VarChar, 10);
+                myParam5.Value = employee.getDateHired();
 
-                System.Data.SqlClient.SqlParameter myParam6 = new System.Data.SqlClient.SqlParameter("@Param6", System.Data.SqlDbType.VarChar, 30);
-                myParam6.Value = personal.getAddress();
+                SqlParameter myParam6 = new SqlParameter("@Param6", System.Data.SqlDbType.VarChar, 30);
+                myParam6.Value = employee.getAddress();
 
-                System.Data.SqlClient.SqlParameter myParam7 = new System.Data.SqlClient.SqlParameter("@Param7", System.Data.SqlDbType.Float);
-                myParam7.Value = personal.GetSalary();
+                SqlParameter myParam7 = new SqlParameter("@Param7", System.Data.SqlDbType.Float);
+                myParam7.Value = employee.getSalary();
 
-                System.Data.SqlClient.SqlParameter myParam8 = new System.Data.SqlClient.SqlParameter("@Param8", System.Data.SqlDbType.VarChar, 20);
-                myParam8.Value = personal.getWorkStation();
+                SqlParameter myParam8 = new SqlParameter("@Param8", System.Data.SqlDbType.VarChar, 20);
+                myParam8.Value = employee.getWorkStation();
 
-                System.Data.SqlClient.SqlParameter myParam9 = new System.Data.SqlClient.SqlParameter("@Param9", System.Data.SqlDbType.Int);
-                myParam9.Value = personal.getWorkArea();
+                SqlParameter myParam9 = new SqlParameter("@Param9", System.Data.SqlDbType.Int);
+                myParam9.Value = employee.getWorkArea();
 
-                System.Data.SqlClient.SqlParameter myParam10 = new System.Data.SqlClient.SqlParameter("@Param10", System.Data.SqlDbType.VarChar, 10);
-                myParam10.Value = personal.GetDni();
+                SqlParameter myParam10 = new SqlParameter("@Param10", System.Data.SqlDbType.VarChar, 10);
+                myParam10.Value = employee.getDni();
 
-                System.Data.SqlClient.SqlCommand myCommand = new System.Data.SqlClient.SqlCommand(sqlString, conn);
+                SqlCommand myCommand = new SqlCommand(sqlString, conn);
 
                 myCommand.Parameters.Add(myParam1);
                 myCommand.Parameters.Add(myParam2);
@@ -233,7 +228,6 @@ namespace SalesService
                 myCommand.Parameters.Add(myParam10);                
 
                 myCommand.ExecuteNonQuery();
-
                 conn.Close();
             }
             catch (Exception ex)
@@ -241,7 +235,8 @@ namespace SalesService
                 Console.WriteLine(ex.ToString());
             }
         }
-        public int obtenerNuevoClientID()
+
+        public int getNewIdClient()
         {
             int idLast = 0;
 
@@ -250,7 +245,6 @@ namespace SalesService
             try
             {
                 conn.Open();
-
                 string sqlString = "SELECT * FROM G08_Cliente ORDER by IDCliente DESC";
 
                 SqlCommand myCommand = new SqlCommand(sqlString, conn);
@@ -262,7 +256,6 @@ namespace SalesService
 
                 conn.Close();
                 return idLast;
-
             }
             catch (Exception ex)
             {
@@ -270,7 +263,7 @@ namespace SalesService
             }
             return idLast;
         }
-        public int obtenerNuevoIDVenta()
+        public int getNewSaleId()
         {
             int idLast = 0;
             SqlConnection conn = new SqlConnection();
@@ -280,7 +273,7 @@ namespace SalesService
                 conn.Open();
 
                 string sqlString = "SELECT * FROM G08_VENTAS ORDER by IDVENTAS DESC";
-                SqlCommand myCommand = new System.Data.SqlClient.SqlCommand(sqlString, conn);
+                SqlCommand myCommand = new SqlCommand(sqlString, conn);
                 SqlDataReader reader;
                 reader = myCommand.ExecuteReader();
                 reader.Read();
@@ -294,7 +287,7 @@ namespace SalesService
             }
             return idLast;
         }
-        public int obtenerNuevoID()
+        public int getNewEmployeeId()
         {
             int idLast=0;
             SqlConnection conn = new SqlConnection();
@@ -319,10 +312,10 @@ namespace SalesService
             return idLast;
         }
 
-        public DataSet GetCmbEstado()
+        public DataSet getCmbState()
         {
-            DataSet dsEstado = new DataSet();
-            System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
+            DataSet dsState = new DataSet();
+            SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
             try
             {
@@ -330,48 +323,44 @@ namespace SalesService
 
                 string sqlString = "SELECT * FROM G08_EstadoVenta";
                 SqlDataAdapter daEstado = new SqlDataAdapter(sqlString, conn);
-                dsEstado = new DataSet("EstadoVenta");
-                daEstado.Fill(dsEstado, "EstadoVenta");
+                dsState = new DataSet("EstadoVenta");
+                daEstado.Fill(dsState, "EstadoVenta");
                 conn.Close();
-                return dsEstado;
+                return dsState;
 
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
-
-
-            return dsEstado;
+            return dsState;
         }
-        public DataSet GetCmbTipoDoc()
+        public DataSet getCmbDocType()
         {
-            DataSet dsTipoDoc = new DataSet();
-            System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
+            DataSet dsDocType = new DataSet();
+            SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
             try
             {
                 conn.Open();
 
                 string sqlString = "SELECT * FROM G08_TIPODOC";
-                SqlDataAdapter daTipoDoc = new SqlDataAdapter(sqlString, conn);
-                DataSet dsTipoDOc = new DataSet("TIPODOC");
-                daTipoDoc.Fill(dsTipoDoc, "TIPODOC");
+                SqlDataAdapter daDocType = new SqlDataAdapter(sqlString, conn);
+                DataSet dsDocType1 = new DataSet("TIPODOC");
+                daDocType.Fill(dsDocType, "TIPODOC");
                 conn.Close();
-                return dsTipoDoc;
+                return dsDocType;
 
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
-
-
-            return dsTipoDoc;
+            return dsDocType;
         }
-        public DataSet GetCmbArea()
+        public DataSet getCmbArea()
         {
-            System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection();
+            SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
             DataSet dsArea2 = new DataSet();
             try
@@ -383,8 +372,7 @@ namespace SalesService
                 DataSet dsArea = new DataSet("Area");
                 daArea.Fill(dsArea,"Area");
                 conn.Close();
-                return dsArea;
-                
+                return dsArea;                
             }
             catch (Exception ex)
             {
