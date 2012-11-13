@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sales", "Sales\Sales.csproj
 		{A0DFF22A-6E31-44BA-AA7D-714BF5D1C81E} = {A0DFF22A-6E31-44BA-AA7D-714BF5D1C81E}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libreria", "Libreria\Libreria.csproj", "{149971B0-27E0-46C1-8D1F-9EB954EE7B6A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Libreria\Library.csproj", "{149971B0-27E0-46C1-8D1F-9EB954EE7B6A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesService", "Service\SalesService.csproj", "{A0DFF22A-6E31-44BA-AA7D-714BF5D1C81E}"
 	ProjectSection(ProjectDependencies) = postProject
