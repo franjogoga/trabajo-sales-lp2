@@ -6,15 +6,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Libreria;
+using Library;
 
 
 namespace Sales
 {
-    public partial class loginForm : Form
+    public partial class LoginForm : Form
     {
         private User usuario = new User();
-        public loginForm()
+        public LoginForm()
         {
             InitializeComponent();
         }
@@ -27,15 +27,15 @@ namespace Sales
         private void btnAccept_Click(object sender, EventArgs e)
         {
             usuario = new User();
-            usuario.SetUser(txtUser.Text.ToUpper());
-            usuario.SetPassword(txtPassword.Text.ToUpper());
-            usuario.HacerConexion();
-            if (usuario.ValidarPassword() == 1)
+            usuario.setUser(txtUser.Text.ToUpper());
+            usuario.setPassword(txtPassword.Text.ToUpper());
+            usuario.makeConnection();
+            if (usuario.validatePassword() == 1)
             {
-                mainForm p = new mainForm();
-                p.SetUSer(usuario.GetUser());
+                MainForm p = new MainForm();
+                p.setUser(usuario.getUser());
                 p.Show();       
-                p.Setrefmain(this);
+                p.setrefmain(this);
                 this.Hide();
             }
             else
