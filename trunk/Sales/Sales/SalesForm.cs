@@ -11,7 +11,7 @@ namespace Sales
 {
     public partial class SalesForm : Form
     {
-        private mainForm refMain = null;
+        private MainForm refMain = null;
         private String prodname;
         private int idProd;
         private float pVenta;
@@ -28,7 +28,7 @@ namespace Sales
             txtIdClient.Text = ""+idcliente;
             txtNomClient.Text = nameCliente;
         }
-        public void SetRefMain(mainForm refM)
+        public void SetRefMain(MainForm refM)
         {
             refMain = refM;
         }
@@ -44,7 +44,7 @@ namespace Sales
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            ProductSearch2 pSearch = new ProductSearch2();
+            ProductSearchForm pSearch = new ProductSearchForm();
             pSearch.SetRefSales(this);//le envio la direccion de la ventana padre al hijo
             pSearch.ShowDialog(this);
             

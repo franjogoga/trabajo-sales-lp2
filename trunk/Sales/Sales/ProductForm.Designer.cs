@@ -1,6 +1,6 @@
 ﻿namespace Sales
 {
-    partial class AddProduct
+    partial class ProductForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddProduct));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductForm));
             this.btnExit = new System.Windows.Forms.Button();
             this.dgvProduct = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,10 +43,10 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.txtPventa = new System.Windows.Forms.TextBox();
+            this.paneProductForm = new System.Windows.Forms.Panel();
+            this.txtSalePrice = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtPcompra = new System.Windows.Forms.TextBox();
+            this.txtPurchasePrice = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtStMax = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.paneProductForm.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExit
@@ -187,31 +187,31 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // panel1
+            // paneProductForm
             // 
-            this.panel1.Controls.Add(this.txtPventa);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtPcompra);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtStMax);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.txtStMin);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.txtName);
-            this.panel1.Controls.Add(this.txtId);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(147, 14);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(438, 214);
-            this.panel1.TabIndex = 12;
+            this.paneProductForm.Controls.Add(this.txtSalePrice);
+            this.paneProductForm.Controls.Add(this.label2);
+            this.paneProductForm.Controls.Add(this.txtPurchasePrice);
+            this.paneProductForm.Controls.Add(this.label3);
+            this.paneProductForm.Controls.Add(this.txtStMax);
+            this.paneProductForm.Controls.Add(this.label10);
+            this.paneProductForm.Controls.Add(this.txtStMin);
+            this.paneProductForm.Controls.Add(this.label9);
+            this.paneProductForm.Controls.Add(this.txtName);
+            this.paneProductForm.Controls.Add(this.txtId);
+            this.paneProductForm.Controls.Add(this.label5);
+            this.paneProductForm.Controls.Add(this.label1);
+            this.paneProductForm.Location = new System.Drawing.Point(147, 14);
+            this.paneProductForm.Name = "paneProductForm";
+            this.paneProductForm.Size = new System.Drawing.Size(438, 214);
+            this.paneProductForm.TabIndex = 12;
             // 
-            // txtPventa
+            // txtSalePrice
             // 
-            this.txtPventa.Location = new System.Drawing.Point(335, 50);
-            this.txtPventa.Name = "txtPventa";
-            this.txtPventa.Size = new System.Drawing.Size(67, 20);
-            this.txtPventa.TabIndex = 23;
+            this.txtSalePrice.Location = new System.Drawing.Point(335, 50);
+            this.txtSalePrice.Name = "txtSalePrice";
+            this.txtSalePrice.Size = new System.Drawing.Size(67, 20);
+            this.txtSalePrice.TabIndex = 23;
             // 
             // label2
             // 
@@ -222,12 +222,12 @@
             this.label2.TabIndex = 22;
             this.label2.Text = "Precio Venta";
             // 
-            // txtPcompra
+            // txtPurchasePrice
             // 
-            this.txtPcompra.Location = new System.Drawing.Point(335, 11);
-            this.txtPcompra.Name = "txtPcompra";
-            this.txtPcompra.Size = new System.Drawing.Size(67, 20);
-            this.txtPcompra.TabIndex = 21;
+            this.txtPurchasePrice.Location = new System.Drawing.Point(335, 11);
+            this.txtPurchasePrice.Name = "txtPurchasePrice";
+            this.txtPurchasePrice.Size = new System.Drawing.Size(67, 20);
+            this.txtPurchasePrice.TabIndex = 21;
             // 
             // label3
             // 
@@ -311,7 +311,7 @@
             this.lblDate.TabIndex = 22;
             this.lblDate.Text = "lblhoraaaaaa";
             // 
-            // AddProduct
+            // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -324,13 +324,13 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.paneProductForm);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AddProduct";
+            this.Name = "ProductForm";
             this.Text = "AddProduct";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.paneProductForm.ResumeLayout(false);
+            this.paneProductForm.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,7 +345,7 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel paneProductForm;
         private System.Windows.Forms.TextBox txtStMax;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtStMin;
@@ -354,9 +354,9 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPventa;
+        private System.Windows.Forms.TextBox txtSalePrice;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtPcompra;
+        private System.Windows.Forms.TextBox txtPurchasePrice;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn gProduct;

@@ -10,28 +10,28 @@ using System.Data.SqlClient;
 
 namespace Sales
 {
-    public partial class mainForm : Form
+    public partial class MainForm : Form
     {
-        private loginForm refLoginForm = null;
+        private LoginForm refLoginForm = null;
         private String nomUser; 
-        public mainForm()
+        public MainForm()
         {
             InitializeComponent();
         }
 
-        public void Setrefmain(loginForm reflog)
+        public void setrefmain(LoginForm reflog)
         {
             refLoginForm = reflog;
         }
-        public void SetUSer(String user)
+        public void setUser(string user)
         {
             nomUser = user;
         }
-        private void btnPersonal_Click_1(object sender, EventArgs e)
+        private void btnEmployee_Click_1(object sender, EventArgs e)
         {
             PersonalForm pForm = new PersonalForm();
             pForm.Show();
-            pForm.SetrefmainForm(this);
+            pForm.setrefmainForm(this);
             this.Hide();
         }
 
@@ -47,10 +47,10 @@ namespace Sales
         {
             try
             {
-                List<String> userList = Program.service.searchPersonalByUser(nomUser);          
+                List<String> userList = Program.service.searchEmployeeByUser(nomUser);          
                 lblName.Text = userList[0];
                 lblArea.Text = userList[1];
-                lblPuesto.Text = userList[2];
+                lblWorkStation.Text = userList[2];
             }
             catch (Exception)
             {        
@@ -61,7 +61,7 @@ namespace Sales
         private void btnProduct_Click(object sender, EventArgs e)
         {                  
                     this.Visible = false;
-                    AddProduct p = new AddProduct();
+                    ProductForm p = new ProductForm();
                     p.SetRefMain(this);
                     p.Visible = true;       
         }
@@ -79,7 +79,7 @@ namespace Sales
             DialogResult result;
             result = MessageBox.Show("Está seguro que desea cerrar sesión?","Cerrar Sesión",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
                 refLoginForm.limpiar();
                 refLoginForm.Show();
@@ -97,13 +97,12 @@ namespace Sales
             DialogResult result;
             result = MessageBox.Show("Está seguro que desea cerrar sesión?", "Cerrar Sesión",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
                 refLoginForm.limpiar();
                 refLoginForm.Show();
                 this.Dispose();
             }
         }
-
     }
 }

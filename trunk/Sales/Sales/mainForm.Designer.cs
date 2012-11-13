@@ -1,6 +1,6 @@
 ﻿namespace Sales
 {
-    partial class mainForm
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnExit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSales = new System.Windows.Forms.Button();
-            this.btnPersonal = new System.Windows.Forms.Button();
+            this.btnEmployee = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
             this.btnClient = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.lblPuesto = new System.Windows.Forms.Label();
+            this.lblWorkStation = new System.Windows.Forms.Label();
             this.lblArea = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -79,17 +79,16 @@
             this.btnSales.UseVisualStyleBackColor = true;
             this.btnSales.Click += new System.EventHandler(this.btnSales_Click);
             // 
-            // btnPersonal
+            // btnEmployee
             // 
-            this.btnPersonal.Image = global::Sales.Properties.Resources.office;
-            this.btnPersonal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPersonal.Location = new System.Drawing.Point(12, 12);
-            this.btnPersonal.Name = "btnPersonal";
-            this.btnPersonal.Size = new System.Drawing.Size(136, 70);
-            this.btnPersonal.TabIndex = 2;
-            this.btnPersonal.Text = "                &Personal";
-            this.btnPersonal.UseVisualStyleBackColor = true;
-            this.btnPersonal.Click += new System.EventHandler(this.btnPersonal_Click_1);
+            this.btnEmployee.Image = global::Sales.Properties.Resources.office;
+            this.btnEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmployee.Location = new System.Drawing.Point(12, 12);
+            this.btnEmployee.Name = "btnEmployee";
+            this.btnEmployee.Size = new System.Drawing.Size(136, 70);
+            this.btnEmployee.TabIndex = 2;
+            this.btnEmployee.Text = "                &Personal";
+            this.btnEmployee.UseVisualStyleBackColor = true;
             // 
             // btnProduct
             // 
@@ -137,14 +136,14 @@
             this.lblName.TabIndex = 7;
             this.lblName.Text = "[nombre]";
             // 
-            // lblPuesto
+            // lblWorkStation
             // 
-            this.lblPuesto.AutoSize = true;
-            this.lblPuesto.Location = new System.Drawing.Point(653, 185);
-            this.lblPuesto.Name = "lblPuesto";
-            this.lblPuesto.Size = new System.Drawing.Size(46, 13);
-            this.lblPuesto.TabIndex = 8;
-            this.lblPuesto.Text = "[Puesto]";
+            this.lblWorkStation.AutoSize = true;
+            this.lblWorkStation.Location = new System.Drawing.Point(653, 185);
+            this.lblWorkStation.Name = "lblWorkStation";
+            this.lblWorkStation.Size = new System.Drawing.Size(46, 13);
+            this.lblWorkStation.TabIndex = 8;
+            this.lblWorkStation.Text = "[Puesto]";
             // 
             // lblArea
             // 
@@ -183,13 +182,13 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblArea);
-            this.Controls.Add(this.lblPuesto);
+            this.Controls.Add(this.lblWorkStation);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSales);
-            this.Controls.Add(this.btnPersonal);
+            this.Controls.Add(this.btnEmployee);
             this.Controls.Add(this.btnProduct);
             this.Controls.Add(this.btnClient);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -207,13 +206,13 @@
 
         private System.Windows.Forms.Button btnClient;
         private System.Windows.Forms.Button btnProduct;
-        private System.Windows.Forms.Button btnPersonal;
+        private System.Windows.Forms.Button btnEmployee;
         private System.Windows.Forms.Button btnSales;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblPuesto;
+        private System.Windows.Forms.Label lblWorkStation;
         private System.Windows.Forms.Label lblArea;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

@@ -33,14 +33,14 @@
             this.lblIdPersonal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtIdUsuario = new System.Windows.Forms.TextBox();
-            this.txtContrasena = new System.Windows.Forms.TextBox();
+            this.txtIdUser = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtConfContrasena = new System.Windows.Forms.TextBox();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.txtConfPassword = new System.Windows.Forms.TextBox();
+            this.btnAccept = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.pic1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -80,19 +80,19 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Contraseña";
             // 
-            // txtIdUsuario
+            // txtIdUser
             // 
-            this.txtIdUsuario.Location = new System.Drawing.Point(181, 62);
-            this.txtIdUsuario.Name = "txtIdUsuario";
-            this.txtIdUsuario.Size = new System.Drawing.Size(100, 20);
-            this.txtIdUsuario.TabIndex = 4;
+            this.txtIdUser.Location = new System.Drawing.Point(181, 62);
+            this.txtIdUser.Name = "txtIdUser";
+            this.txtIdUser.Size = new System.Drawing.Size(100, 20);
+            this.txtIdUser.TabIndex = 4;
             // 
-            // txtContrasena
+            // txtPassword
             // 
-            this.txtContrasena.Location = new System.Drawing.Point(181, 91);
-            this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(100, 20);
-            this.txtContrasena.TabIndex = 5;
+            this.txtPassword.Location = new System.Drawing.Point(181, 91);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtPassword.TabIndex = 5;
             // 
             // label4
             // 
@@ -103,55 +103,55 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Confirmar Contraseña";
             // 
-            // txtConfContrasena
+            // txtConfPassword
             // 
-            this.txtConfContrasena.Location = new System.Drawing.Point(181, 123);
-            this.txtConfContrasena.Name = "txtConfContrasena";
-            this.txtConfContrasena.Size = new System.Drawing.Size(100, 20);
-            this.txtConfContrasena.TabIndex = 7;
+            this.txtConfPassword.Location = new System.Drawing.Point(181, 123);
+            this.txtConfPassword.Name = "txtConfPassword";
+            this.txtConfPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtConfPassword.TabIndex = 7;
             // 
-            // btnAceptar
+            // btnAccept
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(102, 165);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 8;
-            this.btnAceptar.Text = "Registrar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.btnAccept.Location = new System.Drawing.Point(102, 165);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(75, 23);
+            this.btnAccept.TabIndex = 8;
+            this.btnAccept.Text = "Registrar";
+            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // btnCancelar
+            // btnCancel
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(232, 164);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 9;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancel.Location = new System.Drawing.Point(232, 164);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 9;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // pictureBox1
+            // pic1
             // 
-            this.pictureBox1.Image = global::Sales.Properties.Resources.add_user;
-            this.pictureBox1.Location = new System.Drawing.Point(347, 44);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(119, 121);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
+            this.pic1.Image = global::Sales.Properties.Resources.add_user;
+            this.pic1.Location = new System.Drawing.Point(347, 44);
+            this.pic1.Name = "pic1";
+            this.pic1.Size = new System.Drawing.Size(119, 121);
+            this.pic1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic1.TabIndex = 10;
+            this.pic1.TabStop = false;
             // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 221);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.txtConfContrasena);
+            this.Controls.Add(this.pic1);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnAccept);
+            this.Controls.Add(this.txtConfPassword);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtContrasena);
-            this.Controls.Add(this.txtIdUsuario);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtIdUser);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblIdPersonal);
@@ -159,7 +159,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserForm";
             this.Text = "Crea Nuevo Usuario";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,12 +171,12 @@
         private System.Windows.Forms.Label lblIdPersonal;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtIdUsuario;
-        private System.Windows.Forms.TextBox txtContrasena;
+        private System.Windows.Forms.TextBox txtIdUser;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtConfContrasena;
-        private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtConfPassword;
+        private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.PictureBox pic1;
     }
 }

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Libreria;
+using Library;
 using Sales;
 using System.Data.SqlClient;
 
@@ -14,72 +14,70 @@ namespace Sales
 {
     public partial class PersonalForm : Form
     {         
-        private mainForm refMainForm = null;
-        private int idpersonal=0;
+        private MainForm refMainForm = null;
+        private int idEmployee=0;
         private SqlConnection conn = new SqlConnection("user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30");
        
         public PersonalForm()
         {
             InitializeComponent();
         }
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             this.Dispose();
             refMainForm.Show();
         }
-        public void SetrefmainForm(mainForm mainp)
+        public void setrefmainForm(MainForm mainp)
         {
             refMainForm = mainp;
         }
-        private void btnNuevoUsuario_Click(object sender, EventArgs e)
+        private void btnNewUser_Click(object sender, EventArgs e)
         {
             UserForm user = new UserForm();
-            user.SetRef(this);
-            user.SetIDPers(idpersonal);
+            user.setRef(this);
+            user.setIDPers(idEmployee);
             user.Show();
         }
-        private void btnAgregarPersonal_Click(object sender, EventArgs e)
+        private void btnAddEmployee_Click(object sender, EventArgs e)
         {
-            panelPersonal.Enabled = true;
-            btnGuardar.Enabled = true;           
-            txtApellido.Text = "";
-            txtDireccion.Text = "";
+            paneEmployee.Enabled = true;
+            btnSave.Enabled = true;           
+            txtLastName.Text = "";
+            txtAddress.Text = "";
             txtDNI.Text = "";
             txtEmail.Text = "";
-            txtFContrato.Text = "";
-            txtNombre.Text = "";
-            txtPuesto.Text = "";
-            txtSalario.Text = "";            
+            txtDateHired.Text = "";
+            txtName.Text = "";
+            txtWorkStation.Text = "";
+            txtSalary.Text = "";            
         }
 
-        void cargaPersonal()
+        void loadEmployee()
         {
             conn.Open();
 
             string stringSQL = "SELECT * FROM G08_Personal";
-            SqlDataAdapter daPersonal = new SqlDataAdapter();
+            SqlDataAdapter daEmployee = new SqlDataAdapter();
             SqlCommand command = new SqlCommand(stringSQL, conn);
-            daPersonal.SelectCommand = command;
+            daEmployee.SelectCommand = command;
             DataSet dset = new DataSet();
-            daPersonal.Fill(dset, "G08_Personal");
-            gridPersonal.DataSource = dset;
-            gridPersonal.DataMember = "G08_Personal";
+            daEmployee.Fill(dset, "G08_Personal");
+            dgvEmployee.DataSource = dset;
+            dgvEmployee.DataMember = "G08_Personal";
             
             conn.Close();
         }
 
-        void ActualizaPersonal()
+        void updateEmployee()
         {
-            float sueldo = float.Parse(txtSalario.Text);
+            float salary = float.Parse(txtSalary.Text);
             int idarea = int.Parse(cmbArea.SelectedValue.ToString());
-            int idper = int.Parse(lblIdPersonal.Text);
+            int idper = int.Parse(lblIdEmployee.Text);
             try
             {
                 conn.Open();
-                String stringSQL = "Update G08_Personal " +
-                                  "Set nombres = @param1 ,apellidos = @param2 , email = @param3"+
-                                  " ,fechaContrato = @param4 ,Direccion = @param5 , Sueldo = @param6" + 
-                                  " ,Puesto = @param7 ,idarea= @param8 ,DNI = @param9" + 
+                String stringSQL = "Update G08_Personal "+"Set nombres = @param1 ,apellidos = @param2 , email = @param3"+
+                                  " ,fechaContrato = @param4 ,Direccion = @param5 , Sueldo = @param6" +" ,Puesto = @param7 ,idarea= @param8 ,DNI = @param9" + 
                                   " Where idPersonal = @param10";
                 SqlParameter myparam1 = new SqlParameter("@param1",SqlDbType.VarChar,20);
                 SqlParameter myparam2 = new SqlParameter("@param2",SqlDbType.VarChar,20);
@@ -91,13 +89,13 @@ namespace Sales
                 SqlParameter myparam8 = new SqlParameter("@param8",SqlDbType.Int);
                 SqlParameter myparam9 = new SqlParameter("@param9",SqlDbType.VarChar,10);
                 SqlParameter myparam10 = new SqlParameter("@param10",SqlDbType.Int);
-                myparam1.Value = txtNombre.Text;
-                myparam2.Value = txtApellido.Text;
+                myparam1.Value = txtName.Text;
+                myparam2.Value = txtLastName.Text;
                 myparam3.Value = txtEmail.Text;
-                myparam4.Value = txtFContrato.Text;
-                myparam5.Value = txtDireccion.Text;
-                myparam6.Value = sueldo;
-                myparam7.Value = txtPuesto.Text;
+                myparam4.Value = txtDateHired.Text;
+                myparam5.Value = txtAddress.Text;
+                myparam6.Value = salary;
+                myparam7.Value = txtWorkStation.Text;
                 myparam8.Value = idarea;
                 myparam9.Value = txtDNI.Text;
                 myparam10.Value = idper;
@@ -114,83 +112,81 @@ namespace Sales
                 comando.Parameters.Add(myparam10);
                 comando.ExecuteNonQuery();
                 conn.Close();
-
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                
-                throw;
+                Console.WriteLine(e.ToString());
             }
             
-            panelPersonal.Enabled = false;
-            btnGuardar.Enabled = false;
+            paneEmployee.Enabled = false;
+            btnSave.Enabled = false;
         }
         private void PersonalForm_Load(object sender, EventArgs e)
         {
             DataSet dsArea;
             //Inicializamos Estado
-            lblEstado.Text = "Datos de Personal";
+            lblState.Text = "Datos de Personal";
             //Instrucciones para cargar el combo box
-            dsArea = Program.service.GetCmbArea();
+            dsArea = Program.service.getCmbArea();
             cmbArea.DataSource = dsArea.Tables[0].DefaultView;
             cmbArea.DisplayMember = "NomArea";
             cmbArea.ValueMember = "IdArea";
             cmbArea.SelectedIndex = -1;
             //Instrucciones para cargar el Id de Personal
-            idpersonal = Program.service.obtenerNuevoID();
-            idpersonal = idpersonal + 1;
-            lblIdPersonal.Text = "" + idpersonal;
-            cargaPersonal();
+            idEmployee = Program.service.getNewEmployeeId();
+            idEmployee = idEmployee + 1;
+            lblIdEmployee.Text = "" + idEmployee;
+            loadEmployee();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-            PersonalSearch testDialog = new PersonalSearch();
+            PersonalSearchForm testDialog = new PersonalSearchForm();
             testDialog.SetRefPersonal(this);
             testDialog.ShowDialog(this);
 
         }
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            Personal p = new Personal();
-            if (lblEstado.Text == "Modificando")
+            Employee p = new Employee();
+            if (lblState.Text == "Modificando")
             {
-                ActualizaPersonal();
+                updateEmployee();
                 lblError.Text = "Actualizado";
-                lblEstado.Text = "Datos de Personal";
+                lblState.Text = "Datos de Personal";
             }
             else
             {
-                p.SetName(txtNombre.Text);
-                p.SetLastName(txtApellido.Text);
-                p.SetEmail(txtEmail.Text);
-                p.SetSalary(float.Parse(txtSalario.Text));
-                p.setDateHired(txtFContrato.Text);
-                p.SetID(Int32.Parse(lblIdPersonal.Text));
-                p.SetDNI(txtDNI.Text);
-                p.setWorkStation(txtPuesto.Text);
-                p.setAddress(txtDireccion.Text);
+                p.setName(txtName.Text);
+                p.setLastName(txtLastName.Text);
+                p.setEmail(txtEmail.Text);
+                p.setSalary(float.Parse(txtSalary.Text));
+                p.setDateHired(txtDateHired.Text);
+                p.setID(Int32.Parse(lblIdEmployee.Text));
+                p.setDNI(txtDNI.Text);
+                p.setWorkStation(txtWorkStation.Text);
+                p.setAddress(txtAddress.Text);
                 p.setWorkArea(Int32.Parse(cmbArea.SelectedValue.ToString()));
 
-                Program.service.addPersonal(p);
+                Program.service.addEmployee(p);
 
                 lblError.Text = "Registrado";
             }
-            cargaPersonal();
+            loadEmployee();
         }
 
-        private void btnSalir_Click_1(object sender, EventArgs e)
+        private void btnExit_Click_1(object sender, EventArgs e)
         {
             refMainForm.Show();
             this.Dispose();
         }
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnModify_Click(object sender, EventArgs e)
         {
-            lblEstado.Text = "Modificando";
-            panelPersonal.Enabled = true;
-            btnGuardar.Enabled = true;         
+            lblState.Text = "Modificando";
+            paneEmployee.Enabled = true;
+            btnSave.Enabled = true;         
         }
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show("¿Seguro que desea eliminar el personal seleccionado?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (resultado == DialogResult.No)
@@ -199,14 +195,14 @@ namespace Sales
             }
             System.Data.SqlClient.SqlCommand comando = new System.Data.SqlClient.SqlCommand("Delete from G08_Personal where IDPersonal = @IDPersonal", conn);
 
-            comando.Parameters.AddWithValue("IDPersonal", gridPersonal.CurrentRow.Cells["IDPersonal"].Value);  
+            comando.Parameters.AddWithValue("IDPersonal", dgvEmployee.CurrentRow.Cells["IDPersonal"].Value);  
 
             conn.Open();
             comando.ExecuteNonQuery();
             conn.Close();
 
             MessageBox.Show("Cliente Borrado Correctactamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            cargaPersonal();
+            loadEmployee();
         }
 
         private void PersonalForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -214,48 +210,47 @@ namespace Sales
             refMainForm.Show();
             this.Dispose();
         }
-        public void SetPersonalSearch(int id, String name, String lastname,String email,String fecha,
-                String direccion, float sueldo,String puesto,int idarea, String dni)
+        public void setEmployeeSearch(int id, string name, string lastname, string email, string date, string address, float salary, string workStation,int idarea, String dni)
         {
-            lblEstado.Text = "Datos de Personal";
-            lblIdPersonal.Text = ""+id;
-            txtNombre.Text = name;
-            txtApellido.Text = lastname;
+            lblState.Text = "Datos de Personal";
+            lblIdEmployee.Text = ""+id;
+            txtName.Text = name;
+            txtLastName.Text = lastname;
             txtEmail.Text = email;
-            txtFContrato.Text = fecha;
-            txtDireccion.Text = direccion;
-            txtSalario.Text = ""+sueldo;
-            txtPuesto.Text = puesto;
+            txtDateHired.Text = date;
+            txtAddress.Text = address;
+            txtSalary.Text = ""+salary;
+            txtWorkStation.Text = workStation;
             cmbArea.SelectedIndex = idarea;
             txtDNI.Text = dni;
-            panelPersonal.Enabled = false;
-            btnGuardar.Enabled = false;
-            btnModificar.Enabled = true;
+            paneEmployee.Enabled = false;
+            btnSave.Enabled = false;
+            btnModify.Enabled = true;
         }
 
-        private void gridPersonal_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void dgvEmployee_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             try
             {
-                lblIdPersonal.Text = gridPersonal.CurrentRow.Cells[0].Value.ToString();
-                txtNombre.Text = gridPersonal.CurrentRow.Cells[1].Value.ToString();
-                txtApellido.Text = gridPersonal.CurrentRow.Cells[2].Value.ToString();
-                txtEmail.Text = gridPersonal.CurrentRow.Cells[3].Value.ToString();
-                txtFContrato.Text = gridPersonal.CurrentRow.Cells[4].Value.ToString();
-                txtDireccion.Text = gridPersonal.CurrentRow.Cells[5].Value.ToString();
-                txtSalario.Text = gridPersonal.CurrentRow.Cells[6].Value.ToString();
-                txtPuesto.Text = gridPersonal.CurrentRow.Cells[7].Value.ToString();
-                cmbArea.SelectedIndex = int.Parse(gridPersonal.CurrentRow.Cells[8].Value.ToString()) -1;
-                txtDNI.Text = gridPersonal.CurrentRow.Cells[9].Value.ToString();
-                panelPersonal.Enabled = false;
-                btnGuardar.Enabled = false;
-                btnModificar.Enabled = true;
+                lblIdEmployee.Text = dgvEmployee.CurrentRow.Cells[0].Value.ToString();
+                txtName.Text = dgvEmployee.CurrentRow.Cells[1].Value.ToString();
+                txtLastName.Text = dgvEmployee.CurrentRow.Cells[2].Value.ToString();
+                txtEmail.Text = dgvEmployee.CurrentRow.Cells[3].Value.ToString();
+                txtDateHired.Text = dgvEmployee.CurrentRow.Cells[4].Value.ToString();
+                txtAddress.Text = dgvEmployee.CurrentRow.Cells[5].Value.ToString();
+                txtSalary.Text = dgvEmployee.CurrentRow.Cells[6].Value.ToString();
+                txtWorkStation.Text = dgvEmployee.CurrentRow.Cells[7].Value.ToString();
+                cmbArea.SelectedIndex = int.Parse(dgvEmployee.CurrentRow.Cells[8].Value.ToString()) -1;
+                txtDNI.Text = dgvEmployee.CurrentRow.Cells[9].Value.ToString();
+                paneEmployee.Enabled = false;
+                btnSave.Enabled = false;
+                btnModify.Enabled = true;
                 lblError.Text = "";
-                lblEstado.Text = "Datos de Personal";
+                lblState.Text = "Datos de Personal";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                Console.WriteLine(ex.ToString());
             }   
         }
     }
