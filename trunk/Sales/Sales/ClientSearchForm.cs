@@ -10,9 +10,9 @@ using System.Data.SqlClient;
 
 namespace Sales
 {
-    public partial class ClienteSearch : Form
+    public partial class ClientSearchForm : Form
     {
-        public ClienteSearch()
+        public ClientSearchForm()
         {
             InitializeComponent();
         }
