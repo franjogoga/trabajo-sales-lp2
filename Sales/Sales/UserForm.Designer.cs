@@ -118,7 +118,6 @@
             this.btnAccept.TabIndex = 8;
             this.btnAccept.Text = "Registrar";
             this.btnAccept.UseVisualStyleBackColor = true;
-            this.btnAccept.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancel
             // 
@@ -128,7 +127,7 @@
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // pic1
             // 

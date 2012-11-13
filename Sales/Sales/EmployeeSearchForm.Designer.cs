@@ -49,7 +49,7 @@
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnBusqueda_Click);
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblName
             // 
@@ -74,7 +74,7 @@
             this.dgvEmployeeSearch.Name = "dgvEmployeeSearch";
             this.dgvEmployeeSearch.Size = new System.Drawing.Size(644, 176);
             this.dgvEmployeeSearch.TabIndex = 3;
-            this.dgvEmployeeSearch.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
+            this.dgvEmployeeSearch.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvEmployeeSearch_MouseDoubleClick);
             // 
             // pic1
             // 
