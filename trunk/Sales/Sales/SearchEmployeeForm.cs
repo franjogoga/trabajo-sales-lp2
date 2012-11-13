@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Sales
 {
-    public partial class SearchPersonForm : Form
+    public partial class SearchEmployeeForm : Form
     {
-        public SearchPersonForm()
+        public SearchEmployeeForm()
         {
             InitializeComponent();
         }

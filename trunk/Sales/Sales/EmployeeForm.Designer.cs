@@ -1,6 +1,6 @@
 ﻿namespace Sales
 {
-    partial class PersonalForm
+    partial class EmployeeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonalForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeForm));
             this.paneEmployee = new System.Windows.Forms.Panel();
             this.txtDateHired = new System.Windows.Forms.DateTimePicker();
             this.cmbArea = new System.Windows.Forms.ComboBox();
