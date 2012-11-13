@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientForm));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvClient = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,47 +41,47 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtRazonSocial = new System.Windows.Forms.TextBox();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.txtBusinessName = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.txtEstado = new System.Windows.Forms.TextBox();
+            this.txtTelephone = new System.Windows.Forms.TextBox();
+            this.txtState = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.panelClient = new System.Windows.Forms.Panel();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pic1 = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
             this.panelClient.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvClient
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.CausesValidation = false;
-            this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvClient.AllowUserToOrderColumns = true;
+            this.dgvClient.CausesValidation = false;
+            this.dgvClient.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dgvClient.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.RazonSocial,
             this.Direccion,
             this.Email,
             this.Telefono,
             this.Estado});
-            this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.dataGridView1.Location = new System.Drawing.Point(49, 271);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.Size = new System.Drawing.Size(710, 166);
-            this.dataGridView1.StandardTab = true;
-            this.dataGridView1.TabIndex = 7;
+            this.dgvClient.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.dgvClient.Location = new System.Drawing.Point(49, 271);
+            this.dgvClient.Name = "dgvClient";
+            this.dgvClient.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvClient.Size = new System.Drawing.Size(710, 166);
+            this.dgvClient.StandardTab = true;
+            this.dgvClient.TabIndex = 7;
             // 
             // ID
             // 
@@ -168,21 +168,21 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Estado:";
             // 
-            // txtRazonSocial
+            // txtBusinessName
             // 
-            this.txtRazonSocial.Location = new System.Drawing.Point(111, 60);
-            this.txtRazonSocial.Multiline = true;
-            this.txtRazonSocial.Name = "txtRazonSocial";
-            this.txtRazonSocial.Size = new System.Drawing.Size(100, 20);
-            this.txtRazonSocial.TabIndex = 6;
+            this.txtBusinessName.Location = new System.Drawing.Point(111, 60);
+            this.txtBusinessName.Multiline = true;
+            this.txtBusinessName.Name = "txtBusinessName";
+            this.txtBusinessName.Size = new System.Drawing.Size(100, 20);
+            this.txtBusinessName.TabIndex = 6;
             // 
-            // txtDireccion
+            // txtAddress
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(111, 99);
-            this.txtDireccion.Multiline = true;
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(138, 20);
-            this.txtDireccion.TabIndex = 7;
+            this.txtAddress.Location = new System.Drawing.Point(111, 99);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(138, 20);
+            this.txtAddress.TabIndex = 7;
             // 
             // txtEmail
             // 
@@ -192,21 +192,21 @@
             this.txtEmail.Size = new System.Drawing.Size(138, 20);
             this.txtEmail.TabIndex = 8;
             // 
-            // txtTelefono
+            // txtTelephone
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(363, 15);
-            this.txtTelefono.Multiline = true;
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(108, 20);
-            this.txtTelefono.TabIndex = 9;
+            this.txtTelephone.Location = new System.Drawing.Point(363, 15);
+            this.txtTelephone.Multiline = true;
+            this.txtTelephone.Name = "txtTelephone";
+            this.txtTelephone.Size = new System.Drawing.Size(108, 20);
+            this.txtTelephone.TabIndex = 9;
             // 
-            // txtEstado
+            // txtState
             // 
-            this.txtEstado.Location = new System.Drawing.Point(363, 57);
-            this.txtEstado.Multiline = true;
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(108, 20);
-            this.txtEstado.TabIndex = 11;
+            this.txtState.Location = new System.Drawing.Point(363, 57);
+            this.txtState.Multiline = true;
+            this.txtState.Name = "txtState";
+            this.txtState.Size = new System.Drawing.Size(108, 20);
+            this.txtState.TabIndex = 11;
             // 
             // label7
             // 
@@ -229,11 +229,11 @@
             // 
             this.panelClient.Controls.Add(this.txtID);
             this.panelClient.Controls.Add(this.label7);
-            this.panelClient.Controls.Add(this.txtEstado);
-            this.panelClient.Controls.Add(this.txtTelefono);
+            this.panelClient.Controls.Add(this.txtState);
+            this.panelClient.Controls.Add(this.txtTelephone);
             this.panelClient.Controls.Add(this.txtEmail);
-            this.panelClient.Controls.Add(this.txtDireccion);
-            this.panelClient.Controls.Add(this.txtRazonSocial);
+            this.panelClient.Controls.Add(this.txtAddress);
+            this.panelClient.Controls.Add(this.txtBusinessName);
             this.panelClient.Controls.Add(this.label6);
             this.panelClient.Controls.Add(this.label4);
             this.panelClient.Controls.Add(this.label3);
@@ -258,15 +258,15 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
             // 
-            // pictureBox2
+            // pic1
             // 
-            this.pictureBox2.Image = global::Sales.Properties.Resources.Client;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(104, 99);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 14;
-            this.pictureBox2.TabStop = false;
+            this.pic1.Image = global::Sales.Properties.Resources.Client;
+            this.pic1.Location = new System.Drawing.Point(12, 12);
+            this.pic1.Name = "pic1";
+            this.pic1.Size = new System.Drawing.Size(104, 99);
+            this.pic1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic1.TabIndex = 14;
+            this.pic1.TabStop = false;
             // 
             // btnExit
             // 
@@ -281,19 +281,18 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnNuevo
+            // btnNew
             // 
-            this.btnNuevo.AutoSize = true;
-            //this.btnNuevo.Image = global::Sales.Properties.Resources._0020_magic_wand;
-            this.btnNuevo.Location = new System.Drawing.Point(12, 195);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(105, 54);
-            this.btnNuevo.TabIndex = 4;
-            this.btnNuevo.Text = "&Limpiar";
-            this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click_1);
+            this.btnNew.AutoSize = true;
+            this.btnNew.Location = new System.Drawing.Point(12, 195);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(105, 54);
+            this.btnNew.TabIndex = 4;
+            this.btnNew.Text = "&Limpiar";
+            this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNuevo_Click_1);
             // 
             // btnModify
             // 
@@ -340,10 +339,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(786, 453);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.pic1);
+            this.Controls.Add(this.dgvClient);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnSave);
@@ -353,10 +352,10 @@
             this.Text = "Mantenimiento Cliente";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientForm_FormClosing);
             this.Load += new System.EventHandler(this.ClientForm_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).EndInit();
             this.panelClient.ResumeLayout(false);
             this.panelClient.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,21 +366,21 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnModify;
-        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.PictureBox pic1;
+        public System.Windows.Forms.DataGridView dgvClient;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtRazonSocial;
-        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.TextBox txtBusinessName;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtTelefono;
-        private System.Windows.Forms.TextBox txtEstado;
+        private System.Windows.Forms.TextBox txtTelephone;
+        private System.Windows.Forms.TextBox txtState;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Panel panelClient;
