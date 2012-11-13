@@ -89,6 +89,7 @@
             this.btnEmployee.TabIndex = 2;
             this.btnEmployee.Text = "                &Personal";
             this.btnEmployee.UseVisualStyleBackColor = true;
+            this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
             // 
             // btnProduct
             // 
@@ -174,7 +175,7 @@
             this.label4.Text = "Puesto:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // mainForm
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -192,7 +193,7 @@
             this.Controls.Add(this.btnProduct);
             this.Controls.Add(this.btnClient);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "mainForm";
+            this.Name = "MainForm";
             this.Text = "Menú Principal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainForm_FormClosing);
             this.Load += new System.EventHandler(this.mainForm_Load);
