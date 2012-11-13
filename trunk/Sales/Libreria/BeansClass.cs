@@ -5,11 +5,11 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace Libreria
+namespace Library
 {
-    public class Personal
+    public class Employee
     {
-        private int iDPersonal;
+        private int iDEmployee;
         private String name;
         private String lastname;
         private String address;
@@ -20,21 +20,21 @@ namespace Libreria
         private int workArea; //area de trabajo
         private String workStation;//puesto de trabajo
 
-        public Personal()  {   }
-        public Personal(int iD, String nam, String last, String add, String ema, String date, float sal)
+        public Employee()  {   }
+        public Employee(int iD, String nam, String last, String add, String ema, String date, float sal)
         {
-            iDPersonal = iD;
+            iDEmployee = iD;
             name = nam;
             lastname = last;
             address = add;
             dateHired = date;
             salary = sal;
         }
-        public void SetDNI(string strdni)
+        public void setDNI(string strdni)
         {
             dni = strdni;
         }
-        public String GetDni()
+        public String getDni()
         {
             return dni;
         }
@@ -42,55 +42,55 @@ namespace Libreria
         {
             return workStation;
         }
-        public void setWorkStation(String cad)
+        public void setWorkStation(String str)
         {
-            workStation = cad;
+            workStation = str;
         }
-        public void setWorkArea(int numero)
+        public void setWorkArea(int num)
         {
-            workArea = numero;
+            workArea = num;
         }
         public int getWorkArea()
         {
             return workArea;
         }
-        public void SetSalary(float sal)
+        public void setSalary(float sal)
         {
             salary = sal;
         }
-        public float GetSalary()
+        public float getSalary()
         {
             return salary;
         }
-        public void SetID(int iD)
+        public void setID(int iD)
         {
-            iDPersonal = iD;
+            iDEmployee = iD;
         }
-        public int GetID()
+        public int getID()
         {
-            return iDPersonal;
+            return iDEmployee;
         }
-        public void SetName(String name)
+        public void setName(String name)
         {
             this.name = name;
         }
-        public String GetName()
+        public String getName()
         {
             return name;
         }
-        public void SetLastName(String lastName)
+        public void setLastName(String lastName)
         {
             lastname = lastName;
         }
-        public String GetLastname()
+        public String getLastname()
         {
             return lastname;
         }
-        public void SetEmail(String eMail)
+        public void setEmail(String eMail)
         {
             email = eMail;
         }
-        public String GetEmail()
+        public String getEmail()
         {
             return email;
         }
@@ -116,19 +116,19 @@ namespace Libreria
     {
         private String idUser;
         private String password;
-        private int idPersonal;
-        private SqlConnection con;
+        private int idEmployee;
+        private SqlConnection conn;
 
-        public void HacerConexion()
+        public void makeConnection()
         {
-            con = new SqlConnection("user id=inf282;"+"password=inf282db;"+"server=inti.lab.inf.pucp.edu.pe;"+"database=inf282; "+"connection timeout=30");
+            conn = new SqlConnection("user id=inf282;"+"password=inf282db;"+"server=inti.lab.inf.pucp.edu.pe;"+"database=inf282; "+"connection timeout=30");
         }
-        public int ValidarPassword()
+        public int validatePassword()
         {
             int flag;
             try
             {
-                con.Open();
+                conn.Open();
                 String sqlString = "SELECT * " +"FROM G08_USUARIO " +"WHERE IDUSER = @param1 and CLAVE = @param2";
                 
                 SqlParameter myParam1 = new SqlParameter("@Param1", SqlDbType.VarChar, 20);
@@ -137,7 +137,7 @@ namespace Libreria
                 SqlParameter myParam2 = new SqlParameter("@Param2", SqlDbType.VarChar, 20);
                 myParam2.Value = password;
                 
-                SqlCommand myCommand = new SqlCommand(sqlString, con);
+                SqlCommand myCommand = new SqlCommand(sqlString, conn);
                 
                 myCommand.Parameters.Add(myParam1);
                 myCommand.Parameters.Add(myParam2);
@@ -152,7 +152,7 @@ namespace Libreria
                 if (idUser.Equals(userBD) && password.Equals(passBD))
                 {
                     flag = 1;
-                    idPersonal = reader.GetInt32(2);
+                    idEmployee = reader.GetInt32(2);
                 }
                 else
                 {
@@ -167,20 +167,20 @@ namespace Libreria
             return flag;
         }
 
-        public void SetUser(string user)
+        public void setUser(string user)
         {
             idUser = user;
         }
-        public string GetUser()
+        public string getUser()
         {
             return idUser;
         }
 
-        public void SetPassword(string pass)
+        public void setPassword(string pass)
         {
             password = pass;
         }
-        public string GetPassword()
+        public string getPassword()
         {
             return password;
         }
@@ -193,45 +193,44 @@ namespace Libreria
         private String name;
         private int stockMin;   //la cantidad minimo que tiene que tener la empresa
         private int stockMax;   //la cantidad maxima que debe tener la empresa 
-        float PrecioCompra;
-        float PrecioVenta;
+        private float purchasePrice;
+        private float salePrice;
 
         public Product()
         {
             idProduct = 0;
             name = "";
-            this.stockMin = 0;
-            this.stockMax = 0;
-            PrecioCompra = 0f;
-            PrecioVenta = 0f;
-
+            stockMin = 0;
+            stockMax = 0;
+            purchasePrice = 0f;
+            salePrice = 0f;
         }
 
-        public Product(int codigo, String nombre, int stockMin, int stockMax, float PrecioCompra, float PrecioVenta)
+        public Product(int idProduct, String name, int stockMin, int stockMax, float purchasePrice, float salePrice)
         {
-            idProduct = codigo;
-            name = nombre;
+            this.idProduct = idProduct;
+            this.name= name;
             this.stockMin = stockMin;
             this.stockMax = stockMax;
-            PrecioCompra = 0f;
-            PrecioVenta = 0f;
+            this.purchasePrice = 0f;
+            this.salePrice= 0f;
 
         }
-        public int getCodigo()
+        public int getId()
         {
             return idProduct;
         }
-        public void setCodigo(int codigo)
+        public void setId(int idProduct)
         {
-            idProduct = codigo;
+            this.idProduct = idProduct;
         }
         public String getName()
         {
             return name;
         }
-        public void setName(String nombre)
+        public void setName(String name)
         {
-            name = nombre;
+            this.name = name;
         }
 
         public int getStockMin()
@@ -251,108 +250,104 @@ namespace Libreria
             this.stockMax = stockMax;
         }
 
-
-        public float getPrecioCompra()
+        public float getPurchasePrice()
         {
-            return PrecioCompra;
+            return purchasePrice;
         }
-        public void setPrecioCompra(float pCompra)
+        public void setPurchasePrice(float purchasePrice)
         {
-            this.PrecioCompra = pCompra;
+            this.purchasePrice = purchasePrice;
         }
 
-
-        public float getPrecioVenta()
+        public float getSalePrice()
         {
-            return PrecioVenta;
+            return salePrice;
         }
-        public void setPrecioVenta(float pVenta)
+        public void setSalePrice(float salePrice)
         {
-            this.PrecioVenta = pVenta;
+            this.salePrice = salePrice;
         }
     }
 
     public class Client
     {
-        private int IdClient;
-        private String Address;
-        private String EstadoCliente;  //estado del cliente
-        private String Email;
-        private String Telephone;
-        private String businessName; //Razon Social
+        private int idClient;
+        private string address;
+        private string state;  //estado del cliente
+        private string email;
+        private string telephone;
+        private string businessName; //Razon Social
 
         public Client()
         {
-            IdClient = 0;
-            Address = "";
-            EstadoCliente = "";
-            Email = "";
-            Telephone = "";
+            idClient = 0;
+            address = "";
+            state= "";
+            email = "";
+            telephone = "";
             businessName = "";
         }
 
-        public Client(int idCliente, String direccion, String estadoCliente, String correo, String telefono, String razonSocial)
+        public Client(int idClient, string address, string state, string email, string telephone, string businessName)
         {
-            IdClient = idCliente;
-            Address = direccion;
-            EstadoCliente = estadoCliente;
-            Email = correo;
-            Telephone = telefono;
-            businessName = razonSocial;
+            this.idClient = idClient;
+            this.address = address;
+            this.state= state;
+            this.email = email;
+            this.telephone = telephone;
+            this.businessName = businessName;
         }
 
-        public String getRazonSocial()
+        public string getBusinessName()
         {
-            return this.businessName;
+            return businessName;
         }
 
-        public int getIdCliente()
+        public int getIdClient()
         {
-            return IdClient;
+            return idClient;
         }
-        public void setIdCliente(int idCliente)
+        public void setIdClient(int idClient)
         {
-            IdClient = idCliente;
-        }
-
-        public String getDireccion()
-        {
-            return Address;
-        }
-        public void setDireccion(String direccion)
-        {
-            Address = direccion;
-        }
-        public String getEstadoCliente()
-        {
-            return EstadoCliente;
+            this.idClient = idClient;
         }
 
-
-        public void setEstadoCliente(String estadoCliente)
+        public string getAddress()
         {
-            EstadoCliente = estadoCliente;
+            return address;
         }
-        public String getCorreo()
+        public void setAddress(string address)
         {
-            return Email;
+            this.address = address;
         }
-        public void setCorreo(String correo)
+        public string getState()
         {
-            Email = correo;
-        }
-        public String getTelefono()
-        {
-            return Telephone;
-        }
-        public void setTelefono(String telefono)
-        {
-            Telephone = telefono;
+            return state;
         }
 
-        public void setRazonSocial(String RazonSocial)
+        public void setState(string state)
         {
-            this.businessName = RazonSocial;
+            this.state= state;
+        }
+        public string getEmail()
+        {
+            return email;
+        }
+        public void setEmail(string email)
+        {
+            this.email = email;
+        }
+        public string getTelephone()
+        {
+            return telephone;
+        }
+        public void setTelephone(string telephone)
+        {
+            this.telephone = telephone;
+        }
+        public void setBusinessName(string businessName)
+        {
+            this.businessName = businessName;
         }
     }
 }
