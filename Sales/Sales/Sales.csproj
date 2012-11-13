@@ -64,11 +64,11 @@
     <Compile Include="ClientSearch2.Designer.cs">
       <DependentUpon>ClientSearch2.cs</DependentUpon>
     </Compile>
-    <Compile Include="PersonalForm.cs">
+    <Compile Include="EmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PersonalForm.Designer.cs">
-      <DependentUpon>PersonalForm.cs</DependentUpon>
+    <Compile Include="EmployeeForm.Designer.cs">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -82,11 +82,11 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PersonalSearchForm.cs">
+    <Compile Include="EmployeeSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PersonalSearchForm.Designer.cs">
-      <DependentUpon>PersonalSearchForm.cs</DependentUpon>
+    <Compile Include="EmployeeSearchForm.Designer.cs">
+      <DependentUpon>EmployeeSearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductSearchForm.cs">
       <SubType>Form</SubType>
@@ -102,17 +102,17 @@
     <Compile Include="SalesForm.Designer.cs">
       <DependentUpon>SalesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchClientForm.cs">
+    <Compile Include="ClientSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchClientForm.Designer.cs">
-      <DependentUpon>SearchClientForm.cs</DependentUpon>
+    <Compile Include="ClientSearchForm.Designer.cs">
+      <DependentUpon>ClientSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchPersonForm.cs">
+    <Compile Include="SearchEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchPersonForm.Designer.cs">
-      <DependentUpon>SearchPersonForm.cs</DependentUpon>
+    <Compile Include="SearchEmployeeForm.Designer.cs">
+      <DependentUpon>SearchEmployeeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserForm.cs">
       <SubType>Form</SubType>
@@ -129,8 +129,8 @@
     <EmbeddedResource Include="ClientSearch2.resx">
       <DependentUpon>ClientSearch2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PersonalForm.resx">
-      <DependentUpon>PersonalForm.cs</DependentUpon>
+    <EmbeddedResource Include="EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -138,8 +138,8 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PersonalSearchForm.resx">
-      <DependentUpon>PersonalSearchForm.cs</DependentUpon>
+    <EmbeddedResource Include="EmployeeSearchForm.resx">
+      <DependentUpon>EmployeeSearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductSearchForm.resx">
       <DependentUpon>ProductSearchForm.cs</DependentUpon>
@@ -157,11 +157,11 @@
     <EmbeddedResource Include="SalesForm.resx">
       <DependentUpon>SalesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchClientForm.resx">
-      <DependentUpon>SearchClientForm.cs</DependentUpon>
+    <EmbeddedResource Include="ClientSearchForm.resx">
+      <DependentUpon>ClientSearchForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchPersonForm.resx">
-      <DependentUpon>SearchPersonForm.cs</DependentUpon>
+    <EmbeddedResource Include="SearchEmployeeForm.resx">
+      <DependentUpon>SearchEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>

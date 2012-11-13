@@ -10,10 +10,10 @@ using System.Data.SqlClient;
 
 namespace Sales
 {
-    public partial class PersonalSearchForm : Form
+    public partial class EmployeeSearchForm : Form
     {
         private SqlConnection conn = new SqlConnection("user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;"+"database=inf282; "+"connection timeout=30");
-        public PersonalSearchForm()
+        public EmployeeSearchForm()
         {
             InitializeComponent();
         }
@@ -51,8 +51,8 @@ namespace Sales
             string name = txtName.Text;
             loadEmployee(name);
         }        
-        private PersonalForm RefpForm = null;
-        public void SetRefPersonal(PersonalForm pform)
+        private EmployeeForm RefpForm = null;
+        public void SetRefPersonal(EmployeeForm pform)
         {
             RefpForm = pform;
         }

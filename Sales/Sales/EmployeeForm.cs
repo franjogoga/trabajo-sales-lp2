@@ -12,13 +12,13 @@ using System.Data.SqlClient;
 
 namespace Sales
 {
-    public partial class PersonalForm : Form
+    public partial class EmployeeForm : Form
     {         
         private MainForm refMainForm = null;
         private int idEmployee=0;
         private SqlConnection conn = new SqlConnection("user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30");
        
-        public PersonalForm()
+        public EmployeeForm()
         {
             InitializeComponent();
         }
@@ -141,7 +141,7 @@ namespace Sales
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            PersonalSearchForm testDialog = new PersonalSearchForm();
+            EmployeeSearchForm testDialog = new EmployeeSearchForm();
             testDialog.SetRefPersonal(this);
             testDialog.ShowDialog(this);
 

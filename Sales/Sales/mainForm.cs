@@ -29,7 +29,7 @@ namespace Sales
         }
         private void btnEmployee_Click_1(object sender, EventArgs e)
         {
-            PersonalForm pForm = new PersonalForm();
+            EmployeeForm pForm = new EmployeeForm();
             pForm.Show();
             pForm.setrefmainForm(this);
             this.Hide();

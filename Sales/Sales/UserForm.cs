@@ -11,13 +11,13 @@ namespace Sales
 {
     public partial class UserForm : Form
     {
-        private PersonalForm refPerForm = null;
+        private EmployeeForm refPerForm = null;
         private int IdPersonal;
         public UserForm()
         {
             InitializeComponent();
         }
-        public void setRef(PersonalForm refp){
+        public void setRef(EmployeeForm refp){
             refPerForm = refp;
         }
         public void setIDPers(int idp)
