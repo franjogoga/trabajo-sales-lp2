@@ -173,7 +173,7 @@
             this.txtBusinessName.Location = new System.Drawing.Point(111, 60);
             this.txtBusinessName.Multiline = true;
             this.txtBusinessName.Name = "txtBusinessName";
-            this.txtBusinessName.Size = new System.Drawing.Size(100, 20);
+            this.txtBusinessName.Size = new System.Drawing.Size(138, 20);
             this.txtBusinessName.TabIndex = 6;
             // 
             // txtAddress
@@ -284,6 +284,7 @@
             // btnNew
             // 
             this.btnNew.AutoSize = true;
+            this.btnNew.Image = global::Sales.Properties.Resources._0020_magic_wand;
             this.btnNew.Location = new System.Drawing.Point(12, 195);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(105, 54);
