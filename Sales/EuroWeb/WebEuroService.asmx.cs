@@ -51,7 +51,7 @@ namespace EuroWeb
 
             client = myservice.getClienteWeb(iduser.ToUpper());
             
-            if (client.getContraseña().Equals(pass))
+            if (client.getContraseña().Equals(pass.ToUpper()))
             {
                 val = 1;
             }
