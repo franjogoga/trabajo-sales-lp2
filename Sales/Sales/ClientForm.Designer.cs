@@ -284,8 +284,7 @@
             // btnNew
             // 
             this.btnNew.AutoSize = true;
-            this.btnNew.Image = global::Sales.Properties.Resources._0020_magic_wand;
-            this.btnNew.Location = new System.Drawing.Point(12, 195);
+            this.btnNew.Location = new System.Drawing.Point(12, 190);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(105, 54);
             this.btnNew.TabIndex = 4;
