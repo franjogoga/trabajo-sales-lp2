@@ -396,8 +396,5 @@ namespace Library
         {
             this.pais = pais;
         }
-
-
-
     }
 }
