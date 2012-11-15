@@ -202,5 +202,11 @@ namespace Sales
                 lblError.Text = "Venta Guardada";
             }
         }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            btnSelPro.Enabled = true;
+            lblEvent.Text = "Ingrese nuevo Producto";
+        }
     }
 }
