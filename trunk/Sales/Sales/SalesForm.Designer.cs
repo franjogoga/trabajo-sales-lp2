@@ -39,13 +39,13 @@
             this.btnSelPro = new System.Windows.Forms.Button();
             this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtIdClient = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtNomClient = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtIGV = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lblIdVenta = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -58,6 +58,8 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.lblError = new System.Windows.Forms.Label();
+            this.lblEvent = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -138,13 +140,13 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Fecha:";
             // 
-            // dateTimePicker1
+            // txtDate
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(236, 124);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 9;
+            this.txtDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtDate.Location = new System.Drawing.Point(236, 124);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(200, 20);
+            this.txtDate.TabIndex = 9;
             // 
             // label3
             // 
@@ -187,12 +189,12 @@
             this.txtNomClient.Size = new System.Drawing.Size(100, 20);
             this.txtNomClient.TabIndex = 20;
             // 
-            // textBox3
+            // txtIGV
             // 
-            this.textBox3.Location = new System.Drawing.Point(515, 88);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(53, 20);
-            this.textBox3.TabIndex = 21;
+            this.txtIGV.Location = new System.Drawing.Point(515, 88);
+            this.txtIGV.Name = "txtIGV";
+            this.txtIGV.Size = new System.Drawing.Size(53, 20);
+            this.txtIGV.TabIndex = 21;
             // 
             // label6
             // 
@@ -305,6 +307,7 @@
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnExit
             // 
@@ -319,11 +322,33 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(100, 169);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(45, 13);
+            this.lblError.TabIndex = 33;
+            this.lblError.Text = "[lblError]";
+            // 
+            // lblEvent
+            // 
+            this.lblEvent.AutoSize = true;
+            this.lblEvent.ForeColor = System.Drawing.Color.Blue;
+            this.lblEvent.Location = new System.Drawing.Point(337, 169);
+            this.lblEvent.Name = "lblEvent";
+            this.lblEvent.Size = new System.Drawing.Size(47, 13);
+            this.lblEvent.TabIndex = 32;
+            this.lblEvent.Text = "[Evento]";
+            // 
             // SalesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 360);
+            this.Controls.Add(this.lblError);
+            this.Controls.Add(this.lblEvent);
             this.Controls.Add(this.cmbEstado);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label8);
@@ -331,7 +356,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblIdVenta);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtIGV);
             this.Controls.Add(this.txtNomClient);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtIdClient);
@@ -341,7 +366,7 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.txtDate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbTipoDoc);
             this.Controls.Add(this.btnExit);
@@ -373,7 +398,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
         private System.Windows.Forms.ComboBox cmbTipoDoc;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker txtDate;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnBuscar;
@@ -383,7 +408,7 @@
         private System.Windows.Forms.TextBox txtIdClient;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtNomClient;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtIGV;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblIdVenta;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -391,5 +416,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.ComboBox cmbEstado;
+        private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Label lblEvent;
     }
 }

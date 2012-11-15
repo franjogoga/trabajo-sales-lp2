@@ -6,11 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Sales
 {
     public partial class SalesForm : Form
     {
+        private SqlConnection conn = new SqlConnection("user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30");
         private MainForm refMain = null;
         private String prodname;
         private int idProd;
@@ -40,6 +43,8 @@ namespace Sales
             dataGridView1.Rows[fil].Cells["ID"].Value = id;
             dataGridView1.Rows[fil].Cells["Producto"].Value = nam;
             dataGridView1.Rows[fil].Cells["PrecUnit"].Value = pVenta;
+            btnSelPro.Enabled = false;
+            lblEvent.Text = "Ingrese Cantidad de Producto";
             fil++;
         }
         private void button1_Click(object sender, EventArgs e)
@@ -57,12 +62,20 @@ namespace Sales
         }
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            int cantidad = Int32.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-            float Pventa = float.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
-            dataGridView1.CurrentRow.Cells["SubTotal"].Value = pVenta * cantidad;
-            var = (Int32)(var + pVenta * cantidad);
-         
-            txtTotal.Text = var.ToString();
+            try
+            {
+                int cantidad = Int32.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                float Pventa = float.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+                dataGridView1.CurrentRow.Cells["SubTotal"].Value = pVenta * cantidad;
+                var = (Int32)(var + pVenta * cantidad);
+
+                txtTotal.Text = var.ToString();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         
         }
 
@@ -70,6 +83,8 @@ namespace Sales
         {
             DataSet dsTipoDoc;
             DataSet dsEstado;
+            lblEvent.Text = "";
+            lblError.Text = "";
             //Texboxes de Cliente no editable
             txtIdClient.ReadOnly = true;
             txtNomClient.ReadOnly = true;
@@ -102,6 +117,90 @@ namespace Sales
         {
             refMain.Show();
             this.Dispose();
+        }
+        private void almacenaVentaxProducto()
+        {
+            try
+            {
+                conn.Open();
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                {
+
+                    SqlCommand command = new SqlCommand("G08_AlmacenaVentaxProducto", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@idVenta", SqlDbType.Int);
+                    command.Parameters["@idVenta"].Value = int.Parse(lblIdVenta.Text);
+
+                    command.Parameters.Add("@idProducto", SqlDbType.Int);
+                    command.Parameters["@idProducto"].Value = dataGridView1.Rows[i].Cells[1].Value;
+
+                    command.Parameters.Add("@cantidad", SqlDbType.Int);
+                    command.Parameters["@cantidad"].Value = dataGridView1.Rows[i].Cells[0].Value;
+
+                    command.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        private void almacenaVenta()
+        {
+            try
+            {
+                conn.Open();
+
+                SqlCommand command = new SqlCommand("G08_AlamcenaVenta", conn);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@idVenta", SqlDbType.Int);
+                command.Parameters["@idVenta"].Value = int.Parse(lblIdVenta.Text);
+
+                command.Parameters.Add("@fecha", SqlDbType.DateTime);
+                command.Parameters["@fecha"].Value = txtDate;
+
+                command.Parameters.Add("@subtotal ", SqlDbType.Money);
+                command.Parameters["@subtotal "].Value = float.Parse(txtTotal.Text) * float.Parse(txtIGV.Text) / 100;
+
+                command.Parameters.Add("@igv", SqlDbType.Float);
+                command.Parameters["@igv"].Value = float.Parse(txtIGV.Text);
+
+                command.Parameters.Add("@subtotal ", SqlDbType.Money);
+                command.Parameters["@subtotal "].Value = float.Parse(txtTotal.Text);
+
+                command.Parameters.Add("@idEstado", SqlDbType.Int);
+                command.Parameters["@idEstado"].Value = cmbEstado.SelectedValue;
+
+                command.Parameters.Add("@idTipoDoc", SqlDbType.Int);
+                command.Parameters["@idTipoDoc"].Value = cmbTipoDoc.SelectedValue;
+
+                command.Parameters.Add("@idCliente", SqlDbType.Int);
+                command.Parameters["@idCliente"].Value = int.Parse(txtIdClient.Text);
+
+                command.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (txtIdClient.Text == "") lblError.Text = "Falta Datos";
+            else if (txtNomClient.Text == "") lblError.Text = "Falta Datos";
+            else if (cmbEstado.SelectedItem.ToString() == "") lblError.Text = "Falta Datos";
+            else if (cmbTipoDoc.SelectedItem.ToString() == "") lblError.Text = "Falta Datos";
+            else
+            {
+                almacenaVenta();
+                almacenaVentaxProducto();
+                lblError.Text = "Venta Guardada";
+            }
         }
     }
 }
