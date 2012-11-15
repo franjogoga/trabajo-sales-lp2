@@ -51,8 +51,7 @@ namespace Sales
         {
             ProductSearchForm pSearch = new ProductSearchForm();
             pSearch.SetRefSales(this);//le envio la direccion de la ventana padre al hijo
-            pSearch.ShowDialog(this);
-            
+            pSearch.ShowDialog(this);    
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -60,34 +59,18 @@ namespace Sales
             refMain.Show();
             this.Dispose();
         }
-        private void dataGridView1_DoubleClick(object sender, EventArgs e)
-        {
-            try
-            {
-                int cantidad = Int32.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-                float Pventa = float.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
-                dataGridView1.CurrentRow.Cells["SubTotal"].Value = pVenta * cantidad;
-                var = (Int32)(var + pVenta * cantidad);
 
-                txtTotal.Text = var.ToString();
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-        
-        }
-
-        private void SalesForm_Load(object sender, EventArgs e)
+        private void BeginNewSale()
         {
             DataSet dsTipoDoc;
             DataSet dsEstado;
             lblEvent.Text = "";
             lblError.Text = "";
+            btnNew.Enabled = false; 
             //Texboxes de Cliente no editable
             txtIdClient.ReadOnly = true;
             txtNomClient.ReadOnly = true;
+            txtTotal.ReadOnly = true;
             //Instrucciones para cargar el combo TipoDoc
             dsTipoDoc = Program.service.getCmbDocType();
             cmbTipoDoc.DataSource = dsTipoDoc.Tables[0].DefaultView;
@@ -102,8 +85,12 @@ namespace Sales
             cmbEstado.SelectedIndex = -1;
             //Instrucciones para cargar el Id de Ventas
             idVentas = Program.service.getNewSaleId();
-            idVentas++; 
+            idVentas++;
             lblIdVenta.Text = "" + idVentas;
+        }
+        private void SalesForm_Load(object sender, EventArgs e)
+        {
+            BeginNewSale();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -184,7 +171,6 @@ namespace Sales
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.ToString());
             }
         }
@@ -201,12 +187,65 @@ namespace Sales
                 almacenaVentaxProducto();
                 lblError.Text = "Venta Guardada";
             }
+            dataGridView1.Enabled = false;
+            txtDate.Enabled = false;
+            txtIGV.Enabled = false;
+            txtTotal.Enabled = false;
+            cmbEstado.Enabled = false;
+            cmbTipoDoc.Enabled = false;
+            btnBuscar.Enabled = false;
+            btnModificar.Enabled = false;
+            btnSelPro.Enabled = false;
+            btnNew.Enabled = true;
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             btnSelPro.Enabled = true;
             lblEvent.Text = "Ingrese nuevo Producto";
+            try
+            {
+                if (dataGridView1.CurrentRow.Cells["SubTotal"].Value == null)
+                {
+                    int cantidad = Int32.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                    float Pventa = float.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+                    dataGridView1.CurrentRow.Cells["SubTotal"].Value = pVenta * cantidad;
+                    var = (Int32)(var + pVenta * cantidad);
+
+                    txtTotal.Text = var.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            lblError.Text = "";
+            lblEvent.Text = "";
+            var = 0;
+            dataGridView1.Enabled = true;
+            dataGridView1.Rows.Clear();
+            cmbEstado.Enabled = true;
+            cmbEstado.SelectedValue = 0;
+            cmbTipoDoc.Enabled = true;
+            cmbTipoDoc.SelectedValue = 0;
+            txtDate.Enabled = true;
+            txtIdClient.Text = "";
+            txtIGV.Text = "";
+            txtIGV.Enabled = true;
+            txtNomClient.Text = "";
+            txtTotal.Text = "";
+            btnBuscar.Enabled = true;
+            btnModificar.Enabled = true;
+            btnSelPro.Enabled = true;
+            btnNew.Enabled = false;
+            //Instrucciones para cargar el Id de Ventas
+            idVentas = Program.service.getNewSaleId();
+            idVentas++;
+            lblIdVenta.Text = "" + idVentas;
         }
     }
 }

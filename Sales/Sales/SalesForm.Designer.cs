@@ -53,7 +53,7 @@
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -78,7 +78,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(544, 150);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
-            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // Cant
             // 
@@ -260,17 +259,18 @@
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
             // 
-            // btnEliminar
+            // btnNew
             // 
-            this.btnEliminar.Image = global::Sales.Properties.Resources.delete;
-            this.btnEliminar.Location = new System.Drawing.Point(662, 156);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(129, 39);
-            this.btnEliminar.TabIndex = 15;
-            this.btnEliminar.Text = "&Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnNew.Image = global::Sales.Properties.Resources.plus;
+            this.btnNew.Location = new System.Drawing.Point(662, 156);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(129, 39);
+            this.btnNew.TabIndex = 15;
+            this.btnNew.Text = "&Nueva Venta";
+            this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnModificar
             // 
@@ -363,7 +363,7 @@
             this.Controls.Add(this.txtIdClient);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnGuardar);
@@ -400,7 +400,7 @@
         private System.Windows.Forms.ComboBox cmbTipoDoc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker txtDate;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnGuardar;
