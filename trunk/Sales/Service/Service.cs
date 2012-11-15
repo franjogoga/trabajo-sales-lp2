@@ -380,5 +380,41 @@ namespace SalesService
             }
             return dsArea2;
         }
+        public ClientWeb getClienteWeb(String nomClient)
+        {
+            ClientWeb aux = null;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+            try
+            {
+                conn.Open();
+                string sqlString = "SELECT * FROM G08_ClienteWeb WHERE NOMBRE = @Param";
+                SqlCommand myCommand = new SqlCommand(sqlString, conn);
+                SqlParameter myparam = new SqlParameter("@Param", SqlDbType.Char, 50);
+                myparam.Value = nomClient;
+                myCommand.Parameters.Add(myparam);
+
+                SqlDataReader reader = myCommand.ExecuteReader();
+                
+                while (reader.Read())
+                {
+                    aux = new ClientWeb();
+                    aux.setNombre(reader.GetString(0));
+                    aux.setContraseña(reader.GetString(1));
+                    aux.setDireccion(reader.GetString(3));
+                    aux.setEmail(reader.GetString(2));
+                    aux.setPais(reader.GetString(4));
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+
+            return aux;
+        }
+
     }
 }

@@ -169,6 +169,10 @@
       <Project>{149971B0-27E0-46C1-8D1F-9EB954EE7B6A}</Project>
       <Name>Library</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Service\SalesService.csproj">
+      <Project>{A0DFF22A-6E31-44BA-AA7D-714BF5D1C81E}</Project>
+      <Name>SalesService</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
