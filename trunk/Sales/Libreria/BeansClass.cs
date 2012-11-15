@@ -111,7 +111,6 @@ namespace Library
             address = dir;
         }
     }
-
     public class User
     {
         private String idUser;
@@ -185,7 +184,6 @@ namespace Library
             return password;
         }
     }
-
     public class Product
     {
 
@@ -268,7 +266,6 @@ namespace Library
             this.salePrice = salePrice;
         }
     }
-
     public class Client
     {
         private int idClient;
