@@ -27,6 +27,10 @@ namespace EuroWeb.Account
             {
                 Response.Redirect("~/Default.aspx");
             }
+            else
+            {
+               
+            }
         }
 
         protected void LoginButton_Command(object sender, CommandEventArgs e)
