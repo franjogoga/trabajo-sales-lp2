@@ -284,6 +284,7 @@
             // btnNew
             // 
             this.btnNew.AutoSize = true;
+            this.btnNew.Image = global::Sales.Properties.Resources.gnome_edit_clear;
             this.btnNew.Location = new System.Drawing.Point(12, 190);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(105, 54);

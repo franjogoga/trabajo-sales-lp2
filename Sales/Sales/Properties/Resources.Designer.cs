@@ -60,13 +60,6 @@ namespace Sales.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap _0020_magic_wand {
-            get {
-                object obj = ResourceManager.GetObject("0020_magic_wand", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap add_user {
             get {
                 object obj = ResourceManager.GetObject("add_user", resourceCulture);
@@ -119,6 +112,13 @@ namespace Sales.Properties {
         internal static System.Drawing.Bitmap exit2 {
             get {
                 object obj = ResourceManager.GetObject("exit2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap gnome_edit_clear {
+            get {
+                object obj = ResourceManager.GetObject("gnome_edit_clear", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
