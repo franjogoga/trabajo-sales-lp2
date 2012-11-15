@@ -159,7 +159,7 @@ namespace Sales
                 command.Parameters["@idVenta"].Value = int.Parse(lblIdVenta.Text);
 
                 command.Parameters.Add("@fecha", SqlDbType.DateTime);
-                command.Parameters["@fecha"].Value = txtDate;
+                command.Parameters["@fecha"].Value = DateTime.Parse(txtDate.Text);
 
                 command.Parameters.Add("@subtotal ", SqlDbType.Money);
                 command.Parameters["@subtotal "].Value = float.Parse(txtTotal.Text) * float.Parse(txtIGV.Text) / 100;
@@ -167,8 +167,8 @@ namespace Sales
                 command.Parameters.Add("@igv", SqlDbType.Float);
                 command.Parameters["@igv"].Value = float.Parse(txtIGV.Text);
 
-                command.Parameters.Add("@subtotal ", SqlDbType.Money);
-                command.Parameters["@subtotal "].Value = float.Parse(txtTotal.Text);
+                command.Parameters.Add("@total", SqlDbType.Money);
+                command.Parameters["@total"].Value = float.Parse(txtTotal.Text);
 
                 command.Parameters.Add("@idEstado", SqlDbType.Int);
                 command.Parameters["@idEstado"].Value = cmbEstado.SelectedValue;
