@@ -24,7 +24,7 @@ namespace EuroWeb
             return "Hello World";
         }
         [WebMethod]
-        public int ValidarUsuario(string iduser,string pass)
+        public string ValidarUsuario(string iduser,string pass)
         {
             int val = 0;
             User user = new User();
@@ -34,12 +34,13 @@ namespace EuroWeb
             if (user.validatePassword() == 1)
             {
                 val = 1;
+                return "Usuario Correcto";
             }
             else
             {
                 val = 0;
             }
-            return val;
+            return "Usuario Incorrecto";
         }
     }
 }
