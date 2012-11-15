@@ -43,13 +43,13 @@ namespace EuroWeb
             return val;
         }
          [WebMethod]
-        public String ObtnerClienteWeb(String idUser)
+        public ClientWeb ObtnerClienteWeb(String idUser)
         {
             ClientWeb client = null;
             Service myservice = new Service();
 
             client = myservice.getClienteWeb(idUser.ToUpper());
-            return "El cliente es: "+ client.getNombre();
+            return client;
         }
     }
 }
