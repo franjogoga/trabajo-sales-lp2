@@ -13,5 +13,25 @@ namespace EuroWeb.Account
         {
             RegisterHyperLink.NavigateUrl = "Register.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
         }
+
+
+        protected void LoginButton_Click(object sender, EventArgs e)
+        {
+            localhost.WebEuroService webService = new localhost.WebEuroService();
+          
+            String iduser = LoginUser.UserName;
+            String pass = LoginUser.Password;
+            int val = webService.ValidarUsuario(iduser,pass);
+
+            if (val == 1)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
+        }
+
+        protected void LoginButton_Command(object sender, CommandEventArgs e)
+        {
+
+        }
     }
 }
