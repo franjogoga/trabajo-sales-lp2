@@ -42,6 +42,26 @@ namespace EuroWeb
             }
             return val;
         }
+        [WebMethod]
+        public int ValidarClienteWeb(String iduser, String pass)
+        {
+            int val = 0;
+            ClientWeb client = new ClientWeb();
+            Service myservice = new Service();
+
+            client = myservice.getClienteWeb(iduser.ToUpper());
+            
+            if (client.getContraseña().Equals(pass))
+            {
+                val = 1;
+            }
+            else
+            {
+                val = 0;
+            }
+            return val;
+        }
+
          [WebMethod]
         public ClientWeb ObtnerClienteWeb(String idUser)
         {
