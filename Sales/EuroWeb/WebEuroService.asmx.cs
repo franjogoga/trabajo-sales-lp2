@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using Library;
+using SalesService;
 
 namespace EuroWeb
 {
@@ -40,6 +41,15 @@ namespace EuroWeb
                 val = 0;
             }
             return val;
+        }
+         [WebMethod]
+        public String ObtnerClienteWeb(String idUser)
+        {
+            ClientWeb client = null;
+            Service myservice = new Service();
+
+            client = myservice.getClienteWeb(idUser.ToUpper());
+            return "El cliente es: "+ client.getNombre();
         }
     }
 }
