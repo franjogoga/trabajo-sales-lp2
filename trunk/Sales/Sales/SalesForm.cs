@@ -91,6 +91,8 @@ namespace Sales
         private void SalesForm_Load(object sender, EventArgs e)
         {
             BeginNewSale();
+            txtIGV.Enabled = false;
+            txtIGV.Text = ""+ 18;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

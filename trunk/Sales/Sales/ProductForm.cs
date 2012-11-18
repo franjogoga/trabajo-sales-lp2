@@ -71,8 +71,8 @@ namespace Sales
                     dgvProduct.Rows[reglon].Cells["gProduct"].Value = productReader.GetString(1);
                     dgvProduct.Rows[reglon].Cells["gStockMin"].Value = productReader.GetInt32(5);
                     dgvProduct.Rows[reglon].Cells["gStockMax"].Value = productReader.GetInt32(2);
-                    dgvProduct.Rows[reglon].Cells["gpriceV"].Value = productReader.GetDecimal(3);
-                    dgvProduct.Rows[reglon].Cells["gPriceC"].Value = productReader.GetDecimal(4);
+                    //dgvProduct.Rows[reglon].Cells["gpriceV"].Value = productReader.GetDecimal(3);
+                    //dgvProduct.Rows[reglon].Cells["gPriceC"].Value = productReader.GetDecimal(4);
                     dgvProduct.Rows[reglon].Cells["gImg"].Value = productReader.GetString(6);
                 }
                 conn.Close();
