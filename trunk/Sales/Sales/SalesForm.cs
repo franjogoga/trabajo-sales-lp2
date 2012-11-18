@@ -236,8 +236,6 @@ namespace Sales
             cmbTipoDoc.SelectedValue = 0;
             txtDate.Enabled = true;
             txtIdClient.Text = "";
-            txtIGV.Text = "";
-            txtIGV.Enabled = true;
             txtNomClient.Text = "";
             txtTotal.Text = "";
             btnBuscar.Enabled = true;
