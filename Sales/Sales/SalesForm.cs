@@ -151,7 +151,7 @@ namespace Sales
                 command.Parameters["@fecha"].Value = DateTime.Parse(txtDate.Text);
 
                 command.Parameters.Add("@subtotal ", SqlDbType.Money);
-                command.Parameters["@subtotal "].Value = float.Parse(txtTotal.Text) * float.Parse(txtIGV.Text) / 100;
+                command.Parameters["@subtotal "].Value = float.Parse(txtTotal.Text)-(float.Parse(txtTotal.Text) * float.Parse(txtIGV.Text) / 100);
 
                 command.Parameters.Add("@igv", SqlDbType.Float);
                 command.Parameters["@igv"].Value = float.Parse(txtIGV.Text);
