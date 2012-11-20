@@ -13,6 +13,46 @@ namespace SalesService
         private List<Product> products = new List<Product>();
         private List<string> userList = new List<string>();
 
+        public int insertBuzon(Buzon b)
+        {
+            int result = 0;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+
+            try
+            {
+                conn.Open();
+
+                string sqlString = "INSERT INTO G08_Buzon(Nombre,Email,Tema) " + "VALUES (@Param1, @Param2, @Param3)";
+
+                SqlParameter myParam1 = new SqlParameter("@Param1", System.Data.SqlDbType.VarChar, 50);
+                myParam1.Value = b.getNombre();
+
+                SqlParameter myParam2 = new SqlParameter("@Param2", System.Data.SqlDbType.VarChar, 50);
+                myParam2.Value = b.getEmail();
+
+                SqlParameter myParam3 = new SqlParameter("@Param3", System.Data.SqlDbType.VarChar, 30);
+                myParam3.Value = b.getAsunto();
+
+                SqlCommand myCommand = new SqlCommand(sqlString, conn);
+
+                myCommand.Parameters.Add(myParam1);
+                myCommand.Parameters.Add(myParam2);
+                myCommand.Parameters.Add(myParam3);
+                result = 1;
+                myCommand.ExecuteNonQuery();
+                conn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return result;
+        }
+
+
         public List<string> searchEmployeeByUser(string user)
         {
             SqlDataReader reader;
