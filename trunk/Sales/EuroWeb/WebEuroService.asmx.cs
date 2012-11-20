@@ -71,5 +71,32 @@ namespace EuroWeb
             client = myservice.getClienteWeb(idUser.ToUpper());
             return client;
         }
+         [WebMethod]
+         public String Ingresar_Consulta(String name, String email, String subject)
+         {
+             String cad1 = "Consulta y/o sugerencia agregada con Exito";
+             String cad2 = "No se pudo ingresar su consulta y/o sugerencia";
+             int valor = 0;
+             if ((name != "") && (email != "") && (subject != ""))
+             {
+                 Service myService = new Service();
+                 Buzon buz = new Buzon();
+                 buz.setNombre(name);
+                 buz.setEmail(email);
+                 buz.setAsunto(subject);
+
+                 valor = myService.insertBuzon(buz);
+
+             }
+
+             if (valor > 0)
+             {
+                 return cad1;
+             }
+             else
+             {
+                 return cad2;
+             }
+         }
     }
 }
