@@ -420,6 +420,7 @@ namespace SalesService
             }
             return dsArea2;
         }
+
         public ClientWeb getClienteWeb(String nomClient)
         {
             ClientWeb aux = null;
@@ -456,5 +457,47 @@ namespace SalesService
             return aux;
         }
 
+        public int obtenerStock(String nomProducto)
+        {
+            Product aux = null;
+            int valor = 0;
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30";
+            try
+            {
+                conn.Open();
+                string sqlString = "SELECT * FROM G08_Producto WHERE NomProd=@Param";
+
+                SqlCommand myCommand = new SqlCommand(sqlString, conn);
+                SqlParameter myparam = new SqlParameter("@Param", SqlDbType.VarChar,20);
+
+                myparam.Value = nomProducto;
+                myCommand.Parameters.Add(myparam);
+
+                SqlDataReader reader = myCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    aux = new Product();
+                    aux.setId(reader.GetInt32(0));
+                    aux.setName(reader.GetString(1));
+                    aux.setStockMax(reader.GetInt32(2));
+
+                    if ((aux != null) && (aux.getStockMax()>0))
+                    { valor = 1; }
+                }
+
+                
+               
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return valor;
+        }
     }
 }
