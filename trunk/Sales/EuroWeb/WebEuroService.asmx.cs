@@ -98,5 +98,25 @@ namespace EuroWeb
                  return cad2;
              }
          }
+
+         [WebMethod]
+         public String ConsultarStock(String nomProd)
+         {
+             String cad1 = "Si hay stock del producto";
+             String cad2 = "No hay productos";
+             int valor = 0;
+
+             Service myService = new Service();
+             valor = myService.obtenerStock(nomProd);
+
+             if (valor > 0)
+             {
+                 return cad1;
+             }
+             else
+             {
+                 return cad2;
+             }
+         }
     }
 }
