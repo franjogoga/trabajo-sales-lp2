@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Services;
 using Library;
 using SalesService;
+using System.Xml.Serialization;
 
 namespace EuroWeb
 {
@@ -62,14 +63,17 @@ namespace EuroWeb
             return val;
         }
 
-         [WebMethod]
-        public ClientWeb ObtnerClienteWeb(String idUser)
+        [WebMethod]
+        public XmlSerializer ObtnerClienteWeb(String idUser)
         {
             ClientWeb client = null;
             Service myservice = new Service();
-
             client = myservice.getClienteWeb(idUser.ToUpper());
-            return client;
+            XmlSerializer x = new XmlSerializer(client.GetType());
+            x.Serialize(Console.Out, client);
+            Console.WriteLine();
+            Console.ReadLine();
+            return x;
         }
          [WebMethod]
          public String Ingresar_Consulta(String name, String email, String subject)
