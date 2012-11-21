@@ -103,6 +103,8 @@ namespace EuroWeb
              }
          }
 
+
+        
          [WebMethod]
          public String ConsultarStock(String nomProd)
          {
