@@ -51,6 +51,39 @@ namespace SalesService
 
             return result;
         }
+
+        public SalesMan getVendedor(int idVendedor)
+        {
+            SalesMan vend = null;
+            SqlConnection conn = new SqlConnection("user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30");
+            try
+            {
+                conn.Open();
+                String sqlString = "SELECT * " + "FROM G08_Vendedores " + "WHERE IDPersonal = @param1";
+                SqlParameter myParam1 = new SqlParameter("@Param1", SqlDbType.Int);
+                myParam1.Value = idVendedor;
+
+                SqlCommand myCommand = new SqlCommand(sqlString, conn);
+
+                myCommand.Parameters.Add(myParam1);
+
+                SqlDataReader reader;
+                reader = myCommand.ExecuteReader();
+                reader.Read();
+                int id = reader.GetInt32(0);
+                String state = reader.GetString(1);
+
+                vend = new SalesMan();
+                vend.setEstado(state);
+                vend.setIdVendedor(id);
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return vend;
+        }
+
         public List<string> searchEmployeeByUser(string user)
         {
             SqlDataReader reader;
