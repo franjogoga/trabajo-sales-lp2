@@ -470,6 +470,7 @@ namespace SalesService
                 reader.Read();
                 String userBD = reader.GetString(0);
                 String passBD = reader.GetString(1);
+                usuario = new User();
                 usuario.setUser(userBD);
                 usuario.setPassword(passBD);
             }

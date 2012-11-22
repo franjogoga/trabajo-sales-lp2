@@ -68,9 +68,14 @@ namespace EuroWeb
         {
             ClientWeb client = null;
             Service myservice = new Service();
+            XmlSerializer x = null;
             client = myservice.getClienteWeb(idUser.ToUpper());
-            XmlSerializer x = new XmlSerializer(client.GetType());
-            x.Serialize(Console.Out, client);
+            if (client == null)
+            {
+                x = new XmlSerializer(client.GetType());
+                x.Serialize(Console.Out, client);
+            }
+            
             Console.WriteLine();
             Console.ReadLine();
             return x;
@@ -108,9 +113,14 @@ namespace EuroWeb
          {
              User usuario = new User();
              Service myservice = new Service();
+             XmlSerializer x = null;
              usuario = myservice.getUsuario(idUser);
-             XmlSerializer x = new XmlSerializer(usuario.GetType());
-             x.Serialize(Console.Out,usuario);
+             if (usuario == null)
+             {
+                 x = new XmlSerializer(usuario.GetType());
+                 x.Serialize(Console.Out, usuario);
+             }
+             
              Console.WriteLine();
              Console.ReadLine();
              return x;
