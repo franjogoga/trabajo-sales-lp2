@@ -157,8 +157,8 @@ namespace EuroWeb
                 return "Serializacion = " +0;
             Console.WriteLine();
             Console.ReadLine();
-            //return "Serializacion = " + prod.getName();
-            return 
+            return "Serializacion = " + prod.getName();
+            
         }
 
 
