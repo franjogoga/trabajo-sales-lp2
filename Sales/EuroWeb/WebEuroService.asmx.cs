@@ -217,5 +217,39 @@ namespace EuroWeb
                  return cad2;
              }
          }
+         [WebMethod]
+         public XmlSerializer ObtenerCalificacionVendedor(int idVendedor)
+         {
+             XmlSerializer x = null;
+             SalesMan seller = new SalesMan();
+             Service myservice = new Service();
+             seller = myservice.getVendedor(idVendedor);
+             if (seller != null)
+             {
+                 x = new XmlSerializer(seller.GetType());
+                 x.Serialize(Console.Out, seller);
+             }
+             Console.WriteLine();
+             Console.ReadLine();
+             return x;
+         }
+         [WebMethod]
+         public String SObtenerCalificacionVendedor(int idVendedor)
+         {
+             SalesMan seller = new SalesMan();
+             Service myservice = new Service();
+             XmlSerializer x = null;
+             seller = myservice.getVendedor(idVendedor);
+             if (seller != null)
+             {
+                 x = new XmlSerializer(seller.GetType());
+                 x.Serialize(Console.Out, seller);
+             }
+             else
+                 return "Serializacion = " + 0;
+             Console.WriteLine();
+             Console.ReadLine();
+             return "Serializacion = " + seller.getEstado();
+         }
     }
 }
