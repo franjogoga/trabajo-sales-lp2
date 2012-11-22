@@ -31,13 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductForm));
             this.btnExit = new System.Windows.Forms.Button();
             this.dgvProduct = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gstockMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gStockMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gPriceC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gpriceV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gImg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -57,6 +50,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gstockMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gPriceC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gpriceV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gImg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.paneProductForm.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +80,7 @@
             this.ID,
             this.gProduct,
             this.gstockMin,
-            this.gStockMax,
+            this.gStock,
             this.gPriceC,
             this.gpriceV,
             this.gImg});
@@ -88,41 +88,6 @@
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.Size = new System.Drawing.Size(642, 97);
             this.dgvProduct.TabIndex = 20;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            // 
-            // gProduct
-            // 
-            this.gProduct.HeaderText = "Producto";
-            this.gProduct.Name = "gProduct";
-            // 
-            // gstockMin
-            // 
-            this.gstockMin.HeaderText = "Stock Min";
-            this.gstockMin.Name = "gstockMin";
-            // 
-            // gStockMax
-            // 
-            this.gStockMax.HeaderText = "Stock Max";
-            this.gStockMax.Name = "gStockMax";
-            // 
-            // gPriceC
-            // 
-            this.gPriceC.HeaderText = "PrecioCompra";
-            this.gPriceC.Name = "gPriceC";
-            // 
-            // gpriceV
-            // 
-            this.gpriceV.HeaderText = "PrecioVenta";
-            this.gpriceV.Name = "gpriceV";
-            // 
-            // gImg
-            // 
-            this.gImg.HeaderText = "Img";
-            this.gImg.Name = "gImg";
             // 
             // btnDelete
             // 
@@ -311,6 +276,41 @@
             this.lblDate.TabIndex = 22;
             this.lblDate.Text = "lblhoraaaaaa";
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            // 
+            // gProduct
+            // 
+            this.gProduct.HeaderText = "Producto";
+            this.gProduct.Name = "gProduct";
+            // 
+            // gstockMin
+            // 
+            this.gstockMin.HeaderText = "Stock Min";
+            this.gstockMin.Name = "gstockMin";
+            // 
+            // gStock
+            // 
+            this.gStock.HeaderText = "Stock Max";
+            this.gStock.Name = "gStock";
+            // 
+            // gPriceC
+            // 
+            this.gPriceC.HeaderText = "PrecioCompra";
+            this.gPriceC.Name = "gPriceC";
+            // 
+            // gpriceV
+            // 
+            this.gpriceV.HeaderText = "PrecioVenta";
+            this.gpriceV.Name = "gpriceV";
+            // 
+            // gImg
+            // 
+            this.gImg.HeaderText = "Img";
+            this.gImg.Name = "gImg";
+            // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -358,13 +358,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPurchasePrice;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn gProduct;
         private System.Windows.Forms.DataGridViewTextBoxColumn gstockMin;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gStockMax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn gPriceC;
         private System.Windows.Forms.DataGridViewTextBoxColumn gpriceV;
         private System.Windows.Forms.DataGridViewTextBoxColumn gImg;
-        private System.Windows.Forms.Label lblDate;
     }
 }

@@ -38,7 +38,6 @@ namespace Library
             return asunto;
         }
     }
-
     public class Employee
     {
         private int iDEmployee;
@@ -222,7 +221,7 @@ namespace Library
         private int idProduct;
         private String name;
         private int stockMin;   //la cantidad minimo que tiene que tener la empresa
-        private int stockMax;   //la cantidad maxima que debe tener la empresa 
+        private int stock;   //la cantidad maxima que debe tener la empresa 
         private float purchasePrice;
         private float salePrice;
 
@@ -231,7 +230,7 @@ namespace Library
             idProduct = 0;
             name = "";
             stockMin = 0;
-            stockMax = 0;
+            stock = 0;
             purchasePrice = 0f;
             salePrice = 0f;
         }
@@ -241,7 +240,7 @@ namespace Library
             this.idProduct = idProduct;
             this.name= name;
             this.stockMin = stockMin;
-            this.stockMax = stockMax;
+            this.stock = stockMax;
             this.purchasePrice = 0f;
             this.salePrice= 0f;
 
@@ -271,13 +270,13 @@ namespace Library
         {
             this.stockMin = stockMin;
         }
-        public int getStockMax()
+        public int getStock()
         {
-            return stockMax;
+            return stock;
         }
-        public void setStockMax(int stockMax)
+        public void setStock(int stock)
         {
-            this.stockMax = stockMax;
+            this.stock = stock;
         }
 
         public float getPurchasePrice()

@@ -62,7 +62,34 @@ namespace EuroWeb
             }
             return val;
         }
-        
+        [WebMethod]
+        public String Ingresar_Consulta(String name, String email, String subject)
+        {
+            String cad1 = "Consulta y/o sugerencia agregada con Exito";
+            String cad2 = "No se pudo ingresar su consulta y/o sugerencia";
+            int valor = 0;
+            if ((name != "") && (email != "") && (subject != ""))
+            {
+                Service myService = new Service();
+                Buzon buz = new Buzon();
+                buz.setNombre(name);
+                buz.setEmail(email);
+                buz.setAsunto(subject);
+
+                valor = myService.insertBuzon(buz);
+
+            }
+
+            if (valor > 0)
+            {
+                return cad1;
+            }
+            else
+            {
+                return cad2;
+            }
+        }
+
         [WebMethod]
         public XmlSerializer ObtnerClienteWeb(String idUser)
         {
@@ -70,7 +97,7 @@ namespace EuroWeb
             Service myservice = new Service();
             XmlSerializer x = null;
             client = myservice.getClienteWeb(idUser.ToUpper());
-            if (client == null)
+            if (client != null)
             {
                 x = new XmlSerializer(client.GetType());
                 x.Serialize(Console.Out, client);
@@ -80,33 +107,22 @@ namespace EuroWeb
             Console.ReadLine();
             return x;
         }
-         [WebMethod]
-         public String Ingresar_Consulta(String name, String email, String subject)
-         {
-             String cad1 = "Consulta y/o sugerencia agregada con Exito";
-             String cad2 = "No se pudo ingresar su consulta y/o sugerencia";
-             int valor = 0;
-             if ((name != "") && (email != "") && (subject != ""))
-             {
-                 Service myService = new Service();
-                 Buzon buz = new Buzon();
-                 buz.setNombre(name);
-                 buz.setEmail(email);
-                 buz.setAsunto(subject);
-
-                 valor = myService.insertBuzon(buz);
-
-             }
-
-             if (valor > 0)
-             {
-                 return cad1;
-             }
-             else
-             {
-                 return cad2;
-             }
-         }
+        [WebMethod]
+        public XmlSerializer ObtenerProducto(int idProd)
+        {
+            XmlSerializer x = null;
+            Product prod = new Product();
+            Service myservice = new Service();
+            prod = myservice.getProducto(idProd);
+            if (prod != null)
+            {
+                x = new XmlSerializer(prod.GetType());
+                x.Serialize(Console.Out,prod);
+            }
+            Console.WriteLine();
+            Console.ReadLine();
+            return x;
+        }
 
          [WebMethod]
          public XmlSerializer ObtenerUsuario(String idUser)
@@ -115,7 +131,7 @@ namespace EuroWeb
              Service myservice = new Service();
              XmlSerializer x = null;
              usuario = myservice.getUsuario(idUser);
-             if (usuario == null)
+             if (usuario != null)
              {
                  x = new XmlSerializer(usuario.GetType());
                  x.Serialize(Console.Out, usuario);
