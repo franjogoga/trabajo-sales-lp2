@@ -7,8 +7,83 @@ using System.Data;
 
 namespace Library
 {
-   
+    [Serializable]
+    public class Sale
+    {
+        private int id;
+        private DateTime date;
+        private float subTotal;
+        private float igv;
+        private float total;
+        private string state;
+        private string typeDoc;
+        private string client;
 
+        public int getId()
+        {
+            return id;
+        }
+        public void setId(int id)
+        {
+            this.id = id;
+        }
+        public DateTime getDate()
+        {
+            return date;
+        }
+        public void setDate(DateTime date)
+        {
+            this.date = date;
+        }
+        public float getSubTotal()
+        {
+            return subTotal;
+        }
+        public void setSubTotal(float subTotal)
+        {
+            this.subTotal = subTotal;
+        }
+        public float getIgv()
+        {
+            return igv;
+        }
+        public void setIgv(float igv)
+        {
+            this.igv = igv;
+        }
+        public float getTotal()
+        {
+            return total;
+        }
+        public void setTotal(float total)
+        {
+            this.total = total;
+        }
+        public string getState()
+        {
+            return state;
+        }
+        public void setState(string state)
+        {
+            this.state = state;
+        }
+        public string getTypeDoc()
+        {
+            return typeDoc;
+        }
+        public void setTypeDoc(string typeDoc)
+        {
+            this.typeDoc = typeDoc;
+        }
+        public string getClient()
+        {
+            return client;
+        }
+        public void setClient(string client)
+        {
+            this.client = client;
+        }
+    }
     public class Buzon
     {
         private String nombre;
@@ -380,7 +455,6 @@ namespace Library
             this.businessName = businessName;
         }
     }
-
     public class ClientWeb
     {
         private String nombre;
@@ -430,7 +504,6 @@ namespace Library
             this.pais = pais;
         }
     }
-
     public class SalesMan
     {
         private int idVendedor;
