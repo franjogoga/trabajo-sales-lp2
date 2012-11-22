@@ -103,8 +103,18 @@ namespace EuroWeb
              }
          }
 
-
-        
+         [WebMethod]
+         public XmlSerializer ObtenerUsuario(String idUser)
+         {
+             User usuario = new User();
+             Service myservice = new Service();
+             usuario = myservice.getUsuario(idUser);
+             XmlSerializer x = new XmlSerializer(usuario.GetType());
+             x.Serialize(Console.Out,usuario);
+             Console.WriteLine();
+             Console.ReadLine();
+             return x;
+         }
          [WebMethod]
          public String ConsultarStock(String nomProd)
          {
