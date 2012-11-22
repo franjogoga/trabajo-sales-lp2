@@ -51,8 +51,6 @@ namespace SalesService
 
             return result;
         }
-
-
         public List<string> searchEmployeeByUser(string user)
         {
             SqlDataReader reader;
@@ -132,7 +130,6 @@ namespace SalesService
                 Console.WriteLine(ex.ToString());
             }
         }
-
         public List<Product> queryAll(string name)
         {
             SqlConnection conn = new SqlConnection();
@@ -167,7 +164,6 @@ namespace SalesService
             }
             return products;
         }
-
         public void addProduct(Product product)
         {
             SqlConnection conn = new SqlConnection();
@@ -275,7 +271,6 @@ namespace SalesService
                 Console.WriteLine(ex.ToString());
             }
         }
-
         public int getNewIdClient()
         {
             int idLast = 0;
@@ -351,7 +346,6 @@ namespace SalesService
             }
             return idLast;
         }
-
         public DataSet getCmbState()
         {
             DataSet dsState = new DataSet();
@@ -420,7 +414,6 @@ namespace SalesService
             }
             return dsArea2;
         }
-
         public ClientWeb getClienteWeb(String nomClient)
         {
             ClientWeb aux = null;
@@ -430,7 +423,7 @@ namespace SalesService
             {
                 conn.Open();
                 string sqlString = "SELECT * FROM G08_ClienteWeb WHERE NOMBRE = @Param";
-                SqlCommand myCommand = new SqlCommand(sqlString, conn);
+                 SqlCommand myCommand = new SqlCommand(sqlString, conn);
                 SqlParameter myparam = new SqlParameter("@Param", SqlDbType.Char, 50);
                 myparam.Value = nomClient;
                 myCommand.Parameters.Add(myparam);
@@ -456,7 +449,35 @@ namespace SalesService
 
             return aux;
         }
+        public User getUsuario(String idUser)
+        {
+            User usuario = null;
+            SqlConnection conn = new SqlConnection("user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30");
+            try
+            {
+                conn.Open();
+                String sqlString = "SELECT * " + "FROM G08_USUARIO " + "WHERE IDUSER = @param1";
+                SqlParameter myParam1 = new SqlParameter("@Param1", SqlDbType.VarChar, 20);
+                myParam1.Value = idUser;
 
+                SqlCommand myCommand = new SqlCommand(sqlString, conn);
+
+                myCommand.Parameters.Add(myParam1);
+
+                SqlDataReader reader;
+                reader = myCommand.ExecuteReader();
+
+                reader.Read();
+                String userBD = reader.GetString(0);
+                String passBD = reader.GetString(1);
+                usuario.setUser(userBD);
+                usuario.setPassword(passBD);
+            }
+            catch (Exception)
+            {
+            } 
+            return usuario;
+        }
         public int obtenerStock(String nomProducto)
         {
             Product aux = null;
