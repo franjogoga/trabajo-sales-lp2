@@ -149,7 +149,7 @@ namespace SalesService
                         Product prod = new Product();
                         prod.setId(reader.GetInt32(0));
                         prod.setName(nombProd);
-                        prod.setStockMax(reader.GetInt32(0));
+                        prod.setStock(reader.GetInt32(0));
                         prod.setSalePrice(reader.GetInt32(0));
                         prod.setPurchasePrice(reader.GetInt32(0));
                         prod.setStockMin(reader.GetInt32(0));
@@ -181,7 +181,7 @@ namespace SalesService
                 myParam2.Value = product.getName();
 
                 SqlParameter myParam3 = new SqlParameter("@Param3", System.Data.SqlDbType.Int);
-                myParam3.Value = product.getStockMax();
+                myParam3.Value = product.getStock();
 
                 SqlParameter myParam4 = new SqlParameter("@Param4", System.Data.SqlDbType.Decimal);
                 myParam4.Value = product.getSalePrice();
@@ -449,6 +449,44 @@ namespace SalesService
 
             return aux;
         }
+        public Product getProducto(int idProd)
+        {
+            Product p = null;
+            SqlConnection conn = new SqlConnection("user id=inf282;" + "password=inf282db;" + "server=inti.lab.inf.pucp.edu.pe;" + "database=inf282; " + "connection timeout=30");
+            try
+            {
+                conn.Open();
+                String sqlString = "SELECT * " + "FROM G08_Producto " + "WHERE IDPRODUCTO = @param1";
+                SqlParameter myParam1 = new SqlParameter("@Param1", SqlDbType.Int);
+                myParam1.Value = idProd;
+
+                SqlCommand myCommand = new SqlCommand(sqlString, conn);
+
+                myCommand.Parameters.Add(myParam1);
+
+                SqlDataReader reader;
+                reader = myCommand.ExecuteReader();
+                reader.Read();
+                int id = reader.GetInt32(0);
+                String nomProd = reader.GetString(1);
+                int stock = reader.GetInt32(2);
+                float pVenta = reader.GetFloat(3);
+                float pCompra = reader.GetFloat(4);
+                int stockMin = reader.GetInt32(5);
+
+                p = new Product();
+                p.setId(id);
+                p.setName(nomProd);
+                p.setStock(stock);
+                p.setSalePrice(pVenta);
+                p.setPurchasePrice(pCompra);
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return p;
+        }
         public User getUsuario(String idUser)
         {
             User usuario = null;
@@ -504,9 +542,9 @@ namespace SalesService
                     aux = new Product();
                     aux.setId(reader.GetInt32(0));
                     aux.setName(reader.GetString(1));
-                    aux.setStockMax(reader.GetInt32(2));
+                    aux.setStock(reader.GetInt32(2));
 
-                    if ((aux != null) && (aux.getStockMax()>0))
+                    if ((aux != null) && (aux.getStock()>0))
                     { valor = 1; }
                 }
 
