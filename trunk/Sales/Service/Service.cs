@@ -456,7 +456,7 @@ namespace SalesService
             try
             {
                 conn.Open();
-                String sqlString = "SELECT * " + "FROM G08_Producto " + "WHERE IDPRODUCTO = @param1";
+                String sqlString = "SELECT * " + "FROM G08_Producto " + "WHERE IDPRODUCTO = @Param1";
                 SqlParameter myParam1 = new SqlParameter("@Param1", SqlDbType.Int);
                 myParam1.Value = idProd;
 
@@ -470,16 +470,17 @@ namespace SalesService
                 int id = reader.GetInt32(0);
                 String nomProd = reader.GetString(1);
                 int stock = reader.GetInt32(2);
-                float pVenta = reader.GetFloat(3);
-                float pCompra = reader.GetFloat(4);
+                //float pVenta = reader.GetFloat(3);
+                //float pCompra = reader.GetFloat(4);
                 int stockMin = reader.GetInt32(5);
 
                 p = new Product();
                 p.setId(id);
                 p.setName(nomProd);
                 p.setStock(stock);
-                p.setSalePrice(pVenta);
-                p.setPurchasePrice(pCompra);
+                p.setStockMin(stockMin);
+                //p.setSalePrice(pVenta);
+                //p.setPurchasePrice(pCompra);
             }
             catch (Exception ex)
             {
