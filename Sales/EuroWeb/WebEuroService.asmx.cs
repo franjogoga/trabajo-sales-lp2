@@ -19,6 +19,25 @@ namespace EuroWeb
     // [System.Web.Script.Services.ScriptService]
     public class WebEuroService : System.Web.Services.WebService
     {
+        [WebMethod]
+        public int ValidarClienteWeb(String iduser, String pass)
+        {
+            int val = 0;
+            ClientWeb client = new ClientWeb();
+            Service myservice = new Service();
+
+            client = myservice.getClienteWeb(iduser.ToUpper());
+            pass = pass.ToUpper();
+            if (client.getContraseña().Equals(pass))
+            {
+                val = 1;
+            }
+            else
+            {
+                val = 0;
+            }
+            return val;
+        }
 
         [WebMethod]
         public string HelloWorld()
@@ -43,26 +62,7 @@ namespace EuroWeb
             }
             return val;
         }
-        [WebMethod]
-        public int ValidarClienteWeb(String iduser, String pass)
-        {
-            int val = 0;
-            ClientWeb client = new ClientWeb();
-            Service myservice = new Service();
-
-            client = myservice.getClienteWeb(iduser.ToUpper());
-            pass = pass.ToUpper();
-            if (client.getContraseña().Equals(pass))
-            {
-                val = 1;
-            }
-            else
-            {
-                val = 0;
-            }
-            return val;
-        }
-
+        
         [WebMethod]
         public XmlSerializer ObtnerClienteWeb(String idUser)
         {
