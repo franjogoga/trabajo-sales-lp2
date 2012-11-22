@@ -108,6 +108,24 @@ namespace EuroWeb
             return x;
         }
         [WebMethod]
+        public String SObtnerClienteWeb(String idUser)
+        {
+            ClientWeb client = null;
+            Service myservice = new Service();
+            XmlSerializer x = null;
+            client = myservice.getClienteWeb(idUser.ToUpper());
+            if (client != null)
+            {
+                x = new XmlSerializer(client.GetType());
+                x.Serialize(Console.Out, client);
+            }
+            else
+                return "Serializacion = " +0;
+            Console.WriteLine();
+            Console.ReadLine();
+            return "Serializacion = " + client.getNombre();
+        }
+        [WebMethod]
         public XmlSerializer ObtenerProducto(int idProd)
         {
             XmlSerializer x = null;
@@ -123,6 +141,26 @@ namespace EuroWeb
             Console.ReadLine();
             return x;
         }
+        [WebMethod]
+        public String SObtenerProducto(int idProd)
+        {
+            XmlSerializer x = null;
+            Product prod = new Product();
+            Service myservice = new Service();
+            prod = myservice.getProducto(idProd);
+            if (prod != null)
+            {
+                x = new XmlSerializer(prod.GetType());
+                x.Serialize(Console.Out, prod);
+            }
+            else
+                return "Serializacion = " +0;
+            Console.WriteLine();
+            Console.ReadLine();
+            //return "Serializacion = " + prod.getName();
+            return 
+        }
+
 
          [WebMethod]
          public XmlSerializer ObtenerUsuario(String idUser)
@@ -140,6 +178,25 @@ namespace EuroWeb
              Console.WriteLine();
              Console.ReadLine();
              return x;
+         }
+         [WebMethod]
+         public String SObtenerUsuario(String idUser)
+         {
+             User usuario = new User();
+             Service myservice = new Service();
+             XmlSerializer x = null;
+             usuario = myservice.getUsuario(idUser);
+             if (usuario != null)
+             {
+                 x = new XmlSerializer(usuario.GetType());
+                 x.Serialize(Console.Out, usuario);
+             }
+             else
+                 return "Serializacion = " + 0;
+
+             Console.WriteLine();
+             Console.ReadLine();
+             return "Serializacion = " + usuario.getUser();
          }
          [WebMethod]
          public String ConsultarStock(String nomProd)
