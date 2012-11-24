@@ -6,8 +6,7 @@ using System.Data.SqlClient;
 using System.Data;
 
 namespace Library
-{
-    [Serializable]
+{    
     public class Sale
     {
         private int id;
@@ -19,6 +18,7 @@ namespace Library
         private string typeDoc;
         private string client;
 
+        public Sale() { }
         public int getId()
         {
             return id;
