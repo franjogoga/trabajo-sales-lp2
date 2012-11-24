@@ -51,7 +51,6 @@ namespace SalesService
 
             return result;
         }
-
         public SalesMan getVendedor(int idVendedor)
         {
             SalesMan vend = null;
@@ -83,7 +82,6 @@ namespace SalesService
 
             return vend;
         }
-
         public List<string> searchEmployeeByUser(string user)
         {
             SqlDataReader reader;
@@ -592,6 +590,45 @@ namespace SalesService
             }
 
             return valor;
+        }
+        public Sale getSale(int idSale)
+        {
+            Sale sale = null;
+            SqlConnection conn = new SqlConnection("user id=inf282;"+"password=inf282db;"+"server=inti.lab.inf.pucp.edu.pe;"+"database=inf282; "+"connection timeout=30");
+            try
+            {
+                conn.Open();
+                String sqlString = "SELECT G08_Ventas.IDVentas, G08_Ventas.Fecha, G08_Ventas.SubTotal, G08_Ventas.IGV, G08_Ventas.Total, G08_EstadoVenta.Descripcion, "+
+                    "G08_TipoDoc.NomDoc, G08_Cliente.RazonSocial FROM G08_Ventas, G08_EstadoVenta, G08_Cliente, G08_TipoDoc "+
+                    "WHERE G08_Ventas.IDVentas = @idVentas AND G08_Ventas.IDTipoDoc = G08_TipoDoc.IDTipoDoc AND G08_Ventas.IDCliente = G08_Cliente.IDCliente "+
+                    "AND G08_Ventas.IDEstado = G08_EstadoVenta.IDEstado";
+                SqlParameter id = new SqlParameter("@idVentas", SqlDbType.Int);
+                id.Value = idSale;                
+
+                SqlCommand command = new SqlCommand(sqlString, conn);
+
+                command.Parameters.Add(id);
+
+                SqlDataReader reader = command.ExecuteReader();
+                sale = new Sale();
+                reader.Read();
+                sale.setId(idSale);
+                sale.setDate(reader.GetDateTime(1));
+                sale.setSubTotal(reader.GetFloat(2));
+                sale.setIgv(reader.GetFloat(3));
+                sale.setTotal(reader.GetFloat(4));
+                sale.setState(reader.GetString(5));
+                sale.setTypeDoc(reader.GetString(6));
+                sale.setClient(reader.GetString(7));
+                reader.Close();                
+                                             
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return sale;
         }
     }
 }
