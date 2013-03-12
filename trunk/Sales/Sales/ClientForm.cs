@@ -60,23 +60,23 @@ namespace Sales
        {
            panelClient.Enabled = true;
            btnSave.Enabled = true;
-           String selected =(dgvClient.CurrentRow.Cells["ID"].Value).ToString();
+           //String selected =(dgvClient.CurrentRow.Cells["ID"].Value).ToString();
            
-           SqlCommand command = new SqlCommand("Select * FROM G08_Cliente where IDCliente=" + selected ,conn);
+           //SqlCommand command = new SqlCommand("Select * FROM G08_Cliente where IDCliente=" + selected ,conn);
 
-           conn.Open();
+           //conn.Open();
 
-           SqlDataReader reading = command.ExecuteReader();
+           //SqlDataReader reading = command.ExecuteReader();
            
-           if(reading.Read()){
-               txtID.Text = (reading.GetInt32(0)).ToString();
-               txtAddress.Text = reading.GetString(1);
-               txtBusinessName.Text = reading.GetString(2);
-               txtEmail.Text = reading.GetString(3);
-               txtTelephone.Text = reading.GetString(4);
-               txtState.Text = reading.GetString(5);
-           }
-           conn.Close();
+           //if(reading.Read()){
+           //    txtID.Text = (reading.GetInt32(0)).ToString();
+           //    txtAddress.Text = reading.GetString(1);
+           //    txtBusinessName.Text = reading.GetString(2);
+           //    txtEmail.Text = reading.GetString(3);
+           //    txtTelephone.Text = reading.GetString(4);
+           //    txtState.Text = reading.GetString(5);
+           //}
+           //conn.Close();
        }
 
        private void btnAdd_Click_1(object sender, EventArgs e)
@@ -129,7 +129,7 @@ namespace Sales
        {
            SqlCommand newp = new SqlCommand("update G08_Cliente set Direccion=@Direccion, RazonSocial=@RazonSocial, Email=@Email, Telefono=@Telefono, EstadoCliente=@Estado where IDCliente=@IDCliente ",conn);
 
-           newp.Parameters.AddWithValue("IDCliente", dgvClient.CurrentRow.Cells["ID"].Value);
+           newp.Parameters.AddWithValue("IDCliente", txtID.Text);//dgvClient.CurrentRow.Cells["ID"].Value
            newp.Parameters.AddWithValue("Direccion",txtAddress.Text);   // ponemos lo que vamos a escribir en txtDireccion a la variable que he creado.
            newp.Parameters.AddWithValue("RazonSocial", txtBusinessName.Text);
            newp.Parameters.AddWithValue("Email", txtEmail.Text);
@@ -146,6 +146,7 @@ namespace Sales
        private void btnSearch_Click(object sender, EventArgs e)
        {
            ClientSearchForm testDialog = new ClientSearchForm();
+           testDialog.SetRefClient(this);
            testDialog.ShowDialog(this);
        }
 
@@ -163,6 +164,18 @@ namespace Sales
            txtTelephone.Text = "";
            txtEmail.Text = "";
            btnModify.Enabled = true;
-       }    
+       }
+
+       public void setEmployeeSearch(int Id,string direccion,string razonSocial,string email,string telefono,string estado){
+
+           txtID.Text = ""+Id;
+           txtAddress.Text = direccion;
+           txtBusinessName.Text = razonSocial;
+           txtEmail.Text = email;
+           txtTelephone.Text = telefono;
+           txtState.Text = estado;
+           btnAdd.Enabled = false;
+           panelClient.Enabled = false;
+       } 
     }
 }
