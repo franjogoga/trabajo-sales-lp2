@@ -14,6 +14,7 @@ namespace Sales
     {
         private SalesForm refSalesform = null;
         private SqlConnection conn = new SqlConnection("user id=inf282;" +"password=inf282db;" +"server=inti.lab.inf.pucp.edu.pe;" +"database=inf282; " +"connection timeout=30");
+        
         public void SetRefSales(SalesForm refsales)
         {
             refSalesform = refsales;
