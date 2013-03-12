@@ -186,6 +186,7 @@ namespace Sales
             paneEmployee.Enabled = true;
             btnSave.Enabled = true;         
         }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show("¿Seguro que desea eliminar el personal seleccionado?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

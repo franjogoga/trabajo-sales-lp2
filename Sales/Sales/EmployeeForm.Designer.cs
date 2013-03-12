@@ -352,6 +352,7 @@
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
+            //this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
             // picUser1
             // 
@@ -382,7 +383,7 @@
             this.lblState.TabIndex = 14;
             this.lblState.Text = "[Estado]";
             // 
-            // PersonalForm
+            // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -400,7 +401,7 @@
             this.Controls.Add(this.picUser1);
             this.Controls.Add(this.paneEmployee);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "PersonalForm";
+            this.Name = "EmployeeForm";
             this.Text = "Mantenimiento de Personal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PersonalForm_FormClosing);
             this.Load += new System.EventHandler(this.PersonalForm_Load);
