@@ -82,6 +82,7 @@
             this.dgvClient.Size = new System.Drawing.Size(710, 166);
             this.dgvClient.StandardTab = true;
             this.dgvClient.TabIndex = 7;
+            //this.dgvClient.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvClient_MouseDoubleClick);
             // 
             // ID
             // 
