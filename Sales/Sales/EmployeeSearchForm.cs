@@ -52,10 +52,12 @@ namespace Sales
             loadEmployee(name);
         }        
         private EmployeeForm RefpForm = null;
+
         public void SetRefPersonal(EmployeeForm pform)
         {
             RefpForm = pform;
         }
+
         private void dgvEmployeeSearch_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             try
