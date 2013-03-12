@@ -17,6 +17,13 @@ namespace Sales
             InitializeComponent();
         }
 
+        private ClientForm refSalesform = null;
+        
+        public void SetRefClient(ClientForm refsales)
+        {
+            refSalesform = refsales;
+        }
+
         private SqlConnection conn = new SqlConnection("user id=inf282;" +"password=inf282db;" +"server=inti.lab.inf.pucp.edu.pe;" +"database=inf282; " +"connection timeout=30");
 
         private void loadProducts(String name)
@@ -42,5 +49,29 @@ namespace Sales
             String name = txtName.Text;
             loadProducts(name);
         }
+
+        private void dgvProducts_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                int Id = Int32.Parse(dgvProducts.CurrentRow.Cells[0].Value.ToString());
+                String direccion = dgvProducts.CurrentRow.Cells[1].Value.ToString();
+                String razonSocial = dgvProducts.CurrentRow.Cells[2].Value.ToString();
+                String email = dgvProducts.CurrentRow.Cells[3].Value.ToString();
+                String telefono = dgvProducts.CurrentRow.Cells[4].Value.ToString();
+                String estado = dgvProducts.CurrentRow.Cells[5].Value.ToString();
+                
+                refSalesform.setEmployeeSearch(Id,direccion,razonSocial,email,telefono,estado);
+                this.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }   
+        }
+
+   
+
+
     }
 }

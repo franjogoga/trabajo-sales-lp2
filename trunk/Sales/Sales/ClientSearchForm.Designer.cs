@@ -43,8 +43,9 @@
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProducts.Location = new System.Drawing.Point(19, 144);
             this.dgvProducts.Name = "dgvProducts";
-            this.dgvProducts.Size = new System.Drawing.Size(565, 146);
+            this.dgvProducts.Size = new System.Drawing.Size(640, 146);
             this.dgvProducts.TabIndex = 0;
+            this.dgvProducts.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvProducts_MouseDoubleClick);
             // 
             // label1
             // 
@@ -85,19 +86,20 @@
             this.pic1.TabIndex = 4;
             this.pic1.TabStop = false;
             // 
-            // ClienteSearch
+            // ClientSearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 302);
+            this.ClientSize = new System.Drawing.Size(691, 316);
             this.Controls.Add(this.pic1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvProducts);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ClienteSearch";
+            this.Name = "ClientSearchForm";
             this.Text = "Buscar Cliente";
+            //this.Load += new System.EventHandler(this.ClientSearchForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).EndInit();
             this.ResumeLayout(false);
